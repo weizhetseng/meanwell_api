@@ -1,0 +1,135 @@
+.questBox
+    width: 100%
+    height: auto
+    float: left
+.questBox_item
+    width: 100%
+    height: auto
+    float: left
+    padding: 20px
+    border-radius: 10px
+    box-shadow: 0px 3px 6px rgba( 0,0,0,0.16 )
+    background-color: #fff
+    margin-bottom: 15px
+.questBox_item_top_tr
+    width: 100%
+    height: auto
+    float: left
+    display: inline-flex
+    justify-content: space-between
+    align-content: center
+    align-items: center
+.questBox_item_top_l
+    width: auto
+    height: auto
+    float: left
+    display: inline-flex
+    justify-content: flex-start
+    align-content: center
+    align-items: center
+.questBox_item_top_r
+    width: auto
+    height: auto
+    float: left
+    display: inline-flex
+    justify-content: flex-start
+    align-content: center
+    align-items: center
+.questBox_item_nb
+    width: 26px
+    height: 26px
+    float: left
+    border-radius: 5px
+    background-color: #006699
+    display: inline-flex
+    justify-content: center
+    align-items: center
+    align-content: center
+    color: #fff
+    font-weight: 900
+    font-size: 14px
+    margin-right: 10px
+.questBox_item_title
+    width: auto
+    height: auto
+    float: left
+    font-size: 16px
+    font-weight: 900
+    color: #555555
+.questBox_item_top_text
+    width: auto
+    height: auto
+    float: left
+    font-size: 16px
+    color: #006699
+.Quest_radio_Box
+    width: 100%
+    height: auto
+    float: left
+    margin-top: 20px
+.Quest_radio_Box > input[type=radio]
+    width: 20px
+    height: 20px
+    float: left
+    margin-right: 6px
+    opacity: 0
+    margin-left: -26px
+.Quest_radio_Box  > label
+    line-height: 21px
+    display: inline-block
+    cursor: pointer
+    padding-left: 0px
+    padding-right: 20px
+    color: #555
+    float: left
+    position: relative
+.Quest_radio_Box > input[type=radio] + label:before
+    content: ""
+    height: 16px
+    width: 16px
+    display: block
+    border: 2px solid #555
+    border-radius: 50%
+    position: relative
+    float: left
+    margin-right: 10px
+.Quest_radio_Box > input[type=radio] + label:after
+    content: ""
+    height: 12px
+    width: 12px
+    display: block
+    border-radius: 50%
+    position: absolute
+    float: left
+    left: 4px
+    top: 4px
+    background-color: rgba( 255,255,255,.002 )
+.Quest_radio_Box > input[type=radio]:checked + label:before
+    height: 16px
+    width: 16px
+    border: 2px solid #ff8800
+    float: left
+    margin-right: 10px
+.Quest_radio_Box > input[type=radio]:checked + label:after
+    background-color: #ff8800
+.Quest_textarea
+    width: 100%
+    height: 90px
+    float: left
+    background-color: #F3F3F3
+    border: 0px solid #fff
+    border-radius: 10px
+    font-size: 16px
+    color: #A5A5A5
+    padding: 15px
+@media screen and (max-width: 730px)
+    .questBox_item_top_tr
+        flex-wrap: wrap
+    .questBox_item_top_r
+        width: 100%
+        margin-top: 10px
+    .Quest_radio_Box
+        margin-top: 10px
+    .Quest_radio_Box > label
+        width: 100%
+        margin-bottom: 15px

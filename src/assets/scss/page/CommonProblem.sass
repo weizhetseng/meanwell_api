@@ -1,0 +1,61 @@
+.question_Box
+    width: 100%
+    height: auto
+    float: left
+.question_bar
+    width: 100%
+    height: auto
+    float: left
+    background-color: #fff
+    border-radius: 10px
+    box-shadow: 0px 3px 6px rgb(0 0 0 / 16%)
+    margin-bottom: 10px
+    display: inline-flex
+    justify-content: flex-start
+    align-content: center
+    align-items: center
+    flex-wrap: wrap
+    padding: 20px 30px
+    position: relative
+    transition: all 0.5s ease
+    cursor: pointer
+.question_bar::after
+    content: url('../assets/img/chevron-down.svg')
+    width: 20px
+    height: auto
+    position: absolute
+    right: 26px
+    transform: translateY(-0%)
+    transform: rotate(-90deg)
+    transition: all 0.5s ease
+.question_Box.active .question_bar::after
+    transform: rotate(-0deg)
+    transition: all 0.5s ease
+.question_barText
+    width: 100%
+    height: auto
+    font-size: 20px
+    font-weight: bold
+    color: #555
+    text-align: left
+    transition: all 0.5s ease
+.question_Box.active > .question_bar > .question_barText
+    color: #006699
+    transition: all 0.5s ease
+.Answer_box
+    width: 100%
+    height: auto
+    float: left
+    font-size: 16px
+    line-height: 26px
+    color: #555555
+    padding: 0px 0px
+    overflow: hidden
+    max-height: 0px
+.question_Box.active > .Answer_box
+    max-height: 500px
+    padding: 20px 0px
+    padding-top: 10px
+    height: auto
+    transition: all 0.5s ease
+    
