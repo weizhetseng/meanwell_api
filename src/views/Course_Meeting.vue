@@ -1,4 +1,3 @@
-
 <template>
     <div class="page_course_main">
         <main>
@@ -22,7 +21,7 @@
                     <div class="Search_bar"><input type="search" name="" id="" class="Course_Search_bar"></div>
                 </div>
                 <div class="Course_List_Box">
-                    <router-link to="/Course/CourseContent/12312">
+                    <router-link to="#">
                         <div class="Course_List_Item">
                             <div class="Course_date_left">
                                 <div class="CoursedateBox">
@@ -32,14 +31,18 @@
                             </div>
                             <div class="Course_date_right">
                                 <div class="Course_item_title"></div>
-                                <div class="Course_item_location"></div>
+                                <div class="Course_item_location">
+                                    <!-- <span
+                                        v-html="item.ActPlace.replace(/\r\n/g, '<br />')"></span> -->
+                                </div>
                             </div>
                         </div>
                     </router-link>
+
                 </div>
                 <div class="pagination">
                     <a href="javascript:;">
-                        <div class="pagination_item_previous"> <img src="../../assets/img/chevron-left.svg" alt="">
+                        <div class="pagination_item_previous"> <img src="../assets/img/chevron-left.svg" alt="">
                         </div>
                     </a>
                     <a href="javascript:;">
@@ -55,16 +58,12 @@
                         <div class="pagination_item"> 4 </div>
                     </a>
                     <a href="javascript:;">
-                        <div class="pagination_item_next"> <img src="../../assets/img/chevron-right.svg" alt=""> </div>
+                        <div class="pagination_item_next"> <img src="../assets/img/chevron-right.svg" alt=""> </div>
                     </a>
                 </div>
             </div>
         </main>
     </div>
 </template>
-
-
-
-
 
 

@@ -39,7 +39,7 @@
                 </div>
                 <div class="pagination">
                     <a href="javascript:;">
-                        <div class="pagination_item_previous"> <img src="../../assets/img/chevron-left.svg" alt="">
+                        <div class="pagination_item_previous"> <img src="../assets/img/chevron-left.svg" alt="">
                         </div>
                     </a>
                     <a href="javascript:;">
@@ -55,7 +55,7 @@
                         <div class="pagination_item"> 4 </div>
                     </a>
                     <a href="javascript:;">
-                        <div class="pagination_item_next"> <img src="../../assets/img/chevron-right.svg" alt=""> </div>
+                        <div class="pagination_item_next"> <img src="../assets/img/chevron-right.svg" alt=""> </div>
                     </a>
                 </div>
             </div>

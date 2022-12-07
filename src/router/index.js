@@ -127,17 +127,17 @@ const router = createRouter({
         {
           path: 'Meeting',
           name: 'Meeting',
-          component: () => import("../views/Course/Course_Meeting.vue"),
+          component: () => import("../views/Course_Meeting.vue"),
         },
         {
           path: 'Educate',
           name: 'Educate',
-          component: () => import("../views/Course/Course_Educate.vue"),
+          component: () => import("../views/Course_Educate.vue"),
         },
         {
           path: 'Activity',
           name: 'Activity',
-          component: () => import("../views/Course/Course_Activity.vue"),
+          component: () => import("../views/Course_Activity.vue"),
         },
         {
           path: 'CourseContent/:id',

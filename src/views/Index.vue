@@ -105,3 +105,26 @@
 </template>
 
 
+
+<script setup>
+import axios from 'axios';
+import { onMounted } from 'vue';
+const fakerCookies = {
+    u_id: $cookies.get('u_id'),
+    AuthCode: $cookies.get('AuthCode'),
+    Lang: $cookies.get('Lang')
+}
+
+onMounted(() => {
+    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetData`;
+    axios.post(api, fakerCookies)
+        .then((res) => {
+            console.log(res)
+        })
+
+
+})
+
+
+
+</script>

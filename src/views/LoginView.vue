@@ -8,12 +8,10 @@
                 <section class="loginContentBox">
                     <div class="ContentBoxTitle">會員登入 / 註冊</div>
                     <div class="User_account">
-                        <input type="email" class="User_accountInput" placeholder="請輸入電子信箱" required
-                            v-model="useremail">
+                        <input type="email" class="User_accountInput" placeholder="請輸入電子信箱" required>
                     </div>
                     <div class="User_password">
-                        <input type="password" class="User_accountInput" placeholder="請輸入密碼" required
-                            v-model="userkeypassword">
+                        <input type="password" class="User_accountInput" placeholder="請輸入密碼" required>
                     </div>
                     <div class="login_confirm_input">
                         <label>
@@ -26,7 +24,7 @@
                     </div>
                     <div class="buttemBox">
                         <RouterLink to="/SignUp"><button class="pageButtem">註冊</button></RouterLink>
-                        <input type="submit" value="登入" class="loginButtem" @click="loginent">
+                        <input type="submit" value="登入" class="loginButtem" @click="loginent()">
 
                     </div>
                     <div class="ThirdParty">
@@ -61,8 +59,12 @@
     </div>
 </template>
 <script setup>
-import { ref } from 'vue';
-const useremail = ref('');
-const userkeypassword = ref('');
+
+
+import { useLoginStore } from '../stores/stores';
+const store = useLoginStore()
+const loginent = () => {
+    store.loginData();
+}
 
 </script>

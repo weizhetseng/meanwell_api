@@ -61,7 +61,7 @@
                 <RouterLink to="/"><img src="../assets/img/Logos.svg" alt=""></RouterLink>
             </div>
             <div class="system_bar">
-                <div class="signoutView">
+                <div class="signoutView" :class="{ active: logoutStatus }">
                     <div class="sdgMenuItem">
                         <div class="menu_item_text">進入管理系統</div>
                     </div>
@@ -71,14 +71,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="signinView ">
+                <div class="signinView" :class="{ active: loginStatus }">
                     <RouterLink to="/MemberCentre">
                         <div class="sdgMenuItem">
                             <div class="signinicon"><img src="../assets/img/member_icon.svg" alt=""></div>
                             <div class="signinmenutext">會員中心</div>
                         </div>
                     </RouterLink>
-                    <a href="">
+                    <a href="#" @click.prevent="Logout()">
                         <div class="Tosignout">登出</div>
                     </a>
                     <RouterLink to="/Calendar">
@@ -110,10 +110,13 @@
     </header>
 </template>
 <script setup>
-import { onMounted, ref } from "vue"
+import { ref } from "vue"
+import router from "../router";
+const loginStatus = ref(true)
+const logoutStatus = ref(false)
+
 
 const mobileMenu = ref(false);
-
 const mobileactiveIddx = ref(null);
 const mobileactiveIdx = ref(null);
 const NavItemArr = ref([
@@ -176,6 +179,20 @@ const handleMenuFna = (iddx) => {
 };
 
 
+if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+    loginStatus.value = false
+    logoutStatus.value = true
+} else {
+    loginStatus.value = true
+    logoutStatus.value = false
+}
+
+function Logout() {
+    $cookies.remove("u_id")
+    $cookies.remove("AuthCode")
+    $cookies.remove("Lang")
+    router.push('/login')
+}
 
 
 

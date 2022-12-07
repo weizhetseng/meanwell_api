@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "pinia": "^2.0.26",
+    "vee-validate": "^4.7.3",
     "vue": "^3.2.45",
+    "vue-axios": "^3.5.2",
+    "vue-cookies": "^1.8.2",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
