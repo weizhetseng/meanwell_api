@@ -7,6 +7,9 @@ import router from '../router';
 
 //登入
 export const useLoginStore = defineStore('Login', () => {
+
+  const loginStatus = ref(true)
+  const logoutStatus = ref(false)
   const fakeUser = {
     u_id: "ronlu057@gmail.com",
     AuthCode: "5459952541",
@@ -24,7 +27,15 @@ export const useLoginStore = defineStore('Login', () => {
           router.push('/')
         }
       })
+
+    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+      loginStatus.value = false
+      logoutStatus.value = true
+    } else {
+      loginStatus.value = true
+      logoutStatus.value = false
+    }
   }
 
-  return { loginData, fakeUser }
+  return { loginData, fakeUser, loginStatus, logoutStatus }
 })
