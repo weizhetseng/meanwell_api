@@ -23,7 +23,7 @@
                     <div class="Search_bar"><input type="search" name="" id="" class="Course_Search_bar"></div>
                 </div>
                 <div class="Course_List_Box">
-                    <router-link :to="`/Course/CourseContent/${item.ActId}`" v-for="item in MeetingData.value"
+                    <router-link to="/Course/Meeting/CourseContent/" v-for="item in MeetingData.value"
                         :key="item.ActId">
                         <div class="Course_List_Item">
                             <div class="Course_date_left">
@@ -87,7 +87,7 @@ const MeetingBanner = reactive([{}])
 onMounted(() => {
 
     const api = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivityList`
-    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "ModClass": 1, "SDateTime": '', "EDateTime": '', "Keywords": '' })
+    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "ModClass": id, "SDateTime": '', "EDateTime": '', "Keywords": '' })
         .then((res) => {
             MeetingData.value = res.data.ActivityDataList;
             MeetingBanner.value = res.data.BannerList;

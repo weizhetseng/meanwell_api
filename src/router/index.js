@@ -129,7 +129,11 @@ const router = createRouter({
           name: 'Meeting',
           component: () => import("../views/Course_Meeting.vue"),
           children: [
-
+            {
+              path: 'CourseContent',
+              name: 'CourseContent',
+              component: () => import("../views/CourseContent.vue"),
+            }
           ]
         },
         {
@@ -142,11 +146,7 @@ const router = createRouter({
           name: 'Activity',
           component: () => import("../views/Course_Activity.vue"),
         },
-        {
-          path: 'CourseContent/:id',
-          name: 'CourseContent',
-          component: () => import("../views/CourseContent.vue"),
-        }
+
       ]
     }
     ,
