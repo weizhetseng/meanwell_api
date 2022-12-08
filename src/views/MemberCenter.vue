@@ -9,7 +9,7 @@
                         <li>會員中心</li>
                     </ul>
                 </div>
-                <section class="MemberCentreContent">
+                <section class="MemberCenterContent">
                     <div class="memberNav">
                         <div class="memberNavItem" v-for="(items, idx) in NavItemArr" :key="items.name"
                             :class="{ active: activeIdx === idx }" @click="handleMenuFn(idx)">
@@ -33,7 +33,7 @@
                         <div class="memberCenterRightTopBox">
                             <div class="memberUserBox">
                                 <div class="memberUserBoxLeft"><img src="../assets/img/memberUserIcon.svg" alt=""></div>
-                                <div class="memberUserName"> 您好!</div>
+                                <div class="memberUserName">{{ store.MemberData.Name }} 您好!</div>
                             </div>
                             <div class="memberUserQRcord" @click="qropen()">
                                 <div class="MembershipLevelBox">
@@ -51,15 +51,15 @@
                             <div class="pointsBox">
                                 <div class="pointsBoxItem">
                                     <div class="pointsBoxItemLeft">SDG 點數</div>
-                                    <div class="pointsBoxItemRight"> P</div>
+                                    <div class="pointsBoxItemRight">{{ store.MemberData.SDG_Points }} P</div>
                                 </div>
                                 <div class="pointsBoxItem">
                                     <div class="pointsBoxItemLeft">志工時數</div>
-                                    <div class="pointsBoxItemRight"> H</div>
+                                    <div class="pointsBoxItemRight">{{ store.MemberData.Volunteer_Hours }} H</div>
                                 </div>
                                 <div class="pointsBoxItem">
                                     <div class="pointsBoxItemLeft">課程時數</div>
-                                    <div class="pointsBoxItemRight"> H</div>
+                                    <div class="pointsBoxItemRight">{{ store.MemberData.Course_Hours }} H</div>
                                 </div>
                             </div>
                             <div class="itemTitle">
@@ -107,12 +107,14 @@
 </template>
 <script setup>
 import { ref } from "vue"
+import { useMemberStore } from "../stores/stores";
+const store = useMemberStore()
 const activeIdx = ref(0);
 const activeIddx = ref(null);
 const NavItemArr = ref([
     {
         name: 'SDG帳戶',
-        path: '/MemberCentre',
+        path: '/MemberCenter',
     }, {
         name: '帳號管理',
         path: '',

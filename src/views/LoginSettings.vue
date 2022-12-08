@@ -11,7 +11,7 @@
                         <li>登入設定</li>
                     </ul>
                 </div>
-                <section class="MemberCentreContent">
+                <section class="MemberCenterContent">
                     <div class="memberNav">
                         <div class="memberNavItem" v-for="(items, idx) in NavItemArr" :key="items.name"
                             :class="{ active: activeIdx === idx }" @click="handleMenuFn(idx)">
@@ -35,7 +35,7 @@
                         <div class="memberCenterRightTopBox">
                             <div class="memberUserBox">
                                 <div class="memberUserBoxLeft"><img src="../assets/img/memberUserIcon.svg" alt=""></div>
-                                <div class="memberUserName">王小明 您好!</div>
+                                <div class="memberUserName">{{ store.MemberData.Name }} 您好!</div>
                             </div>
                             <div class="memberUserQRcord" @click="qropen()">
                                 <div class="MembershipLevelBox">
@@ -49,26 +49,52 @@
                             <div class="LoginSettingsItem">
                                 <div class="ls_icon"><img src="../assets/img/facebook-brands.svg" alt=""></div>
                                 <div class="ls_name">FaceBook</div>
-                                <div class="ls_linkIcon"><img src="../assets/img/ios-link.svg" alt=""></div>
-                                <button class="ls_butten unlinked">解除綁定</button>
+                                <div class="bindStatus" v-if="store.MemberData.IsBind_FB">
+                                    <div class="ls_linkIcon"><img src="../assets/img/ios-link.svg" alt=""></div>
+                                    <button class="ls_butten unlinked">解除綁定</button>
+                                </div>
+                                <div class="bindStatus" v-else>
+                                    <div class="ls_linkIcon"><img src="../assets/img/unlink-line.svg" alt=""></div>
+                                    <button class="ls_butten linked">綁定</button>
+                                </div>
+
+
                             </div>
                             <div class="LoginSettingsItem">
                                 <div class="ls_icon"><img src="../assets/img/google-brands.svg" alt=""></div>
                                 <div class="ls_name">LINE</div>
-                                <div class="ls_linkIcon"><img src="../assets/img/unlink-line.svg" alt=""></div>
-                                <button class="ls_butten linked">綁定</button>
+                                <div class="bindStatus" v-if="store.MemberData.IsBind_Line">
+                                    <div class="ls_linkIcon"><img src="../assets/img/ios-link.svg" alt=""></div>
+                                    <button class="ls_butten unlinked">解除綁定</button>
+                                </div>
+                                <div class="bindStatus" v-else>
+                                    <div class="ls_linkIcon"><img src="../assets/img/unlink-line.svg" alt=""></div>
+                                    <button class="ls_butten linked">綁定</button>
+                                </div>
                             </div>
                             <div class="LoginSettingsItem">
                                 <div class="ls_icon"><img src="../assets/img/weixin-brands.svg" alt=""></div>
                                 <div class="ls_name">微信</div>
-                                <div class="ls_linkIcon"><img src="../assets/img/unlink-line.svg" alt=""></div>
-                                <button class="ls_butten linked">綁定</button>
+                                <div class="bindStatus" v-if="store.MemberData.IsBind_WeChat">
+                                    <div class="ls_linkIcon"><img src="../assets/img/ios-link.svg" alt=""></div>
+                                    <button class="ls_butten unlinked">解除綁定</button>
+                                </div>
+                                <div class="bindStatus" v-else>
+                                    <div class="ls_linkIcon"><img src="../assets/img/unlink-line.svg" alt=""></div>
+                                    <button class="ls_butten linked">綁定</button>
+                                </div>
                             </div>
                             <div class="LoginSettingsItem">
                                 <div class="ls_icon"><img src="../assets/img/google-brands.svg" alt=""></div>
                                 <div class="ls_name">Google</div>
-                                <div class="ls_linkIcon"><img src="../assets/img/ios-link.svg" alt=""></div>
-                                <button class="ls_butten unlinked">解除綁定</button>
+                                <div class="bindStatus" v-if="store.MemberData.IsBind_Google">
+                                    <div class="ls_linkIcon"><img src="../assets/img/ios-link.svg" alt=""></div>
+                                    <button class="ls_butten unlinked">解除綁定</button>
+                                </div>
+                                <div class="bindStatus" v-else>
+                                    <div class="ls_linkIcon"><img src="../assets/img/unlink-line.svg" alt=""></div>
+                                    <button class="ls_butten linked">綁定</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,12 +113,14 @@
 </template>
 <script setup>
 import { ref } from "vue"
+import { useMemberStore } from "../stores/stores";
+const store = useMemberStore()
 const activeIdx = ref(1);
 const activeIddx = ref(1);
 const NavItemArr = ref([
     {
         name: 'SDG帳戶',
-        path: '/MemberCentre',
+        path: '/MemberCenter',
     }, {
         name: '帳號管理',
         path: '',

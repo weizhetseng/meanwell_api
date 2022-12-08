@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="mobile_signinView">
-                <RouterLink to="/MemberCentre" @click="colsMobileMenu()">
+                <RouterLink to="/MemberCenter" @click="colsMobileMenu()">
                     <div class="mobile_sdgMenuItem">
                         <div class="signinicon"><img src="../assets/img/member_icon.svg" alt=""></div>
                         <div class="signinmenutext">會員中心</div>
@@ -61,7 +61,7 @@
                 <RouterLink to="/"><img src="../assets/img/Logos.svg" alt=""></RouterLink>
             </div>
             <div class="system_bar">
-                <div class="signoutView" :class="{ active: store.logoutStatus }">
+                <div class="signoutView" :class="{ active: store.att }">
                     <div class="sdgMenuItem">
                         <div class="menu_item_text">進入管理系統</div>
                     </div>
@@ -71,14 +71,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="signinView" :class="{ active: store.loginStatus }">
-                    <RouterLink to="/MemberCentre">
+                <div class="signinView" :class="{ active: store.att2 }">
+                    <RouterLink to="/MemberCenter">
                         <div class="sdgMenuItem">
                             <div class="signinicon"><img src="../assets/img/member_icon.svg" alt=""></div>
                             <div class="signinmenutext">會員中心</div>
                         </div>
                     </RouterLink>
-                    <a href="#" @click.prevent="Logout()">
+                    <a href="" @click="Logout()">
                         <div class="Tosignout">登出</div>
                     </a>
                     <RouterLink to="/Calendar">
@@ -110,19 +110,17 @@
     </header>
 </template>
 <script setup>
-import { ref } from "vue"
+import { onMounted, ref } from "vue"
 import { useLoginStore } from "../stores/stores";
-import router from "../router";
-
-
 const store = useLoginStore()
+
 const mobileMenu = ref(false);
 const mobileactiveIddx = ref(null);
 const mobileactiveIdx = ref(null);
 const NavItemArr = ref([
     {
         name: 'SDG帳戶',
-        path: '/MemberCentre',
+        path: '/MemberCenter',
     }, {
         name: '帳號管理',
         path: '',
@@ -177,15 +175,21 @@ const handleMenuFna = (iddx) => {
     mobileactiveIddx.value = iddx;
     mobileMenu.value = false;
 };
-
-
 function Logout() {
     $cookies.remove("u_id")
     $cookies.remove("AuthCode")
     $cookies.remove("Lang")
-    router.push('/login')
+    alert('已登出')
 }
-
+onMounted(() => {
+    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+        store.att = true
+        store.att2 = false
+    } else {
+        store.att = false
+        store.att2 = true
+    }
+})
 
 
 

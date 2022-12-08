@@ -11,7 +11,7 @@
                         <li>編輯個人資料</li>
                     </ul>
                 </div>
-                <section class="MemberCentreContent">
+                <section class="MemberCenterContent">
                     <div class="memberNav">
                         <div class="memberNavItem" v-for="(items, idx) in NavItemArr" :key="items.name"
                             :class="{ active: activeIdx === idx }" @click="handleMenuFn(idx)">
@@ -35,7 +35,7 @@
                         <div class="memberCenterRightTopBox">
                             <div class="memberUserBox">
                                 <div class="memberUserBoxLeft"><img src="../assets/img/memberUserIcon.svg" alt=""></div>
-                                <div class="memberUserName"> 您好!</div>
+                                <div class="memberUserName">{{ store.MemberData.Name }} 您好!</div>
                             </div>
                             <div class="memberUserQRcord" @click="qropen()">
                                 <div class="MembershipLevelBox">
@@ -51,16 +51,19 @@
                                 <div class="itemTitletext">姓名</div>
                             </div>
                             <div class="memberinfTextinput">
-                                <input type="text" name="" id="" class="memberinfinput" placeholder="">
+                                <input type="text" name="" id="" class="memberinfinput" placeholder=""
+                                    v-model="store.MemberData.Name">
                             </div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">性別</div>
                             </div>
                             <div class="memberinfTextinput">
-                                <input id="gender01" type="radio" name="gender" value="1">
+                                <input id="gender01" type="radio" name="gender" :value="1"
+                                    v-model="store.MemberData.Sex">
                                 <label for="gender01">男</label>
-                                <input id="gender02" type="radio" name="gender" value="0">
+                                <input id="gender02" type="radio" name="gender" :value="0"
+                                    v-model="store.MemberData.Sex">
                                 <label for="gender02">女</label>
                             </div>
                             <div class="itemTitle">
@@ -68,7 +71,8 @@
                                 <div class="itemTitletext">手機號碼</div>
                             </div>
                             <div class="memberinfTextinput">
-                                <input type="text" name="" id="" class="memberinfinput" placeholder="">
+                                <input type="text" name="" id="" class="memberinfinput" placeholder=""
+                                    v-model="store.MemberData.Mobile">
                             </div>
                             <div class="itemsS50L">
                                 <div class="itemTitle">
@@ -76,12 +80,12 @@
                                     <div class="itemTitletext">證件類別</div>
                                 </div>
                                 <div class="memberinfTextinput">
-                                    <select class="memberinfinput">
-                                        <option value="0" disabled>身分證 / 台胞證 / 居留證 / 護照</option>
-                                        <option value="1">身分證</option>
-                                        <option value="2">台胞證</option>
-                                        <option value="3">居留證</option>
-                                        <option value="4">護照</option>
+                                    <select class="memberinfinput" v-model="store.MemberData.DocType">
+                                        <option :value="0" disabled>身分證 / 台胞證 / 居留證 / 護照</option>
+                                        <option :value="1">身分證</option>
+                                        <option :value="2">台胞證</option>
+                                        <option :value="3">居留證</option>
+                                        <option :value="4">護照</option>
                                     </select>
                                 </div>
                             </div>
@@ -91,7 +95,8 @@
                                     <div class="itemTitletext">證件號碼</div>
                                 </div>
                                 <div class="memberinfTextinput">
-                                    <input type="text" name="" id="" class="memberinfinput" placeholder="">
+                                    <input type="text" name="" id="" class="memberinfinput" placeholder=""
+                                        v-model="store.MemberData.DocNumber">
                                 </div>
                             </div>
                             <div class="itemsS50L">
@@ -100,7 +105,8 @@
                                     <div class="itemTitletext">任職公司</div>
                                 </div>
                                 <div class="memberinfTextinput">
-                                    <input type="text" name="" id="" class="memberinfinput" placeholder="">
+                                    <input type="text" name="" id="" class="memberinfinput" placeholder=""
+                                        v-model="store.MemberData.CompanyName">
                                 </div>
                             </div>
                             <div class="itemsS50R">
@@ -109,7 +115,8 @@
                                     <div class="itemTitletext">職稱</div>
                                 </div>
                                 <div class="memberinfTextinput">
-                                    <input type="text" name="" id="" class="memberinfinput" placeholder="">
+                                    <input type="text" name="" id="" class="memberinfinput" placeholder=""
+                                        v-model="store.MemberData.JobTitle">
                                 </div>
                             </div>
                             <div class="avatarBox">
@@ -122,7 +129,8 @@
                                     *用於活動報到人臉辨識
                                 </div>
                                 <div class="avatarshint">
-                                    <div class="avatarshintText">已上傳</div>
+                                    <div class="avatarshintText" v-if="store.MemberData.Pic !== ''">已上傳</div>
+                                    <div class="avatarshintText" v-if="store.MemberData.Pic == ''">未上傳</div>
                                     <div class="upload_btn">
                                         <label class="avatarupload" for="upload_img">
                                             上傳
@@ -134,7 +142,7 @@
                                 </div>
                             </div>
                             <div class="persbuttonBox">
-                                <button class="pageButtem">確認送出</button>
+                                <button type="submit" class="pageButtem" @click="changeMemberData">確認送出</button>
                             </div>
                         </div>
                     </div>
@@ -152,13 +160,17 @@
     </div>
 </template>
 <script setup>
-import { ref } from "vue"
+import axios from "axios";
+import { inject, ref } from "vue"
+import router from "../router";
+import { useMemberStore } from "../stores/stores";
+const store = useMemberStore()
 const activeIdx = ref(1);
 const activeIddx = ref(0);
 const NavItemArr = ref([
     {
         name: 'SDG帳戶',
-        path: '/MemberCentre',
+        path: '/MemberCenter',
     }, {
         name: '帳號管理',
         path: '',
@@ -217,4 +229,28 @@ const qrclosures = () => {
     qrcshow.value = false;
 }
 
+
+function changeMemberData() {
+    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/UpdateData`;
+    axios.post(api, {
+        "u_id": $cookies.get('u_id'),
+        "AuthCode": $cookies.get('AuthCode'),
+        "Lang": $cookies.get('Lang'),
+        "Name": store.MemberData.Name,
+        "Sex": store.MemberData.Sex,
+        "Birth": store.MemberData.Birth,
+        "Mobile": store.MemberData.Mobile,
+        "DocType": store.MemberData.DocType,
+        "DocNumber": store.MemberData.DocNumber,
+        "CompanyName": store.MemberData.CompanyName,
+        "JobTitle": store.MemberData.JobTitle,
+        "OldPassword": store.MemberData.OldPassword,
+        "NewPassword": store.MemberData.NewPassword
+    })
+        .then((res) => {
+            if (res.data.success) {
+                router.push('/PersonalInformation')
+            }
+        })
+}
 </script>

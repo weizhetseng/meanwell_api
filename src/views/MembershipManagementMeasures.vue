@@ -11,7 +11,7 @@
                         <li>會員管理辦法</li>
                     </ul>
                 </div>
-                <section class="MemberCentreContent">
+                <section class="MemberCenterContent">
                     <div class="memberNav">
                         <div class="memberNavItem" v-for="(items, idx) in NavItemArr" :key="items.name"
                             :class="{ active: activeIdx === idx }" @click="handleMenuFn(idx)">
@@ -35,7 +35,7 @@
                         <div class="memberCenterRightTopBox">
                             <div class="memberUserBox">
                                 <div class="memberUserBoxLeft"><img src="../assets/img/memberUserIcon.svg" alt=""></div>
-                                <div class="memberUserName">王小明 您好!</div>
+                                <div class="memberUserName">{{ store.MemberData.Name }} 您好!</div>
                             </div>
                             <div class="memberUserQRcord" @click="qropen()">
                                 <div class="MembershipLevelBox">
@@ -70,12 +70,14 @@
 </template>
 <script setup>
 import { ref } from "vue"
+import { useMemberStore } from "../stores/stores";
+const store = useMemberStore()
 const activeIdx = ref(1);
 const activeIddx = ref(3);
 const NavItemArr = ref([
     {
         name: 'SDG帳戶',
-        path: '/MemberCentre',
+        path: '/MemberCenter',
     }, {
         name: '帳號管理',
         path: '',

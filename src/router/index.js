@@ -30,9 +30,9 @@ const router = createRouter({
       component: () => import("../views/SignUpSetPasswordView.vue"),
     },
     {
-      path: '/MemberCentre',
-      name: 'MemberCentre',
-      component: () => import("../views/MemberCentre.vue"),
+      path: '/MemberCenter',
+      name: 'MemberCenter',
+      component: () => import("../views/MemberCenter.vue"),
     }
     ,
     {
@@ -125,9 +125,12 @@ const router = createRouter({
       component: '',
       children: [
         {
-          path: 'Meeting',
+          path: 'Meeting/:id',
           name: 'Meeting',
           component: () => import("../views/Course_Meeting.vue"),
+          children: [
+
+          ]
         },
         {
           path: 'Educate',
@@ -145,7 +148,7 @@ const router = createRouter({
           component: () => import("../views/CourseContent.vue"),
         }
       ]
-    }    
+    }
     ,
     {
       path: '/Course/RegistrationForm',

@@ -4,12 +4,27 @@ import axios from 'axios';
 import router from '../router';
 
 
+//會員資料
+export const useMemberStore = defineStore('Member', () => {
+  const MemberData = ref([{}])
+  const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetData`;
+  axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang') })
+    .then((res) => {
+      MemberData.value = res.data
+      console.log(MemberData)
+    })
+
+  return { MemberData }
+})
+
+
 
 //登入
 export const useLoginStore = defineStore('Login', () => {
-
-  const loginStatus = ref(true)
-  const logoutStatus = ref(false)
+  const att = ref(true)
+  const att2 = ref(false)
+  const loginStatue = ref(false)
+  const logoutStatue = ref(true)
   const fakeUser = {
     u_id: "ronlu057@gmail.com",
     AuthCode: "5459952541",
@@ -25,17 +40,16 @@ export const useLoginStore = defineStore('Login', () => {
           $cookies.set("Lang", `${fakeUser.Lang}`)
           alert('登入成功')
           router.push('/')
+          if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+            att.value = true
+            att2.value = false
+          } else {
+            att.value = false
+            att2.value = true
+          }
         }
       })
-
-    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
-      loginStatus.value = false
-      logoutStatus.value = true
-    } else {
-      loginStatus.value = true
-      logoutStatus.value = false
-    }
   }
 
-  return { loginData, fakeUser, loginStatus, logoutStatus }
+  return { loginData, fakeUser, att, att2, loginStatue, logoutStatue }
 })

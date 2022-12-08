@@ -11,7 +11,7 @@
                         <li>已結束</li>
                     </ul>
                 </div>
-                <section class="MemberCentreContent">
+                <section class="MemberCenterContent">
                     <div class="memberNav">
                         <div class="memberNavItem" v-for="(items, idx) in NavItemArr" :key="items.name"
                             :class="{ active: activeIdx === idx }" @click="handleMenuFn(idx)">
@@ -36,7 +36,7 @@
                         <div class="memberCenterRightTopBox">
                             <div class="memberUserBox">
                                 <div class="memberUserBoxLeft"><img src="../assets/img/memberUserIcon.svg" alt=""></div>
-                                <div class="memberUserName">王小明 您好!</div>
+                                <div class="memberUserName">{{ store.MemberData.Name }} 您好!</div>
                             </div>
                             <div class="memberUserQRcord" @click="qropen()">
                                 <div class="MembershipLevelBox">
@@ -52,17 +52,19 @@
                                 <div class="itemTitletext">我的活動列表</div>
                             </div>
                             <div class="ActiveList">
-                                <RouterLink to="#">
+                                <div v-if="(MyActStatus == null)">目前沒有已結束的活動</div>
+                                <RouterLink to="#" v-for="item in MyActStatus" :key="item.ActId"
+                                    @click.prevent="getDetailPages(item.ActId)">
                                     <div class="activelist-item-bar">
                                         <div class="activelist-item">
                                             <div class="activelistdate">
-                                                <div class="activelistdateMonth"></div>
+                                                <div class="activelistdateMonth">{{ item.ActSDateTime }}</div>
                                                 <div class="activelistdateMonthbefore">月</div>
                                             </div>
                                             <div class="activelistTextBar">
-                                                <div class="activelistText">活動場次：</div>
-                                                <div class="activelistText">主題：</div>
-                                                <div class="activelistText">地點：</div>
+                                                <div class="activelistText">活動場次：{{ item.ActSDateTime }}</div>
+                                                <div class="activelistText">主題：{{ item.ActSubject }}</div>
+                                                <div class="activelistText">地點：{{ item.ActPlace }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -108,13 +110,16 @@
     </div>
 </template>
 <script setup>
-import { ref } from "vue"
+import axios from "axios";
+import { onMounted, ref } from "vue"
+import { useMemberStore } from "../stores/stores";
+const store = useMemberStore()
 const activeIdx = ref(2);
 const activeIddx = ref(1);
 const NavItemArr = ref([
     {
         name: 'SDG帳戶',
-        path: '/MemberCentre',
+        path: '/MemberCenter',
     }, {
         name: '帳號管理',
         path: '',
@@ -173,5 +178,21 @@ const qrclosures = () => {
     qrcshow.value = false;
 }
 
+const MyActStatus = ref([{}])
+
+function getDetailPages(id) {
+    router.push(`/ActivitiesOver/${id}`)
+}
+
+onMounted(() => {
+    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
+    axios.post(api, {
+        "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
+    })
+        .then((res) => {
+            MyActStatus.value = res.data.MyActivityDataList
+            console.log(MyActStatus)
+        })
+})
 
 </script>

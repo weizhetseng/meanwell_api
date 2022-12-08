@@ -11,7 +11,7 @@
                         <li>個人資料</li>
                     </ul>
                 </div>
-                <section class="MemberCentreContent">
+                <section class="MemberCenterContent">
                     <div class="memberNav">
                         <div class="memberNavItem" v-for="(items, idx) in NavItemArr" :key="items.name"
                             :class="{ active: activeIdx === idx }" @click="handleMenuFn(idx)">
@@ -35,7 +35,7 @@
                         <div class="memberCenterRightTopBox">
                             <div class="memberUserBox">
                                 <div class="memberUserBoxLeft"><img src="../assets/img/memberUserIcon.svg" alt=""></div>
-                                <div class="memberUserName"> 您好!</div>
+                                <div class="memberUserName">{{ store.MemberData.Name }} 您好!</div>
                             </div>
                             <div class="memberUserQRcord" @click="qropen()">
                                 <div class="MembershipLevelBox">
@@ -50,44 +50,44 @@
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">姓名</div>
                             </div>
-                            <div class="memberinfText"></div>
+                            <div class="memberinfText">{{ store.MemberData.Name }}</div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">性別</div>
                             </div>
-                            <div class="memberinfText"></div>
+                            <div class="memberinfText">{{ tranSex }}</div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">手機號碼</div>
                             </div>
-                            <div class="memberinfText"></div>
+                            <div class="memberinfText">{{ store.MemberData.Mobile }}</div>
                             <div class="itemsS50L">
                                 <div class="itemTitle">
                                     <div class="itemTitleLine"></div>
                                     <div class="itemTitletext">證件類別</div>
                                 </div>
-                                <div class="memberinfText"></div>
+                                <div class="memberinfText">{{ tranDocType }}</div>
                             </div>
                             <div class="itemsS50R">
                                 <div class="itemTitle">
                                     <div class="itemTitleLine"></div>
                                     <div class="itemTitletext">證件號碼</div>
                                 </div>
-                                <div class="memberinfText"></div>
+                                <div class="memberinfText">{{ store.MemberData.DocNumber }}</div>
                             </div>
                             <div class="itemsS50L">
                                 <div class="itemTitle">
                                     <div class="itemTitleLine"></div>
                                     <div class="itemTitletext">任職公司</div>
                                 </div>
-                                <div class="memberinfText"></div>
+                                <div class="memberinfText">{{ store.MemberData.CompanyName }}</div>
                             </div>
                             <div class="itemsS50R">
                                 <div class="itemTitle">
                                     <div class="itemTitleLine"></div>
                                     <div class="itemTitletext">職稱</div>
                                 </div>
-                                <div class="memberinfText"></div>
+                                <div class="memberinfText">{{ store.MemberData.JobTitle }}</div>
                             </div>
                             <div class="avatarBox">
                                 <div class="avatarTitle">
@@ -98,8 +98,11 @@
                                 <div class="avatarsText">
                                     *用於活動報到人臉辨識
                                 </div>
-                                <div class="avatarshint">
+                                <div class="avatarshint" v-if="store.MemberData.Pic !== ''">
                                     <div class="avatarshintText">已上傳</div>
+                                </div>
+                                <div class="avatarshint" v-else-if="store.MemberData.Pic == ''">
+                                    <div class="avatarshintText">未上傳</div>
                                 </div>
                             </div>
                             <div class="persbuttonBox">
@@ -122,13 +125,15 @@
     </div>
 </template>
 <script setup>
-import { ref } from "vue"
+import { ref, computed, onMounted } from "vue"
+import { useMemberStore } from "../stores/stores";
+const store = useMemberStore()
 const activeIdx = ref(1);
 const activeIddx = ref(0);
 const NavItemArr = ref([
     {
         name: 'SDG帳戶',
-        path: '/MemberCentre',
+        path: '/MemberCenter',
     }, {
         name: '帳號管理',
         path: '/PersonalInformation',
@@ -187,29 +192,31 @@ const qrclosures = () => {
     qrcshow.value = false;
 }
 
-// const tranSex = computed(() => {
-//     if (memberData.value.Sex === -1) {
-//         return '未設定'
-//     } else if (memberData.value.Sex === 0) {
-//         return '女性'
-//     } else if (memberData.value.Sex === 1) {
-//         return '男性'
-//     } else if (memberData.value.Sex === 2) {
-//         return 'LGBTQ'
-//     }
-// })
 
-// const tranDocType = computed(() => {
-//     if (memberData.value.DocType === 0) {
-//         return '未設定'
-//     } else if (memberData.value.DocType === 1) {
-//         return '身分證'
-//     } else if (memberData.value.DocType === 2) {
-//         return '台胞證'
-//     } else if (memberData.value.DocType === 3) {
-//         return '居留證'
-//     } else if (memberData.value.DocType === 4) {
-//         return '護照'
-//     }
-// })
+const tranSex = computed(() => {
+    if (store.MemberData.Sex === -1) {
+        return '未設定'
+    } else if (store.MemberData.Sex === 0) {
+        return '女性'
+    } else if (store.MemberData.Sex === 1) {
+        return '男性'
+    } else if (store.MemberData.Sex === 2) {
+        return 'LGBTQ'
+    }
+})
+
+const tranDocType = computed(() => {
+    if (store.MemberData.DocType === 0) {
+        return '未設定'
+    } else if (store.MemberData.DocType === 1) {
+        return '身分證'
+    } else if (store.MemberData.DocType === 2) {
+        return '台胞證'
+    } else if (store.MemberData.DocType === 3) {
+        return '居留證'
+    } else if (store.MemberData.DocType === 4) {
+        return '護照'
+    }
+})
+
 </script>

@@ -7,24 +7,15 @@
                 <section class="indexActivityBar">
                     <div class="indAct_item_Box">
                         <ul>
-                            <router-link to="/Course/Meeting">
+                            <router-link :to="`/Course/Meeting/${item.id}`" v-for="item in indexLink" :key="item.id">
                                 <li>
-                                    <div class="atcImgBox"><img src="../assets/img/activity_1.svg" alt=""></div>
-                                    <div class="atcText Conference">會議活動</div>
+                                    <div class="atcImgBox"><img :src="`/meanwell_api/src/assets/img/${item.imgUrl}`"
+                                            alt=""></div>
+                                    <div class="atcText Conference">{{ item.link }}</div>
                                 </li>
                             </router-link>
-                            <router-link to="/Course/Educate">
-                                <li>
-                                    <div class="atcImgBox"><img src="../assets/img/activity_2.svg" alt=""></div>
-                                    <div class="atcText EducationTraining">教育訓練</div>
-                                </li>
-                            </router-link>
-                            <router-link to="/Course/Activity">
-                                <li>
-                                    <div class="atcImgBox"><img src="../assets/img/activity_3.svg" alt=""></div>
-                                    <div class="atcText TourGuide">活動導覽</div>
-                                </li>
-                            </router-link>
+                        </ul>
+                        <ul>
                             <router-link to="#">
                                 <li>
                                     <div class="atcImgBox"><img src="../assets/img/activity_4.svg" alt=""></div>
@@ -50,10 +41,10 @@
                                     <div class="AnnTopText">訊息通知</div>
                                 </div>
                                 <div class="AnnContent">
-                                    <ul>
+                                    <ul v-if="store.logoutStatue">
                                         <li class="ConferenceLine"><a href="">請先登入會員</a></li>
                                     </ul>
-                                    <!-- <ul v-show="store.actInLogin">
+                                    <ul v-else-if="store.loginStatue">
                                         <li v-for="item in PushMsgList" :key="item.mssid"
                                             :style="{ 'border-left-color': item.color }">
                                             <a href="">
@@ -61,7 +52,7 @@
                                                 }}
                                             </a>
                                         </li>
-                                    </ul> -->
+                                    </ul>
                                 </div>
                             </li>
                             <li>
@@ -70,14 +61,14 @@
                                     <div class="AnnTopText">最新動態</div>
                                 </div>
                                 <div class="AnnContent">
-                                    <ul>
+                                    <ul v-if="store.logoutStatue">
                                         <li class="ConferenceLine"><a href="">請先登入會員</a></li>
                                     </ul>
-                                    <!-- <ul>
+                                    <ul v-else-if="store.loginStatue">
                                         <li v-for="item in NewsList" :style="{ 'border-left-color': item.color }">
                                             <a href="">{{ item.News_Topic }}</a>
                                         </li>
-                                    </ul> -->
+                                    </ul>
                                 </div>
                             </li>
                             <li>
@@ -86,14 +77,14 @@
                                     <div class="AnnTopText">禮贈推薦</div>
                                 </div>
                                 <div class="AnnContent">
-                                    <ul>
+                                    <ul v-if="store.logoutStatue">
                                         <li class="ConferenceLine"><a href="">請先登入會員</a></li>
                                     </ul>
-                                    <!-- <ul>
+                                    <ul v-else-if="store.loginStatue">
                                         <li v-for="item in NewSaleList" :style="{ 'border-left-color': item.color }">
                                             <a href="">{{ item.News_Topic }}</a>
                                         </li>
-                                    </ul> -->
+                                    </ul>
                                 </div>
                             </li>
                         </ul>
@@ -108,18 +99,62 @@
 
 <script setup>
 import axios from 'axios';
-import { onMounted } from 'vue';
-const fakerCookies = {
-    u_id: $cookies.get('u_id'),
-    AuthCode: $cookies.get('AuthCode'),
-    Lang: $cookies.get('Lang')
+import { onMounted, ref } from 'vue';
+import { useLoginStore } from '../stores/stores';
+
+const indexLink = [
+    {
+        id: 1,
+        link: '會議活動',
+        imgUrl: 'activity_1.svg'
+    },
+    {
+        id: 2,
+        link: '教育訓練',
+        imgUrl: 'activity_2.svg'
+    },
+    {
+        id: 3,
+        link: '活動導覽',
+        imgUrl: 'activity_3.svg'
+    }
+]
+const store = useLoginStore()
+const PushMsgList = ref([{}]);
+const NewsList = ref([{}]);
+const NewSaleList = ref([{}]);
+
+if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+    store.loginStatue = true
+    store.logoutStatue = false
+} else {
+    store.loginStatue = false
+    store.logoutStatue = true
 }
 
 onMounted(() => {
-    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetData`;
-    axios.post(api, fakerCookies)
+
+    //取得個人推播訊息資料
+    const api1 = `${import.meta.env.VITE_APP_API}API_App/HomePage/PushMsgList`;
+    axios.post(api1, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "SDateTime": "", "EDateTime": "", "Keywords": "" })
         .then((res) => {
-            console.log(res)
+            PushMsgList.value = res.data.PushMsgDataList
+            console.log('個人推播', PushMsgList)
+        })
+
+    // 最新動態資料清單
+    const api2 = `${import.meta.env.VITE_APP_API}API_App/HomePage/NewsList`;
+    axios.post(api2, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang') })
+        .then((res) => {
+            NewsList.value = res.data.DataList
+            console.log('最新動態', NewsList)
+        })
+    // 禮贈新品資料清單
+    const api3 = `${import.meta.env.VITE_APP_API}API_App/HomePage/NewSaleList`;
+    axios.post(api3, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang') })
+        .then((res) => {
+            NewSaleList.value = res.data.DataList
+            console.log('禮贈新品', NewSaleList)
         })
 
 
