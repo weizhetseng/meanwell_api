@@ -6,28 +6,28 @@
                 <div class="indexPageTitle">多元服務，價值共享</div>
                 <section class="indexActivityBar">
                     <div class="indAct_item_Box">
-                        <ul>
-                            <router-link :to="`/Course/Meeting/${item.id}`" v-for="item in indexLink" :key="item.id">
-                                <li>
+                        <ul class="indAct_ul01">
+                            <li v-for="item in indexLink" :key="item.id">
+                                <router-link :to="`/Course/Meeting/${item.id}`">
                                     <div class="atcImgBox"><img :src="`/meanwell_api/src/assets/img/${item.imgUrl}`"
                                             alt=""></div>
-                                    <div class="atcText Conference">{{ item.link }}</div>
-                                </li>
-                            </router-link>
+                                    <div class="atcText" :style="{ color: item.color }">{{ item.link }}</div>
+                                </router-link>
+                            </li>
                         </ul>
-                        <ul>
-                            <router-link to="#">
-                                <li>
+                        <ul class="indAct_ul02">
+                            <li>
+                                <router-link to="#">
                                     <div class="atcImgBox"><img src="../assets/img/activity_4.svg" alt=""></div>
                                     <div class="atcText CaringCare">關懷照護</div>
-                                </li>
-                            </router-link>
-                            <router-link to="#">
-                                <li>
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link to="#">
                                     <div class="atcImgBox"><img src="../assets/img/activity_5.svg" alt=""></div>
                                     <div class="atcText GiftingPlatform">禮贈平台</div>
-                                </li>
-                            </router-link>
+                                </router-link>
+                            </li>
                         </ul>
                     </div>
                 </section>
@@ -106,17 +106,20 @@ const indexLink = [
     {
         id: 1,
         link: '會議活動',
-        imgUrl: 'activity_1.svg'
+        imgUrl: 'activity_1.svg',
+        color: '#077E8E'
     },
     {
         id: 2,
         link: '教育訓練',
-        imgUrl: 'activity_2.svg'
+        imgUrl: 'activity_2.svg',
+        color: '#649644'
     },
     {
         id: 3,
         link: '活動導覽',
-        imgUrl: 'activity_3.svg'
+        imgUrl: 'activity_3.svg',
+        color: '#9CAF4A'
     }
 ]
 const store = useLoginStore()
