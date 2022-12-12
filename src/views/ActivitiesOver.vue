@@ -125,7 +125,6 @@ const MyActStatus = ref([{}])
 const showData = ref([{}])
 const route = useRoute()
 const id = route.params.id
-console.log(id)
 const Meals = computed(() => {
     if (showData.value[0].Meals === 0) {
         return '葷'

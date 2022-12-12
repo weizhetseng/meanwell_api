@@ -10,7 +10,7 @@
                         <li>></li>
                         <li>進行中</li>
                         <li>></li>
-                        <li>蘇州智慧園區開幕儀式</li>
+                        <li>{{ showData[0].ActSubject }}</li>
                     </ul>
                 </div>
                 <section class="MemberCenterContent">
@@ -61,11 +61,11 @@
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">餐點：</div>
-                                    <div class="itemtextright">{{ showData[0].Meals }}</div>
+                                    <div class="itemtextright">{{ Meals }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">交通：</div>
-                                    <div class="itemtextright">{{ showData[0].JoinWay }} {{ showData[0].CarNumber }}
+                                    <div class="itemtextright">{{ Traffic }} {{ showData[0].CarNumber }}
                                     </div>
                                 </div>
                                 <div class="itemTr">
@@ -131,13 +131,38 @@
 </template>
 <script setup>
 import axios from "axios";
-import { onMounted, ref } from "vue"
+import { onMounted, ref, computed } from "vue"
 import { useRoute } from 'vue-router'
 
 const MyActStatus = ref([{}])
 const route = useRoute()
 const id = route.params.id
 const showData = ref([{}])
+
+
+const Meals = computed(() => {
+    if (showData.value[0].Meals === 0) {
+        return '葷'
+    } else if (showData.value[0].Meals === 1) {
+        return '素'
+    } else if (showData.value[0].Meals === 2) {
+        return '不用餐'
+    }
+    else if (showData.value[0].Meals === -1) {
+        return '未指定'
+    }
+})
+const Traffic = computed(() => {
+    if (showData.value[0].Traffic === 0) {
+        return '自駕'
+    } else if (showData.value[0].Traffic === 1) {
+        return '大眾運輸'
+    }else if (showData.value[0].Traffic === -1) {
+        return '未指定'
+    }
+})
+
+
 const activeIdx = ref(2);
 const activeIddx = ref(0);
 const activityset = ref(0);
