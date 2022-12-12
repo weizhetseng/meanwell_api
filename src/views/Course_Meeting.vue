@@ -23,7 +23,7 @@
                     <div class="Search_bar"><input type="search" name="" id="" class="Course_Search_bar"></div>
                 </div>
                 <div class="Course_List_Box">
-                    <router-link to="/Course/Meeting/CourseContent/" v-for="item in MeetingData.value"
+                    <router-link :to="`/Course/CourseContent/${id}${item.ActId}`" v-for="item in MeetingData.value"
                         :key="item.ActId">
                         <div class="Course_List_Item">
                             <div class="Course_date_left">
@@ -70,7 +70,6 @@
 <script setup>
 import axios from 'axios';
 import { onMounted, reactive } from 'vue';
-import router from '../router';
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import { useRoute } from 'vue-router'

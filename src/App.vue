@@ -1,10 +1,14 @@
 
 <template>
-  <Btn_NavBar></Btn_NavBar>
+  <div v-if="$route.meta.keepAlive">
+    <Btn_NavBar></Btn_NavBar>
 
-  <RouterView />
+    <RouterView />
 
-  <Btn_Footer></Btn_Footer>
+    <Btn_Footer></Btn_Footer>
+  </div>
+  <RouterView v-if="!$route.meta.keepAlive" />
+
 </template>
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'

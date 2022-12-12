@@ -2,17 +2,6 @@
     <div class="page_main">
         <main>
             <div class="page_content avt">
-                <div class="PageBreadCrumbs">
-                    <ul>
-                        <li>首頁</li>
-                        <li>></li>
-                        <li>活動列表</li>
-                        <li>></li>
-                        <li>蘇州智慧園區開幕儀式</li>
-                        <li>></li>
-                        <li>滿意度調查表</li>
-                    </ul>
-                </div>
                 <div class="CourseContentBox">
                     <div class="CourseinfTitle">蘇州智慧園區開幕儀式</div>
                     <div class="activitiesSubtitle">滿意度調查表</div>
@@ -148,8 +137,7 @@
                         </div>
                     </div>
                     <div class="Boxbarbuttem">
-                        <router-link to="/Course/RegistrationFormNext"><button
-                                class="pageButtem">提交問券</button></router-link>
+                        <button class="pageButtem">提交問券</button>
                     </div>
                 </div>
             </div>

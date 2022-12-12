@@ -17,6 +17,36 @@ export const useMemberStore = defineStore('Member', () => {
   return { MemberData }
 })
 
+export const useSignUpStore = defineStore('SignUp', () => {
+  const MemberData = ref([{}])
+  const signUpData = {
+    u_id: $cookies.get('u_id'),
+    AuthCode: $cookies.get('AuthCode'),
+    Lang: $cookies.get('Lang'),
+    ActId: "",
+    SeId: 0,
+    Identity: 0,
+    JoinWay: 0,
+    Name: "",
+    Sex: 0,
+    Mobile: "",
+    Email: "",
+    CompanyName: "",
+    JobTitle: "",
+    DocType: 0,
+    DocNumber: "",
+    Meals: 0,
+    Traffic: 0,
+    CarNumber: "",
+    SignUpMemo: "",
+    Ticket_E_Apply: 0,
+    Ticket_P_Apply: 0,
+    Address: ""
+  }
+
+  return { signUpData }
+})
+
 
 
 //登入

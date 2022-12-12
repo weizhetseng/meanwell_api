@@ -8,9 +8,8 @@
                     <div class="indAct_item_Box">
                         <ul class="indAct_ul01">
                             <li v-for="item in indexLink" :key="item.id">
-                                <router-link :to="`/Course/Meeting/${item.id}`">
-                                    <div class="atcImgBox"><img :src="`/meanwell_api/src/assets/img/${item.imgUrl}`"
-                                            alt=""></div>
+                                <router-link :to="`/Course/Meeting/${item.route}`">
+                                    <div class="atcImgBox"><img :src="`/src/assets/img/${item.imgUrl}`" alt=""></div>
                                     <div class="atcText" :style="{ color: item.color }">{{ item.link }}</div>
                                 </router-link>
                             </li>
@@ -104,19 +103,19 @@ import { useLoginStore } from '../stores/stores';
 
 const indexLink = [
     {
-        id: 1,
+        route: 1,
         link: '會議活動',
         imgUrl: 'activity_1.svg',
         color: '#077E8E'
     },
     {
-        id: 2,
+        route: 2,
         link: '教育訓練',
         imgUrl: 'activity_2.svg',
         color: '#649644'
     },
     {
-        id: 3,
+        route: 3,
         link: '活動導覽',
         imgUrl: 'activity_3.svg',
         color: '#9CAF4A'
