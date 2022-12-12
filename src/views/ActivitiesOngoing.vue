@@ -102,7 +102,10 @@
                             <div class="relevantinformation">
                                 <div class="itemTr">
                                     <div class="itemtextleft">資料下載：</div>
-                                    <div class="itemtextright">課程內容.pdf</div>
+                                    <div class="itemtextright">
+                                        <a :href="item.Link" download="範例.pdf"
+                                            v-for="item in showData[0].DownloadList">{{ item.Title }}</a>
+                                    </div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft2">線上視訊連線：</div>
