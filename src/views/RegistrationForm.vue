@@ -108,7 +108,7 @@
 <script setup>
 import axios from 'axios';
 import { useSignUpStore } from "../stores/stores";
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router'
 const route = useRoute()
 const id = route.params.id
@@ -121,13 +121,18 @@ const showData = ref([{}])
 
 
 
-const api = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivityList`
-axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "ModClass": id.slice(0, 1), "SDateTime": '', "EDateTime": '', "Keywords": '' })
-    .then((res) => {
-        ListData.value = res.data.ActivityDataList
-        showData.value = ListData.value.filter((item) => {
-            return item.ActId === id.slice(1)
-        })
-    })
 
+
+onMounted(() => {
+
+    const api = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivityList`
+    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "ModClass": id.slice(0, 1), "SDateTime": '', "EDateTime": '', "Keywords": '' })
+        .then((res) => {
+            ListData.value = res.data.ActivityDataList
+            showData.value = ListData.value.filter((item) => {
+                return item.ActId === id.slice(1)
+            })
+        })
+
+})
 </script>

@@ -10,7 +10,7 @@
                         <li>></li>
                         <li>已結束</li>
                         <li>></li>
-                        <li>蘇州智慧園區開幕儀式</li>
+                        <li>{{ showData[0].ActSubject }}</li>
                     </ul>
                 </div>
                 <section class="MemberCenterContent">
@@ -36,7 +36,7 @@
                     </div>
                     <div class="memberCenterRight">
                         <div class="ActiveDirectoryContentBox">
-                            <div class="activitiesTitle">蘇州智慧園區開幕儀式</div>
+                            <div class="activitiesTitle">{{ showData[0].ActSubject }}</div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">報名場次</div>
@@ -61,11 +61,11 @@
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">餐點：</div>
-                                    <div class="itemtextright">{{ showData[0].Meals }}</div>
+                                    <div class="itemtextright">{{ Meals }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">交通：</div>
-                                    <div class="itemtextright">{{ showData[0].Traffic }}</div>
+                                    <div class="itemtextright">{{ Traffic }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">備註：</div>
@@ -117,14 +117,33 @@
 </template>
 <script setup>
 import axios from "axios";
-import { ref, reactive, onMounted } from "vue"
+import { ref, reactive, onMounted, computed } from "vue"
 import { useMemberStore } from "../stores/stores";
 import { useRoute } from 'vue-router'
 
-
+const MyActStatus = ref([{}])
+const showData = ref([{}])
 const route = useRoute()
 const id = route.params.id
 console.log(id)
+const Meals = computed(() => {
+    if (showData.value[0].Meals === 0) {
+        return '葷'
+    } else if (showData.value[0].Meals === 1) {
+        return '素'
+    } else if (showData.value[0].Meals === 2) {
+        return '不用餐'
+    }
+})
+const Traffic = computed(() => {
+    if (showData.value[0].Traffic === 0) {
+        return '自駕'
+    } else if (showData.value[0].Traffic === 1) {
+        return '大眾運輸'
+    }
+})
+
+console.log(Meals)
 
 
 const store = useMemberStore()
@@ -185,8 +204,7 @@ const handleMenuFnb = () => {
     }
 };
 
-const MyActStatus = ref([{}])
-const showData = ref([{}])
+
 
 
 onMounted(() => {

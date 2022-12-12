@@ -16,7 +16,8 @@
                 </div>
                 <div class="CourseContentBox mobileSS">
                     <div class="activitiesTitle">{{ showData[0].ActSubject }}</div>
-                    <div class="Coursebuttoon"><router-link :to="`/Course/RegistrationForm/${id}`"><button
+                    <div class="Coursebuttoon" v-if="showData[0].IsOpenSignUp && !showData[0].IsSignUp"><router-link
+                            :to="`/Course/RegistrationForm/${id}`"><button
                                 class="CoursebuttoonSet">前往報名</button></router-link></div>
                     <div class="itemTitle">
                         <div class="itemTitleLine"></div>

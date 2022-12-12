@@ -17,30 +17,13 @@ export const useMemberStore = defineStore('Member', () => {
 })
 
 export const useSignUpStore = defineStore('SignUp', () => {
-  const signUpData = ref({
-    u_id: $cookies.get('u_id'),
-    AuthCode: $cookies.get('AuthCode'),
-    Lang: $cookies.get('Lang'),
-    ActId: "",
-    SeId: 0,
-    Identity: 0,
-    JoinWay: 0,
-    Name: "",
-    Sex: 0,
-    Mobile: "",
-    Email: "",
-    CompanyName: "",
-    JobTitle: "",
-    DocType: 0,
-    DocNumber: "",
-    Meals: 0,
-    Traffic: 0,
-    CarNumber: "",
-    SignUpMemo: "",
-    Ticket_E_Apply: 0,
-    Ticket_P_Apply: 0,
-    Address: ""
-  })
+  const signUpData = ref([{}])
+
+  const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetData`;
+  axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang') })
+    .then((res) => {
+      signUpData.value = res.data
+    })
 
   return { signUpData }
 })
