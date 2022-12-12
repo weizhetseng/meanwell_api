@@ -107,17 +107,18 @@
 
 <script setup>
 import axios from 'axios';
-import { useMemberStore, useSignUpStore } from "../stores/stores";
-import { onMounted, reactive, ref } from 'vue';
+import { useSignUpStore } from "../stores/stores";
+import { ref } from 'vue';
 import { useRoute } from 'vue-router'
 const route = useRoute()
 const id = route.params.id
 
-const storeMember = useMemberStore()
 const storeSignUp = useSignUpStore()
 
 const ListData = ref([{}])
 const showData = ref([{}])
+
+
 
 
 const api = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivityList`
@@ -127,10 +128,6 @@ axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCo
         showData.value = ListData.value.filter((item) => {
             return item.ActId === id.slice(1)
         })
-        console.log(showData.value)
     })
-
-
-
 
 </script>

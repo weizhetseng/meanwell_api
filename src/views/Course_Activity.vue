@@ -89,8 +89,6 @@ onMounted(() => {
         .then((res) => {
             ActivityData.value = res.data.ActivityDataList;
             ActivityBanner.value = res.data.BannerList;
-            console.log(ActivityData.value)
-            console.log(ActivityBanner.value)
         })
 })
 </script> 

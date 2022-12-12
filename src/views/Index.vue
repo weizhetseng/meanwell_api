@@ -141,7 +141,6 @@ onMounted(() => {
     axios.post(api1, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "SDateTime": "", "EDateTime": "", "Keywords": "" })
         .then((res) => {
             PushMsgList.value = res.data.PushMsgDataList
-            console.log('個人推播', PushMsgList)
         })
 
     // 最新動態資料清單
@@ -149,14 +148,12 @@ onMounted(() => {
     axios.post(api2, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang') })
         .then((res) => {
             NewsList.value = res.data.DataList
-            console.log('最新動態', NewsList)
         })
     // 禮贈新品資料清單
     const api3 = `${import.meta.env.VITE_APP_API}API_App/HomePage/NewSaleList`;
     axios.post(api3, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang') })
         .then((res) => {
             NewSaleList.value = res.data.DataList
-            console.log('禮贈新品', NewSaleList)
         })
 
 

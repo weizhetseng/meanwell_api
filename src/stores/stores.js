@@ -11,15 +11,13 @@ export const useMemberStore = defineStore('Member', () => {
   axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang') })
     .then((res) => {
       MemberData.value = res.data
-      console.log(MemberData)
     })
 
   return { MemberData }
 })
 
 export const useSignUpStore = defineStore('SignUp', () => {
-  const MemberData = ref([{}])
-  const signUpData = {
+  const signUpData = ref({
     u_id: $cookies.get('u_id'),
     AuthCode: $cookies.get('AuthCode'),
     Lang: $cookies.get('Lang'),
@@ -42,7 +40,7 @@ export const useSignUpStore = defineStore('SignUp', () => {
     Ticket_E_Apply: 0,
     Ticket_P_Apply: 0,
     Address: ""
-  }
+  })
 
   return { signUpData }
 })

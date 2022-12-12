@@ -193,7 +193,7 @@ onMounted(() => {
     })
         .then((res) => {
             MyActStatus.value = res.data.MyActivityDataList
-            console.log(res)
+
         })
 })
 

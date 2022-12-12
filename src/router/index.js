@@ -104,7 +104,10 @@ const router = createRouter({
       component: () => import("../views/ActivityListOngoing.vue"),
       meta: {
         keepAlive: true
-      }
+      },
+      children: [
+
+      ]
     }
     ,
     {

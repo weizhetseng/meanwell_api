@@ -76,7 +76,6 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const id = route.params.id
-console.log(typeof (id))
 
 
 
@@ -90,9 +89,6 @@ onMounted(() => {
         .then((res) => {
             MeetingData.value = res.data.ActivityDataList;
             MeetingBanner.value = res.data.BannerList;
-            console.log(MeetingData.value)
-            console.log(MeetingBanner.value)
-            console.log(res)
         })
 })
 </script>

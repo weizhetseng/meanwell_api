@@ -41,7 +41,7 @@
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">報名場次</div>
                             </div>
-                            <div class="itemtext">2022/07/26(二) 13:00-15:00</div>
+                            <div class="itemtext">{{ showData[0].ActSDateTime }}</div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">報名資料</div>
@@ -49,27 +49,27 @@
                             <div class="personalinformation">
                                 <div class="itemTr">
                                     <div class="itemtextleft">姓名：</div>
-                                    <div class="itemtextright">李明偉</div>
+                                    <div class="itemtextright">{{ showData[0].Name }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">手機電話：</div>
-                                    <div class="itemtextright">09123456789</div>
+                                    <div class="itemtextright">{{ showData[0].Mobile }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">E-mail：</div>
-                                    <div class="itemtextright">test@gmail.com</div>
+                                    <div class="itemtextright">{{ showData[0].Email }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">餐點：</div>
-                                    <div class="itemtextright">葷</div>
+                                    <div class="itemtextright">{{ showData[0].Meals }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">交通：</div>
-                                    <div class="itemtextright">自駕 ABC-1234</div>
+                                    <div class="itemtextright">{{ showData[0].Traffic }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">備註：</div>
-                                    <div class="itemtextright">對海鮮過敏</div>
+                                    <div class="itemtextright">{{ showData[0].SignUpMemo }}</div>
                                 </div>
                             </div>
                             <div class="itemTitle">
@@ -79,15 +79,15 @@
                             <div class="TicketInformation">
                                 <div class="itemTr">
                                     <div class="itemtextleft">電子票：</div>
-                                    <div class="itemtextright">3張</div>
+                                    <div class="itemtextright">{{ showData[0].Ticket_E_Apply }}張</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">紙本票：</div>
-                                    <div class="itemtextright">0張</div>
+                                    <div class="itemtextright">{{ showData[0].Ticket_P_Apply }}張</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">收件地址：</div>
-                                    <div class="itemtextright">台北市信義區信義路1號</div>
+                                    <div class="itemtextright">{{ showData[0].Address }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">座位號碼：</div>
@@ -105,13 +105,9 @@
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft2">線上視訊連線：</div>
-                                    <div class="itemtextright2">https://teams.microsoft.com/</div>
+                                    <div class="itemtextright2">{{ showData[0].OnlineLink }}</div>
                                 </div>
                             </div>
-                            <!--<div class="FunctionColumn">
-                            <button class="FunctionColumnButten"><img src="../assets/img/ticket.svg" alt="">電子票分票</button>
-                            <button class="FunctionColumnButten"><img src="../assets/img/ban-solid.svg" alt="">取消報名</button>
-                        </div>-->
                         </div>
                     </div>
                 </section>
@@ -120,7 +116,18 @@
     </div>
 </template>
 <script setup>
-import { ref } from "vue"
+import axios from "axios";
+import { ref, reactive, onMounted } from "vue"
+import { useMemberStore } from "../stores/stores";
+import { useRoute } from 'vue-router'
+
+
+const route = useRoute()
+const id = route.params.id
+console.log(id)
+
+
+const store = useMemberStore()
 const activeIdx = ref(2);
 const activeIddx = ref(1);
 const NavItemArr = ref([
@@ -177,4 +184,22 @@ const handleMenuFnb = () => {
         activeIddx.value = null;
     }
 };
+
+const MyActStatus = ref([{}])
+const showData = ref([{}])
+
+
+onMounted(() => {
+    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
+    axios.post(api, {
+        "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "MyActStatus": 2, "SDateTime": "", "EDateTime": "", "Keywords": ""
+    })
+        .then((res) => {
+            MyActStatus.value = res.data.MyActivityDataList
+            showData.value = MyActStatus.value.filter((item) => {
+                return item.ApplyId === parseInt(id)
+            })
+            console.log(showData)
+        })
+})
 </script>

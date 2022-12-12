@@ -89,8 +89,6 @@ onMounted(() => {
         .then((res) => {
             EducateData.value = res.data.ActivityDataList;
             EducateBanner.value = res.data.BannerList;
-            console.log(EducateData.value)
-            console.log(EducateBanner.value)
         })
 })
 </script>
