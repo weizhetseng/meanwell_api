@@ -83,7 +83,6 @@ const TicketTaken = ref(
     {
         TicketCode: '202212FY7uD',
         AuthCode: 'GeHq'
-
     }
 )
 
@@ -153,9 +152,8 @@ const qrclosures = () => {
     qrcshow.value = false;
 }
 
-
 function TakenTicket() {
-    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
+    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetTicket`
     axios.post(api, {
         "u_id": $cookies.get('u_id'),
         "AuthCode": $cookies.get('AuthCode'),

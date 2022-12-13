@@ -20,18 +20,18 @@
                         <div class="Calendar_dayscontent_item_dayBox" v-for="(item, index) in calendarTable"
                             :key="index">
                             <div class="daybar"
-                                :class="[{ 'non-current': !item.isCurrentMonth }, { today: isActive(item) }, { Activityday: item.day === 2 }]">
+                                :class="[{ 'non-current': !item.isCurrentMonth }, { today: isActive(item) }, { Activityday: item.haswork }]">
                                 {{ item.day }}</div>
                             <div class="Activitybar">
-                                <div class="Activitybar_item" :class="{ 'ate': item.day === 2 }"></div>
+                                <div class="Activitybar_item" :class="{ 'ate': item.haswork }"></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="CalendarContentBox">
                     <div class="Activecolumn">
-                        <div class="RemindDate">07 / 02</div>
-                        <div class="ReminderMessage">會議</div>
+                        <div class="RemindDate"></div>
+                        <div class="ReminderMessage"></div>
                     </div>
                 </div>
             </div>
@@ -39,17 +39,19 @@
     </div>
 </template>
 <script setup>
-import { computed, ref } from 'vue';
+import axios from 'axios';
+import { computed, onMounted, ref } from 'vue';
 
 const weekMap = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 const calendarGrid = 42;
-
+const monthData = ref([{}])
 let CalendarItem = [
     {
         year: '',
         month: '',
         day: '',
-        isCurrentMonth: true
+        isCurrentMonth: true,
+        haswork: false
     }
 ]
 //是否為閏年
@@ -106,6 +108,7 @@ function generateCalendar(date) {
                 month: lastMonth,
                 day: lastMonthDays - weekIndex + i + 1,
                 isCurrentMonth: false,
+                haswork: false
             };
             // 填入下個月天數
         } else if (i >= days + weekIndex) {
@@ -117,6 +120,7 @@ function generateCalendar(date) {
                 month: nextMonth,
                 day: trailVal,
                 isCurrentMonth: false,
+                haswork: false
             };
         }
     }
@@ -127,6 +131,7 @@ function generateCalendar(date) {
             month: currentMonth,
             day: d,
             isCurrentMonth: true,
+            haswork: false
         };
     }
 
@@ -135,6 +140,7 @@ function generateCalendar(date) {
 
 const date = ref(new Date());
 const calendarTable = computed(() => generateCalendar(date.value));
+
 const dateText = computed(() => {
     return `${date.value.getFullYear()}/${date.value.getMonth() + 1}`;
 });
@@ -183,4 +189,25 @@ function changeMonth(type) {
     date.value.setFullYear(year);
     date.value = new Date(date.value);
 };
+
+
+onMounted(() => {
+    const api = `${import.meta.env.VITE_APP_API}API_App/Calendar/GetApplyActivityDataByMonth`
+    const ThisMonth = new Date()
+    axios.post(api, {
+        "u_id": $cookies.get('u_id'),
+        "AuthCode": $cookies.get('AuthCode'),
+        "Lang": $cookies.get('Lang'),
+        "Year": ThisMonth.getFullYear(),
+        "Month": (ThisMonth.getMonth() + 1)
+    }).then((res) => {
+        monthData.value = res.data.DayDataList
+        console.log(monthData)
+    })
+})
 </script>
+
+
+
+
+

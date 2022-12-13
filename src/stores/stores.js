@@ -17,6 +17,8 @@ export const useMemberStore = defineStore('Member', () => {
   return { MemberData }
 })
 
+
+// 活動報名
 export const useSignUpStore = defineStore('SignUp', () => {
   const signUpData = ref([{}])
 
@@ -28,6 +30,8 @@ export const useSignUpStore = defineStore('SignUp', () => {
 
   return { signUpData }
 })
+
+
 
 
 
