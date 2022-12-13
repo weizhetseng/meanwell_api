@@ -49,16 +49,16 @@
                                 <div class="itemTitletext">訂票代碼</div>
                             </div>
                             <div class="memberinfTextinput"><input type="text" name="" id="" class="memberinfinput"
-                                    placeholder="請輸入分票代碼"></div>
+                                    placeholder="請輸入分票代碼" v-model="TicketTaken.TicketCode"></div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">訂票驗證碼</div>
                             </div>
                             <div class="memberinfTextinput"><input type="text" name="" id="" class="memberinfinput"
-                                    placeholder="請輸入訂票驗證碼"></div>
+                                    placeholder="請輸入訂票驗證碼" v-model="TicketTaken.AuthCode"></div>
                             <div class="persbuttonBox">
-                                <router-link to="/ActivityListOngoing"><button
-                                        class="pageButtem">確認送出</button></router-link>
+                                <router-link to="#"><button class="pageButtem"
+                                        @click="TakenTicket()">確認送出</button></router-link>
                             </div>
                         </div>
                     </div>
@@ -76,8 +76,17 @@
     </div>
 </template>
 <script setup>
-import { ref } from "vue"
+import axios from "axios";
+import { computed, ref } from "vue"
 import { useMemberStore } from "../stores/stores";
+const TicketTaken = ref(
+    {
+        TicketCode: '202212FY7uD',
+        AuthCode: 'GeHq'
+
+    }
+)
+
 const store = useMemberStore()
 const activeIdx = ref(3);
 const activeIddx = ref(null);
@@ -142,5 +151,24 @@ const qropen = () => {
 }
 const qrclosures = () => {
     qrcshow.value = false;
+}
+
+
+function TakenTicket() {
+    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
+    axios.post(api, {
+        "u_id": $cookies.get('u_id'),
+        "AuthCode": $cookies.get('AuthCode'),
+        "Lang": $cookies.get('Lang'),
+        "TicketAuthCode": (TicketTaken.value.TicketCode + TicketTaken.value.AuthCode)
+    })
+        .then((res) => {
+            if (res.data.success) {
+                alert('取票成功')
+            } else {
+                alert(res.data.message)
+            }
+            console.log(res)
+        })
 }
 </script>

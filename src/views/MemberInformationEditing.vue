@@ -136,7 +136,7 @@
                                             上傳
                                         </label>
                                         <input id="upload_img" name="progressbarTW_img" type="file"
-                                            accept="image/jpeg, image/png">
+                                            accept="image/jpg, image/png" @change="previewFile()">
                                     </div>
 
                                 </div>
@@ -229,6 +229,50 @@ const qrclosures = () => {
     qrcshow.value = false;
 }
 
+
+
+
+
+
+function previewFile() {
+    const file = document.getElementById("upload_img").files[0];   //document.querySelector('input[type=file]').files[0];
+
+    let reader = new FileReader();
+    if (file) {
+
+        reader.readAsDataURL(file);
+
+
+        reader.onloadend = function () {
+
+
+            var strImage = reader.result.replace(/^data:image\/[a-z]+;base64,/, "");
+            console.log(strImage);
+
+            const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MemberPicUpdate`
+            axios.post(api, {
+                "u_id": $cookies.get('u_id'),
+                "AuthCode": $cookies.get('AuthCode'),
+                "Lang": $cookies.get('Lang'),
+                "Pic": strImage
+            })
+                .then((res) => {
+                    console.log(res)
+                })
+        }
+
+
+    }
+    else {
+        preview.src = "";
+    }
+
+
+
+
+
+
+}
 
 function changeMemberData() {
     const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/UpdateData`;

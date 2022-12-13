@@ -92,7 +92,8 @@
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">座位號碼：</div>
-                                    <div class="itemtextright">10排 1號　10排 2號　10排 3號</div>
+                                    <div class="itemtextright" v-for="item in showData[0].TicketDataList">{{ item.Seat
+                                    }}</div>
                                 </div>
                             </div>
                             <div class="itemTitle">
@@ -117,9 +118,9 @@
                                 </div>
                             </div>
                             <div class="FunctionColumn">
-                                <router-link to="/EventTicketing"><button class="FunctionColumnButten"><img
+                                <router-link :to="`/EventTicketing/${id}`"><button class="FunctionColumnButten"><img
                                             src="../assets/img/ticket.svg" alt="">電子票分票</button></router-link>
-                                <router-link to="/CancelRegistration"><button class="FunctionColumnButten"><img
+                                <router-link :to="`/CancelRegistration/${id}`"><button class="FunctionColumnButten"><img
                                             src="../assets/img/ban-solid.svg" alt="">取消報名</button></router-link>
                             </div>
                         </div>
@@ -140,6 +141,7 @@ const id = route.params.id
 const showData = ref([{}])
 
 
+
 const Meals = computed(() => {
     if (showData.value[0].Meals === 0) {
         return '葷'
@@ -148,17 +150,13 @@ const Meals = computed(() => {
     } else if (showData.value[0].Meals === 2) {
         return '不用餐'
     }
-    else if (showData.value[0].Meals === -1) {
-        return '未指定'
-    }
+
 })
 const Traffic = computed(() => {
     if (showData.value[0].Traffic === 0) {
         return '自駕'
     } else if (showData.value[0].Traffic === 1) {
         return '大眾運輸'
-    }else if (showData.value[0].Traffic === -1) {
-        return '未指定'
     }
 })
 

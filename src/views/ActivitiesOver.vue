@@ -91,7 +91,8 @@
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">座位號碼：</div>
-                                    <div class="itemtextright">10排 1號　10排 2號　10排 3號</div>
+                                    <div class="itemtextright" v-for="item in showData[0].TicketDataList">{{ item.Seat
+                                    }}</div>
                                 </div>
                             </div>
                             <div class="itemTitle">
@@ -101,11 +102,18 @@
                             <div class="relevantinformation">
                                 <div class="itemTr">
                                     <div class="itemtextleft">資料下載：</div>
-                                    <div class="itemtextright">課程內容.pdf</div>
+                                    <div class="itemtextright">
+                                        <a :href="item.Link" download="範例.pdf"
+                                            v-for="item in showData[0].DownloadList">{{ item.Title }}</a>
+                                    </div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft2">線上視訊連線：</div>
-                                    <div class="itemtextright2">{{ showData[0].OnlineLink }}</div>
+                                    <div class="itemtextright2">
+                                        <a :href="showData[0].OnlineLink" target="_blank">
+                                            {{ showData[0].OnlineLink }}
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

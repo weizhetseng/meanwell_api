@@ -53,12 +53,13 @@
                             </div>
                             <div class="ActiveList">
                                 <div v-if="(MyActStatus == null)">目前沒有已取消的活動</div>
-                                <RouterLink to="#" v-for="item in MyActStatus" :key="item.ActId"
-                                    @click.prevent="getDetailPages(item.ActId)">
+                                <RouterLink :to="`/ActivitiesCancelled/${item.ApplyId}`"
+                                    v-for="item in MyActStatus.value" :key="item.ActId">
                                     <div class="activelist-item-bar">
                                         <div class="activelist-item">
                                             <div class="activelistdate">
-                                                <div class="activelistdateMonth">{{ item.ActSDateTime }}</div>
+                                                <div class="activelistdateMonth">{{ item.ActSDateTime.substr(5, 2) }}
+                                                </div>
                                                 <div class="activelistdateMonthbefore">月</div>
                                             </div>
                                             <div class="activelistTextBar">
@@ -112,8 +113,10 @@
 </template>
 <script setup>
 import axios from "axios";
-import { onMounted, ref } from "vue"
+import { onMounted, reactive, ref } from "vue"
 import { useMemberStore } from "../stores/stores";
+import { useRoute } from "vue-router";
+const route = useRoute()
 const store = useMemberStore()
 const activeIdx = ref(2);
 const activeIddx = ref(2);
@@ -179,11 +182,7 @@ const qrclosures = () => {
     qrcshow.value = false;
 }
 
-const MyActStatus = ref([{}])
-
-function getDetailPages(id) {
-    router.push(`/ActivitiesCancelled/${id}`)
-}
+const MyActStatus = reactive([{}])
 
 onMounted(() => {
     const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
@@ -192,6 +191,7 @@ onMounted(() => {
     })
         .then((res) => {
             MyActStatus.value = res.data.MyActivityDataList
+            console.log(res)
         })
 })
 

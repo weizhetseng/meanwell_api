@@ -10,7 +10,7 @@
                         <li>></li>
                         <li>已取消</li>
                         <li>></li>
-                        <li>蘇州智慧園區開幕儀式</li>
+                        <li>{{ showData[0].ActSubject }}</li>
                     </ul>
                 </div>
                 <section class="MemberCenterContent">
@@ -36,12 +36,12 @@
                     </div>
                     <div class="memberCenterRight">
                         <div class="ActiveDirectoryContentBox">
-                            <div class="activitiesTitle">蘇州智慧園區開幕儀式</div>
+                            <div class="activitiesTitle">{{ showData[0].ActSubject }}</div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">報名場次</div>
                             </div>
-                            <div class="itemtext">2022/07/26(二) 13:00-15:00</div>
+                            <div class="itemtext">{{ showData[0].ActSDateTime }}</div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">報名資料</div>
@@ -49,27 +49,28 @@
                             <div class="personalinformation">
                                 <div class="itemTr">
                                     <div class="itemtextleft">姓名：</div>
-                                    <div class="itemtextright">李明偉</div>
+                                    <div class="itemtextright">{{ showData[0].Name }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">手機電話：</div>
-                                    <div class="itemtextright">09123456789</div>
+                                    <div class="itemtextright">{{ showData[0].Mobile }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">E-mail：</div>
-                                    <div class="itemtextright">test@gmail.com</div>
+                                    <div class="itemtextright">{{ showData[0].Email }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">餐點：</div>
-                                    <div class="itemtextright">葷</div>
+                                    <div class="itemtextright">{{ Meals }}</div>
                                 </div>
+
                                 <div class="itemTr">
                                     <div class="itemtextleft">交通：</div>
-                                    <div class="itemtextright">自駕 ABC-1234</div>
+                                    <div class="itemtextright">{{ Traffic }} {{ showData[0].CarNumber }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">備註：</div>
-                                    <div class="itemtextright">對海鮮過敏</div>
+                                    <div class="itemtextright">{{ showData[0].SignUpMemo }}</div>
                                 </div>
                             </div>
                             <div class="itemTitle">
@@ -120,7 +121,31 @@
     </div>
 </template>
 <script setup>
-import { ref } from "vue"
+import axios from "axios";
+import { ref, reactive, onMounted, computed } from "vue"
+import { useRoute } from 'vue-router'
+const MyActStatus = ref([{}])
+const showData = ref([{}])
+const route = useRoute()
+const id = route.params.id
+
+const Meals = computed(() => {
+    if (showData.value[0].Meals === 0) {
+        return '葷'
+    } else if (showData.value[0].Meals === 1) {
+        return '素'
+    } else if (showData.value[0].Meals === 2) {
+        return '不用餐'
+    }
+})
+const Traffic = computed(() => {
+    if (showData.value[0].Traffic === 0) {
+        return '自駕'
+    } else if (showData.value[0].Traffic === 1) {
+        return '大眾運輸'
+    }
+})
+
 const activeIdx = ref(2);
 const activeIddx = ref(2);
 const NavItemArr = ref([
@@ -177,4 +202,18 @@ const handleMenuFnb = () => {
         activeIddx.value = null;
     }
 };
+
+onMounted(() => {
+    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
+    axios.post(api, {
+        "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "MyActStatus": 3, "SDateTime": "", "EDateTime": "", "Keywords": ""
+    })
+        .then((res) => {
+            MyActStatus.value = res.data.MyActivityDataList
+            showData.value = MyActStatus.value.filter((item) => {
+                return item.ApplyId === parseInt(id)
+            })
+            console.log(showData)
+        })
+})
 </script>

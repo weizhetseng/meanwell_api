@@ -49,15 +49,6 @@
                         <div class="pagination_item"> 1 </div>
                     </a>
                     <a href="javascript:;">
-                        <div class="pagination_item"> 2 </div>
-                    </a>
-                    <a href="javascript:;">
-                        <div class="pagination_item"> 3 </div>
-                    </a>
-                    <a href="javascript:;">
-                        <div class="pagination_item"> 4 </div>
-                    </a>
-                    <a href="javascript:;">
                         <div class="pagination_item_next"> <img src="../assets/img/chevron-right.svg" alt=""> </div>
                     </a>
                 </div>

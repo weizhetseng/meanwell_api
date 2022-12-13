@@ -104,10 +104,7 @@ const router = createRouter({
       component: () => import("../views/ActivityListOngoing.vue"),
       meta: {
         keepAlive: true
-      },
-      children: [
-
-      ]
+      }
     }
     ,
     {
@@ -156,7 +153,7 @@ const router = createRouter({
     }
     ,
     {
-      path: '/EventTicketing',
+      path: '/EventTicketing/:id',
       name: 'EventTicketing',
       component: () => import("../views/EventTicketing.vue"),
       meta: {
@@ -165,7 +162,7 @@ const router = createRouter({
     }
     ,
     {
-      path: '/CancelRegistration',
+      path: '/CancelRegistration/:id',
       name: 'CancelRegistration',
       component: () => import("../views/CancelRegistration.vue"),
       meta: {

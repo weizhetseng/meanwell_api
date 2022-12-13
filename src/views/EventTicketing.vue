@@ -57,12 +57,14 @@
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">訂票代碼</div>
                             </div>
-                            <div class="itemtext">A1234</div>
+                            <div class="itemtext">{{ showData[0].TicketCode }}</div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">訂票驗證碼</div>
                             </div>
-                            <div class="itemtext">5689</div>
+                            <div class="itemtext" v-for="item in showData[0].TicketDataList" :key="item.AuthCode">{{
+                                    item.AuthCode
+                            }}</div>
                         </div>
                     </div>
                 </section>
@@ -71,7 +73,15 @@
     </div>
 </template>
 <script setup>
-import { ref } from "vue"
+import axios from "axios";
+import { onMounted, ref } from "vue"
+import { useRoute } from 'vue-router'
+
+const MyActStatus = ref([{}])
+const route = useRoute()
+const id = route.params.id
+const showData = ref([{}])
+
 const activeIdx = ref(2);
 const activeIddx = ref(0);
 const activityset = ref(0);
@@ -129,4 +139,19 @@ const handleMenuFnb = () => {
         activeIddx.value = null;
     }
 };
+
+onMounted(() => {
+    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
+    axios.post(api, {
+        "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
+    })
+        .then((res) => {
+            MyActStatus.value = res.data.MyActivityDataList
+            showData.value = MyActStatus.value.filter((item) => {
+                return item.ApplyId === parseInt(id)
+            })
+            console.log(res)
+            console.log(showData)
+        })
+})
 </script>

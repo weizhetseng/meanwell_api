@@ -40,7 +40,7 @@
                         <div class="memberCenterRightTopBox">
                             <div class="memberUserBox">
                                 <div class="memberUserBoxLeft"><img src="../assets/img/memberUserIcon.svg" alt=""></div>
-                                <div class="memberUserName">王小明 您好!</div>
+                                <div class="memberUserName">{{ store.MemberData.Name }} 您好!</div>
                             </div>
                             <div class="memberUserQRcord">
                                 <div class="MembershipLevelBox">
@@ -58,12 +58,12 @@
                                 <div class="itemTitletext">原因</div>
                             </div>
                             <div class="CancelRegistrationSelect">
-                                <select class="memberinfinput">
-                                    <option selected="" disabled="">請選擇原因</option>
-                                    <option>原因一</option>
-                                    <option>原因二</option>
-                                    <option>原因三</option>
-                                    <option>原因四</option>
+                                <select class="memberinfinput" v-model="CancelApply.ReasonId">
+                                    <option :value="0" selected="" disabled="">請選擇原因</option>
+                                    <option :value="1">原因一</option>
+                                    <option :value="2">原因二</option>
+                                    <option :value="3">原因三</option>
+                                    <option :value="4">原因四</option>
                                 </select>
                             </div>
                             <div class="itemTitle">
@@ -71,7 +71,8 @@
                                 <div class="itemTitletext">其他說明</div>
                             </div>
                             <div class="CancelRegistrationtextbox">
-                                <textarea class="textBox" placeholder="請輸入原因說明"></textarea>
+                                <textarea class="textBox" placeholder="請輸入原因說明"
+                                    v-model="CancelApply.OtherCancelDesc"></textarea>
                             </div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
@@ -79,8 +80,8 @@
                             </div>
                             <div class="itemtext">神這斗唱吃坐會可海立遠泉，苦旦對何着原；汁肖里讀次燈見間員發兒急訴春直愛清魚。</div>
                             <div class="persbuttonBox">
-                                <router-link to="/ActivityListCancelled"><button
-                                        class="pageButtem">確認送出</button></router-link>
+                                <router-link to="#"><button class="pageButtem"
+                                        @click="CancelActivity()">確認送出</button></router-link>
                             </div>
                         </div>
                     </div>
@@ -98,7 +99,14 @@
     </div>
 </template>
 <script setup>
+import axios from "axios";
 import { ref } from "vue"
+import { useMemberStore } from "../stores/stores";
+import { useRoute, useRouter } from 'vue-router'
+const store = useMemberStore()
+const route = useRoute()
+const router = useRouter()
+const id = route.params.id
 const activeIdx = ref(2);
 const activeIddx = ref(0);
 const activityset = ref(0);
@@ -160,4 +168,33 @@ const handleMenuFnb = () => {
 const qrclosures = () => {
     qrcshow.value = false;
 }
+
+const CancelApply = ref(
+    {
+        u_id: $cookies.get('u_id'),
+        AuthCode: $cookies.get('AuthCode'),
+        Lang: $cookies.get('Lang'),
+        ApplyId: id,
+        ReasonId: 0,
+        OtherCancelDesc: ""
+    }
+)
+function CancelActivity() {
+    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/CancelApply`
+    axios.post(api, CancelApply.value)
+        .then((res) => {
+            if (res.data.success) {
+                alert('取消成功')
+                router.push('/ActivityListOngoing')
+            } else {
+                alert(res.data.message)
+            }
+            console.log(res)
+        })
+}
+
+
+
+
+
 </script>
