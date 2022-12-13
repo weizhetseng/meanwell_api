@@ -136,7 +136,7 @@
                                             上傳
                                         </label>
                                         <input id="upload_img" name="progressbarTW_img" type="file"
-                                            accept="image/jpg, image/png" @change="previewFile()">
+                                            accept="image/jpeg, image/png" @change="previewFile()">
                                     </div>
 
                                 </div>

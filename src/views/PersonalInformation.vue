@@ -220,8 +220,6 @@ const tranDocType = computed(() => {
 })
 
 
-console.log()
-
 
 
 
