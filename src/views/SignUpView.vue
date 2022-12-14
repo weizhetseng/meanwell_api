@@ -10,7 +10,8 @@
                     <div class="signup_User_account">
                         <input type="email" class="signup_User_accountInput" placeholder="請輸入電子信箱" required
                             v-model="user.Email">
-
+                        <div class="signup_User_err">{{ usererrmessage }}</div>
+                        <div class="signup_User_sett">{{ usererrmessage2 }}</div>
                     </div>
                     <div class="VerificationCodeBar">
                         <div class="VerifCodeTitle">驗證碼</div>
@@ -42,8 +43,21 @@ const user = ref(
         Code: ''
     }
 );
+const usererrmessage = ref('')
+const usererrmessage2 = ref('')
+
+
+
 
 function sendCode() {
+    if (user.value.Email == '') {
+        usererrmessage.value = '請輸入電子郵件'
+        usererrmessage2.value = ''
+    } else {
+        usererrmessage.value = ''
+        usererrmessage2.value = '請於10分鐘內，至您的E-mail信箱取得驗證碼'
+    }
+
     //  發送驗證碼
     const api1 = `${import.meta.env.VITE_APP_API}API_App/MemberData/SendVerifyCode`
     axios.post(api1, {

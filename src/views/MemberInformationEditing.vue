@@ -80,7 +80,7 @@
                                     <div class="itemTitletext">證件類別</div>
                                 </div>
                                 <div class="memberinfTextinput">
-                                    <select class="memberinfinput" v-model="store.MemberData.DocType">
+                                    <select class="memberinfinput" v-model.number="store.MemberData.DocType">
                                         <option :value="0" disabled>身分證 / 台胞證 / 居留證 / 護照</option>
                                         <option :value="1">身分證</option>
                                         <option :value="2">台胞證</option>

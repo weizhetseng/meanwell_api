@@ -11,7 +11,8 @@
                 </div>
                 <div class="BannerBar">
                     <div class="banner_content">
-                        <swiper>
+                        <swiper :modules="modules" :slides-per-view="1" :space-between="50"
+                            :pagination="{ clickable: true }">
                             <swiper-slide v-for="item in MeetingBanner.value" :key="item.PicLink">
                                 <img :src="item.PicLink" alt="">
                             </swiper-slide>
@@ -61,13 +62,19 @@
 <script setup>
 import axios from 'axios';
 import { onMounted, reactive } from 'vue';
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css";
+
+import { Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const id = route.params.id
 
+
+const modules = [Pagination]
 
 
 const MeetingData = reactive([{}])

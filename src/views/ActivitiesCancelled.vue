@@ -136,6 +136,8 @@ const Meals = computed(() => {
         return '素'
     } else if (showData.value[0].Meals === 2) {
         return '不用餐'
+    } else if (showData.value[0].Meals === -1) {
+        return '不用餐'
     }
 })
 const Traffic = computed(() => {

@@ -125,7 +125,8 @@
     </div>
 </template>
 <script setup>
-import { ref, computed } from "vue"
+import { ref, computed, onMounted } from "vue"
+import router from "../router";
 import { useMemberStore } from "../stores/stores";
 const store = useMemberStore()
 const activeIdx = ref(1);
@@ -218,7 +219,6 @@ const tranDocType = computed(() => {
         return '護照'
     }
 })
-
 
 
 
