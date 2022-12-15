@@ -111,19 +111,24 @@ import { useRoute } from "vue-router";
 const route = useRoute()
 const store = useMemberStore()
 
-
+//當前頁面
 const currentPages = ref(1)
+//所以資料筆數
 const total = ref(null)
+//當前頁面資料
 const list = ref([])
+//當前頁碼總數
 const totalSize = ref(null)
+//當前頁碼顯示內容
 const tableData = ref([])
+//一頁顯示數量
 const pageSize = 6
-
+//跳轉該頁面資料
 function handleCurrentChange(val) {
     currentPages.value = val;
     getList();
 }
-
+//上一頁
 function prevPage() {
     currentPages.value--
     if (currentPages.value < 1) {
@@ -131,6 +136,7 @@ function prevPage() {
     }
     getList();
 }
+//下一頁
 function nextPage() {
     currentPages.value++
     if (currentPages.value >= totalSize.value) {
@@ -138,6 +144,7 @@ function nextPage() {
     }
     getList();
 }
+//axios取得該頁資料
 function getList() {
     const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
     axios.post(api, {
@@ -150,6 +157,7 @@ function getList() {
             tableData.value = getNeedArr(list.value, pageSize)[currentPages.value - 1]
         })
 }
+//計算頁面資料
 function getNeedArr(array, size) {
     const length = array.length
     if (!length || !size || size < 1) {
