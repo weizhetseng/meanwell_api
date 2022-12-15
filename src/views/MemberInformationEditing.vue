@@ -161,7 +161,7 @@
 </template>
 <script setup>
 import axios from "axios";
-import { inject, ref } from "vue"
+import { ref } from "vue"
 import router from "../router";
 import { useMemberStore } from "../stores/stores";
 const store = useMemberStore()
@@ -228,11 +228,6 @@ const qropen = () => {
 const qrclosures = () => {
     qrcshow.value = false;
 }
-
-
-
-
-
 
 function previewFile() {
     const file = document.getElementById("upload_img").files[0];

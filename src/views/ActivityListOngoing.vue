@@ -52,7 +52,7 @@
                                 <div class="itemTitletext">我的活動列表</div>
                             </div>
                             <div class="ActiveList">
-                                <div v-if="(tableData == null)">目前沒有進行中的活動</div>
+                                <div v-if="(tableData == '')">目前沒有進行中的活動</div>
                                 <RouterLink :to="`/ActivitiesOngoing/${item.ApplyId}`" v-for="item in tableData"
                                     :key="item.ActId" v-else>
                                     <div class=" activelist-item-bar">

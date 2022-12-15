@@ -169,6 +169,7 @@ function checkInput() {
         alert('請輸入職稱')
         return false;
     } else {
+
         router.push(`/Course/RegistrationFormNext/${id}`)
     }
 }
