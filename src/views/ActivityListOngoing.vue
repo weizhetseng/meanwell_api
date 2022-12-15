@@ -105,7 +105,7 @@
 </template>
 <script setup>
 import axios from "axios";
-import { onMounted, ref, reactive } from "vue"
+import { onMounted, ref } from "vue"
 import { useMemberStore } from "../stores/stores";
 const store = useMemberStore()
 

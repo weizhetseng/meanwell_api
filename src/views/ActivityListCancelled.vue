@@ -105,7 +105,7 @@
 </template>
 <script setup>
 import axios from "axios";
-import { onMounted, reactive, ref } from "vue"
+import { onMounted, ref } from "vue"
 import { useMemberStore } from "../stores/stores";
 import { useRoute } from "vue-router";
 const route = useRoute()

@@ -235,20 +235,13 @@ const qrclosures = () => {
 
 
 function previewFile() {
-    const file = document.getElementById("upload_img").files[0];   //document.querySelector('input[type=file]').files[0];
+    const file = document.getElementById("upload_img").files[0];
 
     let reader = new FileReader();
     if (file) {
-
         reader.readAsDataURL(file);
-
-
         reader.onloadend = function () {
-
-
             var strImage = reader.result.replace(/^data:image\/[a-z]+;base64,/, "");
-            console.log(strImage);
-
             const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MemberPicUpdate`
             axios.post(api, {
                 "u_id": $cookies.get('u_id'),
@@ -257,21 +250,14 @@ function previewFile() {
                 "Pic": strImage
             })
                 .then((res) => {
-                    console.log(res)
+                    if (res.data.success) {
+                        alert('圖片上傳成功')
+                    } else {
+                        alert(res.data.message)
+                    }
                 })
         }
-
-
     }
-    else {
-        preview.src = "";
-    }
-
-
-
-
-
-
 }
 
 function changeMemberData() {

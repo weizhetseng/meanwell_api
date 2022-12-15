@@ -57,7 +57,7 @@
 
 <script setup>
 import axios from 'axios';
-import { onMounted, reactive, ref } from 'vue';
+import { ref } from 'vue';
 import { useRoute } from 'vue-router'
 
 
@@ -79,7 +79,7 @@ axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCo
         showData.value = ListData.value.filter((item) => {
             return item.ActId === id.slice(1)
         })
-        console.log(showData)
+
     })
 
 </script>

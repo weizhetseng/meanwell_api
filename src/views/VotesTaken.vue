@@ -81,8 +81,8 @@ import { computed, ref } from "vue"
 import { useMemberStore } from "../stores/stores";
 const TicketTaken = ref(
     {
-        TicketCode: '202212FY7uD',
-        AuthCode: 'GeHq'
+        TicketCode: '',
+        AuthCode: ''
     }
 )
 
@@ -166,7 +166,6 @@ function TakenTicket() {
             } else {
                 alert(res.data.message)
             }
-            console.log(res)
         })
 }
 </script>

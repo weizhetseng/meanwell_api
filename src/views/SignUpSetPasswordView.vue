@@ -60,7 +60,6 @@ function signUpCheck() {
         } else {
             alert(res.data.message)
         }
-        console.log(res)
     })
 }
 

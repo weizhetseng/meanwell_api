@@ -104,7 +104,7 @@
 </template>
 <script setup>
 import axios from "axios";
-import { computed, onMounted, reactive, ref } from "vue"
+import { onMounted, ref } from "vue"
 import { useMemberStore } from "../stores/stores";
 const store = useMemberStore()
 
@@ -235,9 +235,6 @@ const qropen = () => {
 const qrclosures = () => {
     qrcshow.value = false;
 }
-
-const MyActStatus = reactive([{}])
-
 
 onMounted(() => {
     getList()

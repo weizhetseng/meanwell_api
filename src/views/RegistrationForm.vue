@@ -187,7 +187,6 @@ onMounted(() => {
             showData.value = ListData.value.filter((item) => {
                 return item.ActId === id.slice(1)
             })
-            console.log(showData)
         })
 
 })

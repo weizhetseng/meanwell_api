@@ -189,7 +189,6 @@ function CancelActivity() {
             } else {
                 alert(res.data.message)
             }
-            console.log(res)
         })
 }
 

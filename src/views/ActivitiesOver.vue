@@ -125,7 +125,7 @@
 </template>
 <script setup>
 import axios from "axios";
-import { ref, reactive, onMounted, computed } from "vue"
+import { ref, onMounted, computed } from "vue"
 import { useMemberStore } from "../stores/stores";
 import { useRoute } from 'vue-router'
 
@@ -152,7 +152,6 @@ const Traffic = computed(() => {
     }
 })
 
-console.log(Meals)
 
 
 const store = useMemberStore()
@@ -226,7 +225,7 @@ onMounted(() => {
             showData.value = MyActStatus.value.filter((item) => {
                 return item.ApplyId === parseInt(id)
             })
-            console.log(showData)
+
         })
 })
 </script>

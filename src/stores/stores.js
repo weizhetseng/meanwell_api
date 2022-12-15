@@ -11,7 +11,6 @@ export const useMemberStore = defineStore('Member', () => {
   axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang') })
     .then((res) => {
       MemberData.value = res.data
-      console.log(res)
     })
 
   return { MemberData }

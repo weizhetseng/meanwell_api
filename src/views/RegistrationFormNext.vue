@@ -353,7 +353,6 @@ function SignUp() {
     const SignUpApi = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivitySignUp`
     axios.post(SignUpApi, storeSignUp.signUpData)
         .then((res) => {
-            console.log(res)
             if (res.data.success) {
                 alert('報名成功')
                 router.push('/')
@@ -445,12 +444,11 @@ onMounted(() => {
             showData.value = ListData.value.filter((item) => {
                 return item.ActId === id.slice(1)
             })
-            console.log(showData)
+
         })
 
     if (!showData.value[0].IsMeals) {
         storeSignUp.signUpData.Meals = 2
-        console.log(storeSignUp.signUpData.Meals)
     }
 
     storeSignUp.signUpData.u_id = $cookies.get('u_id')

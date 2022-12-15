@@ -51,30 +51,37 @@
                                 <div class="itemTitletext">舊密碼</div>
                             </div>
                             <div class="memberinfTextinput">
-                                <input type="password" name="changepassword" id="" class="memberinfinput"
-                                    placeholder="請輸入舊密碼">
-                                <div class="changepassword_view"><img src="../assets/img/unview.svg" alt=""></div>
+                                <input :type="checkEye1 ? 'password' : 'text'" name="changepassword" id="Oldpasseord"
+                                    class="memberinfinput" placeholder="請輸入舊密碼" v-model="NewPasswords.OldPassword">
+                                <span id="checkEye" class="material-symbols-outlined" @click="checkEye1 = !checkEye1">
+                                    {{ checkEye1 ? 'visibility_off' : 'visibility' }}
+                                </span>
                             </div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">新密碼</div>
                             </div>
                             <div class="memberinfTextinput">
-                                <input type="passwor" name="changepassword" id="" class="memberinfinput"
-                                    placeholder="請輸入新密碼">
-                                <div class="changepassword_view"><img src="../assets/img/view.svg" alt=""></div>
+                                <input :type="checkEye2 ? 'password' : 'text'" name="changepassword" id="Newpassword1"
+                                    class="memberinfinput" placeholder="請輸入新密碼" v-model="NewPasswords.NewPassword">
+                                <span id="checkEye" class="material-symbols-outlined" @click="checkEye2 = !checkEye2">
+                                    {{ checkEye2 ? 'visibility_off' : 'visibility' }}
+                                </span>
                             </div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">確認新密碼</div>
                             </div>
                             <div class="memberinfTextinput">
-                                <input type="passwor" name="changepassword" id="" class="memberinfinput"
-                                    placeholder="請確認新密碼">
-                                <div class="changepassword_view"><img src="../assets/img/unview.svg" alt=""></div>
+                                <input :type="checkEye3 ? 'password' : 'text'" name="changepassword" id="Newpassword2"
+                                    class="memberinfinput" placeholder="請確認新密碼">
+                                <span id="checkEye" class="material-symbols-outlined" @click="checkEye3 = !checkEye3">
+                                    {{ checkEye3 ? 'visibility_off' : 'visibility' }}
+                                </span>
                             </div>
                             <div class="persbuttonBox">
-                                <router-link to="/MemberCenter"><button class="pageButtem">確認送出</button></router-link>
+                                <router-link to="/MemberCenter"><button class="pageButtem"
+                                        @click.prevent="changepassword()">確認送出</button></router-link>
                             </div>
                         </div>
                     </div>
@@ -92,7 +99,65 @@
     </div>
 </template>
 <script setup>
+import axios from "axios";
+import { text } from "dom7";
 import { ref } from "vue"
+import { useMemberStore } from "../stores/stores";
+const store = useMemberStore()
+const checkEye1 = ref(true)
+const checkEye2 = ref(true)
+const checkEye3 = ref(true)
+
+const NewPasswords = ref(
+    {
+        OldPassword: "",
+        NewPassword: ""
+    }
+)
+function changepassword() {
+    const Oldpasseord = document.getElementById('Oldpasseord')
+    const Newpassword1 = document.getElementById('Newpassword1')
+    const Newpassword2 = document.getElementById('Newpassword2')
+    if (Newpassword1.value !== Newpassword2.value && Newpassword2.value !== '') {
+        alert('新密碼輸入不一致')
+        return false
+    } else if (Oldpasseord.value == '') {
+        alert('請輸入舊密碼')
+        return false
+    } else if (Newpassword1.value == '') {
+        alert('請輸入新密碼')
+        return false
+    } else if (Newpassword2.value == '') {
+        alert('請確認新密碼')
+        return false
+    }
+
+
+    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/UpdateData`
+    axios.post(api, {
+        "u_id": $cookies.get('u_id'),
+        "AuthCode": $cookies.get('AuthCode'),
+        "Lang": $cookies.get('Lang'),
+        "Name": store.MemberData.Name,
+        "Sex": store.MemberData.Sex,
+        "Birth": store.MemberData.Birth,
+        "Mobile": store.MemberData.Mobile,
+        "DocType": store.MemberData.DocType,
+        "DocNumber": store.MemberData.DocNumber,
+        "CompanyName": store.MemberData.CompanyName,
+        "JobTitle": store.MemberData.JobTitle,
+        "OldPassword": NewPasswords.value.OldPassword,
+        "NewPassword": NewPasswords.value.NewPassword
+    })
+        .then((res) => {
+            if (res.data.success) {
+                alert('更改成功')
+            } else {
+                alert(res.data.message)
+            }
+        })
+}
+
 const activeIdx = ref(1);
 const activeIddx = ref(2);
 const NavItemArr = ref([
@@ -156,4 +221,6 @@ const qropen = () => {
 const qrclosures = () => {
     qrcshow.value = false;
 }
+
+
 </script>

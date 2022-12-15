@@ -20,10 +20,10 @@
                         <div class="Calendar_dayscontent_item_dayBox" v-for="(item, index) in calendarTable"
                             :key="index">
                             <div class="daybar"
-                                :class="[{ 'non-current': !item.isCurrentMonth }, { today: isActive(item) }, { Activityday: item.haswork }]">
+                                :class="[{ 'non-current': !item.isCurrentMonth }, { today: isActive(item) }]">
                                 {{ item.day }}</div>
                             <div class="Activitybar">
-                                <div class="Activitybar_item" :class="{ 'ate': item.haswork }"></div>
+                                <div class="Activitybar_item"></div>
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,8 @@ import { computed, onMounted, ref } from 'vue';
 
 const weekMap = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 const calendarGrid = 42;
-const monthData = ref([{}])
+const monthData = ref([])
+
 let CalendarItem = [
     {
         year: '',
@@ -140,7 +141,6 @@ function generateCalendar(date) {
 
 const date = ref(new Date());
 const calendarTable = computed(() => generateCalendar(date.value));
-
 const dateText = computed(() => {
     return `${date.value.getFullYear()}/${date.value.getMonth() + 1}`;
 });
@@ -202,7 +202,6 @@ onMounted(() => {
         "Month": (ThisMonth.getMonth() + 1)
     }).then((res) => {
         monthData.value = res.data.DayDataList
-        console.log(monthData)
     })
 })
 </script>

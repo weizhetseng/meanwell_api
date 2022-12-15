@@ -72,7 +72,6 @@ function sendCode() {
             } else {
                 alert(res.data.message)
             }
-            console.log(res)
         })
 }
 
@@ -92,7 +91,6 @@ function verify() {
         } else {
             alert(res.data.message)
         }
-        console.log('Email驗證', res)
     })
 }
 

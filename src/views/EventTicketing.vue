@@ -150,8 +150,6 @@ onMounted(() => {
             showData.value = MyActStatus.value.filter((item) => {
                 return item.ApplyId === parseInt(id)
             })
-            console.log(res)
-            console.log(showData)
         })
 })
 </script>
