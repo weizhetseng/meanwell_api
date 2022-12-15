@@ -122,7 +122,7 @@ const totalSize = ref(null)
 //當前頁碼顯示內容
 const tableData = ref([])
 //一頁顯示數量
-const pageSize = 6
+const pageSize = 5
 //跳轉該頁面資料
 function handleCurrentChange(val) {
     currentPages.value = val;

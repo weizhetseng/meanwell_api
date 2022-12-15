@@ -52,8 +52,8 @@
                                 <div class="itemTitletext">我的活動列表</div>
                             </div>
                             <div class="ActiveList">
-                                <div v-if="(MyActStatus == null)">目前沒有已結束的活動</div>
-                                <RouterLink :to="`/ActivitiesOver/${item.ApplyId}`" v-for="item in MyActStatus.value"
+                                <div v-if="(tableData == null)">目前沒有已結束的活動</div>
+                                <RouterLink :to="`/ActivitiesOver/${item.ApplyId}`" v-for="item in tableData"
                                     :key="item.ApplyId">
                                     <div class="activelist-item-bar">
                                         <div class="activelist-item">
@@ -72,24 +72,16 @@
                                 </RouterLink>
                             </div>
                             <div class="pagination">
-                                <a href="javascript:;">
+                                <a href="javascript:;" @click.prevent="prevPage()">
                                     <div class="pagination_item_previous"> <img src="../assets/img/chevron-left.svg"
                                             alt="">
                                     </div>
                                 </a>
-                                <a href="javascript:;">
-                                    <div class="pagination_item"> 1 </div>
+                                <a href="javascript:;" v-for="item in totalSize"
+                                    @click.prevent="handleCurrentChange(item)">
+                                    <div class="pagination_item"> {{ item }} </div>
                                 </a>
-                                <a href="javascript:;">
-                                    <div class="pagination_item"> 2 </div>
-                                </a>
-                                <a href="javascript:;">
-                                    <div class="pagination_item"> 3 </div>
-                                </a>
-                                <a href="javascript:;">
-                                    <div class="pagination_item"> 4 </div>
-                                </a>
-                                <a href="javascript:;">
+                                <a href="javascript:;" @click.prevent="nextPage()">
                                     <div class="pagination_item_next"> <img src="../assets/img/chevron-right.svg"
                                             alt="">
                                     </div>
@@ -115,6 +107,71 @@ import axios from "axios";
 import { computed, onMounted, reactive, ref } from "vue"
 import { useMemberStore } from "../stores/stores";
 const store = useMemberStore()
+
+//當前頁面
+const currentPages = ref(1)
+//所以資料筆數
+const total = ref(null)
+//當前頁面資料
+const list = ref([])
+//當前頁碼總數
+const totalSize = ref(null)
+//當前頁碼顯示內容
+const tableData = ref([])
+//一頁顯示數量
+const pageSize = 5
+//跳轉該頁面資料
+function handleCurrentChange(val) {
+    currentPages.value = val;
+    getList();
+}
+//上一頁
+function prevPage() {
+    currentPages.value--
+    if (currentPages.value < 1) {
+        currentPages.value = 1
+    }
+    getList();
+}
+//下一頁
+function nextPage() {
+    currentPages.value++
+    if (currentPages.value >= totalSize.value) {
+        currentPages.value = totalSize.value
+    }
+    getList();
+}
+//axios取得該頁資料
+function getList() {
+    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
+    axios.post(api, {
+        "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "MyActStatus": 2, "SDateTime": "", "EDateTime": "", "Keywords": ""
+    })
+        .then((res) => {
+            list.value = res.data.MyActivityDataList
+            total.value = res.data.MyActivityDataList.length
+            totalSize.value = Math.ceil(total.value / pageSize)
+            tableData.value = getNeedArr(list.value, pageSize)[currentPages.value - 1]
+        })
+}
+//計算頁面資料
+function getNeedArr(array, size) {
+    const length = array.length
+    if (!length || !size || size < 1) {
+        return []
+    }
+    let index = 0
+    let resIndex = 0
+    let result = new Array(Math.ceil(length / size))
+
+    while (index < length) {
+        result[resIndex++] = array.slice(index, (index += size))
+    }
+
+    return result
+}
+
+
 const activeIdx = ref(2);
 const activeIddx = ref(1);
 const NavItemArr = ref([
@@ -183,14 +240,7 @@ const MyActStatus = reactive([{}])
 
 
 onMounted(() => {
-    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
-    axios.post(api, {
-        "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "MyActStatus": 2, "SDateTime": "", "EDateTime": "", "Keywords": ""
-    })
-        .then((res) => {
-            MyActStatus.value = res.data.MyActivityDataList
-            console.log(res)
-        })
+    getList()
 })
 
 </script>
