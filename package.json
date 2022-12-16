@@ -9,14 +9,15 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@vee-validate/i18n": "^4.7.3",
+    "@vee-validate/rules": "^4.7.3",
     "pinia": "^2.0.26",
     "swiper": "^8.4.5",
     "vee-validate": "^4.7.3",
     "vue": "^3.2.45",
     "vue-axios": "^3.5.2",
     "vue-cookies": "^1.8.2",
-    "vue-router": "^4.1.6",
-    "vue-select": "^4.0.0-beta.6"
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",

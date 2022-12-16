@@ -7,26 +7,47 @@
                 </section>
                 <section class="loginContentBox">
                     <div class="ContentBoxTitle">會員登入 / 註冊</div>
-                    <div class="User_account">
-                        <input type="email" class="User_accountInput" placeholder="請輸入電子信箱" required>
-                    </div>
-                    <div class="User_password">
-                        <input type="password" class="User_accountInput" placeholder="請輸入密碼" required>
-                    </div>
-                    <div class="login_confirm_input">
-                        <label>
-                            <input type="checkbox" name="confirm_lre" id="">
-                            <span>記住我</span>
-                        </label>
-                        <div class="ForgotPassword">
-                            <RouterLink to="/ForgotPassword">忘記密碼 ?</RouterLink>
+                    <Form v-slot="{ errors, values, validate }">
+                        <div>
+                            <div class="User_account">
+                                <Field id="email" name="email" type="email" class="User_accountInput"
+                                    :class="{ 'is-invalid': errors['email'] }" placeholder="請輸入電子信箱"
+                                    rules="email|required" v-model="user.u_id">
+                                </Field>
+                            </div>
+                            <div class="error">
+                                <error-message name="email" class="invalid-feedback"></error-message>
+                            </div>
                         </div>
-                    </div>
-                    <div class="buttemBox">
-                        <RouterLink to="/SignUp"><button class="pageButtem">註冊</button></RouterLink>
-                        <input type="submit" value="登入" class="loginButtem" @click="loginent()">
+                        <div>
+                            <div class="User_password">
+                                <Field id="password" name="password" type="password" class="User_accountInput"
+                                    :class="{ 'is-invalid': errors['password'] }" placeholder="請輸入密碼" rules="required"
+                                    v-model="user.RA">
+                                </Field>
+                            </div>
+                            <div class="error">
+                                <error-message name="password" class="invalid-feedback"></error-message>
+                            </div>
+                        </div>
 
-                    </div>
+                        <div class="login_confirm_input">
+                            <label>
+                                <Field type="checkbox" name="記住我" :value="true" :class="{ 'is-invalid': errors['記住我'] }"
+                                    rules="required"></Field>
+                                <span>記住我</span>
+                            </label>
+                            <div class="ForgotPassword">
+                                <RouterLink to="/ForgotPassword">忘記密碼 ?</RouterLink>
+                            </div>
+                            <error-message name="記住我" class="invalid-feedback"></error-message>
+                        </div>
+                        <div class="buttemBox">
+                            <RouterLink to="/SignUp"><button class="pageButtem">註冊</button></RouterLink>
+                            <input type="submit" value="登入" class="loginButtem" @click="loginent()">
+
+                        </div>
+                    </Form>
                     <div class="ThirdParty">
                         <div class="ThirdPartyTitle">
                             <div class="ThirdPartyTitleLine"></div>
@@ -61,10 +82,41 @@
 <script setup>
 
 
+import axios from 'axios';
 import { useLoginStore } from '../stores/stores';
 const store = useLoginStore()
 const loginent = () => {
     store.loginData();
 }
+
+const user = {
+    u_id: "",
+    RA: "",
+    mpDeviceID: "string",
+    mpFCMID: "string",
+    os: "string",
+    mpPhoneType: "string",
+    mpPhoneSize: "string",
+    Vers: "string",
+    AppVers: "string",
+    Lang: ""
+}
+
+function Login() {
+    const api1 = `${import.meta.env.VITE_APP_API}API_App/MemberData/Login`
+    axios.post(api1, user)
+        .then((res) => {
+            if (res.data.success) {
+                alert('發送成功')
+
+            } else {
+                alert(res.data.message)
+            }
+        })
+
+
+}
+
+
 
 </script>
