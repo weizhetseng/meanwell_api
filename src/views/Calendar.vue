@@ -20,18 +20,20 @@
                         <div class="Calendar_dayscontent_item_dayBox" v-for="(item, index) in calendarTable"
                             :key="index">
                             <div class="daybar"
-                                :class="[{ 'non-current': !item.isCurrentMonth }, { today: isActive(item) }]">
+                                :class="[{ 'non-current': !item.isCurrentMonth }, { today: isActive(item) }, { selectedDay: index === DaySelected }, { Activityday: item.haswork && item.month === ThisMonth.getMonth() }]"
+                                @click="selectedDay(item, index)">
                                 {{ item.day }}</div>
                             <div class="Activitybar">
-                                <div class="Activitybar_item"></div>
+                                <div class="Activitybar_item"
+                                    :class="{ ate: item.haswork && item.month === ThisMonth.getMonth() }"></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="CalendarContentBox">
-                    <div class="Activecolumn">
-                        <div class="RemindDate"></div>
-                        <div class="ReminderMessage"></div>
+                    <div class="Activecolumn" v-for="(item, index) in showActivity" :key="index">
+                        <div class="RemindDate">{{ item[index].ActSDateTime }}</div>
+                        <div class="ReminderMessage">{{ item[index].ActSubject }}</div>
                     </div>
                 </div>
             </div>
@@ -44,7 +46,10 @@ import { computed, onMounted, ref } from 'vue';
 
 const weekMap = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 const calendarGrid = 42;
+const DaySelected = ref(-1)
 const monthData = ref([])
+const showActivity = ref([])
+const ThisMonth = new Date()
 
 let CalendarItem = [
     {
@@ -55,6 +60,24 @@ let CalendarItem = [
         haswork: false
     }
 ]
+function selectedDay(item, index) {
+    DaySelected.value = index
+    const api = `${import.meta.env.VITE_APP_API}API_App/Calendar/GetApplyActivityDataByMonth`
+    axios.post(api, {
+        "u_id": $cookies.get('u_id'),
+        "AuthCode": $cookies.get('AuthCode'),
+        "Lang": $cookies.get('Lang'),
+        "Year": ThisMonth.getFullYear(),
+        "Month": (ThisMonth.getMonth() + 1)
+    }).then((res) => {
+        res.data.DayDataList.forEach((item2, index) => {
+            if (item.day === item2.Day && item.month === ThisMonth.getMonth()) {
+                showActivity.value.push(item2.ApplyActivityDataList)
+            }
+        })
+    })
+    showActivity.value = []
+}
 //是否為閏年
 function isLeap(year) {
     return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
@@ -101,6 +124,10 @@ function generateCalendar(date) {
     const trailDays = calendarGrid - weekIndex - days;
     let trailVal = 0;
     const calendarTable = CalendarItem;
+
+
+
+
     for (let i = 0; i < calendarGrid; i++) {
         // 填入上個月天數
         if (i < weekIndex) {
@@ -132,7 +159,7 @@ function generateCalendar(date) {
             month: currentMonth,
             day: d,
             isCurrentMonth: true,
-            haswork: false
+            haswork: (d === 2) ? true : false
         };
     }
 
@@ -141,6 +168,9 @@ function generateCalendar(date) {
 
 const date = ref(new Date());
 const calendarTable = computed(() => generateCalendar(date.value));
+
+
+
 const dateText = computed(() => {
     return `${date.value.getFullYear()}/${date.value.getMonth() + 1}`;
 });
@@ -201,9 +231,12 @@ onMounted(() => {
         "Year": ThisMonth.getFullYear(),
         "Month": (ThisMonth.getMonth() + 1)
     }).then((res) => {
+
         monthData.value = res.data.DayDataList
-    })
+
+    });
 })
+
 </script>
 
 

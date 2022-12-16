@@ -13,6 +13,14 @@ const router = createRouter({
       }
     },
     {
+      path: '/CalenderTest',
+      name: 'CalenderTest',
+      component: () => import("../views/CalenderTest.vue"),
+      meta: {
+        keepAlive: false
+      }
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import("../views/LoginView.vue"),
