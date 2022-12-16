@@ -20,12 +20,13 @@
                         <div class="Calendar_dayscontent_item_dayBox" v-for="(item, index) in calendarTable"
                             :key="index">
                             <div class="daybar"
-                                :class="[{ 'non-current': !item.isCurrentMonth }, { today: isActive(item) }, { selectedDay: index === DaySelected }, { Activityday: item.haswork && item.month === ThisMonth.getMonth() }]"
+                                :class="[{ 'non-current': !item.isCurrentMonth }, { today: isActive(item) }, { selectedDay: index === DaySelected }, { Activityday: monthData.some((item2) => item2.Day === item.day) && item.month === ThisMonth.getMonth() && item.year === ThisMonth.getFullYear() }]"
                                 @click="selectedDay(item, index)">
                                 {{ item.day }}</div>
                             <div class="Activitybar">
                                 <div class="Activitybar_item"
-                                    :class="{ ate: item.haswork && item.month === ThisMonth.getMonth() }"></div>
+                                    :class="{ ate: monthData.some((item2) => item2.Day === item.day) && item.month === ThisMonth.getMonth() && item.year === ThisMonth.getFullYear() }">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -57,7 +58,6 @@ let CalendarItem = [
         month: '',
         day: '',
         isCurrentMonth: true,
-        haswork: false
     }
 ]
 function selectedDay(item, index) {
@@ -136,7 +136,7 @@ function generateCalendar(date) {
                 month: lastMonth,
                 day: lastMonthDays - weekIndex + i + 1,
                 isCurrentMonth: false,
-                haswork: false
+
             };
             // 填入下個月天數
         } else if (i >= days + weekIndex) {
@@ -148,7 +148,7 @@ function generateCalendar(date) {
                 month: nextMonth,
                 day: trailVal,
                 isCurrentMonth: false,
-                haswork: false
+
             };
         }
     }
@@ -159,17 +159,13 @@ function generateCalendar(date) {
             month: currentMonth,
             day: d,
             isCurrentMonth: true,
-            haswork: (d === 2) ? true : false
         };
     }
 
     return calendarTable;
 };
-
 const date = ref(new Date());
 const calendarTable = computed(() => generateCalendar(date.value));
-
-
 
 const dateText = computed(() => {
     return `${date.value.getFullYear()}/${date.value.getMonth() + 1}`;
@@ -210,10 +206,11 @@ function changeMonth(type) {
         month = date.value.getMonth() === 11 ? 0 : date.value.getMonth() + 1;
         year = month === 0 ? date.value.getFullYear() + 1 : date.value.getFullYear();
     }
-    if (month === new Date().getMonth()) {
+    if (month === new Date().getMonth() && year === new Date().getFullYear()) {
         currentDate();
         return;
     }
+
     date.value.setDate(1);
     date.value.setMonth(month);
     date.value.setFullYear(year);
