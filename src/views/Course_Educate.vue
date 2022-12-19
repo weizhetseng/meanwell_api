@@ -5,7 +5,7 @@
             <div class="page_content avt">
                 <div class="PageBreadCrumbs">
                     <ul>
-                        <li>首頁</li>
+                        <li>{{ $t('IndexText') }}</li>
                         <li>></li>
                         <li>活動列表</li>
                     </ul>

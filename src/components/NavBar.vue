@@ -29,14 +29,14 @@
                         <router-link :to="items.path">
                             <div class="navItems" @click="handleMenuFnb(ia)">
                                 <div class="memberNavItemLine"></div>
-                                <div class="memberNavItemtext">{{ items.name }}</div>
+                                <div class="memberNavItemtext">{{ $t(items.name) }}</div>
                             </div>
                         </router-link>
                         <div class="navItemSort">
                             <div class="navItemSortContent">
                                 <div class="navItemSortContentItem" :class="{ active: mobileactiveIddx === iddx }"
                                     v-for="(itax, iddx) in items.item" :key="itax.name" @click="handleMenuFna(iddx)">
-                                    <router-link :to="itax.path">{{ itax.name }}</router-link>
+                                    <router-link :to="itax.path">{{ $t(itax.name) }}</router-link>
                                 </div>
                             </div>
                         </div>
@@ -122,43 +122,43 @@ const mobileactiveIddx = ref(null);
 const mobileactiveIdx = ref(null);
 const NavItemArr = ref([
     {
-        name: 'SDG帳戶',
+        name: 'MemberList1',
         path: '/MemberCenter',
     }, {
-        name: '帳號管理',
+        name: 'MemberList2',
         path: '',
         item: [
             {
-                name: '個人資料',
+                name: 'MemberList3',
                 path: '/PersonalInformation',
             }, {
-                name: '登入設定',
+                name: 'MemberList4',
                 path: '/LoginSettings',
             }, {
-                name: '變更密碼',
+                name: 'MemberList5',
                 path: '/ChangePassword',
             }, {
-                name: '會員管理辦法',
+                name: 'MemberList6',
                 path: '/MembershipManagementMeasures',
             }
         ]
     }, {
-        name: '我的活動',
+        name: 'MemberList7',
         path: '',
         item: [
             {
-                name: '進行中',
+                name: 'MemberList8',
                 path: '/ActivityListOngoing',
             }, {
-                name: '已結束',
+                name: 'MemberList9',
                 path: '/ActivityListOver',
             }, {
-                name: '已取消',
+                name: 'MemberList10',
                 path: '/ActivityListCancelled',
             }
         ]
     }, {
-        name: '領取分票',
+        name: 'MemberList11',
         path: '/VotesTaken',
     }
 ]);

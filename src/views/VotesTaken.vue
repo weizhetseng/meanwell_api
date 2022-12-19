@@ -4,9 +4,9 @@
             <div class="page_content">
                 <div class="PageBreadCrumbs">
                     <ul>
-                        <li>首頁</li>
+                        <li>{{ $t('IndexText') }}</li>
                         <li>></li>
-                        <li>領取分票</li>
+                        <li>{{ $t('MemberList11') }}</li>
                     </ul>
                 </div>
                 <section class="MemberCenterContent">
@@ -16,14 +16,14 @@
                             <router-link :to="items.path">
                                 <div class="navItems" @click="handleMenuFnb(ia)">
                                     <div class="memberNavItemLine"></div>
-                                    <div class="memberNavItemtext">{{ items.name }}</div>
+                                    <div class="memberNavItemtext">{{ $t(items.name) }}</div>
                                 </div>
                             </router-link>
                             <div class="navItemSort">
                                 <div class="navItemSortContent">
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
                                         v-for="(itax, iddx) in items.item" :key="itax.name"
-                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ itax.name
+                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ $t(itax.name)
                                         }}</router-link></div>
                                 </div>
                             </div>
@@ -33,12 +33,12 @@
                         <div class="memberCenterRightTopBox">
                             <div class="memberUserBox">
                                 <div class="memberUserBoxLeft"><img src="../assets/img/memberUserIcon.svg" alt=""></div>
-                                <div class="memberUserName">{{ store.MemberData.Name }} 您好!</div>
+                                <div class="memberUserName">{{ store.MemberData.Name }} {{ $t('MemberHi') }}</div>
                             </div>
                             <div class="memberUserQRcord" @click="qropen()">
                                 <div class="MembershipLevelBox">
-                                    <div class="memberleve">銀卡會員</div>
-                                    <div class="memberqrtext">我的會員QRCORD</div>
+                                    <div class="memberleve">{{ $t('MemberLevel') }}</div>
+                                    <div class="memberqrtext">{{ $t('MemberQR') }}</div>
                                 </div>
                                 <div class="qrcodeph"><img src="../assets/img/qr-code-line.svg" alt=""></div>
                             </div>
@@ -46,19 +46,19 @@
                         <div class="memberCenterRightContentBox">
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">訂票代碼</div>
+                                <div class="itemTitletext">{{ $t('TicketCode1') }}</div>
                             </div>
                             <div class="memberinfTextinput"><input type="text" name="" id="" class="memberinfinput"
-                                    placeholder="請輸入分票代碼" v-model="TicketTaken.TicketCode"></div>
+                                    :placeholder="$t('TicketCode1_5')" v-model="TicketTaken.TicketCode"></div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">訂票驗證碼</div>
+                                <div class="itemTitletext">{{ $t('TicketCode2') }}</div>
                             </div>
                             <div class="memberinfTextinput"><input type="text" name="" id="" class="memberinfinput"
-                                    placeholder="請輸入訂票驗證碼" v-model="TicketTaken.AuthCode"></div>
+                                    :placeholder="$t('TicketCode2_5')" v-model="TicketTaken.AuthCode"></div>
                             <div class="persbuttonBox">
-                                <router-link to="#"><button class="pageButtem"
-                                        @click="TakenTicket()">確認送出</button></router-link>
+                                <router-link to="#"><button class="pageButtem" @click="TakenTicket()">{{ $t('Check')
+                                }}</button></router-link>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
         </main>
         <div class="leyboxbg" :class="{ active: qrcshow }" @click="qrclosures()">
             <div class="leyboxcontent">
-                <div class="leyboxcontent_txt">會員 QRCORD</div>
+                <div class="leyboxcontent_txt">{{ $t('MemberQR2') }}</div>
                 <div class="qrcordphoto"><img src="../assets/img/qrcode.svg" alt=""></div>
                 <div class="closure_icon_set" @click="qrclosures()"><img src="../assets/img/closure_icon.svg" alt="">
                 </div>
@@ -92,46 +92,46 @@ const activeIddx = ref(null);
 const activityset = ref(0);
 const NavItemArr = ref([
     {
-        name: 'SDG帳戶',
+        name: 'MemberList1',
         path: '/MemberCenter',
     }, {
-        name: '帳號管理',
+        name: 'MemberList2',
         path: '',
         item: [
             {
-                name: '個人資料',
+                name: 'MemberList3',
                 path: '/PersonalInformation',
             }, {
-                name: '登入設定',
+                name: 'MemberList4',
                 path: '/LoginSettings',
             }, {
-                name: '變更密碼',
+                name: 'MemberList5',
                 path: '/ChangePassword',
             }, {
-                name: '會員管理辦法',
+                name: 'MemberList6',
                 path: '/MembershipManagementMeasures',
             }
         ]
     }, {
-        name: '我的活動',
+        name: 'MemberList7',
         path: '',
         item: [
             {
-                name: '進行中',
+                name: 'MemberList8',
                 path: '/ActivityListOngoing',
             }, {
-                name: '已結束',
+                name: 'MemberList9',
                 path: '/ActivityListOver',
             }, {
-                name: '已取消',
+                name: 'MemberList10',
                 path: '/ActivityListCancelled',
             }
         ]
     }, {
-        name: '領取分票',
+        name: 'MemberList11',
         path: '/VotesTaken',
     }
-]);
+]);;
 const qrcshow = ref(false);
 const handleMenuFn = (idx) => {
     activeIdx.value = idx;
