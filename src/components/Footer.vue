@@ -3,28 +3,28 @@
         <div class="footer_meunbar">
             <div class="meunbar">
                 <div class="meunbar_itembar">
-                    <div class="meunbar_itembar_title">關於我們</div>
+                    <div class="meunbar_itembar_title">{{ $t('AboutUs') }}</div>
                     <ul>
-                        <li><a href="javascript:;">SDG永續發展網</a></li>
-                        <li><a href="javascript:;">明緯</a></li>
-                        <li><a href="javascript:;">協緯</a></li>
-                        <li><a href="javascript:;">聯源</a></li>
-                        <li><a href="javascript:;">公益基金會</a></li>
+                        <li><a href="javascript:;">{{ $t('AboutUs1') }}</a></li>
+                        <li><a href="javascript:;">{{ $t('AboutUs2') }}</a></li>
+                        <li><a href="javascript:;">{{ $t('AboutUs3') }}</a></li>
+                        <li><a href="javascript:;">{{ $t('AboutUs4') }}</a></li>
+                        <li><a href="javascript:;">{{ $t('AboutUs5') }}</a></li>
                     </ul>
                 </div>
                 <div class="meunbar_itembar">
-                    <div class="meunbar_itembar_title">關於共享機</div>
+                    <div class="meunbar_itembar_title">{{ $t('AboutSDG') }}</div>
                     <ul>
-                        <li><router-link to="/ServiceContent">服務內容</router-link></li>
-                        <li><router-link to="/MissionVision">使命願景</router-link></li>
+                        <li><router-link to="/ServiceContent">{{ $t('AboutSDG1') }}</router-link></li>
+                        <li><router-link to="/MissionVision">{{ $t('AboutSDG2') }}</router-link></li>
                     </ul>
                 </div>
                 <div class="meunbar_itembar">
-                    <div class="meunbar_itembar_title">服務</div>
+                    <div class="meunbar_itembar_title">{{ $t('Serve') }}</div>
                     <ul>
-                        <li><router-link to="/MembershipTermsofService">會員服務條款</router-link></li>
-                        <li><router-link to="/CommonProblem">常見問題</router-link></li>
-                        <li><router-link to="/Questionnaire">問卷調查</router-link></li>
+                        <li><router-link to="/MembershipTermsofService">{{ $t('Serve1') }}</router-link></li>
+                        <li><router-link to="/CommonProblem">{{ $t('Serve2') }}</router-link></li>
+                        <li><router-link to="/Questionnaire">{{ $t('Serve3') }}</router-link></li>
                     </ul>
                 </div>
             </div>

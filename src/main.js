@@ -1,24 +1,17 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { createI18n } from 'vue-i18n'
+import zh_TW from './languages/zh-TW.json'
+import en_US from './languages/en-US.json'
+import zh_CN from './languages/zh-CN.json'
 
 // 匯入 vee-validate 主套件
-
-import {
-
-    Field, Form, ErrorMessage, defineRule, configure,
-
-} from 'vee-validate';
-
+import { Field, Form, ErrorMessage, defineRule, configure } from 'vee-validate';
 // 匯入 vee-validate 相關規則
-
 import { required, email, min } from '@vee-validate/rules';
-
 // 匯入多國語系的功能
-
 import { localize, setLocale } from '@vee-validate/i18n';
-
 // 匯入繁體中文語系檔案
-
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
 
 import App from './App.vue'
@@ -30,6 +23,19 @@ import VueCookies from 'vue-cookies';
 
 import './assets/scss/master.scss'
 import './assets/scss/main.sass'
+
+const i18n = createI18n({
+    legacy: false,
+    locale: 'zh-TW',
+    fallbackLocale: 'zh-TW',
+    globalInjection: true,
+    messages: {
+        'zh-TW': zh_TW,
+        'zh-CN': zh_CN,
+        'en-US': en_US
+    }
+})
+
 
 // 定義驗證規則
 
@@ -68,6 +74,8 @@ app.component('Field', Field);
 
 app.component('ErrorMessage', ErrorMessage);
 
+
+app.use(i18n)
 app.mount('#app')
 
 app.config.globalProperties.$cookies = VueCookies

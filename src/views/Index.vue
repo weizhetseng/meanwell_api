@@ -2,7 +2,7 @@
   <div class="page_main">
     <main>
       <div class="page_content">
-        <div class="indexPageTitle">多元服務，價值共享</div>
+        <div class="indexPageTitle">{{ $t('MainTitle') }}</div>
         <section class="indexActivityBar">
           <div class="indAct_item_Box">
             <ul class="indAct_ul01">
@@ -12,7 +12,7 @@
                     <img :src="`/src/assets/img/${item.imgUrl}`" alt="" />
                   </div>
                   <div class="atcText" :style="{ color: item.color }">
-                    {{ item.link }}
+                    {{ $t(item.link) }}
                   </div>
                 </router-link>
               </li>
@@ -23,7 +23,7 @@
                   <div class="atcImgBox">
                     <img src="../assets/img/activity_4.svg" alt="" />
                   </div>
-                  <div class="atcText CaringCare">關懷照護</div>
+                  <div class="atcText CaringCare">{{ $t('IndexLink4') }}</div>
                 </router-link>
               </li>
               <li>
@@ -31,7 +31,7 @@
                   <div class="atcImgBox">
                     <img src="../assets/img/activity_5.svg" alt="" />
                   </div>
-                  <div class="atcText GiftingPlatform">禮贈平台</div>
+                  <div class="atcText GiftingPlatform">{{ $t('IndexLink5') }}</div>
                 </router-link>
               </li>
             </ul>
@@ -43,24 +43,16 @@
               <li>
                 <div class="AnnTop">
                   <div class="AnnTopIcon">
-                    <img
-                      class="messageIcon"
-                      src="../assets/img/message_icon.svg"
-                      alt=""
-                    />
+                    <img class="messageIcon" src="../assets/img/message_icon.svg" alt="" />
                   </div>
-                  <div class="AnnTopText">訊息通知</div>
+                  <div class="AnnTopText">{{ $t('IndexMsgBox1') }}</div>
                 </div>
                 <div class="AnnContent">
                   <ul v-if="store.logoutStatue">
-                    <li class="ConferenceLine"><a href="">請先登入會員</a></li>
+                    <li class="ConferenceLine"><a href="">{{ $t('IndexRemainMsg') }}</a></li>
                   </ul>
                   <ul v-else-if="store.loginStatue">
-                    <li
-                      v-for="item in PushMsgList"
-                      :key="item.mssid"
-                      :style="{ 'border-left-color': item.color }"
-                    >
+                    <li v-for="item in PushMsgList" :key="item.mssid" :style="{ 'border-left-color': item.color }">
                       <a href="">
                         {{ item.SendTime }} {{ item.TitleName }}
                         {{ item.SubTitle }}
@@ -74,18 +66,14 @@
                   <div class="AnnTopIcon">
                     <img src="../assets/img/news_icon.svg" alt="" />
                   </div>
-                  <div class="AnnTopText">最新動態</div>
+                  <div class="AnnTopText">{{ $t('IndexMsgBox2') }}</div>
                 </div>
                 <div class="AnnContent">
                   <ul v-if="store.logoutStatue">
-                    <li class="ConferenceLine"><a href="">請先登入會員</a></li>
+                    <li class="ConferenceLine"><a href="">{{ $t('IndexRemainMsg') }}</a></li>
                   </ul>
                   <ul v-else-if="store.loginStatue">
-                    <li
-                      v-for="(item, index) in NewsList"
-                      :style="{ 'border-left-color': item.color }"
-                      :key="index"
-                    >
+                    <li v-for="(item, index) in NewsList" :style="{ 'border-left-color': item.color }" :key="index">
                       <a href="">{{ item.News_Topic }}</a>
                     </li>
                   </ul>
@@ -96,18 +84,14 @@
                   <div class="AnnTopIcon">
                     <img src="../assets/img/gift.svg" alt="" />
                   </div>
-                  <div class="AnnTopText">禮贈推薦</div>
+                  <div class="AnnTopText">{{ $t('IndexMsgBox3') }}</div>
                 </div>
                 <div class="AnnContent">
                   <ul v-if="store.logoutStatue">
-                    <li class="ConferenceLine"><a href="">請先登入會員</a></li>
+                    <li class="ConferenceLine"><a href="">{{ $t('IndexRemainMsg') }}</a></li>
                   </ul>
                   <ul v-else-if="store.loginStatue">
-                    <li
-                      v-for="(item, index) in NewSaleList"
-                      :style="{ 'border-left-color': item.color }"
-                      :key="index"
-                    >
+                    <li v-for="(item, index) in NewSaleList" :style="{ 'border-left-color': item.color }" :key="index">
                       <a href="">{{ item.News_Topic }}</a>
                     </li>
                   </ul>
@@ -129,19 +113,19 @@ import { useLoginStore } from "../stores/stores";
 const indexLink = [
   {
     route: 1,
-    link: "會議活動",
+    link: "IndexLink1",
     imgUrl: "activity_1.svg",
     color: "#077E8E",
   },
   {
     route: 2,
-    link: "教育訓練",
+    link: "IndexLink2",
     imgUrl: "activity_2.svg",
     color: "#649644",
   },
   {
     route: 3,
-    link: "活動導覽",
+    link: "IndexLink3",
     imgUrl: "activity_3.svg",
     color: "#9CAF4A",
   },
@@ -161,6 +145,9 @@ const PushMsgList = ref([{}]);
 const NewsList = ref([{}]);
 // 禮贈新品資料清單
 const NewSaleList = ref([{}]);
+
+
+
 
 onMounted(() => {
   //取得個人推播訊息資料

@@ -7,12 +7,12 @@
             </div>
             <div class="mobile_signoutView">
                 <div class="mobile_sdgMenuItem">
-                    <div class="menu_item_text">進入管理系統</div>
+                    <div class="menu_item_text">{{ $t('NavBarText') }}</div>
                 </div>
                 <div class="mobile_sdgMenuItem">
                     <div class="loging_item">
-                        <RouterLink to="/login" @click="colsMobileMenu()">登入</RouterLink> / <RouterLink to="/SignUp"
-                            @click="colsMobileMenu()">註冊</RouterLink>
+                        <RouterLink to="/login" @click="colsMobileMenu()">{{ $t('Login') }}</RouterLink> / <RouterLink
+                            to="/SignUp" @click="colsMobileMenu()">{{ $t('Register') }}</RouterLink>
                     </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                 <RouterLink to="/MemberCenter" @click="colsMobileMenu()">
                     <div class="mobile_sdgMenuItem">
                         <div class="signinicon"><img src="../assets/img/member_icon.svg" alt=""></div>
-                        <div class="signinmenutext">會員中心</div>
+                        <div class="signinmenutext">{{ $t('MemberCenter') }}</div>
                     </div>
                 </RouterLink>
                 <div class="mobile_member">
@@ -46,11 +46,11 @@
                 <RouterLink to="/Calendar" @click="colsMobileMenu()">
                     <div class="mobile_sdgMenuItem2">
                         <div class="signinicon"><img src="../assets/img/calendar_icon.svg" alt=""></div>
-                        <div class="signinmenutext">行事曆</div>
+                        <div class="signinmenutext">{{ $t('Calendar') }}</div>
                     </div>
                 </RouterLink>
 
-                <div class="mobile_Tosignout" @click="colsMobileMenu()">登出</div>
+                <div class="mobile_Tosignout" @click="colsMobileMenu()">{{ $t('Logout') }}</div>
             </div>
 
         </div>
@@ -63,11 +63,14 @@
             <div class="system_bar">
                 <div class="signoutView" :class="{ active: store.att }">
                     <div class="sdgMenuItem">
-                        <div class="menu_item_text">進入管理系統</div>
+                        <div class="menu_item_text">{{ $t('NavBarText') }}</div>
                     </div>
                     <div class="sdgMenuItem">
                         <div class="loging_item">
-                            <RouterLink to="/login">登入</RouterLink> / <RouterLink to="/SignUp">註冊</RouterLink>
+                            <RouterLink to="/login">{{ $t('Login') }}</RouterLink> / <RouterLink to="/SignUp">{{
+                                    $t('Register')
+                            }}
+                            </RouterLink>
                         </div>
                     </div>
                 </div>
@@ -75,16 +78,16 @@
                     <RouterLink to="/MemberCenter">
                         <div class="sdgMenuItem">
                             <div class="signinicon"><img src="../assets/img/member_icon.svg" alt=""></div>
-                            <div class="signinmenutext">會員中心</div>
+                            <div class="signinmenutext">{{ $t('MemberCenter') }}</div>
                         </div>
                     </RouterLink>
                     <a href="" @click="Logout()">
-                        <div class="Tosignout">登出</div>
+                        <div class="Tosignout">{{ $t('Logout') }}</div>
                     </a>
                     <RouterLink to="/Calendar">
                         <div class="sdgMenuItem2">
                             <div class="signinicon"><img src="../assets/img/calendar_icon.svg" alt=""></div>
-                            <div class="signinmenutext">行事曆</div>
+                            <div class="signinmenutext">{{ $t('Calendar') }}</div>
                         </div>
                     </RouterLink>
                 </div>
@@ -94,13 +97,13 @@
                         <img src="../assets/img/language_icon.svg" alt="">
                         <div class="language_bar">
                             <a href="javascript:;">
-                                <div class="language_bar_item">繁中</div>
+                                <div class="language_bar_item" @click="$i18n.locale = 'zh-TW'">繁中</div>
                             </a>
                             <a href="javascript:;">
-                                <div class="language_bar_item">简中</div>
+                                <div class="language_bar_item" @click="$i18n.locale = 'zh-CN'">简中</div>
                             </a>
                             <a href="javascript:;">
-                                <div class="language_bar_item">English</div>
+                                <div class="language_bar_item" @click="$i18n.locale = 'en-US'">English</div>
                             </a>
                         </div>
                     </div>
@@ -175,6 +178,11 @@ const handleMenuFna = (iddx) => {
     mobileactiveIddx.value = iddx;
     mobileMenu.value = false;
 };
+function handleChangeLanguage(e) {
+    locale.value = e.target.value
+}
+
+
 function Logout() {
     $cookies.remove("u_id")
     $cookies.remove("AuthCode")

@@ -4,9 +4,9 @@
             <div class="page_content avt">
                 <div class="PageBreadCrumbs">
                     <ul>
-                        <li>首頁</li>
+                        <li>{{ $t('IndexText') }}</li>
                         <li>></li>
-                        <li>活動列表</li>
+                        <li>{{ $t('ActivityText') }}</li>
                         <li>></li>
                         <li>{{ showData[0].ActSubject }}</li>
                     </ul>
@@ -17,25 +17,25 @@
                 <div class="CourseContentBox mobileSS">
                     <div class="activitiesTitle">{{ showData[0].ActSubject }}</div>
                     <div class="Coursebuttoon" v-if="showData[0].IsOpenSignUp && !showData[0].IsSignUp"><router-link
-                            :to="`/Course/RegistrationForm/${id}`"><button
-                                class="CoursebuttoonSet">前往報名</button></router-link></div>
+                            :to="`/Course/RegistrationForm/${id}`"><button class="CoursebuttoonSet">{{ $t('GoSignUp')
+                            }}</button></router-link></div>
                     <div class="itemTitle">
                         <div class="itemTitleLine"></div>
-                        <div class="itemTitletext">簡介</div>
+                        <div class="itemTitletext">{{ $t('ActivityIntro') }}</div>
                     </div>
                     <div class="CourseIntroduction">
                         {{ showData[0].ActDes }}
                     </div>
                     <div class="itemTitle">
                         <div class="itemTitleLine"></div>
-                        <div class="itemTitletext">時間</div>
+                        <div class="itemTitletext">{{ $t('ActivityTime') }}</div>
                     </div>
                     <div class="CourseIntroduction">
                         <div class="CourseIntroduction_item">{{ showData[0].ActSDateTime }}</div>
                     </div>
                     <div class="itemTitle">
                         <div class="itemTitleLine"></div>
-                        <div class="itemTitletext">地點</div>
+                        <div class="itemTitletext">{{ $t('ActivityLocation') }}</div>
                     </div>
                     <div class="CourseIntroduction">
                         <div class="CourseIntroduction_item">{{ showData[0].ActPlace }}</div>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="itemTitle">
                         <div class="itemTitleLine"></div>
-                        <div class="itemTitletext">注意事項</div>
+                        <div class="itemTitletext">{{ $t('ActivityAlert') }}</div>
                     </div>
                     <div class="CourseIntroduction">
                         {{ showData[0].ActNotice }}

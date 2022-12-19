@@ -4,9 +4,9 @@
             <div class="page_content avt">
                 <div class="PageBreadCrumbs">
                     <ul>
-                        <li>首頁</li>
+                        <li>{{ $t('IndexText') }}</li>
                         <li>></li>
-                        <li>活動列表</li>
+                        <li>{{ $t('ActivityText') }}</li>
                     </ul>
                 </div>
                 <div class="BannerBar">
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="Course_titleBar">
-                    <div class="Course_title">活動列表</div>
+                    <div class="Course_title">{{ $t('ActivityText') }}</div>
                     <div class="Search_bar"><input type="search" name="" id="" class="Course_Search_bar"
                             v-model="cacheSearch"></div>
                 </div>
@@ -31,7 +31,7 @@
                             <div class="Course_date_left">
                                 <div class="CoursedateBox" :class="{ toTop: item.IsTop }">
                                     <div class="CoursedateMonth">{{ item.ActSDateTime.substr(5, 2) }}</div>
-                                    <div class="CoursedateMonthText">月</div>
+                                    <div class="CoursedateMonthText">{{ $t('Month') }}</div>
                                 </div>
                             </div>
                             <div class="Course_date_right" :class="{ OpenForRegistration: item.IsOpenSignUp }">
