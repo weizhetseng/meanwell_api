@@ -63,6 +63,11 @@ export const useLoginStore = defineStore('Login', () => {
             att2.value = true
           }
         }
+        else
+        {
+          //驗證失敗回應錯誤訊息
+          alert(res.data.message)
+        }
       })
   }
 

@@ -7,9 +7,6 @@
             </div>
             <div class="mobile_signoutView">
                 <div class="mobile_sdgMenuItem">
-                    <div class="menu_item_text">{{ $t('NavBarText') }}</div>
-                </div>
-                <div class="mobile_sdgMenuItem">
                     <div class="loging_item">
                         <RouterLink to="/login" @click="colsMobileMenu()">{{ $t('Login') }}</RouterLink> / <RouterLink
                             to="/SignUp" @click="colsMobileMenu()">{{ $t('Register') }}</RouterLink>
@@ -62,9 +59,6 @@
             </div>
             <div class="system_bar">
                 <div class="signoutView" :class="{ active: store.att }">
-                    <div class="sdgMenuItem">
-                        <div class="menu_item_text">{{ $t('NavBarText') }}</div>
-                    </div>
                     <div class="sdgMenuItem">
                         <div class="loging_item">
                             <RouterLink to="/login">{{ $t('Login') }}</RouterLink> / <RouterLink to="/SignUp">{{
