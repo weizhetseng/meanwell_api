@@ -34,7 +34,7 @@ export const useSignUpStore = defineStore('SignUp', () => {
 
 
 
-//登入
+//登入(目前寫死假資料)
 export const useLoginStore = defineStore('Login', () => {
   const att = ref(true)
   const att2 = ref(false)

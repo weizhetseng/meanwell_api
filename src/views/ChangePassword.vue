@@ -48,33 +48,35 @@
                         <div class="memberCenterRightContentBox">
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">舊密碼</div>
+                                <div class="itemTitletext">{{ $t('OldPassword') }}</div>
                             </div>
                             <div class="memberinfTextinput">
                                 <input :type="checkEye1 ? 'password' : 'text'" name="changepassword" id="Oldpasseord"
-                                    class="memberinfinput" placeholder="請輸入舊密碼" v-model="NewPasswords.OldPassword">
+                                    class="memberinfinput" :placeholder="$t('OldPassword_5')"
+                                    v-model="NewPasswords.OldPassword">
                                 <span id="checkEye" class="material-symbols-outlined" @click="checkEye1 = !checkEye1">
                                     {{ checkEye1 ? 'visibility_off' : 'visibility' }}
                                 </span>
                             </div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">新密碼</div>
+                                <div class="itemTitletext">{{ $t('NewPassword1') }}</div>
                             </div>
                             <div class="memberinfTextinput">
                                 <input :type="checkEye2 ? 'password' : 'text'" name="changepassword" id="Newpassword1"
-                                    class="memberinfinput" placeholder="請輸入新密碼" v-model="NewPasswords.NewPassword">
+                                    class="memberinfinput" :placeholder="$t('NewPassword1_5')"
+                                    v-model="NewPasswords.NewPassword">
                                 <span id="checkEye" class="material-symbols-outlined" @click="checkEye2 = !checkEye2">
                                     {{ checkEye2 ? 'visibility_off' : 'visibility' }}
                                 </span>
                             </div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">確認新密碼</div>
+                                <div class="itemTitletext">{{ $t('NewPassword2') }}</div>
                             </div>
                             <div class="memberinfTextinput">
                                 <input :type="checkEye3 ? 'password' : 'text'" name="changepassword" id="Newpassword2"
-                                    class="memberinfinput" placeholder="請確認新密碼">
+                                    class="memberinfinput" :placeholder="$t('NewPassword2_5')">
                                 <span id="checkEye" class="material-symbols-outlined" @click="checkEye3 = !checkEye3">
                                     {{ checkEye3 ? 'visibility_off' : 'visibility' }}
                                 </span>

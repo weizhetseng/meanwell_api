@@ -78,6 +78,11 @@
     a
         width: calc(  50% - 10px )
         margin-bottom: 20px
+@media (max-width: 790px) 
+    .Course_List_Box
+        a
+            width: 100%
+     
 .Course_List_Item
     width: 100%
     height: 100px
@@ -146,6 +151,13 @@
     left: -8px
 .OpenForRegistration::after
     content: url('/src/assets/img/Open_for_registration_icon.svg')
+    width: 78px
+    height: 57px
+    position: absolute
+    top: 0px
+    right: 0px 
+.StopForRegistration::after
+    content: url('/src/assets/img/Stop_for_registration_icon.svg')
     width: 78px
     height: 57px
     position: absolute

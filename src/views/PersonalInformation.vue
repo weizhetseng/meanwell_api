@@ -6,9 +6,9 @@
                     <ul>
                         <li>{{ $t('IndexText') }}</li>
                         <li>></li>
-                        <li>帳號管理</li>
+                        <li>{{ $t('MemberList2') }}</li>
                         <li>></li>
-                        <li>個人資料</li>
+                        <li>{{ $t('MemberList3') }}</li>
                     </ul>
                 </div>
                 <section class="MemberCenterContent">
@@ -48,66 +48,66 @@
                         <div class="memberCenterRightContentBox">
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">姓名</div>
+                                <div class="itemTitletext">{{ $t('Name') }}</div>
                             </div>
                             <div class="memberinfText">{{ store.MemberData.Name }}</div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">性別</div>
+                                <div class="itemTitletext">{{ $t('Sex') }}</div>
                             </div>
                             <div class="memberinfText">{{ tranSex }}</div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">手機號碼</div>
+                                <div class="itemTitletext">{{ $t('Mobile') }}</div>
                             </div>
                             <div class="memberinfText">{{ store.MemberData.Mobile }}</div>
                             <div class="itemsS50L">
                                 <div class="itemTitle">
                                     <div class="itemTitleLine"></div>
-                                    <div class="itemTitletext">證件類別</div>
+                                    <div class="itemTitletext">{{ $t('DocType') }}</div>
                                 </div>
                                 <div class="memberinfText">{{ tranDocType }}</div>
                             </div>
                             <div class="itemsS50R">
                                 <div class="itemTitle">
                                     <div class="itemTitleLine"></div>
-                                    <div class="itemTitletext">證件號碼</div>
+                                    <div class="itemTitletext">{{ $t('DocNumber') }}</div>
                                 </div>
                                 <div class="memberinfText">{{ store.MemberData.DocNumber }}</div>
                             </div>
                             <div class="itemsS50L">
                                 <div class="itemTitle">
                                     <div class="itemTitleLine"></div>
-                                    <div class="itemTitletext">任職公司</div>
+                                    <div class="itemTitletext">{{ $t('CompanyName') }}</div>
                                 </div>
                                 <div class="memberinfText">{{ store.MemberData.CompanyName }}</div>
                             </div>
                             <div class="itemsS50R">
                                 <div class="itemTitle">
                                     <div class="itemTitleLine"></div>
-                                    <div class="itemTitletext">職稱</div>
+                                    <div class="itemTitletext">{{ $t('JobTitle') }}</div>
                                 </div>
                                 <div class="memberinfText">{{ store.MemberData.JobTitle }}</div>
                             </div>
                             <div class="avatarBox">
                                 <div class="avatarTitle">
-                                    <div class="avatarTitleText">個人照</div>
+                                    <div class="avatarTitleText">{{ $t('Photo') }}</div>
                                     <div class="avatarTitleIcon"><img src="../assets/img/info-circle-fill.svg" alt="">
                                     </div>
                                 </div>
                                 <div class="avatarsText">
-                                    *用於活動報到人臉辨識
+                                    *{{ $t('PhotoText') }}
                                 </div>
                                 <div class="avatarshint" v-if="store.MemberData.Pic !== ''">
-                                    <div class="avatarshintText">已上傳</div>
+                                    <div class="avatarshintText">{{ $t('Uploaded') }}</div>
                                 </div>
                                 <div class="avatarshint" v-else-if="store.MemberData.Pic == ''">
-                                    <div class="avatarshintText">未上傳</div>
+                                    <div class="avatarshintText">{{ $t('UnUploaded') }}</div>
                                 </div>
                             </div>
                             <div class="persbuttonBox">
-                                <router-link to="/MemberInformationEditing"><button
-                                        class="pageButtem">編輯資料</button></router-link>
+                                <router-link to="/MemberInformationEditing"><button class="pageButtem">{{ $t('EditData')
+                                }}</button></router-link>
                             </div>
                         </div>
                     </div>

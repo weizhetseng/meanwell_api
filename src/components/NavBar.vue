@@ -97,13 +97,13 @@
                         <img src="../assets/img/language_icon.svg" alt="">
                         <div class="language_bar">
                             <a href="javascript:;">
-                                <div class="language_bar_item" @click="$i18n.locale = 'zh-TW'">繁中</div>
+                                <div class="language_bar_item" @click="$i18n.locale = 'zh-TW', changeTW()">繁中</div>
                             </a>
                             <a href="javascript:;">
-                                <div class="language_bar_item" @click="$i18n.locale = 'zh-CN'">简中</div>
+                                <div class="language_bar_item" @click="$i18n.locale = 'zh-CN', changeCN()">简中</div>
                             </a>
                             <a href="javascript:;">
-                                <div class="language_bar_item" @click="$i18n.locale = 'en-US'">English</div>
+                                <div class="language_bar_item" @click="$i18n.locale = 'en-US', changeEN()">English</div>
                             </a>
                         </div>
                     </div>
@@ -178,17 +178,32 @@ const handleMenuFna = (iddx) => {
     mobileactiveIddx.value = iddx;
     mobileMenu.value = false;
 };
-function handleChangeLanguage(e) {
-    locale.value = e.target.value
-}
 
-
+//登出
 function Logout() {
     $cookies.remove("u_id")
     $cookies.remove("AuthCode")
-    $cookies.remove("Lang")
     alert('已登出')
 }
+
+
+//切換繁體中文
+function changeTW() {
+    $cookies.set("Lang", "tw")
+    location.reload()
+}
+//切換簡體中文
+function changeCN() {
+    $cookies.set("Lang", "cn")
+    location.reload()
+}
+//切換英文
+function changeEN() {
+    $cookies.set("Lang", "en")
+    location.reload()
+}
+
+
 onMounted(() => {
     if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
         store.att = true

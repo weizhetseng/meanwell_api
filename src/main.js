@@ -26,7 +26,7 @@ import './assets/scss/main.sass'
 
 const i18n = createI18n({
     legacy: false,
-    locale: 'zh-TW',
+    locale: localStorage.getItem("locale") ?? "zh-TW",
     fallbackLocale: 'zh-TW',
     globalInjection: true,
     messages: {

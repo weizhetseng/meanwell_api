@@ -8,7 +8,7 @@
                         <li>></li>
                         <li>{{ $t('MemberList2') }}</li>
                         <li>></li>
-                        <li>編輯個人資料</li>
+                        <li>{{ $t('MemberList3_5') }}</li>
                     </ul>
                 </div>
                 <section class="MemberCenterContent">
@@ -25,7 +25,7 @@
                                 <div class="navItemSortContent">
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
                                         v-for="(itax, iddx) in items.item" :key="itax.name"
-                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ itax.name
+                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ $t(itax.name)
                                         }}</router-link></div>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                         <div class="memberCenterRightContentBox">
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">姓名</div>
+                                <div class="itemTitletext">{{ $t('Name') }}</div>
                             </div>
                             <div class="memberinfTextinput">
                                 <input type="text" name="" id="" class="memberinfinput" placeholder=""
@@ -56,7 +56,7 @@
                             </div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">性別</div>
+                                <div class="itemTitletext">{{ $t('Sex') }}</div>
                             </div>
                             <div class="memberinfTextinput">
                                 <input id="gender01" type="radio" name="gender" :value="1"
@@ -68,7 +68,7 @@
                             </div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">手機號碼</div>
+                                <div class="itemTitletext">{{ $t('Mobile') }}</div>
                             </div>
                             <div class="memberinfTextinput">
                                 <input type="text" name="" id="" class="memberinfinput" placeholder=""
@@ -77,22 +77,22 @@
                             <div class="itemsS50L">
                                 <div class="itemTitle">
                                     <div class="itemTitleLine"></div>
-                                    <div class="itemTitletext">證件類別</div>
+                                    <div class="itemTitletext">{{ $t('DocType') }}</div>
                                 </div>
                                 <div class="memberinfTextinput">
                                     <select class="memberinfinput" v-model.number="store.MemberData.DocType">
-                                        <option :value="0" disabled>身分證 / 台胞證 / 居留證 / 護照</option>
-                                        <option :value="1">身分證</option>
-                                        <option :value="2">台胞證</option>
-                                        <option :value="3">居留證</option>
-                                        <option :value="4">護照</option>
+                                        <option :value="0" disabled>{{ $t('DocTypeAll') }}</option>
+                                        <option :value="1">{{ $t('DocType1') }}</option>
+                                        <option :value="2">{{ $t('DocType2') }}</option>
+                                        <option :value="3">{{ $t('DocType3') }}</option>
+                                        <option :value="4">{{ $t('DocType4') }}</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="itemsS50R">
                                 <div class="itemTitle">
                                     <div class="itemTitleLine"></div>
-                                    <div class="itemTitletext">證件號碼</div>
+                                    <div class="itemTitletext">{{ $t('DocNumber') }}</div>
                                 </div>
                                 <div class="memberinfTextinput">
                                     <input type="text" name="" id="" class="memberinfinput" placeholder=""
@@ -102,7 +102,7 @@
                             <div class="itemsS50L">
                                 <div class="itemTitle">
                                     <div class="itemTitleLine"></div>
-                                    <div class="itemTitletext">任職公司</div>
+                                    <div class="itemTitletext">{{ $t('CompanyName') }}</div>
                                 </div>
                                 <div class="memberinfTextinput">
                                     <input type="text" name="" id="" class="memberinfinput" placeholder=""
@@ -112,7 +112,7 @@
                             <div class="itemsS50R">
                                 <div class="itemTitle">
                                     <div class="itemTitleLine"></div>
-                                    <div class="itemTitletext">職稱</div>
+                                    <div class="itemTitletext">{{ $t('JobTitle') }}</div>
                                 </div>
                                 <div class="memberinfTextinput">
                                     <input type="text" name="" id="" class="memberinfinput" placeholder=""
@@ -121,19 +121,21 @@
                             </div>
                             <div class="avatarBox">
                                 <div class="avatarTitle">
-                                    <div class="avatarTitleText">個人照</div>
+                                    <div class="avatarTitleText">{{ $t('Photo') }}</div>
                                     <div class="avatarTitleIcon"><img src="../assets/img/info-circle-fill.svg" alt="">
                                     </div>
                                 </div>
                                 <div class="avatarsText">
-                                    *用於活動報到人臉辨識
+                                    *{{ $t('PhotoText') }}
                                 </div>
                                 <div class="avatarshint">
-                                    <div class="avatarshintText" v-if="store.MemberData.Pic !== ''">已上傳</div>
-                                    <div class="avatarshintText" v-if="store.MemberData.Pic == ''">未上傳</div>
+                                    <div class="avatarshintText" v-if="store.MemberData.Pic !== ''">{{ $t('Uploaded') }}
+                                    </div>
+                                    <div class="avatarshintText" v-if="store.MemberData.Pic == ''">{{ $t('UnUploaded')
+                                    }}</div>
                                     <div class="upload_btn">
                                         <label class="avatarupload" for="upload_img">
-                                            上傳
+                                            {{ $t('Upload') }}
                                         </label>
                                         <input id="upload_img" name="progressbarTW_img" type="file"
                                             accept="image/jpeg, image/png" @change="previewFile()">
@@ -142,7 +144,8 @@
                                 </div>
                             </div>
                             <div class="persbuttonBox">
-                                <button type="submit" class="pageButtem" @click="changeMemberData">確認送出</button>
+                                <button type="submit" class="pageButtem" @click="changeMemberData">{{ $t('Check')
+                                }}</button>
                             </div>
                         </div>
                     </div>

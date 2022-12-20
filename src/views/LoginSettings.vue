@@ -51,11 +51,11 @@
                                 <div class="ls_name">FaceBook</div>
                                 <div class="bindStatus" v-if="store.MemberData.IsBind_FB">
                                     <div class="ls_linkIcon"><img src="../assets/img/ios-link.svg" alt=""></div>
-                                    <button class="ls_butten unlinked">解除綁定</button>
+                                    <button class="ls_butten unlinked">{{ $t('unlinked') }}</button>
                                 </div>
                                 <div class="bindStatus" v-else>
                                     <div class="ls_linkIcon"><img src="../assets/img/unlink-line.svg" alt=""></div>
-                                    <button class="ls_butten linked">綁定</button>
+                                    <button class="ls_butten linked">{{ $t('linked') }}</button>
                                 </div>
 
 
@@ -65,23 +65,23 @@
                                 <div class="ls_name">LINE</div>
                                 <div class="bindStatus" v-if="store.MemberData.IsBind_Line">
                                     <div class="ls_linkIcon"><img src="../assets/img/ios-link.svg" alt=""></div>
-                                    <button class="ls_butten unlinked">解除綁定</button>
+                                    <button class="ls_butten unlinked">{{ $t('unlinked') }}</button>
                                 </div>
                                 <div class="bindStatus" v-else>
                                     <div class="ls_linkIcon"><img src="../assets/img/unlink-line.svg" alt=""></div>
-                                    <button class="ls_butten linked">綁定</button>
+                                    <button class="ls_butten linked">{{ $t('linked') }}</button>
                                 </div>
                             </div>
                             <div class="LoginSettingsItem">
                                 <div class="ls_icon"><img src="../assets/img/weixin-brands.svg" alt=""></div>
-                                <div class="ls_name">微信</div>
+                                <div class="ls_name">{{ $t('WeChat') }}</div>
                                 <div class="bindStatus" v-if="store.MemberData.IsBind_WeChat">
                                     <div class="ls_linkIcon"><img src="../assets/img/ios-link.svg" alt=""></div>
-                                    <button class="ls_butten unlinked">解除綁定</button>
+                                    <button class="ls_butten unlinked">{{ $t('unlinked') }}</button>
                                 </div>
                                 <div class="bindStatus" v-else>
                                     <div class="ls_linkIcon"><img src="../assets/img/unlink-line.svg" alt=""></div>
-                                    <button class="ls_butten linked">綁定</button>
+                                    <button class="ls_butten linked">{{ $t('linked') }}</button>
                                 </div>
                             </div>
                             <div class="LoginSettingsItem">
@@ -89,11 +89,11 @@
                                 <div class="ls_name">Google</div>
                                 <div class="bindStatus" v-if="store.MemberData.IsBind_Google">
                                     <div class="ls_linkIcon"><img src="../assets/img/ios-link.svg" alt=""></div>
-                                    <button class="ls_butten unlinked">解除綁定</button>
+                                    <button class="ls_butten unlinked">{{ $t('unlinked') }}</button>
                                 </div>
                                 <div class="bindStatus" v-else>
                                     <div class="ls_linkIcon"><img src="../assets/img/unlink-line.svg" alt=""></div>
-                                    <button class="ls_butten linked">綁定</button>
+                                    <button class="ls_butten linked">{{ $t('linked') }}</button>
                                 </div>
                             </div>
                         </div>

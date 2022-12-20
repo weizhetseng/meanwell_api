@@ -8,7 +8,7 @@
                         <li>></li>
                         <li>{{ $t('MemberList7') }}</li>
                         <li>></li>
-                        <li>進行中</li>
+                        <li>{{ $t('MemberList8') }}</li>
                         <li>></li>
                         <li>{{ showData[0].ActSubject }}</li>
                     </ul>
@@ -39,20 +39,20 @@
                             <div class="activitiesTitle">{{ showData[0].ActSubject }}</div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">報名場次</div>
+                                <div class="itemTitletext">{{ $t('RegisterSeId') }}</div>
                             </div>
                             <div class="itemtext">{{ showData[0].ActSDateTime }}</div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">報名資料</div>
+                                <div class="itemTitletext">{{ $t('RegisterData') }}</div>
                             </div>
                             <div class="personalinformation">
                                 <div class="itemTr">
-                                    <div class="itemtextleft">姓名：</div>
+                                    <div class="itemtextleft">{{ $t('Name') }}：</div>
                                     <div class="itemtextright">{{ showData[0].Name }}</div>
                                 </div>
                                 <div class="itemTr">
-                                    <div class="itemtextleft">手機電話：</div>
+                                    <div class="itemtextleft">{{ $t('Mobile') }}：</div>
                                     <div class="itemtextright">{{ showData[0].Mobile }}</div>
                                 </div>
                                 <div class="itemTr">
@@ -60,56 +60,58 @@
                                     <div class="itemtextright">{{ showData[0].Email }}</div>
                                 </div>
                                 <div class="itemTr">
-                                    <div class="itemtextleft">餐點：</div>
+                                    <div class="itemtextleft">{{ $t('Meals') }}：</div>
                                     <div class="itemtextright">{{ Meals }}</div>
                                 </div>
                                 <div class="itemTr">
-                                    <div class="itemtextleft">交通：</div>
+                                    <div class="itemtextleft">{{ $t('Traffic') }}：</div>
                                     <div class="itemtextright">{{ Traffic }} {{ showData[0].CarNumber }}
                                     </div>
                                 </div>
                                 <div class="itemTr">
-                                    <div class="itemtextleft">備註：</div>
+                                    <div class="itemtextleft">{{ $t('SignUpMemo') }}：</div>
                                     <div class="itemtextright">{{ showData[0].SignUpMemo }}</div>
                                 </div>
                             </div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">票券資料</div>
+                                <div class="itemTitletext">{{ $t('TicketData') }}</div>
                             </div>
                             <div class="TicketInformation">
                                 <div class="itemTr">
-                                    <div class="itemtextleft">電子票：</div>
-                                    <div class="itemtextright">{{ showData[0].Ticket_E_Apply }}張</div>
+                                    <div class="itemtextleft">{{ $t('Ticket_E_Apply') }}：</div>
+                                    <div class="itemtextright">{{ showData[0].Ticket_E_Apply }}{{ $t('Leaf') }}</div>
                                 </div>
                                 <div class="itemTr">
-                                    <div class="itemtextleft">紙本票：</div>
-                                    <div class="itemtextright">{{ showData[0].Ticket_P_Apply }}張</div>
+                                    <div class="itemtextleft">{{ $t('Ticket_P_Apply') }}：</div>
+                                    <div class="itemtextright">{{ showData[0].Ticket_P_Apply }}{{ $t('Leaf') }}</div>
                                 </div>
                                 <div class="itemTr">
-                                    <div class="itemtextleft">收件地址：</div>
+                                    <div class="itemtextleft">{{ $t('Address') }}：</div>
                                     <div class="itemtextright">{{ showData[0].Address }}</div>
                                 </div>
                                 <div class="itemTr">
-                                    <div class="itemtextleft">座位號碼：</div>
+                                    <div class="itemtextleft">{{ $t('SeatNum') }}：</div>
                                     <div class="itemtextright" v-for="item in showData[0].TicketDataList">{{ item.Seat
                                     }}</div>
                                 </div>
                             </div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">相關資訊</div>
+                                <div class="itemTitletext">{{ $t('RelateInfo') }}</div>
                             </div>
                             <div class="relevantinformation">
                                 <div class="itemTr">
-                                    <div class="itemtextleft">資料下載：</div>
+                                    <div class="itemtextleft">{{ $t('Download') }}：</div>
                                     <div class="itemtextright">
-                                        <a :href="item.Link" download="範例.pdf"
-                                            v-for="item in showData[0].DownloadList">{{ item.Title }}</a>
+                                        <a :href="item.Link" :download="item.Title"
+                                            v-for="item in showData[0].DownloadList">{{
+                                                    item.Title
+                                            }}</a>
                                     </div>
                                 </div>
                                 <div class="itemTr">
-                                    <div class="itemtextleft2">線上視訊連線：</div>
+                                    <div class="itemtextleft2">{{ $t('Online') }}：</div>
                                     <div class="itemtextright2">
                                         <a :href="showData[0].OnlineLink" target="_blank">
                                             {{ showData[0].OnlineLink }}
@@ -119,9 +121,11 @@
                             </div>
                             <div class="FunctionColumn">
                                 <router-link :to="`/EventTicketing/${id}`"><button class="FunctionColumnButten"><img
-                                            src="../assets/img/ticket.svg" alt="">電子票分票</button></router-link>
+                                            src="../assets/img/ticket.svg" alt="">{{ $t('TakeTicket')
+                                            }}</button></router-link>
                                 <router-link :to="`/CancelRegistration/${id}`"><button class="FunctionColumnButten"><img
-                                            src="../assets/img/ban-solid.svg" alt="">取消報名</button></router-link>
+                                            src="../assets/img/ban-solid.svg" alt="">{{ $t('Cancel')
+                                            }}</button></router-link>
                             </div>
                         </div>
                     </div>

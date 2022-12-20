@@ -16,9 +16,11 @@
                 </div>
                 <div class="CourseContentBox mobileSS">
                     <div class="activitiesTitle">{{ showData[0].ActSubject }}</div>
-                    <div class="Coursebuttoon" v-if="showData[0].IsOpenSignUp && !showData[0].IsSignUp"><router-link
-                            :to="`/Course/RegistrationForm/${id}`"><button class="CoursebuttoonSet">{{ $t('GoSignUp')
-                            }}</button></router-link></div>
+                    <div class="Coursebuttoon" v-if="showData[0].IsOpenSignUp && !showData[0].IsSignUp">
+                        <button class="CoursebuttoonSet" @click="isMember()">
+                            {{ $t('GoSignUp') }}
+                        </button>
+                    </div>
                     <div class="itemTitle">
                         <div class="itemTitleLine"></div>
                         <div class="itemTitletext">{{ $t('ActivityIntro') }}</div>
@@ -59,6 +61,7 @@
 import axios from 'axios';
 import { ref } from 'vue';
 import { useRoute } from 'vue-router'
+import router from '../router';
 
 
 
@@ -79,8 +82,19 @@ axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCo
         showData.value = ListData.value.filter((item) => {
             return item.ActId === id.slice(1)
         })
+        console.log(res.data)
 
     })
+
+function isMember() {
+    if ($cookies.get('u_id') !== null && $cookies.get('AuthCode') !== null) {
+        router.push(`/Course/RegistrationForm/${id}`)
+    } else {
+        alert('請先登入會員')
+        router.push('/login')
+    }
+}
+
 
 </script>
 

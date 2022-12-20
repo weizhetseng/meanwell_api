@@ -9,7 +9,8 @@
               <li v-for="item in indexLink" :key="item.id">
                 <router-link :to="`/Course/Meeting/${item.route}`">
                   <div class="atcImgBox">
-                    <img :src="`/src/assets/img/${item.imgUrl}`" alt="" />
+                    <img :src="imageUrl(item.imgUrl)" alt="" />
+
                   </div>
                   <div class="atcText" :style="{ color: item.color }">
                     {{ $t(item.link) }}
@@ -69,10 +70,7 @@
                   <div class="AnnTopText">{{ $t('IndexMsgBox2') }}</div>
                 </div>
                 <div class="AnnContent">
-                  <ul v-if="store.logoutStatue">
-                    <li class="ConferenceLine"><a href="">{{ $t('IndexRemainMsg') }}</a></li>
-                  </ul>
-                  <ul v-else-if="store.loginStatue">
+                  <ul>
                     <li v-for="(item, index) in NewsList" :style="{ 'border-left-color': item.color }" :key="index">
                       <a href="">{{ item.News_Topic }}</a>
                     </li>
@@ -87,10 +85,7 @@
                   <div class="AnnTopText">{{ $t('IndexMsgBox3') }}</div>
                 </div>
                 <div class="AnnContent">
-                  <ul v-if="store.logoutStatue">
-                    <li class="ConferenceLine"><a href="">{{ $t('IndexRemainMsg') }}</a></li>
-                  </ul>
-                  <ul v-else-if="store.loginStatue">
+                  <ul>
                     <li v-for="(item, index) in NewSaleList" :style="{ 'border-left-color': item.color }" :key="index">
                       <a href="">{{ item.News_Topic }}</a>
                     </li>
@@ -132,6 +127,12 @@ const indexLink = [
 ];
 const store = useLoginStore();
 
+
+function imageUrl(name) {
+  return new URL(`../assets/img/${name}`, import.meta.url)
+    .href;
+}
+
 if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
   store.loginStatue = true;
   store.logoutStatue = false;
@@ -171,10 +172,11 @@ onMounted(() => {
     .post(api2, {
       u_id: $cookies.get("u_id"),
       AuthCode: $cookies.get("AuthCode"),
-      Lang: $cookies.get("Lang"),
+      Lang: $cookies.get("Lang") == null ? 'tw' : $cookies.get("Lang"),
     })
     .then((res) => {
       NewsList.value = res.data.DataList;
+      console.log("api2", res.data)
     });
   // 禮贈新品資料清單
   const api3 = `${import.meta.env.VITE_APP_API}API_App/HomePage/NewSaleList`;
@@ -182,7 +184,7 @@ onMounted(() => {
     .post(api3, {
       u_id: $cookies.get("u_id"),
       AuthCode: $cookies.get("AuthCode"),
-      Lang: $cookies.get("Lang"),
+      Lang: $cookies.get("Lang") == null ? 'tw' : $cookies.get("Lang"),
     })
     .then((res) => {
       NewSaleList.value = res.data.DataList;

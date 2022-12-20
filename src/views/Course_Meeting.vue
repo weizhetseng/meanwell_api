@@ -34,7 +34,9 @@
                                     <div class="CoursedateMonthText">{{ $t('Month') }}</div>
                                 </div>
                             </div>
-                            <div class="Course_date_right" :class="{ OpenForRegistration: item.IsOpenSignUp }">
+                            <div class="Course_date_right" :class="{ OpenForRegistration: item.IsOpenSignUp }, {
+                                StopForRegistration: item.IsOpenSignUp && item.SignUpEDate !== '' && newToday > item.SignUpEDate
+                            }">
                                 <div class="Course_item_title">{{ item.ActSubject }}</div>
                                 <div class="Course_item_location"><span
                                         v-html="item.ActPlace.replace(/\r\n/g, '<br />')"></span></div>
@@ -131,6 +133,7 @@ function getList() {
             listBanner.value = res.data.BannerList
             totalSize.value = Math.ceil(total.value / pageSize)
             tableData.value = getNeedArr(list.value, pageSize)[currentPages.value - 1]
+            console.log(res.data)
         })
 }
 //計算頁面資料
@@ -150,6 +153,14 @@ function getNeedArr(array, size) {
     return result
 }
 
+const today = ref(new Date())
+const year = today.value.getFullYear()
+const month = today.value.getMonth()
+const day = today.value.getDate()
+const hours = today.value.getHours()
+const Minutes = today.value.getMinutes()
+const Milliseconds = today.value.getMilliseconds()
+const newToday = `${year}/${month}/${day} ${hours}:0${Minutes}:${Milliseconds}`
 
 
 onMounted(() => {

@@ -8,7 +8,7 @@
                         <li>></li>
                         <li>{{ $t('MemberList7') }}</li>
                         <li>></li>
-                        <li>已結束</li>
+                        <li>{{ $t('MemberList9') }}</li>
                     </ul>
                 </div>
                 <section class="MemberCenterContent">
@@ -52,7 +52,7 @@
                                 <div class="itemTitletext">{{ $t('MemberActivityList') }}</div>
                             </div>
                             <div class="ActiveList">
-                                <div v-if="(tableData == null)">目前沒有已結束的活動</div>
+                                <div v-if="(tableData == null)">{{ $t('MemberList9_5') }}</div>
                                 <RouterLink :to="`/ActivitiesOver/${item.ApplyId}`" v-for="item in tableData"
                                     :key="item.ApplyId">
                                     <div class="activelist-item-bar">
@@ -60,7 +60,7 @@
                                             <div class="activelistdate">
                                                 <div class="activelistdateMonth">{{ item.ActSDateTime.substr(5, 2)
                                                 }}</div>
-                                                <div class="activelistdateMonthbefore">月</div>
+                                                <div class="activelistdateMonthbefore">{{ $t('Month') }}</div>
                                             </div>
                                             <div class="activelistTextBar">
                                                 <div class="activelistText">活動場次：{{ item.ActSDateTime }}</div>
