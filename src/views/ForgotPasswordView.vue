@@ -1,6 +1,6 @@
 <template>
   <div class="page_main">
-    <main>
+    <main class="ForgotPassword">
       <div class="page_content">
         <section class="loginTopIcon">
           <div class="loginBigIcon">
@@ -9,18 +9,25 @@
         </section>
         <section class="loginContentBox">
           <div class="ContentBoxTitle">忘記密碼</div>
-          <div class="signup_User_account">
-            <input type="text" class="signup_User_accountInput" placeholder="請輸入6-20英數字元" required
-              v-model="user.Email" />
-          </div>
-          <div class="Boxbarmessage">
-            請輸入註冊時使用的電子信箱，我們會將新密碼傳送至信箱，請登入立即修改密碼。
-          </div>
-          <div class="Boxbarbuttem2">
-            <button class="pageButtem" @click="forgotPassword()">
-              確認送出
-            </button>
-          </div>
+          <Form v-slot="{ errors, values, validate }">
+            <div class="signup_User_account">
+              <Field id="email" name="email" type="email" class="signup_User_accountInput"
+                :class="{ 'is-invalid': errors['email'] }" placeholder="請輸入電子信箱" rules="email|required"
+                v-model="user.Email">
+              </Field>
+            </div>
+            <div class="error">
+              <error-message name="email" class="invalid-feedback"></error-message>
+            </div>
+            <div class="Boxbarmessage">
+              請輸入註冊時使用的電子信箱，我們會將新密碼傳送至信箱，請登入立即修改密碼。
+            </div>
+            <div class="Boxbarbuttem2">
+              <button class="buttonStyle" @click="forgotPassword()">
+                確認送出
+              </button>
+            </div>
+          </Form>
         </section>
       </div>
     </main>

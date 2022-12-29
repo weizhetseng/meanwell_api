@@ -1,6 +1,6 @@
 <template>
     <div class="page_main">
-        <main>
+        <main class="signUp">
             <div class="page_content">
                 <section class="loginTopIcon">
                     <div class="loginBigIcon"><img src="../assets/img/LoginBigIcon.svg" alt=""></div>
@@ -24,8 +24,10 @@
                             </div>
                             <error-message name="驗證碼" class="invalid-feedback"></error-message>
                         </div>
-                        <div class="Boxbarbuttem">
-                            <button type="submit" class="pageButtem" @click="verify()">下一步</button>
+                        <div class="Boxbarbutton">
+
+                            <button type="submit" class="buttonStyle" @click="verify()">下一步</button>
+
                         </div>
                     </Form>
 

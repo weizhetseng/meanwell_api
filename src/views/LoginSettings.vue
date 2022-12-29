@@ -26,7 +26,7 @@
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
                                         v-for="(itax, iddx) in items.item" :key="itax.name"
                                         @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ $t(itax.name)
-                                        }}</router-link></div>
+}}</router-link></div>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
 
                             </div>
                             <div class="LoginSettingsItem">
-                                <div class="ls_icon"><img src="../assets/img/google-brands.svg" alt=""></div>
+                                <div class="ls_icon"><img src="../assets/img/line-brands.svg" alt=""></div>
                                 <div class="ls_name">LINE</div>
                                 <div class="bindStatus" v-if="store.MemberData.IsBind_Line">
                                     <div class="ls_linkIcon"><img src="../assets/img/ios-link.svg" alt=""></div>

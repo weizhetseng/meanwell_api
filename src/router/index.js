@@ -29,7 +29,7 @@ const router = createRouter({
       component: () => import("../views/ForgotPasswordView.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: false
       }
     },
     {
@@ -343,7 +343,7 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
   const store = useLoginStore()
   let isLogin = false
-  let needLogin = to.matched.some(match=>match.meta.needLogin)
+  let needLogin = to.matched.some(match => match.meta.needLogin)
   if ($cookies.isKey("AuthCode") == true) {
     isLogin = true
   }

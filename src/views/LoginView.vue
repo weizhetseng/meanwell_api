@@ -1,12 +1,12 @@
 <template>
     <div class="page_main">
-        <main>
+        <main class="Login">
             <div class="page_content">
                 <section class="loginTopIcon">
                     <div class="loginBigIcon"><img src="../assets/img/LoginBigIcon.svg" alt=""></div>
                 </section>
                 <section class="loginContentBox">
-                    <div class="ContentBoxTitle">會員登入 / 註冊</div>
+                    <div class="ContentBoxTitle">會員登入</div>
                     <Form v-slot="{ errors, values, validate }">
                         <div>
                             <div class="User_account">
@@ -21,13 +21,13 @@
                         </div>
                         <div>
                             <div class="User_password">
-                                <Field id="password" name="password" type="password" class="User_accountInput"
-                                    :class="{ 'is-invalid': errors['password'] }" placeholder="請輸入密碼" rules="required"
+                                <Field id="password" name="密碼" type="password" class="User_accountInput"
+                                    :class="{ 'is-invalid': errors['密碼'] }" placeholder="請輸入密碼" rules="required"
                                     v-model="user.RA">
                                 </Field>
                             </div>
                             <div class="error">
-                                <error-message name="password" class="invalid-feedback"></error-message>
+                                <error-message name="密碼" class="invalid-feedback"></error-message>
                             </div>
                         </div>
 
@@ -42,9 +42,9 @@
                             </div>
                             <error-message name="記住我" class="invalid-feedback"></error-message>
                         </div>
-                        <div class="buttemBox">
-                            <RouterLink to="/SignUp"><button class="pageButtem">註冊</button></RouterLink>
-                            <input type="submit" value="登入" class="loginButtem" @click="loginent()">
+                        <div class="buttonBox">
+                            <RouterLink to="/SignUp"><button class="pageButton buttonStyle">註冊</button></RouterLink>
+                            <input type="submit" value="登入" class="loginButton buttonStyle" @click="loginent()">
 
                         </div>
                     </Form>

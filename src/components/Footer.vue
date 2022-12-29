@@ -24,7 +24,6 @@
                     <ul>
                         <li><router-link to="/MembershipTermsofService">{{ $t('Serve1') }}</router-link></li>
                         <li><router-link to="/CommonProblem">{{ $t('Serve2') }}</router-link></li>
-                        <li><router-link to="/Questionnaire">{{ $t('Serve3') }}</router-link></li>
                     </ul>
                 </div>
             </div>
@@ -32,10 +31,20 @@
                 <div class="qrcoder_item">
                     <div class="qrcoder_item_photo"><img src="../assets/img/Android_qr.svg" alt=""></div>
                     <div class="qrcoder_item_text">Android</div>
+                    <div class="qrcoder_item_img">
+                        <a href="#">
+                            <img src="../assets/img/qrcode-icon-and.png" alt="">
+                        </a>
+                    </div>
                 </div>
                 <div class="qrcoder_item">
                     <div class="qrcoder_item_photo"><img src="../assets/img/IOS_qr.svg" alt=""></div>
                     <div class="qrcoder_item_text">IOS</div>
+                    <div class="qrcoder_item_img">
+                        <a href="#">
+                            <img src="../assets/img/qrcode-icon-ios.png" alt="">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -24,7 +24,7 @@
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
                                         v-for="(itax, iddx) in items.item" :key="itax.name"
                                         @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ $t(itax.name)
-                                        }}</router-link></div>
+}}</router-link></div>
                                 </div>
                             </div>
                         </div>
