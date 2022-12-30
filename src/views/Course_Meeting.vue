@@ -35,8 +35,8 @@
                                 </div>
                             </div>
                             <div class="Course_date_right" :class="{ OpenForRegistration: item.IsOpenSignUp }, {
-                                StopForRegistration: item.IsOpenSignUp && item.SignUpEDate !== '' && newToday > item.SignUpEDate
-                            }">
+    StopForRegistration: item.IsOpenSignUp && item.SignUpEDate !== '' && newToday > item.SignUpEDate
+}">
                                 <div class="Course_item_title">{{ item.ActSubject }}</div>
                                 <div class="Course_item_location"><span
                                         v-html="item.ActPlace.replace(/\r\n/g, '<br />')"></span></div>
@@ -126,7 +126,7 @@ function nextPage() {
 //axios取得該頁資料
 function getList() {
     const api = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivityList`
-    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "ModClass": id, "SDateTime": '', "EDateTime": '', "Keywords": '' })
+    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), Lang: $cookies.get("Lang") == null ? 'tw' : $cookies.get("Lang"), "ModClass": id, "SDateTime": '', "EDateTime": '', "Keywords": '' })
         .then((res) => {
             list.value = res.data.ActivityDataList
             total.value = res.data.ActivityDataList.length

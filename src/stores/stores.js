@@ -25,6 +25,7 @@ export const useSignUpStore = defineStore('SignUp', () => {
   axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang') })
     .then((res) => {
       signUpData.value = res.data
+      console.log(signUpData)
     })
 
   return { signUpData }
@@ -63,8 +64,7 @@ export const useLoginStore = defineStore('Login', () => {
             att2.value = true
           }
         }
-        else
-        {
+        else {
           //驗證失敗回應錯誤訊息
           alert(res.data.message)
         }

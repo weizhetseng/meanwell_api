@@ -21,7 +21,7 @@
                         <div class="itemTitletext">{{ $t('SeId') }}</div>
                     </div>
 
-                    <div class="memberinfTextinput">
+                    <div class="memberinfTextinput Sessions">
                         <div v-for="item in showData[0].ActSessions" :key="item.SeId">
                             <input :id="item.SeId" type="radio" name="SeId" :value="item.SeId"
                                 v-model="storeSignUp.signUpData.SeId">
@@ -118,11 +118,11 @@
                     </div> -->
                     <div class="memberinfTextinput">
                         <input type="text" name="" id="Address" class="memberinfinput" :placeholder="$t('Address1')"
-                            v-model="storeSignUp.signUpData.Address3">
+                            v-model="storeSignUp.signUpData.Address">
                     </div>
                     <div class="Boxbarbuttem">
                         <button type="submit" class="pageButtem" @click.prevent="checkInput()">{{ $t('Check')
-                        }}</button>
+                            }}</button>
                     </div>
 
                 </div>
@@ -244,7 +244,6 @@ const totalNum = computed(() => {
 
 
 function SignUp() {
-    storeSignUp.signUpData.Address = (storeSignUp.signUpData.Address1 + storeSignUp.signUpData.Address2 + storeSignUp.signUpData.Address3)
     const SignUpApi = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivitySignUp`
     axios.post(SignUpApi, storeSignUp.signUpData)
         .then((res) => {

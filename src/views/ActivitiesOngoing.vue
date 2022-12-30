@@ -104,7 +104,7 @@
                             <div class="relevantinformation">
                                 <div class="itemTr">
                                     <div class="itemtextleft">{{ $t('Download') }}：</div>
-                                    <div class="itemtextright">
+                                    <div class="itemtextright downloadLink">
                                         <a :href="item.Link" :download="item.Title"
                                             v-for="item in showData[0].DownloadList">
                                             {{ item.Title }}

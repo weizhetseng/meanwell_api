@@ -56,16 +56,6 @@
                         <div class="ActiveDirectoryContentBox">
                             <div class="EventTicketingTitle">蘇州智慧園區開幕儀式</div>
                             <div class="activitiesSubtitle">電子券分票</div>
-                            <!-- <div class="itemTitle">
-                                <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">座號</div>
-                            </div>
-                            <div class="itemtext">劃位中</div>
-                            <div class="itemTitle">
-                                <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">驗證碼</div>
-                            </div>
-                            <div class="itemtext">202212dwtfgbske</div> -->
                             <div class="eventTicketTitle">
                                 <div class="titleArea">
                                     <div class="titleSeat">
@@ -123,6 +113,7 @@ const router = useRouter()
 const id = route.params.id
 const showData = ref([{}])
 
+//假資料測試用
 const fakedata = [
     {
         seat: '劃位中',
@@ -237,6 +228,7 @@ onMounted(() => {
             showData.value = MyActStatus.value.filter((item) => {
                 return item.ApplyId === parseInt(id)
             })
+            console.log(showData)
         })
 })
 </script>
