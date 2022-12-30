@@ -14,7 +14,7 @@
                     </ul>
                 </div>
                 <div class="CourseContentBox">
-                    <div class="CourseinfTitle">{{ showData[0].ActSubject }}</div>
+                    <div class="CourseinfTitle registration">{{ showData[0].ActSubject }}</div>
                     <div class="activitiesSubtitle">{{ $t('SignUpData') }}</div>
 
                     <div class="itemTitle">

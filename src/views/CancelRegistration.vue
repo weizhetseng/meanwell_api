@@ -35,6 +35,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="logoutButton">
+                            <a href="#" @click.prevent="Logout()">{{ $t('Logout') }}</a>
+                        </div>
                     </div>
                     <div class="memberCenterRight">
                         <div class="memberCenterRightTopBox">
@@ -100,10 +103,11 @@
 </template>
 <script setup>
 import axios from "axios";
-import { ref } from "vue"
-import { useMemberStore } from "../stores/stores";
+import { onMounted, ref } from "vue"
+import { useMemberStore, useLoginStore } from "../stores/stores";
 import { useRoute, useRouter } from 'vue-router'
 const store = useMemberStore()
+const store2 = useLoginStore()
 const route = useRoute()
 const router = useRouter()
 const id = route.params.id
@@ -191,6 +195,26 @@ function CancelActivity() {
             }
         })
 }
+
+function Logout() {
+    $cookies.remove("u_id")
+    $cookies.remove("AuthCode")
+    alert('已登出')
+    store2.att = false
+    store2.att2 = true
+    router.push('/login')
+}
+
+
+onMounted(() => {
+    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+        store2.att = true
+        store2.att2 = false
+    } else {
+        store2.att = false
+        store2.att2 = true
+    }
+})
 
 
 

@@ -26,9 +26,12 @@
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
                                         v-for="(itax, iddx) in items.item" :key="itax.name"
                                         @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ $t(itax.name)
-                                        }}</router-link></div>
+}}</router-link></div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="logoutButton">
+                            <a href="#" @click.prevent="Logout()">{{ $t('Logout') }}</a>
                         </div>
                     </div>
                     <div class="memberCenterRight">
@@ -132,7 +135,7 @@
                                     <div class="avatarshintText" v-if="store.MemberData.Pic !== ''">{{ $t('Uploaded') }}
                                     </div>
                                     <div class="avatarshintText" v-if="store.MemberData.Pic == ''">{{ $t('UnUploaded')
-                                    }}</div>
+}}</div>
                                     <div class="upload_btn">
                                         <label class="avatarupload" for="upload_img">
                                             {{ $t('Upload') }}
@@ -145,7 +148,7 @@
                             </div>
                             <div class="persbuttonBox">
                                 <button type="submit" class="pageButtem" @click="changeMemberData">{{ $t('Check')
-                                }}</button>
+}}</button>
                             </div>
                         </div>
                     </div>
@@ -164,10 +167,11 @@
 </template>
 <script setup>
 import axios from "axios";
-import { ref } from "vue"
 import router from "../router";
-import { useMemberStore } from "../stores/stores";
+import { onMounted, ref } from "vue"
+import { useMemberStore, useLoginStore } from "../stores/stores";
 const store = useMemberStore()
+const store2 = useLoginStore()
 const activeIdx = ref(1);
 const activeIddx = ref(0);
 const NavItemArr = ref([
@@ -281,4 +285,24 @@ function changeMemberData() {
             }
         })
 }
+
+function Logout() {
+    $cookies.remove("u_id")
+    $cookies.remove("AuthCode")
+    alert('已登出')
+    store2.att = false
+    store2.att2 = true
+    router.push('/login')
+}
+
+
+onMounted(() => {
+    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+        store2.att = true
+        store2.att2 = false
+    } else {
+        store2.att = false
+        store2.att2 = true
+    }
+})
 </script>

@@ -105,8 +105,8 @@
     "MemberList11":"領取分票",
     "TicketCode1":"訂票代碼",
     "TicketCode1_5":"請輸入訂票代碼",
-    "TicketCode2":"訂票驗證碼",
-    "TicketCode2_5":"請輸入訂票驗證碼",
+    "TicketCode2":"票卷驗證碼",
+    "TicketCode2_5":"請輸入票卷驗證碼",
     "OldPassword":"舊密碼",
     "OldPassword_5":"請輸入舊密碼",
     "NewPassword1":"新密碼",
@@ -136,6 +136,8 @@
     "Online":"線上視訊連線",
     "Leaf":"張",
     "TakeTicket":"電子票分票",
-    "Cancel":"取消報名"
+    "Cancel":"取消報名",
+    "test01":"滿意度調查",
+    "test02":"測驗評核"
 
 }

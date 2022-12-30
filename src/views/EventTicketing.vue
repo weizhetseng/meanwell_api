@@ -35,12 +35,15 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="logoutButton">
+                            <a href="#" @click.prevent="Logout()">{{ $t('Logout') }}</a>
+                        </div>
                     </div>
                     <div class="memberCenterRight">
                         <div class="memberCenterRightTopBox">
                             <div class="memberUserBox">
                                 <div class="memberUserBoxLeft"><img src="../assets/img/memberUserIcon.svg" alt=""></div>
-                                <div class="memberUserName">王小明 {{ $t('MemberHi') }}</div>
+                                <div class="memberUserName">{{ store.MemberData.Name }} {{ $t('MemberHi') }}</div>
                             </div>
                             <div class="memberUserQRcord">
                                 <div class="MembershipLevelBox">
@@ -52,19 +55,53 @@
                         </div>
                         <div class="ActiveDirectoryContentBox">
                             <div class="EventTicketingTitle">蘇州智慧園區開幕儀式</div>
-                            <div class="activitiesSubtitle">分票資訊</div>
+                            <div class="activitiesSubtitle">電子券分票</div>
+                            <!-- <div class="itemTitle">
+                                <div class="itemTitleLine"></div>
+                                <div class="itemTitletext">座號</div>
+                            </div>
+                            <div class="itemtext">劃位中</div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">訂票代碼</div>
+                                <div class="itemTitletext">驗證碼</div>
                             </div>
-                            <div class="itemtext">{{ showData[0].TicketCode }}</div>
-                            <div class="itemTitle">
-                                <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">訂票驗證碼</div>
+                            <div class="itemtext">202212dwtfgbske</div> -->
+                            <div class="eventTicketTitle">
+                                <div class="titleArea">
+                                    <div class="titleSeat">
+                                        <div class="itemTitleLine"></div>
+                                        <div class="itemTitletext">座號</div>
+                                    </div>
+                                    <div class="titleCode">
+                                        <div class="itemTitleLine"></div>
+                                        <div class="itemTitletext">驗證碼</div>
+                                    </div>
+                                </div>
+                                <div class="titleArea dn-1200">
+                                    <div class="titleSeat">
+                                        <div class="itemTitleLine"></div>
+                                        <div class="itemTitletext">座號</div>
+                                    </div>
+                                    <div class="titleCode">
+                                        <div class="itemTitleLine"></div>
+                                        <div class="itemTitletext">驗證碼</div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="itemtext" v-for="item in showData[0].TicketDataList" :key="item.AuthCode">{{
-                                    item.AuthCode
-                            }}</div>
+
+                            <div class="eventTicketList">
+                                <div class="eventTicketItem" v-for="item in fakedata" :key="item.code"
+                                    :data-length-n="fakedata.length"
+                                    :class="[fakedata.length % 2 === 0 ? 'BEN' : 'BON']">
+                                    <div class="eventSeat">
+                                        <p>{{ item.seat }}</p>
+                                    </div>
+                                    <div class="copyCode">
+                                        <p>{{ item.code }}</p>
+                                        <button type="button" id="copyBtn">複製</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -74,13 +111,44 @@
 </template>
 <script setup>
 import axios from "axios";
+import { useRoute, useRouter } from 'vue-router'
 import { onMounted, ref } from "vue"
-import { useRoute } from 'vue-router'
+import { useMemberStore, useLoginStore } from "../stores/stores";
+const store = useMemberStore()
+const store2 = useLoginStore()
 
 const MyActStatus = ref([{}])
 const route = useRoute()
+const router = useRouter()
 const id = route.params.id
 const showData = ref([{}])
+
+const fakedata = [
+    {
+        seat: '劃位中',
+        code: '202212dwtfgbske'
+    },
+    {
+        seat: '劃位中',
+        code: '456'
+    },
+    {
+        seat: '劃位中',
+        code: '789'
+    },
+    {
+        seat: '劃位中',
+        code: '147'
+    },
+    {
+        seat: '劃位中',
+        code: '258'
+    },
+    {
+        seat: '劃位中',
+        code: '369'
+    }
+]
 
 const activeIdx = ref(2);
 const activeIddx = ref(0);
@@ -140,7 +208,26 @@ const handleMenuFnb = () => {
     }
 };
 
+function Logout() {
+    $cookies.remove("u_id")
+    $cookies.remove("AuthCode")
+    alert('已登出')
+    store2.att = false
+    store2.att2 = true
+    router.push('/login')
+}
+
+
 onMounted(() => {
+    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+        store2.att = true
+        store2.att2 = false
+    } else {
+        store2.att = false
+        store2.att2 = true
+    }
+
+
     const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
     axios.post(api, {
         "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""

@@ -26,9 +26,12 @@
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
                                         v-for="(itax, iddx) in items.item" :key="itax.name"
                                         @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ $t(itax.name)
-                                        }}</router-link></div>
+}}</router-link></div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="logoutButton">
+                            <a href="#" @click.prevent="Logout()">{{ $t('Logout') }}</a>
                         </div>
                     </div>
                     <div class="memberCenterRight">
@@ -106,8 +109,10 @@
 <script setup>
 import axios from "axios";
 import { onMounted, ref } from "vue"
-import { useMemberStore } from "../stores/stores";
+import router from "../router";
+import { useMemberStore, useLoginStore } from "../stores/stores";
 const store = useMemberStore()
+const store2 = useLoginStore()
 
 //當前頁面
 const currentPages = ref(1)
@@ -238,8 +243,27 @@ const qrclosures = () => {
     qrcshow.value = false;
 }
 
+function Logout() {
+    $cookies.remove("u_id")
+    $cookies.remove("AuthCode")
+    alert('已登出')
+    store2.att = false
+    store2.att2 = true
+    router.push('/login')
+}
+
+
 onMounted(() => {
+    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+        store2.att = true
+        store2.att2 = false
+    } else {
+        store2.att = false
+        store2.att2 = true
+    }
+
     getList()
 })
+
 
 </script>
