@@ -1582,7 +1582,7 @@ button {
 }
 
 .question_bar::after {
-  content: url("../assets/img/chevron-down.svg");
+  content: url(/src/assets/img/chevron-down.svg);
   width: 20px;
   height: auto;
   position: absolute;

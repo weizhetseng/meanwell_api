@@ -7,27 +7,27 @@
                 </section>
                 <section class="loginContentBox">
                     <Form v-slot="{ errors, values, validate }">
-                        <div class="ContentBoxTitle">會員註冊</div>
+                        <div class="ContentBoxTitle">{{ $t('MemberRegister') }}</div>
                         <div class="signup_User_account">
                             <Field id="email" name="email" type="email" class="signup_User_accountInput"
-                                :class="{ 'is-invalid': errors['email'] }" placeholder="請輸入電子信箱" rules="email|required"
-                                v-model="user.Email"></Field>
+                                :class="{ 'is-invalid': errors['email'] }" :placeholder="$t('EmailInput')"
+                                rules="email|required" v-model="user.Email"></Field>
                             <error-message name="email" class="invalid-feedback"></error-message>
                         </div>
                         <div class="VerificationCodeBar">
-                            <div class="VerifCodeTitle">驗證碼</div>
+                            <div class="VerifCodeTitle">{{ $t('RegisterCode') }}</div>
                             <div class="verificationCode">
                                 <Field id="Code" name="驗證碼" type="text" class="verificationCodeInput"
-                                    :class="{ 'is-invalid': errors['驗證碼'] }" placeholder="請輸入驗證碼" rules="required"
-                                    v-model="user.Code"></Field>
-                                <button type="submit" class="verificationCodeButtem" @click="sendCode()">發送驗證碼</button>
+                                    :class="{ 'is-invalid': errors['驗證碼'] }" :placeholder="$t('RegisterCodeInput')"
+                                    rules="required" v-model="user.Code"></Field>
+                                <button type="submit" class="verificationCodeButtem" @click="sendCode()">{{
+        $t('RegisterCodeSend')
+}}</button>
                             </div>
                             <error-message name="驗證碼" class="invalid-feedback"></error-message>
                         </div>
                         <div class="Boxbarbutton">
-
-                            <button type="submit" class="buttonStyle" @click="verify()">下一步</button>
-
+                            <button type="submit" class="buttonStyle" @click="verify()">{{ $t('NextStep') }}</button>
                         </div>
                     </Form>
 

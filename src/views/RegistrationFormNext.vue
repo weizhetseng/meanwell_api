@@ -150,6 +150,29 @@ const totalNum = computed(() => {
     return parseInt(ticketNum_elec.value) + parseInt(ticketNum_paper.value)
 })
 
+// 將圖片從網址轉回 base64
+function getBase64(url, callback) {
+    var Img = new Image(),
+        dataURL = '';
+    Img.src = url + '?v=' + Math.random();
+    Img.setAttribute('crossOrigin', 'Anonymous');
+    Img.onload = function () {
+        var canvas = document.createElement('canvas'),
+            width = Img.width,
+            height = Img.height;
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext('2d').drawImage(Img, 0, 0, width, height);
+        dataURL = canvas.toDataURL('image/jpeg');
+        return callback ? callback(dataURL) : null;
+    };
+}
+
+let imgUrl = "https://demo18.e-giant.com.tw/Upload/Member/ff2f4dca92374a63ad87284d42f4b5fd/Pic001.jpg"
+getBase64(imgUrl, dataURL => {
+    console.log(dataURL)
+});
+
 // const counties = ['台北市', '基隆市', '新北市', '宜蘭縣', '桃園市', '新竹市', '新竹縣', '苗栗縣',
 //     '台中市', '彰化縣', '南投縣', '嘉義市', '嘉義縣', '雲林縣', '台南市', '高雄市',
 //     '澎湖縣', '金門縣', '屏東縣', '台東縣', '花蓮縣', '連江縣'];

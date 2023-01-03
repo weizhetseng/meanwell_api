@@ -6,12 +6,12 @@
                     <div class="loginBigIcon"><img src="../assets/img/LoginBigIcon.svg" alt=""></div>
                 </section>
                 <section class="loginContentBox">
-                    <div class="ContentBoxTitle">會員登入</div>
+                    <div class="ContentBoxTitle">{{ $t('MemberLogin') }}</div>
                     <Form v-slot="{ errors, values, validate }">
                         <div>
                             <div class="User_account">
                                 <Field id="email" name="email" type="email" class="User_accountInput"
-                                    :class="{ 'is-invalid': errors['email'] }" placeholder="請輸入電子信箱"
+                                    :class="{ 'is-invalid': errors['email'] }" :placeholder="$t('EmailInput')"
                                     rules="email|required" v-model="user.u_id">
                                 </Field>
                             </div>
@@ -22,8 +22,8 @@
                         <div>
                             <div class="User_password">
                                 <Field id="password" name="密碼" type="password" class="User_accountInput"
-                                    :class="{ 'is-invalid': errors['密碼'] }" placeholder="請輸入密碼" rules="required"
-                                    v-model="user.RA">
+                                    :class="{ 'is-invalid': errors['密碼'] }" :placeholder="$t('PasswordInput')"
+                                    rules="required" v-model="user.RA">
                                 </Field>
                             </div>
                             <div class="error">
@@ -35,15 +35,16 @@
                             <label>
                                 <Field type="checkbox" name="記住我" :value="true" :class="{ 'is-invalid': errors['記住我'] }"
                                     rules="required"></Field>
-                                <span>記住我</span>
+                                <span>{{ $t('RememberMe') }}</span>
                             </label>
                             <div class="ForgotPassword">
-                                <RouterLink to="/ForgotPassword">忘記密碼 ?</RouterLink>
+                                <RouterLink to="/ForgotPassword">{{ $t('ForgotPassword') }} ?</RouterLink>
                             </div>
                             <error-message name="記住我" class="invalid-feedback"></error-message>
                         </div>
                         <div class="buttonBox">
-                            <RouterLink to="/SignUp"><button class="pageButton buttonStyle">註冊</button></RouterLink>
+                            <RouterLink to="/SignUp"><button class="pageButton buttonStyle">{{ $t('Register')
+}}</button></RouterLink>
                             <input type="submit" value="登入" class="loginButton buttonStyle" @click="loginent()">
 
                         </div>
@@ -51,7 +52,7 @@
                     <div class="ThirdParty">
                         <div class="ThirdPartyTitle">
                             <div class="ThirdPartyTitleLine"></div>
-                            <div class="ThirdPartyTitleText">需為會員方可使用其他方式登入</div>
+                            <div class="ThirdPartyTitleText">{{ $t('OtherLoginText') }}</div>
                             <div class="ThirdPartyTitleLine"></div>
                         </div>
                         <div class="ThirdPartyButtemBar">

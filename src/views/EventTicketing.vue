@@ -8,11 +8,11 @@
                         <li>></li>
                         <li>{{ $t('MemberList7') }}</li>
                         <li>></li>
-                        <li>進行中</li>
+                        <li>{{ $t('MemberList8') }}</li>
                         <li>></li>
                         <li>蘇州智慧園區開幕儀式</li>
                         <li>></li>
-                        <li>電子票分票</li>
+                        <li>{{ $t('takeTicket') }}</li>
                     </ul>
                 </div>
                 <section class="MemberCenterContent">
@@ -55,26 +55,26 @@
                         </div>
                         <div class="ActiveDirectoryContentBox">
                             <div class="EventTicketingTitle">蘇州智慧園區開幕儀式</div>
-                            <div class="activitiesSubtitle">電子券分票</div>
+                            <div class="activitiesSubtitle">{{ $t('takeTicket') }}</div>
                             <div class="eventTicketTitle">
                                 <div class="titleArea">
                                     <div class="titleSeat">
                                         <div class="itemTitleLine"></div>
-                                        <div class="itemTitletext">座號</div>
+                                        <div class="itemTitletext">{{ $t('Seat') }}</div>
                                     </div>
                                     <div class="titleCode">
                                         <div class="itemTitleLine"></div>
-                                        <div class="itemTitletext">驗證碼</div>
+                                        <div class="itemTitletext">{{ $t('RegisterCode') }}</div>
                                     </div>
                                 </div>
                                 <div class="titleArea dn-1200">
                                     <div class="titleSeat">
                                         <div class="itemTitleLine"></div>
-                                        <div class="itemTitletext">座號</div>
+                                        <div class="itemTitletext">{{ $t('Seat') }}</div>
                                     </div>
                                     <div class="titleCode">
                                         <div class="itemTitleLine"></div>
-                                        <div class="itemTitletext">驗證碼</div>
+                                        <div class="itemTitletext">{{ $t('RegisterCode') }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +89,8 @@
                                     </div>
                                     <div class="copyCode">
                                         <p id="codeNum">{{ item.code }}</p>
-                                        <button type="button" id="copyBtn" @click="copy(item.code)">複製</button>
+                                        <button type="button" id="copyBtn" @click="copy(item.code)">{{ $t('copy')
+                                            }}</button>
                                     </div>
                                 </div>
                             </div>

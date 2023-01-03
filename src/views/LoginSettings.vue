@@ -77,7 +77,7 @@
                             </div>
                             <div class="LoginSettingsItem">
                                 <div class="ls_icon"><img src="../assets/img/weixin-brands.svg" alt=""></div>
-                                <div class="ls_name">{{ $t('WeChat') }}</div>
+                                <div class="ls_name">WeChat</div>
                                 <div class="bindStatus" v-if="store.MemberData.IsBind_WeChat">
                                     <div class="ls_linkIcon"><img src="../assets/img/ios-link.svg" alt=""></div>
                                     <button class="ls_butten unlinked">{{ $t('unlinked') }}</button>

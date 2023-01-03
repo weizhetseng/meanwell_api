@@ -8,11 +8,11 @@
                         <li>></li>
                         <li>{{ $t('MemberList7') }}</li>
                         <li>></li>
-                        <li>進行中</li>
+                        <li>{{ $t('MemberList8') }}</li>
                         <li>></li>
                         <li>蘇州智慧園區開幕儀式</li>
                         <li>></li>
-                        <li>取消報名</li>
+                        <li>{{ $t('Cancel') }}</li>
                     </ul>
                 </div>
                 <section class="MemberCenterContent">
@@ -55,14 +55,14 @@
                         </div>
                         <div class="ActiveDirectoryContentBox">
                             <div class="EventTicketingTitle">蘇州智慧園區開幕儀式</div>
-                            <div class="activitiesSubtitle">取消報名</div>
+                            <div class="activitiesSubtitle">{{ $t('Cancel') }}</div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">原因</div>
+                                <div class="itemTitletext">{{ $t('reason') }}</div>
                             </div>
                             <div class="CancelRegistrationSelect">
                                 <select class="memberinfinput" v-model="CancelApply.ReasonId">
-                                    <option :value="0" selected="" disabled="">請選擇原因</option>
+                                    <option :value="0" selected="" disabled="">{{ $t('chooseReason') }}</option>
                                     <option :value="1">原因一</option>
                                     <option :value="2">原因二</option>
                                     <option :value="3">原因三</option>
@@ -71,20 +71,20 @@
                             </div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">其他說明</div>
+                                <div class="itemTitletext">{{ $t('otherReason') }}</div>
                             </div>
                             <div class="CancelRegistrationtextbox">
-                                <textarea class="textBox" placeholder="請輸入原因說明"
+                                <textarea class="textBox" :placeholder="$t('otherReason2')"
                                     v-model="CancelApply.OtherCancelDesc"></textarea>
                             </div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">注意事項</div>
+                                <div class="itemTitletext">{{ $t('ActivityAlert') }}</div>
                             </div>
                             <div class="itemtext">神這斗唱吃坐會可海立遠泉，苦旦對何着原；汁肖里讀次燈見間員發兒急訴春直愛清魚。</div>
                             <div class="persbuttonBox">
-                                <router-link to="#"><button class="pageButtem"
-                                        @click="CancelActivity()">確認送出</button></router-link>
+                                <router-link to="#"><button class="pageButtem" @click="CancelActivity()">{{ $t('Check')
+}}</button></router-link>
                             </div>
                         </div>
                     </div>
