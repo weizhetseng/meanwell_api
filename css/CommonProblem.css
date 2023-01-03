@@ -1,0 +1,93 @@
+.question_Box {
+  width: 100%;
+  height: auto;
+  float: left;
+}
+
+.question_bar {
+  width: 100%;
+  height: auto;
+  float: left;
+  background-color: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  margin-bottom: 10px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 20px 30px;
+  position: relative;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.question_bar::after {
+  content: url("../assets/img/chevron-down.svg");
+  width: 20px;
+  height: auto;
+  position: absolute;
+  right: 26px;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.question_Box.active .question_bar::after {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.question_barText {
+  width: 100%;
+  height: auto;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  text-align: left;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.question_Box.active > .question_bar > .question_barText {
+  color: #006699;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.Answer_box {
+  width: 100%;
+  height: auto;
+  float: left;
+  font-size: 16px;
+  line-height: 26px;
+  color: #555555;
+  padding: 0px 0px;
+  overflow: hidden;
+  max-height: 0px;
+}
+
+.question_Box.active > .Answer_box {
+  max-height: 500px;
+  padding: 20px 0px;
+  padding-top: 10px;
+  height: auto;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}/*# sourceMappingURL=CommonProblem.css.map */

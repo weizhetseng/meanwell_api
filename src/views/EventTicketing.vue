@@ -80,6 +80,7 @@
                             </div>
 
                             <div class="eventTicketList">
+                                <!-- BEN 資料筆數為偶數時底線樣式， BON 資料筆數為基數時底線樣式  -->
                                 <div class="eventTicketItem" v-for="item in fakedata" :key="item.code"
                                     :data-length-n="fakedata.length"
                                     :class="[fakedata.length % 2 === 0 ? 'BEN' : 'BON']">
@@ -87,8 +88,8 @@
                                         <p>{{ item.seat }}</p>
                                     </div>
                                     <div class="copyCode">
-                                        <p>{{ item.code }}</p>
-                                        <button type="button" id="copyBtn">複製</button>
+                                        <p id="codeNum">{{ item.code }}</p>
+                                        <button type="button" id="copyBtn" @click="copy(item.code)">複製</button>
                                     </div>
                                 </div>
                             </div>
@@ -104,6 +105,7 @@ import axios from "axios";
 import { useRoute, useRouter } from 'vue-router'
 import { onMounted, ref } from "vue"
 import { useMemberStore, useLoginStore } from "../stores/stores";
+import useClipboard from 'vue-clipboard3'
 const store = useMemberStore()
 const store2 = useLoginStore()
 
@@ -112,7 +114,17 @@ const route = useRoute()
 const router = useRouter()
 const id = route.params.id
 const showData = ref([{}])
-
+// 複製文字
+const { toClipboard } = useClipboard()
+const copy = async (item) => {
+    console.log(item)
+    try {
+        await toClipboard(item)
+        console.log('Copied to clipboard')
+    } catch (e) {
+        console.error(e)
+    }
+}
 //假資料測試用
 const fakedata = [
     {

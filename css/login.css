@@ -1,0 +1,672 @@
+.Login .page_content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+.Login .page_content .loginTopIcon {
+  margin-bottom: 30px;
+}
+.Login .page_content .loginContentBox {
+  width: 100%;
+  max-width: 680px;
+  background-color: rgba(255, 255, 255, 0.6);
+  -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  padding: 50px;
+  border-radius: 20px;
+}
+.Login .page_content .loginContentBox .ContentBoxTitle {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #006699;
+  margin-bottom: 25px;
+}
+.Login .page_content .loginContentBox .error {
+  margin-bottom: 20px;
+  text-align: right;
+}
+.Login .page_content .loginContentBox .User_account {
+  position: relative;
+}
+.Login .page_content .loginContentBox .User_account input {
+  display: block;
+  width: 100%;
+  padding: 15px 0 15px 50px;
+  border-radius: 5px;
+  background: transparent;
+  -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  margin-bottom: 10px;
+}
+.Login .page_content .loginContentBox .User_account::after {
+  position: absolute;
+  content: url(/src/assets/img/user-solid.svg);
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  left: -10px;
+}
+.Login .page_content .loginContentBox .User_password {
+  position: relative;
+}
+.Login .page_content .loginContentBox .User_password input {
+  width: 100%;
+  padding: 15px 0 15px 50px;
+  border-radius: 5px;
+  background: transparent;
+  -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  margin-bottom: 10px;
+}
+.Login .page_content .loginContentBox .User_password::after {
+  position: absolute;
+  content: url(/src/assets/img/lock-solid.svg);
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  left: -10px;
+}
+.Login .page_content .loginContentBox .login_confirm_input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.Login .page_content .loginContentBox .login_confirm_input label span {
+  margin-right: 16px;
+  font-size: 18px;
+  color: #555555;
+  font-weight: bold;
+}
+.Login .page_content .loginContentBox .login_confirm_input label input[type=checkbox] {
+  display: none;
+}
+.Login .page_content .loginContentBox .login_confirm_input label input[type=checkbox] + span {
+  display: inline-block;
+  padding-left: 42px;
+  line-height: 38px;
+  background: url(/src/assets/img/confirm_no.svg) no-repeat;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555555;
+}
+.Login .page_content .loginContentBox .login_confirm_input label input[type=checkbox]:checked + span {
+  background: url(/src/assets/img/confirm_sure.svg) no-repeat;
+}
+.Login .page_content .loginContentBox .login_confirm_input .ForgotPassword a {
+  color: #943737;
+  font-size: 18px;
+  font-weight: bold;
+}
+.Login .page_content .loginContentBox .login_confirm_input .invalid-feedback {
+  margin-left: auto;
+}
+.Login .page_content .loginContentBox .buttonBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 30px;
+}
+.Login .page_content .loginContentBox .buttonBox .buttonStyle {
+  display: block;
+  width: 140px;
+  padding: 10px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.Login .page_content .loginContentBox .buttonBox .buttonStyle.pageButton {
+  margin-right: 45px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #0775AC), color-stop(50%, #006699));
+  background: linear-gradient(#0775AC 50%, #006699 50%);
+}
+.Login .page_content .loginContentBox .buttonBox .buttonStyle.loginButton {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
+  background: linear-gradient(#1A3F65 50%, #183354 50%);
+}
+.Login .page_content .loginContentBox .ThirdParty .ThirdPartyTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 20px;
+}
+.Login .page_content .loginContentBox .ThirdParty .ThirdPartyTitle .ThirdPartyTitleText {
+  color: #555;
+  font-weight: bold;
+  margin: 0 20px;
+}
+.Login .page_content .loginContentBox .ThirdParty .ThirdPartyTitle .ThirdPartyTitleLine {
+  width: 60px;
+  height: 1px;
+  background-color: #666;
+}
+.Login .page_content .loginContentBox .ThirdParty .ThirdPartyButtemBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.Login .page_content .loginContentBox .ThirdParty .ThirdPartyButtemBar .ThirdPartyButtemItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+.Login .page_content .loginContentBox .ThirdParty .ThirdPartyButtemBar .ThirdPartyButtemIcon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+}
+@media (max-width: 768px) {
+  .Login .page_content .loginContentBox {
+    padding: 30px;
+  }
+}
+@media (max-width: 576px) {
+  .Login .page_content .loginContentBox {
+    padding: 30px;
+  }
+  .Login .page_content .loginContentBox .buttonBox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .Login .page_content .loginContentBox .buttonBox .buttonStyle {
+    display: block;
+    width: 140px;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  .Login .page_content .loginContentBox .buttonBox .buttonStyle.pageButton {
+    margin-right: 0px;
+    margin-bottom: 20px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #0775AC), color-stop(50%, #006699));
+    background: linear-gradient(#0775AC 50%, #006699 50%);
+  }
+  .Login .page_content .loginContentBox .buttonBox .buttonStyle.loginButton {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
+    background: linear-gradient(#1A3F65 50%, #183354 50%);
+  }
+}
+
+.ForgotPassword .page_content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+.ForgotPassword .loginTopIcon {
+  margin-bottom: 30px;
+}
+.ForgotPassword .loginContentBox {
+  width: 100%;
+  max-width: 680px;
+  background-color: rgba(255, 255, 255, 0.6);
+  -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  padding: 50px;
+  border-radius: 20px;
+}
+.ForgotPassword .loginContentBox .ContentBoxTitle {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #006699;
+  margin-bottom: 25px;
+}
+.ForgotPassword .loginContentBox .error {
+  margin-bottom: 20px;
+  text-align: right;
+}
+.ForgotPassword .loginContentBox .signup_User_account {
+  position: relative;
+}
+.ForgotPassword .loginContentBox .signup_User_account input {
+  display: block;
+  width: 100%;
+  padding: 15px 0 15px 50px;
+  border-radius: 5px;
+  background: transparent;
+  -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  margin-bottom: 10px;
+}
+.ForgotPassword .loginContentBox .signup_User_account::after {
+  position: absolute;
+  content: url(/src/assets/img/emailalt.svg);
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  left: -10px;
+}
+.ForgotPassword .loginContentBox .Boxbarmessage {
+  color: #10325B;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 100px;
+}
+.ForgotPassword .loginContentBox .Boxbarbuttem2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.ForgotPassword .loginContentBox .Boxbarbuttem2 .buttonStyle {
+  display: block;
+  width: 140px;
+  padding: 10px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
+  background: linear-gradient(#1A3F65 50%, #183354 50%);
+}
+@media (max-width: 768px) {
+  .ForgotPassword .loginContentBox .loginContentBox {
+    padding: 30px;
+  }
+  .ForgotPassword .loginContentBox .loginContentBox .Boxbarbuttem2 .buttonStyle {
+    font-size: 20px;
+  }
+}
+
+.signUp .page_content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+.signUp .page_content .loginTopIcon {
+  margin-bottom: 30px;
+}
+.signUp .page_content .loginContentBox {
+  width: 100%;
+  max-width: 680px;
+  background-color: rgba(255, 255, 255, 0.6);
+  -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  padding: 50px;
+  border-radius: 20px;
+}
+.signUp .page_content .loginContentBox .ContentBoxTitle {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #006699;
+  margin-bottom: 25px;
+}
+.signUp .page_content .loginContentBox .error {
+  margin-bottom: 20px;
+  text-align: right;
+}
+.signUp .page_content .loginContentBox .signup_User_account {
+  position: relative;
+}
+.signUp .page_content .loginContentBox .signup_User_account input {
+  display: block;
+  width: 100%;
+  padding: 15px 0 15px 50px;
+  border-radius: 5px;
+  background: transparent;
+  -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  margin-bottom: 10px;
+}
+.signUp .page_content .loginContentBox .signup_User_account::after {
+  position: absolute;
+  content: url(/src/assets/img/emailalt.svg);
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  left: -10px;
+}
+.signUp .page_content .loginContentBox .VerificationCodeBar {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 80px;
+}
+.signUp .page_content .loginContentBox .VerificationCodeBar .VerifCodeTitle {
+  color: #10325B;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.signUp .page_content .loginContentBox .VerificationCodeBar .verificationCode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.signUp .page_content .loginContentBox .VerificationCodeBar .verificationCode input {
+  width: 74%;
+  height: 50px;
+  font-size: 16px;
+  color: #999999;
+  padding-left: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.signUp .page_content .loginContentBox .VerificationCodeBar .verificationCodeButtem {
+  width: 26%;
+  height: 50px;
+  text-align: center;
+  color: #555555;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background-color: #DBDBDB;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+}
+.signUp .page_content .loginContentBox .VerificationCodeBar .invalid-feedback {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin: 10px 0;
+}
+.signUp .page_content .loginContentBox .Boxbarbutton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.signUp .page_content .loginContentBox .Boxbarbutton .buttonStyle {
+  display: block;
+  width: 140px;
+  padding: 10px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
+  background: linear-gradient(#1A3F65 50%, #183354 50%);
+}
+@media (max-width: 768px) {
+  .signUp .page_content .loginContentBox {
+    padding: 30px;
+  }
+}
+@media (max-width: 576px) {
+  .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCode {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCode input {
+    width: 100%;
+  }
+  .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCodeButtem {
+    width: 50%;
+  }
+  .signUp .page_content .loginContentBox .Boxbarbutton .buttonStyle {
+    font-size: 20px;
+  }
+}
+@media (max-width: 414px) {
+  .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCode {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCode input {
+    display: block;
+    width: 100%;
+    padding: 15px 15px;
+    border-radius: 5px;
+    background: transparent;
+    -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+            box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+    margin-bottom: 10px;
+  }
+  .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCodeButtem {
+    width: 100%;
+  }
+}
+
+.Register .page_content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+.Register .page_content .loginTopIcon {
+  margin-bottom: 30px;
+}
+.Register .page_content .loginContentBox {
+  width: 100%;
+  max-width: 680px;
+  background-color: rgba(255, 255, 255, 0.6);
+  -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  padding: 50px;
+  border-radius: 20px;
+}
+.Register .page_content .loginContentBox .ContentBoxTitle {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #006699;
+  margin-bottom: 25px;
+}
+.Register .page_content .loginContentBox .PageTitle {
+  margin-bottom: 10px;
+}
+.Register .page_content .loginContentBox input[type=password] {
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  color: #999999;
+  padding-left: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin-bottom: 24px;
+}
+.Register .page_content .loginContentBox .page_confirm_input {
+  margin-bottom: 25px;
+}
+.Register .page_content .loginContentBox .page_confirm_input label input[type=checkbox] {
+  display: none;
+}
+.Register .page_content .loginContentBox .page_confirm_input label input[type=checkbox] + span {
+  display: inline-block;
+  padding-left: 32px;
+  line-height: 28px;
+  background: url(/src/assets/img/confirm_no.svg) no-repeat;
+  background-size: 30px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: #555555;
+}
+.Register .page_content .loginContentBox .page_confirm_input label input[type=checkbox]:checked + span {
+  background: url(/src/assets/img/confirm_sure.svg) no-repeat;
+  background-size: 30px;
+}
+.Register .page_content .loginContentBox .Boxbarbutton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.Register .page_content .loginContentBox .Boxbarbutton .buttonStyle {
+  display: block;
+  width: 140px;
+  padding: 10px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
+  background: linear-gradient(#1A3F65 50%, #183354 50%);
+}
+@media (max-width: 576px) {
+  .Register .page_content .loginContentBox .Boxbarbutton .buttonStyle {
+    font-size: 20px;
+  }
+}/*# sourceMappingURL=login.css.map */
