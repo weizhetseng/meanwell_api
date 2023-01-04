@@ -31,6 +31,8 @@
     border-radius: 20px
     padding: 26px 0px
     padding-bottom: 60px
+    display: flex
+    flex-direction: column
 .memberNavItem
     width: 100%
     height: auto
@@ -45,6 +47,13 @@
         width: 100%
         height: auto
         float: left
+.logoutButton
+    padding: 0 30px
+    margin-top: 30px
+    a
+        font-size: 20px
+        font-weight: bold
+        color: #F37A3E
 .navItemSort
     width: 100%
     height: 0px
@@ -103,6 +112,8 @@
     float: left
     margin-left: 5px
     color: #006699
+    &.mobileStyle
+        font-size: 17px
 .memberNavItem.active
     background-color: rgba( 0,102,153,1 )
 .memberNavItem.active a > .navItems > .memberNavItemLine
@@ -260,6 +271,9 @@
     width: 100%
     height: auto
     float: left
+@media (max-width: 576px)
+    .itemTitle
+        margin-bottom: 10px
 .itemTitle2
     width: 100%
     height: auto
@@ -280,6 +294,9 @@
     float: left
     margin-left: 5px
     color: #006699
+@media (max-width: 576px)
+    .itemTitletext
+        font-size: 18px
 .pointsBox,.giftsBox
     width: 100%
     height: auto
@@ -367,14 +384,14 @@
     float: left
     margin-top: 10px
     border-bottom: 1px dashed rgba( 100,100,100,1 )
-    display: inline-flex
+    display: flex
     justify-content: flex-start
     align-content: center
     align-items: center
     font-size: 16px
     color: #555555
     font-weight: bold
-    margin-bottom: 20px
+    margin-bottom: 30px
 .memberinfTextinput,.memberinfTextinput2,.memberinfTextinput3
     border-bottom: 0px
     position: relative
@@ -384,6 +401,8 @@
     margin-bottom: 0px
 .memberinfTextinput
     position: relative
+    &.Sessions
+        flex-wrap: wrap
     .material-symbols-outlined
         position: absolute
         right: 10px
@@ -595,7 +614,7 @@
         width: 100%
         height: auto
         float: left
-        font-size: 26px
+        font-size: 20px
         font-weight: bold
         text-align: left
         color: #006699

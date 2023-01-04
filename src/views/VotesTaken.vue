@@ -24,9 +24,12 @@
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
                                         v-for="(itax, iddx) in items.item" :key="itax.name"
                                         @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ $t(itax.name)
-                                        }}</router-link></div>
+}}</router-link></div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="logoutButton">
+                            <a href="#" @click.prevent="Logout()">{{ $t('Logout') }}</a>
                         </div>
                     </div>
                     <div class="memberCenterRight">
@@ -46,19 +49,13 @@
                         <div class="memberCenterRightContentBox">
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
-                                <div class="itemTitletext">{{ $t('TicketCode1') }}</div>
-                            </div>
-                            <div class="memberinfTextinput"><input type="text" name="" id="" class="memberinfinput"
-                                    :placeholder="$t('TicketCode1_5')" v-model="TicketTaken.TicketCode"></div>
-                            <div class="itemTitle">
-                                <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">{{ $t('TicketCode2') }}</div>
                             </div>
                             <div class="memberinfTextinput"><input type="text" name="" id="" class="memberinfinput"
                                     :placeholder="$t('TicketCode2_5')" v-model="TicketTaken.AuthCode"></div>
                             <div class="persbuttonBox">
                                 <router-link to="#"><button class="pageButtem" @click="TakenTicket()">{{ $t('Check')
-                                }}</button></router-link>
+}}</button></router-link>
                             </div>
                         </div>
                     </div>
@@ -77,16 +74,17 @@
 </template>
 <script setup>
 import axios from "axios";
-import { computed, ref } from "vue"
-import { useMemberStore } from "../stores/stores";
+import router from "../router";
+import { onMounted, ref } from "vue"
+import { useMemberStore, useLoginStore } from "../stores/stores";
+const store = useMemberStore()
+const store2 = useLoginStore()
 const TicketTaken = ref(
     {
         TicketCode: '',
         AuthCode: ''
     }
 )
-
-const store = useMemberStore()
 const activeIdx = ref(3);
 const activeIddx = ref(null);
 const activityset = ref(0);
@@ -168,4 +166,24 @@ function TakenTicket() {
             }
         })
 }
+
+function Logout() {
+    $cookies.remove("u_id")
+    $cookies.remove("AuthCode")
+    alert('已登出')
+    store2.att = false
+    store2.att2 = true
+    router.push('/login')
+}
+
+
+onMounted(() => {
+    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+        store2.att = true
+        store2.att2 = false
+    } else {
+        store2.att = false
+        store2.att2 = true
+    }
+})
 </script>

@@ -92,8 +92,9 @@
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">{{ $t('SeatNum') }}：</div>
-                                    <div class="itemtextright" v-for="item in showData[0].TicketDataList">{{ item.Seat
-                                    }}</div>
+                                    <div class="itemtextright" v-for="item in showData[0].TicketDataList">
+                                        {{ item.Seat }}
+                                    </div>
                                 </div>
                             </div>
                             <div class="itemTitle">
@@ -103,11 +104,11 @@
                             <div class="relevantinformation">
                                 <div class="itemTr">
                                     <div class="itemtextleft">{{ $t('Download') }}：</div>
-                                    <div class="itemtextright">
+                                    <div class="itemtextright downloadLink">
                                         <a :href="item.Link" :download="item.Title"
-                                            v-for="item in showData[0].DownloadList">{{
-                                                    item.Title
-                                            }}</a>
+                                            v-for="item in showData[0].DownloadList">
+                                            {{ item.Title }}
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="itemTr">
@@ -120,12 +121,27 @@
                                 </div>
                             </div>
                             <div class="FunctionColumn">
-                                <router-link :to="`/EventTicketing/${id}`"><button class="FunctionColumnButten"><img
-                                            src="../assets/img/ticket.svg" alt="">{{ $t('TakeTicket')
-                                            }}</button></router-link>
-                                <router-link :to="`/CancelRegistration/${id}`"><button class="FunctionColumnButten"><img
-                                            src="../assets/img/ban-solid.svg" alt="">{{ $t('Cancel')
-                                            }}</button></router-link>
+                                <router-link :to="`/EventTicketing/${id}`">
+                                    <button class="FunctionColumnButten"><img src="../assets/img/ticket.svg" alt="">
+                                        {{ $t('TakeTicket') }}
+                                    </button>
+                                </router-link>
+                                <router-link :to="`/CancelRegistration/${id}`">
+                                    <button class="FunctionColumnButten"><img src="../assets/img/ban-solid.svg" alt="">
+                                        {{ $t('Cancel') }}
+                                    </button>
+                                </router-link>
+                                <router-link to="#">
+                                    <button class="FunctionColumnButten"><img src="../assets/img/bxs-spreadsheet.png"
+                                            alt="">
+                                        {{ $t('test01') }}
+                                    </button>
+                                </router-link>
+                                <router-link to="#">
+                                    <button class="FunctionColumnButten"><img src="../assets/img/bxs-spreadsheet.png"
+                                            alt="">{{ $t('test02') }}
+                                    </button>
+                                </router-link>
                             </div>
                         </div>
                     </div>

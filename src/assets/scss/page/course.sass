@@ -24,6 +24,18 @@
         max-width: 100%
         float: left
         vertical-align: bottom
+.activityList
+    .swiper
+        margin-top: 20px
+        height: 100%
+        max-height: 450px
+        .swiper-slide
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+                object-position: center
+                max-height: 450px
 .Course_titleBar
     width: 100%
     height: 30px
@@ -33,6 +45,7 @@
     align-content: center
     align-items: center
     margin-top: 30px
+    flex-wrap: wrap
 .Course_title
     width: auto
     height: 30px
@@ -40,11 +53,13 @@
     font-size: 26px
     font-weight: bold
     color: #03717A
+    margin-bottom: 10px
 .Search_bar
     width: auto
     height: auto
     float: left
     position: relative
+    margin-bottom: 10px
 .Search_bar:before
     content: url(/src/assets/img/search_icon.svg)
     width: 20px
@@ -72,7 +87,6 @@
     margin-top: 30px
     display: inline-flex
     justify-content: space-between
-    align-items: center
     align-content: center
     flex-wrap: wrap
     a
@@ -85,12 +99,11 @@
      
 .Course_List_Item
     width: 100%
-    height: 100px
     float: left
     display: inline-flex
     justify-content: space-between
     align-content: center
-    align-items: center
+    align-items: flex-start
 .Course_date_left
     width: 100px
     height: 100px
@@ -131,7 +144,7 @@
     margin-bottom: 8px
 .Course_date_right
     width: calc( 100% - 110px )
-    height: 100px
+    min-height: 100px
     float: right
     background-color: #fff
     display: inline-flex
@@ -194,6 +207,10 @@
     padding: 60px
     margin-top: 20px
     box-shadow: 0px 6px 12px rgba( 0,0,0,.16 )
+@media (max-width:576px) 
+    .CourseContentBox
+        padding: 20px
+
 .Coursebuttoon
     width: 100%
     height: auto
@@ -212,7 +229,7 @@
     width: 100%
     height: auto
     float: left
-    font-size: 18px
+    font-size: 17px
     line-height: 30px
     color: #555
     margin-top: 10px
@@ -221,7 +238,7 @@
     width: 100%
     height: auto
     float: left
-    font-size: 18px
+    font-size: 17px
     line-height: 30px
     color: #555
 .CourseinfTitle
@@ -231,8 +248,14 @@
     font-size: 30px
     font-weight: bold
     text-align: left
-    margin-bottom: 10px
+    margin-bottom: 20px
     color: #006699
+    &.registration
+        font-size: 28px
+@media (max-width: 576px)
+    .CourseinfTitle
+        &.registration
+            font-size: 25px
 .ticket_set
     width: 100%
     height: auto

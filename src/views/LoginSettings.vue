@@ -26,9 +26,12 @@
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
                                         v-for="(itax, iddx) in items.item" :key="itax.name"
                                         @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ $t(itax.name)
-                                        }}</router-link></div>
+}}</router-link></div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="logoutButton">
+                            <a href="#" @click.prevent="Logout()">{{ $t('Logout') }}</a>
                         </div>
                     </div>
                     <div class="memberCenterRight">
@@ -61,7 +64,7 @@
 
                             </div>
                             <div class="LoginSettingsItem">
-                                <div class="ls_icon"><img src="../assets/img/google-brands.svg" alt=""></div>
+                                <div class="ls_icon"><img src="../assets/img/line-brands.svg" alt=""></div>
                                 <div class="ls_name">LINE</div>
                                 <div class="bindStatus" v-if="store.MemberData.IsBind_Line">
                                     <div class="ls_linkIcon"><img src="../assets/img/ios-link.svg" alt=""></div>
@@ -74,7 +77,7 @@
                             </div>
                             <div class="LoginSettingsItem">
                                 <div class="ls_icon"><img src="../assets/img/weixin-brands.svg" alt=""></div>
-                                <div class="ls_name">{{ $t('WeChat') }}</div>
+                                <div class="ls_name">WeChat</div>
                                 <div class="bindStatus" v-if="store.MemberData.IsBind_WeChat">
                                     <div class="ls_linkIcon"><img src="../assets/img/ios-link.svg" alt=""></div>
                                     <button class="ls_butten unlinked">{{ $t('unlinked') }}</button>
@@ -112,9 +115,12 @@
     </div>
 </template>
 <script setup>
-import { ref } from "vue"
-import { useMemberStore } from "../stores/stores";
+import { onMounted, ref } from "vue"
+import { useMemberStore, useLoginStore } from "../stores/stores";
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const store = useMemberStore()
+const store2 = useLoginStore()
 const activeIdx = ref(1);
 const activeIddx = ref(1);
 const NavItemArr = ref([
@@ -178,4 +184,27 @@ const qropen = () => {
 const qrclosures = () => {
     qrcshow.value = false;
 }
+
+function Logout() {
+    $cookies.remove("u_id")
+    $cookies.remove("AuthCode")
+    alert('已登出')
+    store2.att = false
+    store2.att2 = true
+    router.push('/login')
+}
+
+
+onMounted(() => {
+    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+        store2.att = true
+        store2.att2 = false
+    } else {
+        store2.att = false
+        store2.att2 = true
+    }
+})
+
+
+
 </script>

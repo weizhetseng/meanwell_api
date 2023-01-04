@@ -1,6 +1,6 @@
 <template>
     <div class="page_course_main">
-        <main>
+        <main class="activityList">
             <div class="page_content avt">
                 <div class="PageBreadCrumbs">
                     <ul>
@@ -9,16 +9,11 @@
                         <li>{{ $t('ActivityText') }}</li>
                     </ul>
                 </div>
-                <div class="BannerBar">
-                    <div class="banner_content">
-                        <swiper :modules="modules" :slides-per-view="1" :space-between="50"
-                            :pagination="{ clickable: true }">
-                            <swiper-slide v-for="item in listBanner" :key="item.PicLink">
-                                <img :src="item.PicLink" alt="">
-                            </swiper-slide>
-                        </swiper>
-                    </div>
-                </div>
+                <swiper :modules="modules" :slides-per-view="1" :space-between="50" :pagination="{ clickable: true }">
+                    <swiper-slide v-for="item in listBanner" :key="item.PicLink">
+                        <img :src="item.PicLink" alt="">
+                    </swiper-slide>
+                </swiper>
                 <div class="Course_titleBar">
                     <div class="Course_title">{{ $t('ActivityText') }}</div>
                     <div class="Search_bar"><input type="search" name="" id="" class="Course_Search_bar"

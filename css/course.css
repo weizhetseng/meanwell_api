@@ -1,0 +1,450 @@
+.BannerBar {
+  width: 100%;
+  max-width: 1200px;
+  max-height: 448px;
+  height: auto;
+  float: left;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+  margin-top: 20px;
+}
+
+.banner_content {
+  width: 100%;
+  height: auto;
+  float: left;
+  max-height: 448px;
+  overflow: hidden;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: end;
+      align-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.banner_content img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  float: left;
+  vertical-align: bottom;
+}
+
+.activityList .swiper {
+  margin-top: 20px;
+  height: 100%;
+  max-height: 450px;
+}
+.activityList .swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  max-height: 450px;
+}
+
+.Course_titleBar {
+  width: 100%;
+  height: 30px;
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 30px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.Course_title {
+  width: auto;
+  height: 30px;
+  float: left;
+  font-size: 26px;
+  font-weight: bold;
+  color: #03717A;
+  margin-bottom: 10px;
+}
+
+.Search_bar {
+  width: auto;
+  height: auto;
+  float: left;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.Search_bar:before {
+  content: url(/src/assets/img/search_icon.svg);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  z-index: 10;
+}
+
+.Course_Search_bar {
+  width: 180px;
+  height: 30px;
+  font-size: 16px;
+  color: #555;
+  float: left;
+  background-color: #fff;
+  border-radius: 15px;
+  border: 0px;
+  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  padding-left: 40px;
+  position: relative;
+}
+
+.Course_List_Box {
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-top: 30px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.Course_List_Box a {
+  width: calc(50% - 10px);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 790px) {
+  .Course_List_Box a {
+    width: 100%;
+  }
+}
+.Course_List_Item {
+  width: 100%;
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.Course_date_left {
+  width: 100px;
+  height: 100px;
+  float: left;
+  background: rgb(255, 255, 255);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), color-stop(50%, rgb(241, 241, 241)), color-stop(51%, rgb(225, 225, 225)), to(rgb(246, 246, 246)));
+  background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(241, 241, 241) 50%, rgb(225, 225, 225) 51%, rgb(246, 246, 246) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#f6f6f6",GradientType=0 );
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  border-radius: 20px;
+  position: relative;
+}
+
+.CoursedateBox {
+  width: auto;
+  height: auto;
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.CoursedateMonth {
+  width: auto;
+  height: auto;
+  float: left;
+  font-family: "Roboto";
+  font-size: 60px;
+  line-height: 60px;
+  font-weight: bold;
+  color: #006699;
+}
+
+.CoursedateMonthText {
+  width: auto;
+  height: auto;
+  float: left;
+  font-size: 1em;
+  color: #006699;
+  margin-bottom: 8px;
+}
+
+.Course_date_right {
+  width: calc(100% - 110px);
+  min-height: 100px;
+  float: right;
+  background-color: #fff;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 20px;
+  position: relative;
+  border-radius: 20px;
+}
+
+.toTop::before {
+  content: url("/src/assets/img/ToTop_icon.svg");
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: -8px;
+  left: -8px;
+}
+
+.OpenForRegistration::after {
+  content: url("/src/assets/img/Open_for_registration_icon.svg");
+  width: 78px;
+  height: 57px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.StopForRegistration::after {
+  content: url("/src/assets/img/Stop_for_registration_icon.svg");
+  width: 78px;
+  height: 57px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.RegistrationDeadline::after {
+  content: url("/src/assets/img/Registration_Deadline.svg");
+  width: 78px;
+  height: 57px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.Course_item_title {
+  width: 100%;
+  height: auto;
+  float: left;
+  font-size: 18px;
+  font-weight: bold;
+  color: #666666;
+}
+
+.Course_item_location {
+  width: 100%;
+  height: auto;
+  float: left;
+  font-size: 14px;
+  color: #666;
+  margin-top: 6px;
+}
+
+.CourseContentBox {
+  width: 100%;
+  height: auto;
+  min-height: calc(100% - 200px - 40px);
+  float: left;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 60px;
+  margin-top: 20px;
+  -webkit-box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.16);
+}
+
+@media (max-width: 576px) {
+  .CourseContentBox {
+    padding: 20px;
+  }
+}
+.Coursebuttoon {
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.CoursebuttoonSet {
+  width: 140px;
+  height: 50px;
+  float: left;
+  background-image: url(/src/assets/img/CoursebuttoonBg.svg);
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.CourseIntroduction {
+  width: 100%;
+  height: auto;
+  float: left;
+  font-size: 17px;
+  line-height: 30px;
+  color: #555;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.CourseIntroduction_item {
+  width: 100%;
+  height: auto;
+  float: left;
+  font-size: 17px;
+  line-height: 30px;
+  color: #555;
+}
+
+.CourseinfTitle {
+  width: 100%;
+  height: auto;
+  float: left;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 20px;
+  color: #006699;
+}
+.CourseinfTitle.registration {
+  font-size: 28px;
+}
+
+@media (max-width: 576px) {
+  .CourseinfTitle.registration {
+    font-size: 25px;
+  }
+}
+.ticket_set {
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.QuantityTable {
+  width: auto;
+  height: 40px;
+  float: left;
+  margin-left: 20px;
+}
+
+.QuantityTable_button {
+  width: 40px;
+  height: 40px;
+  float: left;
+  background-color: #fff;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.QuantityTable_button img {
+  width: auto;
+  height: auto;
+  float: left;
+}
+
+.QuantityTable_value {
+  width: 60px;
+  height: 40px;
+  float: left;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+  color: #000;
+  text-align: center;
+}
+
+.votes {
+  width: auto;
+  height: auto;
+  float: left;
+  font-size: 20px;
+  color: #10325B;
+  margin-left: 10px;
+}/*# sourceMappingURL=course.css.map */

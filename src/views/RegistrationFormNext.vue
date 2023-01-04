@@ -21,7 +21,7 @@
                         <div class="itemTitletext">{{ $t('SeId') }}</div>
                     </div>
 
-                    <div class="memberinfTextinput">
+                    <div class="memberinfTextinput Sessions">
                         <div v-for="item in showData[0].ActSessions" :key="item.SeId">
                             <input :id="item.SeId" type="radio" name="SeId" :value="item.SeId"
                                 v-model="storeSignUp.signUpData.SeId">
@@ -118,11 +118,11 @@
                     </div> -->
                     <div class="memberinfTextinput">
                         <input type="text" name="" id="Address" class="memberinfinput" :placeholder="$t('Address1')"
-                            v-model="storeSignUp.signUpData.Address3">
+                            v-model="storeSignUp.signUpData.Address">
                     </div>
                     <div class="Boxbarbuttem">
                         <button type="submit" class="pageButtem" @click.prevent="checkInput()">{{ $t('Check')
-                        }}</button>
+                            }}</button>
                     </div>
 
                 </div>
@@ -149,6 +149,29 @@ const showData = ref([{}])
 const totalNum = computed(() => {
     return parseInt(ticketNum_elec.value) + parseInt(ticketNum_paper.value)
 })
+
+// 將圖片從網址轉回 base64
+function getBase64(url, callback) {
+    var Img = new Image(),
+        dataURL = '';
+    Img.src = url + '?v=' + Math.random();
+    Img.setAttribute('crossOrigin', 'Anonymous');
+    Img.onload = function () {
+        var canvas = document.createElement('canvas'),
+            width = Img.width,
+            height = Img.height;
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext('2d').drawImage(Img, 0, 0, width, height);
+        dataURL = canvas.toDataURL('image/jpeg');
+        return callback ? callback(dataURL) : null;
+    };
+}
+
+let imgUrl = "https://demo18.e-giant.com.tw/Upload/Member/ff2f4dca92374a63ad87284d42f4b5fd/Pic001.jpg"
+getBase64(imgUrl, dataURL => {
+    console.log(dataURL)
+});
 
 // const counties = ['台北市', '基隆市', '新北市', '宜蘭縣', '桃園市', '新竹市', '新竹縣', '苗栗縣',
 //     '台中市', '彰化縣', '南投縣', '嘉義市', '嘉義縣', '雲林縣', '台南市', '高雄市',
@@ -244,7 +267,6 @@ const totalNum = computed(() => {
 
 
 function SignUp() {
-    storeSignUp.signUpData.Address = (storeSignUp.signUpData.Address1 + storeSignUp.signUpData.Address2 + storeSignUp.signUpData.Address3)
     const SignUpApi = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivitySignUp`
     axios.post(SignUpApi, storeSignUp.signUpData)
         .then((res) => {
@@ -359,7 +381,6 @@ onMounted(() => {
     storeSignUp.signUpData.ActId = id.slice(1)
     storeSignUp.signUpData.Ticket_E_Apply = ticketNum_elec
     storeSignUp.signUpData.Ticket_P_Apply = ticketNum_paper
-
 
 
 })

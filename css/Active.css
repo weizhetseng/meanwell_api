@@ -1,0 +1,557 @@
+.ActiveDirectory {
+  width: 100%;
+  height: 100px;
+  float: left;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 10px 50px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.ActiveDirectoryContentBox {
+  width: 100%;
+  height: auto;
+  min-height: calc(100% - 200px - 40px);
+  float: left;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 50px;
+  padding: 60px;
+}
+.ActiveDirectoryContentBox .eventTicketList {
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.ActiveDirectoryContentBox .eventTicketList .eventTicketItem {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-size: 18px;
+  color: #555555;
+  font-weight: 500;
+  padding: 0 20px 5px;
+  border-bottom: 2px dashed #707070;
+}
+.ActiveDirectoryContentBox .eventTicketList .eventTicketItem:nth-child(odd) {
+  border-right: 2px dashed #707070;
+  padding: 0 0 5px;
+}
+.ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BON:last-child {
+  border-bottom: none;
+}
+.ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BEN:last-child, .ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BEN:nth-last-child(2) {
+  border-bottom: none;
+}
+.ActiveDirectoryContentBox .eventTicketList .eventTicketItem .eventSeat {
+  width: 80px;
+  margin-right: 20px;
+}
+.ActiveDirectoryContentBox .eventTicketList .eventTicketItem .copyCode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.ActiveDirectoryContentBox .eventTicketList .eventTicketItem .copyCode p {
+  margin-right: 10px;
+}
+.ActiveDirectoryContentBox .eventTicketList .eventTicketItem .copyCode button {
+  color: #fff;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
+  background: linear-gradient(#1A3F65 50%, #183354 50%);
+}
+
+@media (max-width: 1200px) {
+  .ActiveDirectoryContentBox .eventTicketList {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .ActiveDirectoryContentBox .eventTicketList .eventTicketItem {
+    width: 100%;
+  }
+  .ActiveDirectoryContentBox .eventTicketList .eventTicketItem:nth-child(odd) {
+    border-right: none;
+  }
+  .ActiveDirectoryContentBox .eventTicketList .eventTicketItem:nth-child(even) {
+    padding: 0 0 5px;
+  }
+  .ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BON:last-child {
+    border-bottom: 2px dashed #707070;
+  }
+  .ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BEN:last-child, .ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BEN:nth-last-child(2) {
+    border-bottom: 2px dashed #707070;
+  }
+}
+.eventTicketTitle {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+  margin-bottom: 18px;
+}
+.eventTicketTitle .titleArea {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.eventTicketTitle .titleArea .titleSeat {
+  width: 80px;
+  margin-right: 20px;
+}
+.eventTicketTitle .titleArea:last-child {
+  padding: 0 20px;
+}
+
+@media (max-width: 1200px) {
+  .eventTicketTitle .titleArea {
+    width: 100%;
+  }
+  .eventTicketTitle .titleArea.dn-1200 {
+    display: none;
+  }
+}
+.activedirectoryitem {
+  width: auto;
+  height: 50px;
+  float: left;
+  border: 1px solid rgb(0, 102, 153);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #A5A5A5;
+  margin-right: 10px;
+}
+.activedirectoryitem a {
+  padding: 0px 35px;
+  color: rgb(0, 102, 153);
+}
+
+.activedirectoryitem.active {
+  background-color: rgb(0, 102, 153);
+  color: #fff;
+}
+.activedirectoryitem.active a {
+  color: #fff;
+}
+
+.ActiveList {
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-top: 20px;
+}
+
+.activelist-item-bar {
+  width: 100%;
+  height: auto;
+  float: left;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #707070;
+  margin-bottom: 10px;
+}
+
+.activelist-item {
+  width: 100%;
+  height: 80px;
+  float: left;
+  background: rgb(255, 255, 255);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), color-stop(50%, rgb(241, 241, 241)), color-stop(51%, rgb(225, 225, 225)), to(rgb(246, 246, 246)));
+  background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(241, 241, 241) 50%, rgb(225, 225, 225) 51%, rgb(246, 246, 246) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#f6f6f6",GradientType=0 );
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.activelistdate {
+  width: 60px;
+  height: 60px;
+  float: left;
+  background-color: #006699;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  border-radius: 5px;
+  position: relative;
+}
+
+.activelistdateMonth {
+  width: auto;
+  height: auto;
+  float: left;
+  position: absolute;
+  font-family: "Roboto";
+  font-size: 33px;
+  font-weight: bold;
+  color: #fff;
+  right: 18px;
+  text-align: right;
+}
+
+.activelistdateMonthbefore {
+  width: auto;
+  height: auto;
+  float: left;
+  font-size: 0.1em;
+  position: absolute;
+  bottom: 16px;
+  color: #fff;
+  right: 4px;
+}
+
+.activelistTextBar {
+  position: relative;
+  width: calc(100% - 60px - 10px);
+  height: 60px;
+  float: left;
+  margin-left: 10px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.activelistText {
+  width: 100%;
+  height: auto;
+  float: left;
+  text-align: left;
+  font-size: 14px;
+  color: #666666;
+}
+
+.pagination {
+  width: 100%;
+  height: auto;
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
+}
+
+.pagination_item_next {
+  width: auto;
+  height: 16px;
+  float: left;
+  padding: 0px 5px;
+}
+.pagination_item_next img {
+  width: auto;
+  height: 100%;
+  float: left;
+}
+
+.pagination_item_previous {
+  width: auto;
+  height: 16px;
+  float: left;
+  padding: 0px 5px;
+}
+.pagination_item_previous img {
+  width: auto;
+  height: 100%;
+  float: left;
+}
+
+.pagination_item {
+  width: auto;
+  height: auto;
+  float: left;
+  padding: 0px 5px;
+  font-size: 16px;
+  text-align: center;
+  color: #555;
+}
+.pagination_item::after {
+  content: "|";
+  height: auto;
+  float: right;
+  font-size: 16px;
+  color: #555;
+  margin-left: 8px;
+  position: relative;
+  top: -2px;
+}
+
+.activitiesTitle, .EventTicketingTitle {
+  width: 100%;
+  height: auto;
+  float: left;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 30px;
+  color: #006699;
+}
+
+.EventTicketingTitle {
+  margin-bottom: 10px;
+}
+
+.itemtext {
+  width: 100%;
+  height: auto;
+  float: left;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  color: #555555;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.itemTr {
+  width: 100%;
+  height: auto;
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 25px;
+}
+
+.itemtextleft, .itemtextleft2 {
+  width: 90px;
+  height: 24px;
+  float: left;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 24px;
+  color: #006699;
+}
+
+.itemtextleft2 {
+  width: 140px;
+}
+
+.itemtextright, .itemtextright2 {
+  width: calc(100% - 90px - 10px);
+  height: 24px;
+  float: left;
+  font-size: 18px;
+  color: #555555;
+  line-height: 24px;
+  word-break: break-all;
+}
+
+.itemtextright.downloadLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.itemtextright a {
+  margin-right: 15px;
+}
+
+.itemtextright2 {
+  width: calc(100% - 140px - 10px);
+}
+.itemtextright2.downloadLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.personalinformation {
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.TicketInformation {
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.relevantinformation {
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-bottom: 20px;
+  padding-bottom: 30px;
+  border-bottom: 1px dashed #707070;
+}
+
+.FunctionColumn {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.FunctionColumnButten {
+  width: 170px;
+  height: 50px;
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  background: rgb(255, 255, 255);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), color-stop(50%, rgb(241, 241, 241)), color-stop(51%, rgb(225, 225, 225)), to(rgb(246, 246, 246)));
+  background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(241, 241, 241) 50%, rgb(225, 225, 225) 51%, rgb(246, 246, 246) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#f6f6f6",GradientType=0 );
+  color: #10325B;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  -webkit-box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.16);
+  margin-right: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.FunctionColumnButten img {
+  margin-right: 15px;
+  width: auto;
+  height: 16px;
+  float: left;
+}
+
+.activitiesSubtitle {
+  width: 100%;
+  height: auto;
+  float: left;
+  font-size: 25px;
+  font-weight: bold;
+  color: #006699;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 576px) {
+  .activitiesSubtitle {
+    font-size: 22px;
+  }
+}
+.CancelRegistrationSelect {
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.CancelRegistrationSelect option {
+  height: 25px;
+  line-height: 25px;
+  padding: 10px 0px;
+  color: #555;
+}
+
+.CancelRegistrationSelect option:disabled {
+  background-color: rgb(200, 200, 200);
+}
+
+.CancelRegistrationSelect option:selected {
+  color: #555;
+}
+
+.CancelRegistrationtextbox {
+  width: 100%;
+  height: auto;
+  float: left;
+  padding: 20px;
+  background-color: #fff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.textBox {
+  width: 100%;
+  height: 180px;
+  padding: 20px;
+  float: left;
+  font-size: 16px;
+  font-weight: bold;
+  color: #555;
+}/*# sourceMappingURL=Active.css.map */

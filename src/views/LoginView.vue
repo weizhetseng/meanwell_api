@@ -1,50 +1,52 @@
 <template>
     <div class="page_main">
-        <main>
+        <main class="Login">
             <div class="page_content">
                 <section class="loginTopIcon">
                     <div class="loginBigIcon"><img src="../assets/img/LoginBigIcon.svg" alt=""></div>
                 </section>
                 <section class="loginContentBox">
-                    <div class="ContentBoxTitle">會員登入 / 註冊</div>
+                    <div class="ContentBoxTitle">{{ $t('MemberLogin') }}</div>
                     <Form v-slot="{ errors, values, validate }">
                         <div>
                             <div class="User_account">
-                                <Field id="email" name="email" type="email" class="User_accountInput"
-                                    :class="{ 'is-invalid': errors['email'] }" placeholder="請輸入電子信箱"
+                                <Field id="email" :name="$t('__Email')" type="email" class="User_accountInput"
+                                    :class="{ 'is-invalid': errors['Email'] }" :placeholder="$t('EmailInput')"
                                     rules="email|required" v-model="user.u_id">
                                 </Field>
                             </div>
                             <div class="error">
-                                <error-message name="email" class="invalid-feedback"></error-message>
+                                <error-message :name="$t('__Email')" class="invalid-feedback"></error-message>
                             </div>
                         </div>
                         <div>
                             <div class="User_password">
-                                <Field id="password" name="password" type="password" class="User_accountInput"
-                                    :class="{ 'is-invalid': errors['password'] }" placeholder="請輸入密碼" rules="required"
-                                    v-model="user.RA">
+                                <Field id="password" :name="$t('password')" type="password" class="User_accountInput"
+                                    :class="{ 'is-invalid': errors['password'] }" :placeholder="$t('PasswordInput')"
+                                    rules="required" v-model="user.RA">
                                 </Field>
                             </div>
                             <div class="error">
-                                <error-message name="password" class="invalid-feedback"></error-message>
+                                <error-message :name="$t('password')" class="invalid-feedback"></error-message>
                             </div>
                         </div>
 
                         <div class="login_confirm_input">
                             <label>
-                                <Field type="checkbox" name="記住我" :value="true" :class="{ 'is-invalid': errors['記住我'] }"
-                                    rules="required"></Field>
-                                <span>記住我</span>
+                                <Field type="checkbox" :name="$t('RememberMe')" :value="true"
+                                    :class="{ 'is-invalid': errors['RememberMe'] }" rules="required"></Field>
+                                <span>{{ $t('RememberMe') }}</span>
                             </label>
                             <div class="ForgotPassword">
-                                <RouterLink to="/ForgotPassword">忘記密碼 ?</RouterLink>
+                                <RouterLink to="/ForgotPassword">{{ $t('ForgotPassword') }} ?</RouterLink>
                             </div>
-                            <error-message name="記住我" class="invalid-feedback"></error-message>
+                            <error-message :name="$t('RememberMe')" class="invalid-feedback"></error-message>
                         </div>
-                        <div class="buttemBox">
-                            <RouterLink to="/SignUp"><button class="pageButtem">註冊</button></RouterLink>
-                            <input type="submit" value="登入" class="loginButtem" @click="loginent()">
+                        <div class="buttonBox">
+                            <RouterLink to="/SignUp"><button class="pageButton buttonStyle">{{
+                                $t('Register')
+                            }}</button></RouterLink>
+                            <input type="submit" value="登入" class="loginButton buttonStyle" @click="loginent()">
                             <input type="submit" value="test" class="loginButtem" @click="WebLogin()">
                             <input type="submit" value="testauth" class="loginButtem" @click="testauth()">
                         </div>
@@ -52,7 +54,7 @@
                     <div class="ThirdParty">
                         <div class="ThirdPartyTitle">
                             <div class="ThirdPartyTitleLine"></div>
-                            <div class="ThirdPartyTitleText">需為會員方可使用其他方式登入</div>
+                            <div class="ThirdPartyTitleText">{{ $t('OtherLoginText') }}</div>
                             <div class="ThirdPartyTitleLine"></div>
                         </div>
                         <div class="ThirdPartyButtemBar">

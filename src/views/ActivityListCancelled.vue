@@ -31,6 +31,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="logoutButton">
+                            <a href="#" @click.prevent="Logout()">{{ $t('Logout') }}</a>
+                        </div>
                     </div>
                     <div class="memberCenterRight">
                         <div class="memberCenterRightTopBox">
@@ -106,10 +109,12 @@
 <script setup>
 import axios from "axios";
 import { onMounted, ref } from "vue"
-import { useMemberStore } from "../stores/stores";
-import { useRoute } from "vue-router";
-const route = useRoute()
+import { useMemberStore, useLoginStore } from "../stores/stores";
+import { useRoute, useRouter } from "vue-router";
 const store = useMemberStore()
+const store2 = useLoginStore()
+const route = useRoute()
+const router = useRouter()
 
 //當前頁面
 const currentPages = ref(1)
@@ -242,9 +247,28 @@ const qrclosures = () => {
     qrcshow.value = false;
 }
 
+
+function Logout() {
+    $cookies.remove("u_id")
+    $cookies.remove("AuthCode")
+    alert('已登出')
+    store2.att = false
+    store2.att2 = true
+    router.push('/login')
+}
+
+
 onMounted(() => {
+    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+        store2.att = true
+        store2.att2 = false
+    } else {
+        store2.att = false
+        store2.att2 = true
+    }
     getList()
 })
+
 
 
 </script>

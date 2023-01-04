@@ -12,7 +12,7 @@
                     </div>
                     <div class="Calendar_dayscontent">
                         <div class="Calendar_dayscontent_item_Week" v-for="(item, index) in weekMap" :key="index">{{
-                                item
+                            item
                         }}
                         </div>
                     </div>
@@ -124,8 +124,6 @@ function generateCalendar(date) {
     const trailDays = calendarGrid - weekIndex - days;
     let trailVal = 0;
     const calendarTable = CalendarItem;
-
-
 
 
     for (let i = 0; i < calendarGrid; i++) {

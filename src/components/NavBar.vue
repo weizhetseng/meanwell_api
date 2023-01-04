@@ -26,7 +26,7 @@
                         <router-link :to="items.path">
                             <div class="navItems" @click="handleMenuFnb(ia)">
                                 <div class="memberNavItemLine"></div>
-                                <div class="memberNavItemtext">{{ $t(items.name) }}</div>
+                                <div class="memberNavItemtext mobileStyle">{{ $t(items.name) }}</div>
                             </div>
                         </router-link>
                         <div class="navItemSort">
@@ -62,8 +62,8 @@
                     <div class="sdgMenuItem">
                         <div class="loging_item">
                             <RouterLink to="/login">{{ $t('Login') }}</RouterLink> / <RouterLink to="/SignUp">{{
-                                    $t('Register')
-                            }}
+        $t('Register')
+}}
                             </RouterLink>
                         </div>
                     </div>
@@ -75,9 +75,9 @@
                             <div class="signinmenutext">{{ $t('MemberCenter') }}</div>
                         </div>
                     </RouterLink>
-                    <a href="" @click="Logout()">
+                    <!-- <a href="" @click="Logout()">
                         <div class="Tosignout">{{ $t('Logout') }}</div>
-                    </a>
+                    </a> -->
                     <RouterLink to="/Calendar">
                         <div class="sdgMenuItem2">
                             <div class="signinicon"><img src="../assets/img/calendar_icon.svg" alt=""></div>
@@ -173,12 +173,12 @@ const handleMenuFna = (iddx) => {
     mobileMenu.value = false;
 };
 
-//登出
-function Logout() {
-    $cookies.remove("u_id")
-    $cookies.remove("AuthCode")
-    alert('已登出')
-}
+// 登出
+// function Logout() {
+//     $cookies.remove("u_id")
+//     $cookies.remove("AuthCode")
+//     alert('已登出')
+// }
 
 
 //切換繁體中文

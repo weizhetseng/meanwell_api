@@ -1,0 +1,428 @@
+* {
+  font-family: "Microsoft JhengHei", "serif";
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 90px;
+  float: left;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 5;
+}
+
+footer {
+  width: 100%;
+  height: 250px;
+  float: left;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  position: relative;
+  padding: 0px 20px;
+  padding-top: 50px;
+  margin-top: -250px;
+}
+
+.page_main {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  float: left;
+  background-image: url(/src/assets/img/background_img.jpg);
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  padding-top: 90px;
+  padding-bottom: 250px;
+}
+
+.page_course_main {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  float: left;
+  background-image: url(/src/assets/img/background_course_img.jpg);
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  padding-top: 90px;
+  padding-bottom: 250px;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+main {
+  width: 100%;
+  height: auto;
+  min-height: calc(100vh - 90px - 250px);
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  position: relative;
+  padding: 60px 0px;
+}
+
+.page_content {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+input, button {
+  border: 0px;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.PageTitle {
+  width: 100%;
+  height: auto;
+  float: left;
+  font-size: 18px;
+  font-weight: 900;
+  color: #10325B;
+  letter-spacing: 1px;
+}
+
+.PageBreadCrumbs {
+  width: 100%;
+  height: auto;
+  float: left;
+}
+.PageBreadCrumbs ul {
+  width: 100%;
+  height: auto;
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.leyboxbg {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: rgba(178, 178, 178, 0.6);
+  z-index: 90;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-height: 0px;
+  overflow: hidden;
+  opacity: 0.002;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.leyboxbg.active {
+  max-height: 1920px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  opacity: 1;
+}
+
+.leyboxcontent {
+  width: 300px;
+  height: 368px;
+  float: left;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 50px;
+  -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.leyboxcontent_txt {
+  width: 100%;
+  height: auto;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 30px;
+}
+
+.qrcordphoto {
+  width: 190px;
+  height: auto;
+  float: left;
+}
+.qrcordphoto img {
+  width: 100%;
+  height: auto;
+  float: left;
+}
+
+.closure_icon_set {
+  width: 100%;
+  height: 40px;
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 30px;
+  cursor: pointer;
+}
+.closure_icon_set img {
+  width: auto;
+  height: 100%;
+  float: left;
+}
+
+.PagesTitle {
+  width: 100%;
+  height: auto;
+  float: left;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #006699;
+}
+
+.CourseContentBox > h2 {
+  width: 100%;
+  height: auto;
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  color: #006699;
+  border-left: 3px solid #FF4646;
+  padding-left: 6px;
+}
+
+.CourseContentBox > p {
+  width: 100%;
+  height: auto;
+  float: left;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: bold;
+  text-align: left;
+  color: #555;
+  padding-left: 0px;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+.lyboxbg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  z-index: 12;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  max-width: 0px;
+  overflow: hidden;
+  opacity: 0.002;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.lyboxbg.active {
+  max-width: 100vw;
+  opacity: 1;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.mobile_menus {
+  width: 80vw;
+  height: 94vh;
+  padding: 20px;
+  float: left;
+  background-color: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.16);
+  position: relative;
+}
+
+.cles_icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  cursor: pointer;
+}
+.cles_icon img {
+  width: 100%;
+  height: auto;
+  float: left;
+}
+
+.mobile_sdgMenuItem {
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-top: 10px;
+}
+
+.mobile_signoutView {
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-top: 20px;
+}
+
+.mobile_signinView {
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-top: 10px;
+}
+
+.mobile_signoutView.active {
+  display: none;
+}
+
+.mobile_signinView.active {
+  display: none;
+}
+
+.mobile_sdgMenuItem, .mobile_sdgMenuItem2 {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.mobile_sdgMenuItem2 {
+  margin: 20px 0;
+}
+
+.mobile_Tosignout {
+  width: 100%;
+  height: auto;
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 30px;
+  margin: 10px 0px;
+  color: #F37A3E;
+}
+
+.invalid-feedback {
+  font-size: 14px;
+  margin: 5px 0;
+  color: red;
+}/*# sourceMappingURL=layout.css.map */

@@ -1,0 +1,373 @@
+.indexPageTitle {
+  width: 100%;
+  height: auto;
+  float: left;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 10px;
+}
+
+.indexActivityBar {
+  width: 100%;
+  max-width: 904px;
+  height: auto;
+  min-height: 222px;
+  float: left;
+  margin-top: 40px;
+}
+
+.indAct_item_Box {
+  width: 100%;
+  height: auto;
+  float: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.indAct_item_Box .indAct_ul01 {
+  width: 60%;
+  height: auto;
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.indAct_item_Box .indAct_ul01 li {
+  width: 145px;
+  height: 222px;
+  position: relative;
+}
+.indAct_item_Box .indAct_ul01 li a {
+  width: 100%;
+  height: 222px;
+  float: left;
+  background-color: #fff;
+  border-radius: 100px 100px 100px 100px;
+  -webkit-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.15);
+          box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+}
+.indAct_item_Box .indAct_ul02 {
+  width: 40%;
+  height: auto;
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.indAct_item_Box .indAct_ul02 li {
+  width: 145px;
+  height: 222px;
+  position: relative;
+}
+.indAct_item_Box .indAct_ul02 li a {
+  width: 100%;
+  height: 222px;
+  float: left;
+  background-color: #fff;
+  border-radius: 100px 100px 100px 100px;
+  -webkit-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.15);
+          box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+}
+
+.atcImgBox {
+  width: calc(100% - 20px);
+  height: auto;
+  position: absolute;
+  float: left;
+  bottom: 10px;
+}
+.atcImgBox img {
+  width: 100%;
+  height: auto;
+  float: left;
+  vertical-align: bottom;
+}
+
+.atcText {
+  width: calc(100% - 20px);
+  height: auto;
+  position: absolute;
+  float: left;
+  bottom: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.Conference {
+  color: #077E8E;
+}
+
+.EducationTraining {
+  color: #649644;
+}
+
+.TourGuide {
+  color: #9CAF4A;
+}
+
+.CaringCare {
+  color: #E28100;
+}
+
+.GiftingPlatform {
+  color: #FF6666;
+}
+
+.AnnouncementSystem {
+  width: 100%;
+  height: auto;
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.AnnouncementSystemBox {
+  width: 100%;
+  max-width: 904px;
+  height: auto;
+  float: left;
+  margin-top: 54px;
+}
+.AnnouncementSystemBox > ul {
+  width: 100%;
+  height: auto;
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.AnnouncementSystemBox > ul > li {
+  width: calc(33.3333333333% - 44px);
+  height: 256px;
+  float: left;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 2px solid #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.AnnTop {
+  width: 100%;
+  height: 48px;
+  float: left;
+  padding: 10px;
+  background-color: #fff;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: end;
+      align-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.AnnTopIcon {
+  width: 30px;
+  height: auto;
+  float: left;
+}
+.AnnTopIcon img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  float: left;
+}
+
+.AnnTopText {
+  width: auto;
+  height: 30px;
+  float: left;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 30px;
+  text-align: center;
+  padding: 0px 10px;
+  margin-left: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #666;
+  letter-spacing: 1px;
+  color: #666;
+}
+
+.AnnContent {
+  width: 100%;
+  height: calc(100% - 68px);
+  float: left;
+  margin: 10px;
+  overflow-y: auto;
+}
+.AnnContent > ul {
+  width: calc(100% - 20px);
+  height: auto;
+  float: left;
+  margin: 12px 0px;
+}
+.AnnContent > ul > li {
+  width: 100%;
+  height: auto;
+  padding-left: 6px;
+  margin-bottom: 13px;
+  font-size: 14px;
+  color: #666666;
+  border-left-width: 2px;
+  border-left-style: solid;
+  text-align: justify;
+}
+.AnnContent > ul > li a {
+  color: #666;
+}
+
+.ConferenceLine {
+  border-left-color: #077E8E;
+}
+
+.EducationTrainingLine {
+  border-left-color: #649644;
+}
+
+.TourGuideLine {
+  border-left-color: #9CAF4A;
+}
+
+.CaringCareLine {
+  border-left-color: #E28100;
+}
+
+.GiftingPlatformLine {
+  border-left-color: #FF6666;
+}
+
+.NewsLine {
+  border-left-color: #10325B;
+}
+
+@media screen and (max-width: 960px) {
+  .indAct_item_Box {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0px 0px;
+  }
+  .indAct_item_Box .indAct_ul01 {
+    width: 100%;
+  }
+  .indAct_item_Box .indAct_ul02 {
+    width: 100%;
+  }
+  .indAct_item_Box ul {
+    width: 590px;
+    padding: 0px 20px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .indAct_item_Box ul a {
+    height: 260px;
+  }
+  .indAct_item_Box ul a li {
+    height: 240px;
+  }
+  .AnnouncementSystem {
+    padding: 0px 20px;
+  }
+}
+@media screen and (max-width: 890px) {
+  .AnnouncementSystemBox > ul > li {
+    width: calc(33.3333333333% - 20px);
+  }
+}
+@media screen and (max-width: 610px) {
+  .indAct_item_Box {
+    width: 100%;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 0px 0px;
+  }
+  .indAct_item_Box ul {
+    width: 300px;
+    padding: 0px;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .indAct_item_Box ul a {
+    width: calc(50% - 20px);
+    height: 230px;
+  }
+  .indAct_item_Box ul a li {
+    height: 210px;
+  }
+  .AnnouncementSystemBox > ul {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .AnnouncementSystemBox > ul > li {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .AnnouncementSystem {
+    padding: 0px;
+  }
+}
+@media screen and (max-width: 490px) {
+  .indexPageTitle {
+    font-size: 28px;
+    letter-spacing: 4px;
+  }
+}/*# sourceMappingURL=index.css.map */

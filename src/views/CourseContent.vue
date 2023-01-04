@@ -76,7 +76,7 @@ const showData = ref([{}])
 
 
 const api = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivityList`
-axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "ModClass": id.slice(0, 1), "SDateTime": '', "EDateTime": '', "Keywords": '' })
+axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), Lang: $cookies.get("Lang") == null ? 'tw' : $cookies.get("Lang"), "ModClass": id.slice(0, 1), "SDateTime": '', "EDateTime": '', "Keywords": '' })
     .then((res) => {
         ListData.value = res.data.ActivityDataList
         showData.value = ListData.value.filter((item) => {
