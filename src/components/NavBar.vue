@@ -183,17 +183,17 @@ function Logout() {
 
 //切換繁體中文
 function changeTW() {
-    $cookies.set("Lang", "tw")
+    $cookies.set("Lang", "tw", -1)
     location.reload()
 }
 //切換簡體中文
 function changeCN() {
-    $cookies.set("Lang", "cn")
+    $cookies.set("Lang", "cn", -1)
     location.reload()
 }
 //切換英文
 function changeEN() {
-    $cookies.set("Lang", "en")
+    $cookies.set("Lang", "en", -1)
     location.reload()
 }
 

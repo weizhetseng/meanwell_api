@@ -11,6 +11,7 @@
   "dependencies": {
     "@vee-validate/i18n": "^4.7.3",
     "@vee-validate/rules": "^4.7.3",
+    "dayjs": "^1.11.7",
     "pinia": "^2.0.26",
     "swiper": "^8.4.5",
     "vee-validate": "^4.7.3",
@@ -24,6 +25,7 @@
     "@rushstack/eslint-patch": "^1.1.4",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vue/eslint-config-prettier": "^7.0.0",
+    "crypto-js": "^4.1.1",
     "eslint": "^8.22.0",
     "eslint-plugin-vue": "^9.3.0",
     "prettier": "^2.7.1",

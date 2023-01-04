@@ -56,9 +56,27 @@ configure({
 });
 
 // 設定預設語系
+if ($cookies.get("Lang") == null) {
+    $cookies.set("Lang", "tw", -1);
+    setLocale('zh_TW');
+} else {
+    switch ($cookies.get("Lang")) {
+        case "tw":
+            setLocale('zh_TW');
+            break;
+        case "en":
+            setLocale('en_US');
+            break;
+        case "cn":
+            setLocale('zh_CN');
+            break;
+        default:
+            setLocale('zh_TW');
+            break;
+    }
+}
 
-setLocale('zh_TW');
-
+$cookies.get("Lang") == null ? 'tw' : $cookies.get("Lang")
 
 
 const app = createApp(App)

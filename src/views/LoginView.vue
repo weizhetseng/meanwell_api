@@ -45,7 +45,8 @@
                         <div class="buttemBox">
                             <RouterLink to="/SignUp"><button class="pageButtem">註冊</button></RouterLink>
                             <input type="submit" value="登入" class="loginButtem" @click="loginent()">
-
+                            <input type="submit" value="test" class="loginButtem" @click="WebLogin()">
+                            <input type="submit" value="testauth" class="loginButtem" @click="testauth()">
                         </div>
                     </Form>
                     <div class="ThirdParty">
@@ -83,7 +84,11 @@
 
 
 import axios from 'axios';
+import { onMounted, ref, computed } from 'vue';
 import { useLoginStore } from '../stores/stores';
+import VueCookies from 'vue-cookies';
+import dayjs from 'dayjs';
+import CryptoJS from "crypto-js";
 const store = useLoginStore()
 const loginent = () => {
     store.loginData();
@@ -117,6 +122,95 @@ function Login() {
 
 }
 
+var authkey = ""
+var authiv = ""
+const GetKeyRequest = {
+    Lang: "tw"
+}
+function GetKey() {
+    const api1 = `${import.meta.env.VITE_APP_API}API_App/MemberData/LoginEncrypt`
+    axios.post(api1, GetKeyRequest)
+        .then((res) => {
+            if (res.data.success) {
+                authkey = res.data.Key
+                authiv = res.data.IV
+                console.log("key:" + authkey + "，iv:" + authiv)
+                //console.log(res.data)
+            } else {
+                console.log(res.data.message)
+            }
+        })
+        .catch((error) => console.log(error))
+}
+function encrypt(word, keyStr, ivStr) {
+    keyStr = keyStr ? keyStr : "absoietlj32fai12";
+    ivStr = ivStr ? ivStr : "absoietlj32fai12";
+    let key = CryptoJS.enc.Utf8.parse(keyStr);
+    let iv = CryptoJS.enc.Utf8.parse(ivStr);
+    let srcs = CryptoJS.enc.Utf8.parse(word);
 
+    let encrypted = CryptoJS.AES.encrypt(srcs, key, {
+      iv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.ZeroPadding
+    });
+    return encrypted.toString();
+}
 
+const WebLoginRequest = {
+    u_id: '',
+    RA: '',
+    Lang: "tw"
+}
+function WebLogin() {
+    const api1 = `${import.meta.env.VITE_APP_API}API_App/MemberData/WebLogin`
+    var uid = user.u_id;
+    var pwd = user.RA;
+    var RA = encrypt("0000000000000000" + `${import.meta.env.VITE_APP_PROJECT};` + pwd + ";" + dayjs().format('YYYY-MM-DD HH:mm:ss') + ";",authkey,authiv);
+    //console.log(`${import.meta.env.VITE_APP_PROJECT};` + pwd + ";" + dayjs().format('YYYY-MM-DD HH:mm:ss') + ";")
+    WebLoginRequest.u_id = uid;
+    WebLoginRequest.RA = RA;
+
+    axios.post(api1, WebLoginRequest)
+        .then((res) => {
+            if (res.data.success) {
+                console.log(res.data);
+                $cookies.set("random", res.data.AuthToken, 0);
+                //console.log(res.data)
+            } else {
+                console.log(res.data.message)
+            }
+        })
+        .catch((error) => console.log(error))
+}
+
+function testauth() {
+    const api1 = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetData`;
+    if ($cookies.get("random") != null) {
+        const testtt = {
+            u_id: user.u_id,
+            AuthCode: '0',
+            Lang: "tw"
+        }
+
+        axios.post(api1, testtt, {
+                headers: {
+                    Authorization: 'Bearer ' + $cookies.get("random")
+                }
+            })
+            .then((res) => {
+                if (res.data.success) {
+                    console.log(res.data);
+                } else {
+                    console.log(res.data.message)
+                }
+            })
+            .catch((error) => console.log(error))
+    }
+}
+
+onMounted(() => {
+    GetKey()
+    console.log(`${import.meta.env.VITE_APP_PROJECT};`);
+})
 </script>

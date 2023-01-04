@@ -29,7 +29,7 @@ const router = createRouter({
       component: () => import("../views/ForgotPasswordView.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: false
       }
     },
     {

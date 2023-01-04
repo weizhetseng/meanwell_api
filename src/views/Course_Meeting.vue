@@ -99,7 +99,13 @@ const cacheSearch = ref('')
 
 //搜尋匹配資料
 const filterSearch = computed(() => {
-    return tableData.value.filter((item) => item.ActSubject.match(cacheSearch.value));
+    if (tableData.length > 0) {
+        return tableData.value.filter((item) => item.ActSubject.match(cacheSearch.value));
+    }
+    else
+    {
+        return tableData.value;
+    }
 })
 
 //跳轉該頁面資料
@@ -126,7 +132,16 @@ function nextPage() {
 //axios取得該頁資料
 function getList() {
     const api = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivityList`
-    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "ModClass": id, "SDateTime": '', "EDateTime": '', "Keywords": '' })
+    axios.post(api, { "u_id": '', "AuthCode": '', "Lang": $cookies.get('Lang'), "ModClass": id, "SDateTime": '', "EDateTime": '', "Keywords": '' })
+        .then((res) => {
+            list.value = res.data.ActivityDataList
+            total.value = res.data.ActivityDataList.length
+            listBanner.value = res.data.BannerList
+            totalSize.value = Math.ceil(total.value / pageSize)
+            tableData.value = getNeedArr(list.value, pageSize)[currentPages.value - 1]
+            console.log($cookies.get('Lang'))
+        })
+    /* axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "ModClass": id, "SDateTime": '', "EDateTime": '', "Keywords": '' })
         .then((res) => {
             list.value = res.data.ActivityDataList
             total.value = res.data.ActivityDataList.length
@@ -134,7 +149,7 @@ function getList() {
             totalSize.value = Math.ceil(total.value / pageSize)
             tableData.value = getNeedArr(list.value, pageSize)[currentPages.value - 1]
             console.log(res.data)
-        })
+        }) */
 }
 //計算頁面資料
 function getNeedArr(array, size) {
