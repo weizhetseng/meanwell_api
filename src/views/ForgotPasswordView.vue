@@ -11,13 +11,13 @@
           <div class="ContentBoxTitle">{{ $t('ForgotPassword') }}</div>
           <Form v-slot="{ errors, values, validate }">
             <div class="signup_User_account">
-              <Field id="email" name="email" type="email" class="signup_User_accountInput"
+              <Field id="email" :name="$t('__Email')" type="email" class="signup_User_accountInput"
                 :class="{ 'is-invalid': errors['email'] }" :placeholder="$t('EmailInput')" rules="email|required"
                 v-model="user.Email">
               </Field>
             </div>
             <div class="error">
-              <error-message name="email" class="invalid-feedback"></error-message>
+              <error-message :name="$t('__Email')" class="invalid-feedback"></error-message>
             </div>
             <div class="Boxbarmessage">
               {{ $t('fogotText') }}

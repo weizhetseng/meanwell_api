@@ -554,7 +554,7 @@
             .loginContentBox
                 padding: 30px
                 .buttonBox
-                    flex-direction: column
+                    flex-direction: column-reverse
                     .buttonStyle
                         display: block
                         width: 140px
@@ -565,9 +565,9 @@
                         border-radius: 5px
                         &.pageButton
                             margin-right: 0px
-                            margin-bottom: 20px
                             background: linear-gradient(#0775AC 50%, #006699 50%)
                         &.loginButton
+                            margin-bottom: 20px
                             background: linear-gradient(#1A3F65 50%, #183354 50%)
 
 
@@ -636,13 +636,16 @@
                 font-weight: bold
                 border-radius: 5px
                 background: linear-gradient(#1A3F65 50%, #183354 50%)
-        @media (max-width:768px) 
-            .loginContentBox
-                padding: 30px
-                .Boxbarbuttem2
-                    .buttonStyle
-                        font-size: 20px
-
+    @media (max-width:768px) 
+        .loginContentBox
+            padding: 30px
+            .Boxbarbuttem2
+                .buttonStyle
+                    font-size: 20px
+    @media (max-width:576px) 
+        .loginContentBox
+            .Boxbarmessage
+                margin-bottom: 60px
 
 
 .signUp
@@ -665,8 +668,8 @@
                 font-weight: bold
                 color: #006699
                 margin-bottom: 25px
-            .error
-                margin-bottom: 20px
+            .invalid-feedback
+                display: block
                 text-align: right
             .signup_User_account
                 position: relative

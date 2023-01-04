@@ -57,8 +57,8 @@
 }
 
 .language_item {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   float: left;
   position: relative;
 }
@@ -167,7 +167,7 @@
 
 .signinicon {
   width: auto;
-  height: 30px;
+  height: 25px;
   float: left;
 }
 .signinicon img {
@@ -176,13 +176,17 @@
   float: left;
 }
 
+.mobile_sdgMenuItem .signinicon {
+  height: 20px;
+}
+
 .signinmenutext {
   width: auto;
   height: auto;
   float: left;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
-  line-height: 30opx;
+  line-height: 30px;
   margin-left: 10px;
   margin-right: 20px;
   color: #006699;

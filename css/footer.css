@@ -75,6 +75,7 @@
   width: 100px;
   height: auto;
   float: left;
+  margin-bottom: 20px;
 }
 .qrcoder_item_photo img {
   width: 100%;

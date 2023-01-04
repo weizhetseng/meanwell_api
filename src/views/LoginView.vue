@@ -10,41 +10,42 @@
                     <Form v-slot="{ errors, values, validate }">
                         <div>
                             <div class="User_account">
-                                <Field id="email" name="email" type="email" class="User_accountInput"
-                                    :class="{ 'is-invalid': errors['email'] }" :placeholder="$t('EmailInput')"
+                                <Field id="email" :name="$t('__Email')" type="email" class="User_accountInput"
+                                    :class="{ 'is-invalid': errors['Email'] }" :placeholder="$t('EmailInput')"
                                     rules="email|required" v-model="user.u_id">
                                 </Field>
                             </div>
                             <div class="error">
-                                <error-message name="email" class="invalid-feedback"></error-message>
+                                <error-message :name="$t('__Email')" class="invalid-feedback"></error-message>
                             </div>
                         </div>
                         <div>
                             <div class="User_password">
-                                <Field id="password" name="密碼" type="password" class="User_accountInput"
-                                    :class="{ 'is-invalid': errors['密碼'] }" :placeholder="$t('PasswordInput')"
+                                <Field id="password" :name="$t('password')" type="password" class="User_accountInput"
+                                    :class="{ 'is-invalid': errors['password'] }" :placeholder="$t('PasswordInput')"
                                     rules="required" v-model="user.RA">
                                 </Field>
                             </div>
                             <div class="error">
-                                <error-message name="密碼" class="invalid-feedback"></error-message>
+                                <error-message :name="$t('password')" class="invalid-feedback"></error-message>
                             </div>
                         </div>
 
                         <div class="login_confirm_input">
                             <label>
-                                <Field type="checkbox" name="記住我" :value="true" :class="{ 'is-invalid': errors['記住我'] }"
-                                    rules="required"></Field>
+                                <Field type="checkbox" :name="$t('RememberMe')" :value="true"
+                                    :class="{ 'is-invalid': errors['RememberMe'] }" rules="required"></Field>
                                 <span>{{ $t('RememberMe') }}</span>
                             </label>
                             <div class="ForgotPassword">
                                 <RouterLink to="/ForgotPassword">{{ $t('ForgotPassword') }} ?</RouterLink>
                             </div>
-                            <error-message name="記住我" class="invalid-feedback"></error-message>
+                            <error-message :name="$t('RememberMe')" class="invalid-feedback"></error-message>
                         </div>
                         <div class="buttonBox">
-                            <RouterLink to="/SignUp"><button class="pageButton buttonStyle">{{ $t('Register')
-}}</button></RouterLink>
+                            <RouterLink to="/SignUp"><button class="pageButton buttonStyle">{{
+                                $t('Register')
+                            }}</button></RouterLink>
                             <input type="submit" value="登入" class="loginButton buttonStyle" @click="loginent()">
 
                         </div>

@@ -30,7 +30,6 @@
             <div class="qrcoderbar">
                 <div class="qrcoder_item">
                     <div class="qrcoder_item_photo"><img src="../assets/img/Android_qr.svg" alt=""></div>
-                    <div class="qrcoder_item_text">Android</div>
                     <div class="qrcoder_item_img">
                         <a href="#">
                             <img src="../assets/img/qrcode-icon-and.png" alt="">
@@ -39,7 +38,6 @@
                 </div>
                 <div class="qrcoder_item">
                     <div class="qrcoder_item_photo"><img src="../assets/img/IOS_qr.svg" alt=""></div>
-                    <div class="qrcoder_item_text">IOS</div>
                     <div class="qrcoder_item_img">
                         <a href="#">
                             <img src="../assets/img/qrcode-icon-ios.png" alt="">

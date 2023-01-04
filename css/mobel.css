@@ -13,6 +13,9 @@
   background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
   background: linear-gradient(#1A3F65 50%, #183354 50%);
 }
+.pageButtem.registerBtn {
+  margin: 20px auto 0;
+}
 
 @media screen and (max-width: 1260px) {
   .page_content {
@@ -197,7 +200,7 @@
     display: inline-flex;
   }
   .navItems {
-    height: 40px;
+    height: 45px;
   }
   .memberNavItemtext {
     height: 18px;

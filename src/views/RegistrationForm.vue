@@ -95,7 +95,7 @@
                             v-model="storeSignUp.signUpData.JobTitle">
                     </div>
                     <div class="Boxbarbuttem">
-                        <button class="pageButtem" @click="checkInput()">{{ $t('NextStep') }}</button>
+                        <button class="pageButtem registerBtn" @click="checkInput()">{{ $t('NextStep') }}</button>
                     </div>
                 </div>
             </div>

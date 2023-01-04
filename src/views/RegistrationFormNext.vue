@@ -383,7 +383,6 @@ onMounted(() => {
     storeSignUp.signUpData.Ticket_P_Apply = ticketNum_paper
 
 
-
 })
 
 </script>

@@ -508,6 +508,11 @@
   margin-bottom: 20px;
 }
 
+@media (max-width: 576px) {
+  .activitiesSubtitle {
+    font-size: 22px;
+  }
+}
 .CancelRegistrationSelect {
   width: 100%;
   height: auto;

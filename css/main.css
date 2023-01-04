@@ -2903,9 +2903,9 @@ button {
   }
   .Login .page_content .loginContentBox .buttonBox {
     -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
   }
   .Login .page_content .loginContentBox .buttonBox .buttonStyle {
     display: block;

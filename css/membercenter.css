@@ -392,6 +392,11 @@
   float: left;
 }
 
+@media (max-width: 576px) {
+  .itemTitle {
+    margin-bottom: 10px;
+  }
+}
 .itemTitle2 {
   width: 100%;
   height: auto;
@@ -418,6 +423,11 @@
   color: #006699;
 }
 
+@media (max-width: 576px) {
+  .itemTitletext {
+    font-size: 18px;
+  }
+}
 .pointsBox, .giftsBox {
   width: 100%;
   height: auto;
@@ -541,9 +551,9 @@
   float: left;
   margin-top: 10px;
   border-bottom: 1px dashed rgb(100, 100, 100);
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -555,7 +565,7 @@
   font-size: 16px;
   color: #555555;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .memberinfTextinput, .memberinfTextinput2, .memberinfTextinput3 {
