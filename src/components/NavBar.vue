@@ -23,8 +23,8 @@
                 <div class="mobile_member">
                     <div class="memberNavItem" v-for="(items, idx) in NavItemArr" :key="items.name"
                         :class="{ active: mobileactiveIdx === idx }" @click="handleMenuFn(idx)">
-                        <router-link :to="items.path">
-                            <div class="navItems" @click="handleMenuFnb(ia)">
+                        <router-link :to="items.path" @click="colsMobileMenu2(idx)">
+                            <div class="navItems">
                                 <div class="memberNavItemLine"></div>
                                 <div class="memberNavItemtext mobileStyle">{{ $t(items.name) }}</div>
                             </div>
@@ -118,7 +118,8 @@ const NavItemArr = ref([
     {
         name: 'MemberList1',
         path: '/MemberCenter',
-    }, {
+    },
+    {
         name: 'MemberList2',
         path: '',
         item: [
@@ -136,7 +137,8 @@ const NavItemArr = ref([
                 path: '/MembershipManagementMeasures',
             }
         ]
-    }, {
+    },
+    {
         name: 'MemberList7',
         path: '',
         item: [
@@ -165,6 +167,11 @@ const openMobileMenu = () => {
 const colsMobileMenu = () => {
     mobileMenu.value = false
 }
+const colsMobileMenu2 = (item) => {
+    if (item == 0 || item == 3) {
+        mobileMenu.value = false
+    }
+}
 const handleMenuFn = (idx) => {
     mobileactiveIdx.value = idx;
 };
@@ -176,7 +183,7 @@ const handleMenuFna = (iddx) => {
 // 登出
 // function Logout() {
 //     $cookies.remove("u_id")
-//     $cookies.remove("AuthCode")
+//     $cookies.remove("random")
 //     alert('已登出')
 // }
 

@@ -228,7 +228,7 @@ const tranDocType = computed(() => {
 
 function Logout() {
     $cookies.remove("u_id")
-    $cookies.remove("AuthCode")
+    $cookies.remove("random")
     alert('已登出')
     store2.att = false
     store2.att2 = true
