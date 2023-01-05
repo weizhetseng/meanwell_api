@@ -184,7 +184,7 @@ function Logout() {
 
 
 onMounted(() => {
-    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+    if ($cookies.isKey("random") == true && $cookies.isKey("u_id") == true) {
         store2.att = true
         store2.att2 = false
     } else {

@@ -25,8 +25,9 @@
                                 <div class="navItemSortContent">
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
                                         v-for="(itax, iddx) in items.item" :key="itax.name"
-                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ $t(itax.name)
-}}</router-link></div>
+                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{
+                                            $t(itax.name)
+                                        }}</router-link></div>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +152,7 @@ function Logout() {
 
 
 onMounted(() => {
-    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+    if ($cookies.isKey("random") == true && $cookies.isKey("u_id") == true) {
         store2.att = true
         store2.att2 = false
     } else {

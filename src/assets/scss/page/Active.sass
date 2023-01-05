@@ -13,12 +13,10 @@
 .ActiveDirectoryContentBox
     width: 100%
     height: auto
-    min-height: calc( 100% - 200px - 40px )
     float: left
     background-color: rgba( 255,255,255,.6 )
     border-radius: 20px
     padding: 50px
-    padding: 60px
     .eventTicketList
         width: 100%
         display: inline-flex
@@ -73,10 +71,21 @@
                 &.BEN
                     &:last-child, &:nth-last-child(2)
                         border-bottom: 2px dashed #707070
+@media (max-width: 520px)
+    .ActiveDirectoryContentBox
+        .eventTicketList
+            display: block
+            overflow-x: scroll
+            .eventTicketItem
+                flex-wrap: nowrap
+                .eventSeat
+                    white-space: nowrap
+                .copyCode
+                    flex-wrap: nowrap 
 .eventTicketTitle
     display: inline-flex
     width: 100%
-    margin-bottom: 18px
+    margin-bottom: 9px
     .titleArea
         width: 50%
         display: flex
@@ -243,7 +252,7 @@
     margin-bottom: 30px
     color: #006699
 .EventTicketingTitle
-    margin-bottom: 10px
+    margin-bottom: 20px
 .itemtext
     width: 100%
     height: auto
@@ -258,29 +267,29 @@
     height: auto
     float: left
     display: inline-flex
-    justify-content: space-between
     align-content: center
     align-items: center
-    margin-top: 25px 
 .itemtextleft,.itemtextleft2
     width: 90px
-    height: 24px
     float: left
     font-size: 18px
     font-weight: bold
     line-height: 24px
     color: #006699
+    margin-right: 15px
+    white-space: nowrap
+    margin-bottom: 15px
 .itemtextleft2
     width: 140px
 .itemtextright,.itemtextright2
-    width: calc( 100% - 90px - 10px )
-    height: 24px
     float: left
     font-size: 18px
     color: #555555
     line-height: 24px
     word-break: break-all
+
 .itemtextright
+    margin-bottom: 15px
     &.downloadLink
         display: flex
         flex-wrap: wrap
@@ -288,6 +297,7 @@
         margin-right: 15px
     ul
         display: flex
+        flex-wrap: wrap
         gap: 10px
 .itemtextright2
     width: calc( 100% - 140px - 10px )
@@ -298,16 +308,17 @@
     width: 100%
     height: auto
     float: left
-    margin-bottom: 20px
+    margin-top: 20px
 .TicketInformation
     width: 100%
     height: auto
     float: left
-    margin-bottom: 20px
+    margin-top: 20px
 .relevantinformation
     width: 100%
     height: auto
     float: left
+    margin-top: 20px
     margin-bottom: 20px
     padding-bottom: 30px
     border-bottom: 1px dashed #707070
@@ -353,6 +364,8 @@
     margin-bottom: 20px
 @media (max-width: 576px)
     .activitiesSubtitle
+        font-size: 20px
+    .EventTicketingTitle
         font-size: 22px
 .CancelRegistrationSelect
     width: 100%
@@ -385,3 +398,7 @@
     font-size: 16px
     font-weight: bold
     color: #555
+
+
+
+

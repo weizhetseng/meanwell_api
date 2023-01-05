@@ -46,7 +46,7 @@
                             <RouterLink to="/SignUp"><button class="pageButton buttonStyle">{{
                                 $t('Register')
                             }}</button></RouterLink>
-                            <input type="submit" value="登入" class="loginButton buttonStyle" @click="store.WebLogin()">
+                            <input type="button" value="登入" class="loginButton buttonStyle" @click="store.WebLogin()">
                             <!-- <input type="submit" value="test" class="loginButtem" @click="WebLogin()">
                             <input type="submit" value="testauth" class="loginButtem" @click="testauth()"> -->
                         </div>

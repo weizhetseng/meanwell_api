@@ -10,7 +10,7 @@
                         <li>></li>
                         <li>{{ $t('MemberList8') }}</li>
                         <li>></li>
-                        <li>蘇州智慧園區開幕儀式</li>
+                        <li>{{ showData[0].ActSubject }}</li>
                         <li>></li>
                         <li>{{ $t('takeTicket') }}</li>
                     </ul>
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div class="ActiveDirectoryContentBox">
-                            <div class="EventTicketingTitle">蘇州智慧園區開幕儀式</div>
+                            <div class="EventTicketingTitle">{{ showData[0].ActSubject }}</div>
                             <div class="activitiesSubtitle">{{ $t('takeTicket') }}</div>
                             <div class="eventTicketTitle">
                                 <div class="titleArea">
@@ -78,18 +78,17 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="eventTicketList">
                                 <!-- BEN 資料筆數為偶數時底線樣式， BON 資料筆數為基數時底線樣式  -->
-                                <div class="eventTicketItem" v-for="item in fakedata" :key="item.code"
-                                    :data-length-n="fakedata.length"
-                                    :class="[fakedata.length % 2 === 0 ? 'BEN' : 'BON']">
+                                <div class="eventTicketItem" v-for="item in showData[0].TicketDataList" :key="item.code"
+                                    :data-length-n="showData[0].TicketDataList.length"
+                                    :class="[showData[0].TicketDataList.length % 2 === 0 ? 'BEN' : 'BON']">
                                     <div class="eventSeat">
-                                        <p>{{ item.seat }}</p>
+                                        <p>{{ item.Seat }}</p>
                                     </div>
                                     <div class="copyCode">
-                                        <p id="codeNum">{{ item.code }}</p>
-                                        <button type="button" id="copyBtn" @click="copy(item.code)">{{
+                                        <p id="codeNum">{{ item.AuthCode }}</p>
+                                        <button type="button" id="copyBtn" @click="copy(item.AuthCode)">{{
                                             $t('copy')
                                         }}</button>
                                     </div>
@@ -127,33 +126,6 @@ const copy = async (item) => {
         console.error(e)
     }
 }
-//假資料測試用
-const fakedata = [
-    {
-        seat: '劃位中',
-        code: '202212dwtfgbske'
-    },
-    {
-        seat: '劃位中',
-        code: '456'
-    },
-    {
-        seat: '劃位中',
-        code: '789'
-    },
-    {
-        seat: '劃位中',
-        code: '147'
-    },
-    {
-        seat: '劃位中',
-        code: '258'
-    },
-    {
-        seat: '劃位中',
-        code: '369'
-    }
-]
 
 const activeIdx = ref(2);
 const activeIddx = ref(0);
@@ -224,7 +196,7 @@ function Logout() {
 
 
 onMounted(() => {
-    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+    if ($cookies.isKey("random") == true && $cookies.isKey("u_id") == true) {
         store2.att = true
         store2.att2 = false
     } else {
