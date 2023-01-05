@@ -121,8 +121,9 @@
                             v-model="storeSignUp.signUpData.Address">
                     </div>
                     <div class="Boxbarbuttem">
-                        <button type="submit" class="pageButtem" @click.prevent="checkInput()">{{ $t('Check')
-                            }}</button>
+                        <button type="submit" class="pageButtem" @click.prevent="checkInput()">{{
+                            $t('Check')
+                        }}</button>
                     </div>
 
                 </div>
@@ -168,9 +169,11 @@ function getBase64(url, callback) {
     };
 }
 
-let imgUrl = "https://demo18.e-giant.com.tw/Upload/Member/ff2f4dca92374a63ad87284d42f4b5fd/Pic001.jpg"
+let imgUrl = storeSignUp.signUpData.Pic
 getBase64(imgUrl, dataURL => {
-    console.log(dataURL)
+    let strImage = dataURL.replace(/^data:image\/[a-z]+;base64,/, "")
+    console.log(strImage)
+    storeSignUp.signUpData.Pic = strImage
 });
 
 // const counties = ['台北市', '基隆市', '新北市', '宜蘭縣', '桃園市', '新竹市', '新竹縣', '苗栗縣',
@@ -268,7 +271,11 @@ getBase64(imgUrl, dataURL => {
 
 function SignUp() {
     const SignUpApi = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivitySignUp`
-    axios.post(SignUpApi, storeSignUp.signUpData)
+    axios.post(SignUpApi, storeSignUp.signUpData, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
+    })
         .then((res) => {
             if (res.data.success) {
                 alert('報名成功')
@@ -362,7 +369,11 @@ function checkInput() {
 onMounted(() => {
 
     const api = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivityList`
-    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "ModClass": id.slice(0, 1), "SDateTime": '', "EDateTime": '', "Keywords": '' })
+    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "ModClass": id.slice(0, 1), "SDateTime": '', "EDateTime": '', "Keywords": '' }, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
+    })
         .then((res) => {
             ListData.value = res.data.ActivityDataList
             showData.value = ListData.value.filter((item) => {
@@ -376,7 +387,7 @@ onMounted(() => {
     }
 
     storeSignUp.signUpData.u_id = $cookies.get('u_id')
-    storeSignUp.signUpData.AuthCode = $cookies.get('AuthCode')
+    storeSignUp.signUpData.AuthCode = '0'
     storeSignUp.signUpData.Lang = $cookies.get('Lang')
     storeSignUp.signUpData.ActId = id.slice(1)
     storeSignUp.signUpData.Ticket_E_Apply = ticketNum_elec

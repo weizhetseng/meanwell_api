@@ -61,9 +61,11 @@
                                     <div class="activelist-item-bar">
                                         <div class="activelist-item">
                                             <div class="activelistdate">
-                                                <div class="activelistdateMonth">{{ item.ActSDateTime.substr(5, 2)
-}}</div>
-                                                <div class="activelistdateMonthbefore">{{ $t('Month') }}</div>
+                                                <div class="activelistdateMonth">{{ item.ActSDateTime.substr(5, 2) }}
+                                                    <span>
+                                                        {{ $t('Month') }}
+                                                    </span>
+                                                </div>
                                             </div>
                                             <div class="activelistTextBar">
                                                 <div class="activelistText">活動場次：{{ item.ActSDateTime }}</div>
@@ -149,7 +151,11 @@ function nextPage() {
 function getList() {
     const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
     axios.post(api, {
-        "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "MyActStatus": 2, "SDateTime": "", "EDateTime": "", "Keywords": ""
+        "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 2, "SDateTime": "", "EDateTime": "", "Keywords": ""
+    }, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
     })
         .then((res) => {
             list.value = res.data.MyActivityDataList

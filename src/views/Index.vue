@@ -133,7 +133,7 @@ function imageUrl(name) {
     .href;
 }
 
-if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+if ($cookies.isKey("random") == true && $cookies.isKey("u_id") == true) {
   store.loginStatue = true;
   store.logoutStatue = false;
 } else {
@@ -156,38 +156,55 @@ onMounted(() => {
   axios
     .post(api1, {
       u_id: $cookies.get("u_id"),
-      AuthCode: $cookies.get("AuthCode"),
+      AuthCode: '0',
       Lang: $cookies.get("Lang"),
       SDateTime: "",
       EDateTime: "",
       Keywords: "",
+    }, {
+      headers: {
+        Authorization: 'Bearer ' + $cookies.get("random")
+      }
     })
     .then((res) => {
       PushMsgList.value = res.data.PushMsgDataList;
-    });
+      console.log("api", res.data)
+    })
+    .catch((error) => console.log(error));
 
   // 最新動態資料清單
   const api2 = `${import.meta.env.VITE_APP_API}API_App/HomePage/NewsList`;
   axios
     .post(api2, {
       u_id: $cookies.get("u_id"),
-      AuthCode: $cookies.get("AuthCode"),
-      Lang: $cookies.get("Lang") == null ? 'tw' : $cookies.get("Lang"),
+      AuthCode: '0',
+      Lang: $cookies.get("Lang"),
+    }, {
+      headers: {
+        Authorization: 'Bearer ' + $cookies.get("random")
+      }
     })
     .then((res) => {
       NewsList.value = res.data.DataList;
       console.log("api2", res.data)
-    });
+    })
+    .catch((error) => console.log(error));
   // 禮贈新品資料清單
   const api3 = `${import.meta.env.VITE_APP_API}API_App/HomePage/NewSaleList`;
   axios
     .post(api3, {
       u_id: $cookies.get("u_id"),
-      AuthCode: $cookies.get("AuthCode"),
-      Lang: $cookies.get("Lang") == null ? 'tw' : $cookies.get("Lang"),
+      AuthCode: '0',
+      Lang: $cookies.get("Lang"),
+    }, {
+      headers: {
+        Authorization: 'Bearer ' + $cookies.get("random")
+      }
     })
     .then((res) => {
       NewSaleList.value = res.data.DataList;
-    });
+      console.log("api3", res.data)
+    })
+    .catch((error) => console.log(error));
 });
 </script>

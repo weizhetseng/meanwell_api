@@ -52,6 +52,10 @@ function signUpCheck() {
         "Email": $cookies.get('u_id'),
         "Password": user.value.password,
         "Lang": ""
+    }, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
     }).then((res) => {
         if (res.data.success) {
             $cookies.remove("u_id")

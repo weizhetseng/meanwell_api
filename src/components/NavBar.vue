@@ -62,8 +62,8 @@
                     <div class="sdgMenuItem">
                         <div class="loging_item">
                             <RouterLink to="/login">{{ $t('Login') }}</RouterLink> / <RouterLink to="/SignUp">{{
-        $t('Register')
-}}
+                                $t('Register')
+                            }}
                             </RouterLink>
                         </div>
                     </div>
@@ -199,13 +199,14 @@ function changeEN() {
 
 
 onMounted(() => {
-    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+    if ($cookies.isKey("random") == true && $cookies.isKey("u_id") == true) {
         store.att = true
         store.att2 = false
     } else {
         store.att = false
         store.att2 = true
     }
+    console.log(store.att, store.att2)
 })
 
 

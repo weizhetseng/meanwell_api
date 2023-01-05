@@ -89,8 +89,9 @@
                                     </div>
                                     <div class="copyCode">
                                         <p id="codeNum">{{ item.code }}</p>
-                                        <button type="button" id="copyBtn" @click="copy(item.code)">{{ $t('copy')
-                                            }}</button>
+                                        <button type="button" id="copyBtn" @click="copy(item.code)">{{
+                                            $t('copy')
+                                        }}</button>
                                     </div>
                                 </div>
                             </div>
@@ -234,7 +235,11 @@ onMounted(() => {
 
     const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
     axios.post(api, {
-        "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
+        "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
+    }, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
     })
         .then((res) => {
             MyActStatus.value = res.data.MyActivityDataList

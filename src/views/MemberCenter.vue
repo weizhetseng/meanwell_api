@@ -23,8 +23,9 @@
                                 <div class="navItemSortContent">
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
                                         v-for="(itax, iddx) in items.item" :key="itax.name"
-                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ $t(itax.name)
-}}</router-link></div>
+                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{
+                                            $t(itax.name)
+                                        }}</router-link></div>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +179,7 @@ const qrclosures = () => {
 
 function Logout() {
     $cookies.remove("u_id")
-    $cookies.remove("AuthCode")
+    $cookies.remove("random")
     alert('已登出')
     store2.att = false
     store2.att2 = true
@@ -187,7 +188,7 @@ function Logout() {
 
 
 onMounted(() => {
-    if ($cookies.isKey("AuthCode") == true && $cookies.isKey("u_id") == true) {
+    if ($cookies.isKey("random") == true && $cookies.isKey("u_id") == true) {
         store2.att = true
         store2.att2 = false
     } else {

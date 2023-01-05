@@ -92,9 +92,12 @@
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">{{ $t('SeatNum') }}：</div>
-                                    <div class="itemtextright" v-for="item in showData[0].TicketDataList">
-                                        {{ item.Seat }}
+                                    <div class="itemtextright">
+                                        <ul>
+                                            <li v-for="item in showData[0].TicketDataList">{{ item.Seat }}</li>
+                                        </ul>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="itemTitle">
@@ -245,7 +248,11 @@ const handleMenuFnb = () => {
 onMounted(() => {
     const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
     axios.post(api, {
-        "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
+        "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
+    }, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
     })
         .then((res) => {
             MyActStatus.value = res.data.MyActivityDataList

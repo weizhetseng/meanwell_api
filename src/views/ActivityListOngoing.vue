@@ -25,8 +25,9 @@
                                 <div class="navItemSortContent">
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
                                         v-for="(itax, iddx) in items.item" :key="itax.name"
-                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ $t(itax.name)
-}}</router-link></div>
+                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{
+                                            $t(itax.name)
+                                        }}</router-link></div>
                                 </div>
                             </div>
                         </div>
@@ -62,8 +63,10 @@
                                         <div class="activelist-item">
                                             <div class="activelistdate">
                                                 <div class="activelistdateMonth">{{ item.ActSDateTime.substr(5, 2) }}
+                                                    <span>
+                                                        {{ $t('Month') }}
+                                                    </span>
                                                 </div>
-                                                <div class="activelistdateMonthbefore">{{ $t('Month') }}</div>
                                             </div>
                                             <div class="activelistTextBar">
                                                 <div class="activelistText">活動場次：{{ item.ActSDateTime }}</div>
@@ -151,7 +154,11 @@ function nextPage() {
 function getList() {
     const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
     axios.post(api, {
-        "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
+        "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
+    }, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
     })
         .then((res) => {
             list.value = res.data.MyActivityDataList

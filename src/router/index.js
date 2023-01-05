@@ -344,7 +344,7 @@ router.beforeEach(async (to, from, next) => {
   const store = useLoginStore()
   let isLogin = false
   let needLogin = to.matched.some(match => match.meta.needLogin)
-  if ($cookies.isKey("AuthCode") == true) {
+  if ($cookies.isKey("random") == true) {
     isLogin = true
   }
 

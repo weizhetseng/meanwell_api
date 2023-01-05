@@ -70,6 +70,10 @@ function sendCode() {
         "Type": 1,
         "Email": user.value.Email,
         "Lang": ""
+    }, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
     })
         .then((res) => {
             if (res.data.success) {
@@ -89,6 +93,10 @@ function verify() {
         "Email": user.value.Email,
         "Code": user.value.Code,
         "Lang": ""
+    }, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
     }).then((res) => {
         if (res.data.success) {
             alert('驗證成功')

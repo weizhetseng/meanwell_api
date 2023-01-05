@@ -83,8 +83,9 @@
                             </div>
                             <div class="itemtext">神這斗唱吃坐會可海立遠泉，苦旦對何着原；汁肖里讀次燈見間員發兒急訴春直愛清魚。</div>
                             <div class="persbuttonBox">
-                                <router-link to="#"><button class="pageButtem" @click="CancelActivity()">{{ $t('Check')
-}}</button></router-link>
+                                <router-link to="#"><button class="pageButtem" @click="CancelActivity()">{{
+                                    $t('Check')
+                                }}</button></router-link>
                             </div>
                         </div>
                     </div>
@@ -176,7 +177,7 @@ const qrclosures = () => {
 const CancelApply = ref(
     {
         u_id: $cookies.get('u_id'),
-        AuthCode: $cookies.get('AuthCode'),
+        AuthCode: '0',
         Lang: $cookies.get('Lang'),
         ApplyId: id,
         ReasonId: 0,
@@ -185,7 +186,11 @@ const CancelApply = ref(
 )
 function CancelActivity() {
     const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/CancelApply`
-    axios.post(api, CancelApply.value)
+    axios.post(api, CancelApply.value, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
+    })
         .then((res) => {
             if (res.data.success) {
                 alert('取消成功')

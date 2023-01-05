@@ -182,12 +182,17 @@ const showData = ref([{}])
 onMounted(() => {
 
     const api = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivityList`
-    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "ModClass": id.slice(0, 1), "SDateTime": '', "EDateTime": '', "Keywords": '' })
+    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "ModClass": id.slice(0, 1), "SDateTime": '', "EDateTime": '', "Keywords": '' }, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
+    })
         .then((res) => {
             ListData.value = res.data.ActivityDataList
             showData.value = ListData.value.filter((item) => {
                 return item.ActId === id.slice(1)
             })
+            console.log(res)
         })
 
 })

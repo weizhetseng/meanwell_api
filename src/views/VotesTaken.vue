@@ -23,8 +23,9 @@
                                 <div class="navItemSortContent">
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
                                         v-for="(itax, iddx) in items.item" :key="itax.name"
-                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ $t(itax.name)
-}}</router-link></div>
+                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{
+                                            $t(itax.name)
+                                        }}</router-link></div>
                                 </div>
                             </div>
                         </div>
@@ -54,8 +55,9 @@
                             <div class="memberinfTextinput"><input type="text" name="" id="" class="memberinfinput"
                                     :placeholder="$t('TicketCode2_5')" v-model="TicketTaken.AuthCode"></div>
                             <div class="persbuttonBox">
-                                <router-link to="#"><button class="pageButtem" @click="TakenTicket()">{{ $t('Check')
-}}</button></router-link>
+                                <router-link to="#"><button class="pageButtem" @click="TakenTicket()">{{
+                                    $t('Check')
+                                }}</button></router-link>
                             </div>
                         </div>
                     </div>
@@ -154,9 +156,13 @@ function TakenTicket() {
     const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetTicket`
     axios.post(api, {
         "u_id": $cookies.get('u_id'),
-        "AuthCode": $cookies.get('AuthCode'),
+        "AuthCode": '0',
         "Lang": $cookies.get('Lang'),
         "TicketAuthCode": (TicketTaken.value.TicketCode + TicketTaken.value.AuthCode)
+    }, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
     })
         .then((res) => {
             if (res.data.success) {

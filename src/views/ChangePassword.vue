@@ -25,8 +25,9 @@
                                 <div class="navItemSortContent">
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
                                         v-for="(itax, iddx) in items.item" :key="itax.name"
-                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ $t(itax.name)
-}}</router-link></div>
+                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{
+                                            $t(itax.name)
+                                        }}</router-link></div>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +59,7 @@
                                     class="memberinfinput" :placeholder="$t('OldPassword_5')"
                                     v-model="NewPasswords.OldPassword">
                                 <span id="checkEye" class="material-symbols-outlined" @click="checkEye1 = !checkEye1">
-                                    {{ checkEye1 ? 'visibility_off' : 'visibility' }}
+                                    {{ checkEye1? 'visibility_off': 'visibility' }}
                                 </span>
                             </div>
                             <div class="itemTitle">
@@ -70,7 +71,7 @@
                                     class="memberinfinput" :placeholder="$t('NewPassword1_5')"
                                     v-model="NewPasswords.NewPassword">
                                 <span id="checkEye" class="material-symbols-outlined" @click="checkEye2 = !checkEye2">
-                                    {{ checkEye2 ? 'visibility_off' : 'visibility' }}
+                                    {{ checkEye2? 'visibility_off': 'visibility' }}
                                 </span>
                             </div>
                             <div class="itemTitle">
@@ -81,7 +82,7 @@
                                 <input :type="checkEye3 ? 'password' : 'text'" name="changepassword" id="Newpassword2"
                                     class="memberinfinput" :placeholder="$t('NewPassword2_5')">
                                 <span id="checkEye" class="material-symbols-outlined" @click="checkEye3 = !checkEye3">
-                                    {{ checkEye3 ? 'visibility_off' : 'visibility' }}
+                                    {{ checkEye3? 'visibility_off': 'visibility' }}
                                 </span>
                             </div>
                             <div class="persbuttonBox">
@@ -143,7 +144,7 @@ function changepassword() {
     const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/UpdateData`
     axios.post(api, {
         "u_id": $cookies.get('u_id'),
-        "AuthCode": $cookies.get('AuthCode'),
+        "AuthCode": '0',
         "Lang": $cookies.get('Lang'),
         "Name": store.MemberData.Name,
         "Sex": store.MemberData.Sex,
@@ -155,6 +156,10 @@ function changepassword() {
         "JobTitle": store.MemberData.JobTitle,
         "OldPassword": NewPasswords.value.OldPassword,
         "NewPassword": NewPasswords.value.NewPassword
+    }, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
     })
         .then((res) => {
             if (res.data.success) {

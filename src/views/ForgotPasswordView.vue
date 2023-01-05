@@ -49,6 +49,10 @@ function forgotPassword() {
     .post(api, {
       u_id: user.value.Email,
       Lang: "string",
+    }, {
+      headers: {
+        Authorization: 'Bearer ' + $cookies.get("random")
+      }
     })
     .then((res) => {
       if (res.data.success) {

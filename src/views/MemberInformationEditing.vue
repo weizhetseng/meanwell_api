@@ -25,8 +25,9 @@
                                 <div class="navItemSortContent">
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
                                         v-for="(itax, iddx) in items.item" :key="itax.name"
-                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{ $t(itax.name)
-}}</router-link></div>
+                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{
+                                            $t(itax.name)
+                                        }}</router-link></div>
                                 </div>
                             </div>
                         </div>
@@ -134,8 +135,9 @@
                                 <div class="avatarshint">
                                     <div class="avatarshintText" v-if="store.MemberData.Pic !== ''">{{ $t('Uploaded') }}
                                     </div>
-                                    <div class="avatarshintText" v-if="store.MemberData.Pic == ''">{{ $t('UnUploaded')
-}}</div>
+                                    <div class="avatarshintText" v-if="store.MemberData.Pic == ''">{{
+                                        $t('UnUploaded')
+                                    }}</div>
                                     <div class="upload_btn">
                                         <label class="avatarupload" for="upload_img">
                                             {{ $t('Upload') }}
@@ -147,8 +149,9 @@
                                 </div>
                             </div>
                             <div class="persbuttonBox">
-                                <button type="submit" class="pageButtem" @click="changeMemberData">{{ $t('Check')
-}}</button>
+                                <button type="submit" class="pageButtem" @click="changeMemberData">{{
+                                    $t('Check')
+                                }}</button>
                             </div>
                         </div>
                     </div>
@@ -247,9 +250,13 @@ function previewFile() {
             const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MemberPicUpdate`
             axios.post(api, {
                 "u_id": $cookies.get('u_id'),
-                "AuthCode": $cookies.get('AuthCode'),
+                "AuthCode": '0',
                 "Lang": $cookies.get('Lang'),
                 "Pic": strImage
+            }, {
+                headers: {
+                    Authorization: 'Bearer ' + $cookies.get("random")
+                }
             })
                 .then((res) => {
                     if (res.data.success) {
@@ -266,7 +273,7 @@ function changeMemberData() {
     const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/UpdateData`;
     axios.post(api, {
         "u_id": $cookies.get('u_id'),
-        "AuthCode": $cookies.get('AuthCode'),
+        "AuthCode": '0',
         "Lang": $cookies.get('Lang'),
         "Name": store.MemberData.Name,
         "Sex": store.MemberData.Sex,
@@ -278,6 +285,10 @@ function changeMemberData() {
         "JobTitle": store.MemberData.JobTitle,
         "OldPassword": store.MemberData.OldPassword,
         "NewPassword": store.MemberData.NewPassword
+    }, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
     })
         .then((res) => {
             if (res.data.success) {

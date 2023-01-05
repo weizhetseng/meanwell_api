@@ -65,10 +65,14 @@ function selectedDay(item, index) {
     const api = `${import.meta.env.VITE_APP_API}API_App/Calendar/GetApplyActivityDataByMonth`
     axios.post(api, {
         "u_id": $cookies.get('u_id'),
-        "AuthCode": $cookies.get('AuthCode'),
+        "AuthCode": '0',
         "Lang": $cookies.get('Lang'),
         "Year": ThisMonth.getFullYear(),
         "Month": (ThisMonth.getMonth() + 1)
+    }, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
     }).then((res) => {
         res.data.DayDataList.forEach((item2, index) => {
             if (item.day === item2.Day && item.month === ThisMonth.getMonth()) {
@@ -221,14 +225,16 @@ onMounted(() => {
     const ThisMonth = new Date()
     axios.post(api, {
         "u_id": $cookies.get('u_id'),
-        "AuthCode": $cookies.get('AuthCode'),
+        "AuthCode": '0',
         "Lang": $cookies.get('Lang'),
         "Year": ThisMonth.getFullYear(),
         "Month": (ThisMonth.getMonth() + 1)
+    }, {
+        headers: {
+            Authorization: 'Bearer ' + $cookies.get("random")
+        }
     }).then((res) => {
-
         monthData.value = res.data.DayDataList
-
     });
 })
 

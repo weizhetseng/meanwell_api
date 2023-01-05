@@ -76,7 +76,11 @@ const showData = ref([{}])
 
 
 const api = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivityList`
-axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), Lang: $cookies.get("Lang") == null ? 'tw' : $cookies.get("Lang"), "ModClass": id.slice(0, 1), "SDateTime": '', "EDateTime": '', "Keywords": '' })
+axios.post(api, { "u_id": $cookies.get('u_id') !== null ? $cookies.get('u_id') : '', "AuthCode": '', Lang: $cookies.get("Lang"), "ModClass": id.slice(0, 1), "SDateTime": '', "EDateTime": '', "Keywords": '' }, {
+    headers: {
+        Authorization: 'Bearer ' + $cookies.get("random")
+    }
+})
     .then((res) => {
         ListData.value = res.data.ActivityDataList
         showData.value = ListData.value.filter((item) => {
@@ -87,7 +91,7 @@ axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCo
     })
 
 function isMember() {
-    if ($cookies.get('u_id') !== null && $cookies.get('AuthCode') !== null) {
+    if ($cookies.get('u_id') !== null && $cookies.get('random') !== null) {
         router.push(`/Course/RegistrationForm/${id}`)
     } else {
         alert('請先登入會員')
