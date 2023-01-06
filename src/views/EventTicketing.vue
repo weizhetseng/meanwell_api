@@ -118,10 +118,9 @@ const showData = ref([{}])
 // 複製文字
 const { toClipboard } = useClipboard()
 const copy = async (item) => {
-    console.log(item)
     try {
         await toClipboard(item)
-        console.log('Copied to clipboard')
+        alert('Copied to clipboard')
     } catch (e) {
         console.error(e)
     }
@@ -220,5 +219,6 @@ onMounted(() => {
             })
             console.log(showData)
         })
+        .catch((error) => console.log(error));
 })
 </script>

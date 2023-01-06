@@ -134,7 +134,7 @@
 <script setup>
 import axios from 'axios';
 import { useSignUpStore, useMemberStore } from "../stores/stores";
-import { computed, onMounted, reactive, ref, watch } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router'
 const ticketNum_elec = ref(0)
 const ticketNum_paper = ref(0)
@@ -172,7 +172,6 @@ function getBase64(url, callback) {
 let imgUrl = storeSignUp.signUpData.Pic
 getBase64(imgUrl, dataURL => {
     let strImage = dataURL.replace(/^data:image\/[a-z]+;base64,/, "")
-    console.log(strImage)
     storeSignUp.signUpData.Pic = strImage
 });
 
@@ -285,6 +284,7 @@ function SignUp() {
                 alert(res.data.message)
             }
         })
+        .catch((error) => console.log(error));
 }
 function addNum_elec() {
     ticketNum_elec.value++
@@ -381,6 +381,7 @@ onMounted(() => {
             })
 
         })
+        .catch((error) => console.log(error));
 
     if (!showData.value[0].IsMeals) {
         storeSignUp.signUpData.Meals = 2

@@ -216,5 +216,6 @@ onMounted(() => {
                 return item.ApplyId === parseInt(id)
             })
         })
+        .catch((error) => console.log(error));
 })
 </script>

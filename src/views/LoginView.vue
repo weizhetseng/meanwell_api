@@ -33,14 +33,15 @@
 
                         <div class="login_confirm_input">
                             <label>
-                                <Field type="checkbox" :name="$t('RememberMe')" :value="true"
-                                    :class="{ 'is-invalid': errors['RememberMe'] }" rules="required"></Field>
+                                <!-- <Field type="checkbox" :name="$t('RememberMe')" :value="true"
+                                    :class="{ 'is-invalid': errors['RememberMe'] }" rules="required"></Field> -->
+                                <input type="checkbox">
                                 <span>{{ $t('RememberMe') }}</span>
                             </label>
                             <div class="ForgotPassword">
                                 <RouterLink to="/ForgotPassword">{{ $t('ForgotPassword') }} ?</RouterLink>
                             </div>
-                            <error-message :name="$t('RememberMe')" class="invalid-feedback"></error-message>
+                            <!-- <error-message :name="$t('RememberMe')" class="invalid-feedback"></error-message> -->
                         </div>
                         <div class="buttonBox">
                             <RouterLink to="/SignUp"><button class="pageButton buttonStyle">{{
@@ -83,38 +84,10 @@
     </div>
 </template>
 <script setup>
-
-
-import axios from 'axios';
-import { onMounted, ref, computed } from 'vue';
+import { onMounted } from 'vue';
 import { useLoginStore } from '../stores/stores';
 
 const store = useLoginStore()
-
-function testauth() {
-    const api1 = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetData`;
-    if ($cookies.get("random") != null) {
-        const testtt = {
-            u_id: user.u_id,
-            AuthCode: '0',
-            Lang: "tw"
-        }
-
-        axios.post(api1, testtt, {
-            headers: {
-                Authorization: 'Bearer ' + $cookies.get("random")
-            }
-        })
-            .then((res) => {
-                if (res.data.success) {
-                    console.log(res.data);
-                } else {
-                    console.log(res.data.message)
-                }
-            })
-            .catch((error) => console.log(error))
-    }
-}
 
 onMounted(() => {
     store.GetKey()

@@ -61,6 +61,7 @@ function forgotPassword() {
       } else {
         alert(res.data.message);
       }
-    });
+    })
+    .catch((error) => console.log(error));
 }
 </script>

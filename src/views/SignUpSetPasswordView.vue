@@ -65,6 +65,7 @@ function signUpCheck() {
             alert(res.data.message)
         }
     })
+        .catch((error) => console.log(error));
 }
 
 </script>

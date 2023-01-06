@@ -86,9 +86,8 @@ axios.post(api, { "u_id": $cookies.get('u_id') !== null ? $cookies.get('u_id') :
         showData.value = ListData.value.filter((item) => {
             return item.ActId === id.slice(1)
         })
-        console.log(res.data)
-
     })
+    .catch((error) => console.log(error));
 
 function isMember() {
     if ($cookies.get('u_id') !== null && $cookies.get('random') !== null) {

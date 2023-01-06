@@ -83,6 +83,7 @@ function sendCode() {
                 alert(res.data.message)
             }
         })
+        .catch((error) => console.log(error));
 }
 
 function verify() {
@@ -106,6 +107,7 @@ function verify() {
             alert(res.data.message)
         }
     })
+        .catch((error) => console.log(error));
 }
 
 

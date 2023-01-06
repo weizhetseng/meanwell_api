@@ -265,6 +265,7 @@ function previewFile() {
                         alert(res.data.message)
                     }
                 })
+                .catch((error) => console.log(error));
         }
     }
 }
@@ -295,6 +296,7 @@ function changeMemberData() {
                 router.push('/PersonalInformation')
             }
         })
+        .catch((error) => console.log(error));
 }
 
 function Logout() {

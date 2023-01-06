@@ -167,6 +167,7 @@ function getList() {
             totalSize.value = Math.ceil(total.value / pageSize)
             tableData.value = getNeedArr(list.value, pageSize)[currentPages.value - 1]
         })
+        .catch((error) => console.log(error));
 }
 //計算頁面資料
 function getNeedArr(array, size) {

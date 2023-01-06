@@ -168,7 +168,6 @@ onMounted(() => {
     })
     .then((res) => {
       PushMsgList.value = res.data.PushMsgDataList;
-      console.log("api", res.data)
     })
     .catch((error) => console.log(error));
 
@@ -186,7 +185,6 @@ onMounted(() => {
     })
     .then((res) => {
       NewsList.value = res.data.DataList;
-      console.log("api2", res.data)
     })
     .catch((error) => console.log(error));
   // 禮贈新品資料清單
@@ -203,8 +201,23 @@ onMounted(() => {
     })
     .then((res) => {
       NewSaleList.value = res.data.DataList;
-      console.log("api3", res.data)
     })
     .catch((error) => console.log(error));
+  // SDG官網跳轉驗證碼
+  // const api4 = `${import.meta.env.VITE_APP_API}API_App/HomePage/SDGAuthCode`;
+  // axios
+  //   .post(api4, {
+  //     u_id: $cookies.get("u_id"),
+  //     AuthCode: '0',
+  //     Lang: $cookies.get("Lang"),
+  //   }, {
+  //     headers: {
+  //       Authorization: 'Bearer ' + $cookies.get("random")
+  //     }
+  //   })
+  //   .then((res) => {
+  //     console.log(res.data)
+  //   })
+  //   .catch((error) => console.log(error));
 });
 </script>

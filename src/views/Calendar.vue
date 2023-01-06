@@ -73,13 +73,16 @@ function selectedDay(item, index) {
         headers: {
             Authorization: 'Bearer ' + $cookies.get("random")
         }
-    }).then((res) => {
-        res.data.DayDataList.forEach((item2, index) => {
-            if (item.day === item2.Day && item.month === ThisMonth.getMonth()) {
-                showActivity.value.push(item2.ApplyActivityDataList)
-            }
-        })
     })
+        .then((res) => {
+            res.data.DayDataList.forEach((item2, index) => {
+                if (item.day === item2.Day && item.month === ThisMonth.getMonth()) {
+                    showActivity.value.push(item2.ApplyActivityDataList)
+                }
+            })
+
+        })
+        .catch((error) => console.log(error));
     showActivity.value = []
 }
 //是否為閏年
@@ -235,7 +238,8 @@ onMounted(() => {
         }
     }).then((res) => {
         monthData.value = res.data.DayDataList
-    });
+    })
+        .catch((error) => console.log(error));
 })
 
 </script>

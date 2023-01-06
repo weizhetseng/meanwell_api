@@ -213,7 +213,6 @@ onMounted(() => {
         store.att = false
         store.att2 = true
     }
-    console.log(store.att, store.att2)
 })
 
 

@@ -106,7 +106,6 @@
 </template>
 <script setup>
 import axios from "axios";
-import { text } from "dom7";
 import { onMounted, ref } from "vue"
 import router from "../router";
 import { useMemberStore, useLoginStore } from "../stores/stores";
@@ -168,6 +167,7 @@ function changepassword() {
                 alert(res.data.message)
             }
         })
+        .catch((error) => console.log(error));
 }
 
 const activeIdx = ref(1);

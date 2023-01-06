@@ -35,7 +35,6 @@ export const useSignUpStore = defineStore('SignUp', () => {
   })
     .then((res) => {
       signUpData.value = res.data
-      console.log(signUpData)
     })
 
   return { signUpData }
@@ -45,15 +44,15 @@ export const useSignUpStore = defineStore('SignUp', () => {
 
 
 
-//登入(目前寫死假資料)
+//登入
 export const useLoginStore = defineStore('Login', () => {
   const att = ref(true)
   const att2 = ref(false)
   const loginStatue = ref(false)
   const logoutStatue = ref(true)
   const User = {
-    u_id: "springonionegg@gmail.com",
-    RA: "zxcv748596",
+    u_id: "",
+    RA: "",
     Lang: "tw"
   }
 
@@ -70,8 +69,6 @@ export const useLoginStore = defineStore('Login', () => {
         if (res.data.success) {
           authkey = res.data.Key
           authiv = res.data.IV
-          console.log("key:" + authkey + "，iv:" + authiv)
-          //console.log(res.data)
         } else {
           console.log(res.data.message)
         }
