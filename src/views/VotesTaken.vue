@@ -33,6 +33,29 @@
                             <a href="#" @click.prevent="Logout()">{{ $t('Logout') }}</a>
                         </div>
                     </div>
+                    <!-- <div class="memberNav" v-else>
+                        <div class="memberNavItem" v-for="(items, idx) in NavItemArrNo" :key="items.name"
+                            :class="{ active: activeIdx === idx }" @click="handleMenuFn(idx)">
+                            <router-link :to="items.path">
+                                <div class="navItems" @click="handleMenuFnb(ia)">
+                                    <div class="memberNavItemLine"></div>
+                                    <div class="memberNavItemtext">{{ $t(items.name) }}</div>
+                                </div>
+                            </router-link>
+                            <div class="navItemSort">
+                                <div class="navItemSortContent">
+                                    <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
+                                        v-for="(itax, iddx) in items.item" :key="itax.name"
+                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{
+                                            $t(itax.name)
+                                        }}</router-link></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logoutButton">
+                            <a href="#" @click.prevent="Logout()">{{ $t('Logout') }}</a>
+                        </div>
+                    </div> -->
                     <div class="memberCenterRight">
                         <div class="memberCenterRightTopBox">
                             <div class="memberUserBox">
@@ -44,7 +67,8 @@
                                     <div class="memberleve">{{ $t('MemberLevel') }}</div>
                                     <div class="memberqrtext">{{ $t('MemberQR') }}</div>
                                 </div>
-                                <div class="qrcodeph"><img src="../assets/img/qr-code-line.svg" alt=""></div>
+                                <div class="qrcodeph"><vue-qrcode :color="[{ dark: '#000000ff', light: '#ffffffff' }]"
+                                        type="image/png" :value="String(store.MemberData.Mid)" /></div>
                             </div>
                         </div>
                         <div class="memberCenterRightContentBox">
@@ -67,7 +91,8 @@
         <div class="leyboxbg" :class="{ active: qrcshow }" @click="qrclosures()">
             <div class="leyboxcontent">
                 <div class="leyboxcontent_txt">{{ $t('MemberQR2') }}</div>
-                <div class="qrcordphoto"><img src="../assets/img/qrcode.svg" alt=""></div>
+                <div class="qrcordphoto"><vue-qrcode :color="[{ dark: '#000000ff', light: '#ffffffff' }]"
+                        type="image/png" :value="String(store.MemberData.Mid)" /></div>
                 <div class="closure_icon_set" @click="qrclosures()"><img src="../assets/img/closure_icon.svg" alt="">
                 </div>
             </div>
@@ -79,8 +104,10 @@ import axios from "axios";
 import router from "../router";
 import { onMounted, ref } from "vue"
 import { useMemberStore, useLoginStore } from "../stores/stores";
+import VueQrcode from 'vue-qrcode'
 const store = useMemberStore()
 const store2 = useLoginStore()
+const apple = ref(false)
 const TicketTaken = ref(
     {
         TicketCode: '',
@@ -131,7 +158,47 @@ const NavItemArr = ref([
         name: 'MemberList11',
         path: '/VotesTaken',
     }
-]);;
+]);
+// const NavItemArrNo = ref([
+//     {
+//         name: 'MemberList1',
+//         path: '/MemberCenter',
+//     }, {
+//         name: 'MemberList2',
+//         path: '',
+//         item: [
+//             {
+//                 name: 'MemberList3',
+//                 path: '/PersonalInformation',
+//             }, {
+//                 name: 'MemberList4',
+//                 path: '/LoginSettings',
+//             }, {
+//                 name: 'MemberList5',
+//                 path: '/ChangePassword',
+//             }, {
+//                 name: 'MemberList6',
+//                 path: '/MembershipManagementMeasures',
+//             }
+//         ]
+//     }, {
+//         name: 'MemberList7',
+//         path: '',
+//         item: [
+//             {
+//                 name: 'MemberList8',
+//                 path: '/ActivityListOngoing',
+//             }, {
+//                 name: 'MemberList9',
+//                 path: '/ActivityListOver',
+//             }, {
+//                 name: 'MemberList10',
+//                 path: '/ActivityListCancelled',
+//             }
+//         ]
+//     }
+// ]);
+
 const qrcshow = ref(false);
 const handleMenuFn = (idx) => {
     activeIdx.value = idx;

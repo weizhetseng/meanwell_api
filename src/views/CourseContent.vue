@@ -16,7 +16,8 @@
                 </div>
                 <div class="CourseContentBox mobileSS">
                     <div class="activitiesTitle">{{ showData[0].ActSubject }}</div>
-                    <div class="Coursebuttoon" v-if="showData[0].IsOpenSignUp && !showData[0].IsSignUp">
+                    <div class="Coursebuttoon"
+                        v-if="showData[0].IsOpenSignUp && !showData[0].IsSignUp && (showData[0].SignUpSDate == '' || showData[0].SignUpSDate < Today) && (showData[0].SignUpEDate == '' || showData[0].SignUpEDate > Today)">
                         <button class="CoursebuttoonSet" @click="isMember()">
                             {{ $t('GoSignUp') }}
                         </button>
@@ -62,6 +63,8 @@ import axios from 'axios';
 import { ref } from 'vue';
 import { useRoute } from 'vue-router'
 import router from '../router';
+import dayjs from 'dayjs';
+const Today = dayjs().format('YYYY/MM/DD HH:mm:ss')
 
 
 
@@ -86,6 +89,7 @@ axios.post(api, { "u_id": $cookies.get('u_id') !== null ? $cookies.get('u_id') :
         showData.value = ListData.value.filter((item) => {
             return item.ActId === id.slice(1)
         })
+        console.log(showData)
     })
     .catch((error) => console.log(error));
 

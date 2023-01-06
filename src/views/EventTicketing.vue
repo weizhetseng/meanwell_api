@@ -50,7 +50,8 @@
                                     <div class="memberleve">{{ $t('MemberLevel') }}</div>
                                     <div class="memberqrtext">{{ $t('MemberQR') }}</div>
                                 </div>
-                                <div class="qrcodeph"><img src="../assets/img/qr-code-line.svg" alt=""></div>
+                                <div class="qrcodeph"><vue-qrcode :color="[{ dark: '#000000ff', light: '#ffffffff' }]"
+                                        type="image/png" :value="String(store.MemberData.Mid)" /></div>
                             </div>
                         </div>
                         <div class="ActiveDirectoryContentBox">
@@ -107,6 +108,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { onMounted, ref } from "vue"
 import { useMemberStore, useLoginStore } from "../stores/stores";
 import useClipboard from 'vue-clipboard3'
+import VueQrcode from 'vue-qrcode'
 const store = useMemberStore()
 const store2 = useLoginStore()
 

@@ -37,6 +37,12 @@
                         <div class="ReminderMessage">{{ item[index].ActSubject }}</div>
                     </div>
                 </div>
+                <div class="CalendarContentBox">
+                    <div class="Activecolumn" v-for="(item, index) in showAllActivity" :key="index">
+                        <div class="RemindDate">{{ item[0].ActSDateTime }}</div>
+                        <div class="ReminderMessage">{{ item[0].ActSubject }}</div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
@@ -50,7 +56,9 @@ const calendarGrid = 42;
 const DaySelected = ref(-1)
 const monthData = ref([])
 const showActivity = ref([])
+const showAllActivity = ref([])
 const ThisMonth = new Date()
+
 
 let CalendarItem = [
     {
@@ -80,7 +88,6 @@ function selectedDay(item, index) {
                     showActivity.value.push(item2.ApplyActivityDataList)
                 }
             })
-
         })
         .catch((error) => console.log(error));
     showActivity.value = []
@@ -238,6 +245,9 @@ onMounted(() => {
         }
     }).then((res) => {
         monthData.value = res.data.DayDataList
+        monthData.value.forEach(item => {
+            showAllActivity.value.push(item.ApplyActivityDataList)
+        })
     })
         .catch((error) => console.log(error));
 })

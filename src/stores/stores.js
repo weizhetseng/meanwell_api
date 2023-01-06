@@ -18,6 +18,21 @@ export const useMemberStore = defineStore('Member', () => {
     .then((res) => {
       MemberData.value = res.data
     })
+    .catch((error) => console.log(error))
+
+  // const MonthData = ref([{}])
+  // const api2 = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`;
+  // axios.post(api2, {
+  //   "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
+  // }, {
+  //   headers: {
+  //     Authorization: 'Bearer ' + $cookies.get("random")
+  //   }
+  // })
+  //   .then((res) => {
+  //     MonthData.value = res.data
+  //   })
+  //   .catch((error) => console.log(error))
 
   return { MemberData }
 })
@@ -36,6 +51,7 @@ export const useSignUpStore = defineStore('SignUp', () => {
     .then((res) => {
       signUpData.value = res.data
     })
+    .catch((error) => console.log(error))
 
   return { signUpData }
 })

@@ -50,7 +50,7 @@
                 </div>
                 <div class="AnnContent">
                   <ul v-if="store.logoutStatue">
-                    <li class="ConferenceLine"><a href="">{{ $t('IndexRemainMsg') }}</a></li>
+                    <li class="ConferenceLine"><router-link to="/login">{{ $t('IndexRemainMsg') }}</router-link></li>
                   </ul>
                   <ul v-else-if="store.loginStatue">
                     <li v-for="item in PushMsgList" :key="item.mssid" :style="{ 'border-left-color': item.color }">

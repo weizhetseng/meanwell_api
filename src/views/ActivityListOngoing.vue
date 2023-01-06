@@ -46,7 +46,8 @@
                                     <div class="memberleve">{{ $t('MemberLevel') }}</div>
                                     <div class="memberqrtext">{{ $t('MemberQR') }}</div>
                                 </div>
-                                <div class="qrcodeph"><img src="../assets/img/qr-code-line.svg" alt=""></div>
+                                <div class="qrcodeph"><vue-qrcode :color="[{ dark: '#000000ff', light: '#ffffffff' }]"
+                                        type="image/png" :value="String(store.MemberData.Mid)" /></div>
                             </div>
                         </div>
 
@@ -102,7 +103,8 @@
         <div class="leyboxbg" :class="{ active: qrcshow }" @click="qrclosures()">
             <div class="leyboxcontent">
                 <div class="leyboxcontent_txt">{{ $t('MemberQR2') }}</div>
-                <div class="qrcordphoto"><img src="../assets/img/qrcode.svg" alt=""></div>
+                <div class="qrcordphoto"><vue-qrcode :color="[{ dark: '#000000ff', light: '#ffffffff' }]"
+                        type="image/png" :value="String(store.MemberData.Mid)" /></div>
                 <div class="closure_icon_set" @click="qrclosures()"><img src="../assets/img/closure_icon.svg" alt="">
                 </div>
             </div>
@@ -114,6 +116,7 @@ import axios from "axios";
 import { onMounted, ref } from "vue"
 import router from "../router";
 import { useMemberStore, useLoginStore } from "../stores/stores";
+import VueQrcode from 'vue-qrcode'
 const store = useMemberStore()
 const store2 = useLoginStore()
 
