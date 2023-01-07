@@ -140,7 +140,6 @@ function getList() {
             listBanner.value = res.data.BannerList
             totalSize.value = Math.ceil(total.value / pageSize)
             tableData.value = getNeedArr(list.value, pageSize)[currentPages.value - 1]
-            console.log(res.data)
         })
         .catch((error) => console.log(error));
 }

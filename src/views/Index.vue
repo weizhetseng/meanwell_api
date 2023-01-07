@@ -203,13 +203,5 @@ onMounted(() => {
       NewSaleList.value = res.data.DataList;
     })
     .catch((error) => console.log(error));
-
-
-
-  //刷新此頁面保證顯示資料有變更(暫時)
-  // if (location.href.indexOf("#reloaded") == -1) {
-  //   location.href = location.href + "#reloaded";
-  //   location.reload();
-  // }
 });
 </script>

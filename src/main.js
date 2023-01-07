@@ -13,6 +13,8 @@ import { required, email, min } from '@vee-validate/rules';
 import { localize, setLocale } from '@vee-validate/i18n';
 // 匯入繁體中文語系檔案
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
+// 匯入簡體中文語系檔案
+import zhCN from '@vee-validate/i18n/dist/locale/zh_CN.json';
 
 import App from './App.vue'
 import router from './router'
@@ -23,7 +25,6 @@ import VueCookies from 'vue-cookies';
 
 import './assets/scss/master.scss'
 import './assets/scss/main.sass'
-
 const i18n = createI18n({
     legacy: false,
     locale: localStorage.getItem("locale") ?? "zh-TW",
@@ -49,7 +50,7 @@ defineRule('min', min);
 
 configure({
 
-    generateMessage: localize({ zh_TW: zhTW }), // 載入繁體中文語系
+    generateMessage: localize({ zh_TW: zhTW, zh_CN: zhCN }), // 載入繁體中文語系
 
     validateOnInput: true, // 當輸入任何內容直接進行驗證
 

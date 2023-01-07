@@ -89,7 +89,6 @@ axios.post(api, { "u_id": $cookies.get('u_id') !== null ? $cookies.get('u_id') :
         showData.value = ListData.value.filter((item) => {
             return item.ActId === id.slice(1)
         })
-        console.log(showData)
     })
     .catch((error) => console.log(error));
 

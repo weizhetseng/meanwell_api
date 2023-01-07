@@ -212,6 +212,7 @@ onMounted(() => {
         store2.att = false
         store2.att2 = true
     }
+    store.getMemberData()
 
     // SDG官網跳轉驗證碼
     const api4 = `${import.meta.env.VITE_APP_API}API_App/HomePage/SDGAuthCode`;
@@ -228,14 +229,12 @@ onMounted(() => {
         .then((res) => {
             SDGUrl.value.forEach((item) => {
                 // api回傳的域名(domain) + 各按鈕連結 + "?vid=" + 使用者帳號 + "&vcode=" + api回傳的SDG驗證碼(salt)
-                // item.URL = res.data.domain + item.URL + "?vid=" + store.MemberData.Uid + "&vcode=" + res.data.salt
-                item.URL = 'https://app.sdg-mps.com/' + item.URL + "?vid=" + store.MemberData.Uid + "&vcode=" + res.data.salt
+                item.URL = res.data.domain + item.URL + "?vid=" + $cookies.get("u_id") + "&vcode=" + res.data.salt
             })
         })
         .catch((error) => console.log(error));
 
 
-    store.getMemberData()
 })
 
 

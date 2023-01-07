@@ -88,7 +88,7 @@
                             </div>
                             <div class="persbuttonBox">
                                 <router-link to="/MemberCenter"><button class="pageButtem"
-                                        @click.prevent="changepassword()">確認送出</button></router-link>
+                                        @click.prevent="changepassword()">{{ $t('Check') }}</button></router-link>
                             </div>
                         </div>
                     </div>

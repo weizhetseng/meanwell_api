@@ -57,7 +57,8 @@ export const useLoginStore = defineStore('Login', () => {
   const User = {
     u_id: "",
     RA: "",
-    Lang: "tw"
+    Lang: "tw",
+    checked: false
   }
 
   //取得動態加密key
@@ -106,9 +107,15 @@ export const useLoginStore = defineStore('Login', () => {
     const api1 = `${import.meta.env.VITE_APP_API}API_App/MemberData/WebLogin`
     var uid = User.u_id;
     var pwd = User.RA;
+    var checked = User.checked
     var RA = encrypt("0000000000000000" + `${import.meta.env.VITE_APP_PROJECT};` + pwd + ";" + dayjs().format('YYYY-MM-DD HH:mm:ss') + ";", authkey, authiv);
     WebLoginRequest.u_id = uid;
     WebLoginRequest.RA = RA;
+
+    //記住密碼
+    // if (checked) {
+    //   $cookies.set("RA", RA, '5d');
+    // }
 
     axios.post(api1, WebLoginRequest)
       .then((res) => {

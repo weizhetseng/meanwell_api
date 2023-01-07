@@ -10,38 +10,34 @@
                     <Form v-slot="{ errors, values, validate }">
                         <div>
                             <div class="User_account">
-                                <Field id="email" :name="$t('__Email')" type="email" class="User_accountInput"
-                                    :class="{ 'is-invalid': errors['Email'] }" :placeholder="$t('EmailInput')"
-                                    rules="email|required" v-model="store.User.u_id">
+                                <Field id="email" name="Email" :label="$t('__Email')" type="email"
+                                    class="User_accountInput" :class="{ 'is-invalid': errors['Email'] }"
+                                    :placeholder="$t('EmailInput')" rules="email|required" v-model="store.User.u_id">
                                 </Field>
                             </div>
                             <div class="error">
-                                <error-message :name="$t('__Email')" class="invalid-feedback"></error-message>
+                                <error-message name="Email" class="invalid-feedback"></error-message>
                             </div>
                         </div>
                         <div>
                             <div class="User_password">
-                                <Field id="password" :name="$t('password')" type="password" class="User_accountInput"
-                                    :class="{ 'is-invalid': errors['password'] }" :placeholder="$t('PasswordInput')"
-                                    rules="required" v-model="store.User.RA">
+                                <Field id="password" name="password" :label="$t('password')" type="password"
+                                    class="User_accountInput" :class="{ 'is-invalid': errors['password'] }"
+                                    :placeholder="$t('PasswordInput')" rules="required" v-model="store.User.RA">
                                 </Field>
                             </div>
                             <div class="error">
-                                <error-message :name="$t('password')" class="invalid-feedback"></error-message>
+                                <error-message name="password" class="invalid-feedback"></error-message>
                             </div>
                         </div>
-
                         <div class="login_confirm_input">
                             <label>
-                                <!-- <Field type="checkbox" :name="$t('RememberMe')" :value="true"
-                                    :class="{ 'is-invalid': errors['RememberMe'] }" rules="required"></Field> -->
-                                <input type="checkbox">
+                                <input type="checkbox" v-model="store.User.checked">
                                 <span>{{ $t('RememberMe') }}</span>
                             </label>
                             <div class="ForgotPassword">
                                 <RouterLink to="/ForgotPassword">{{ $t('ForgotPassword') }} ?</RouterLink>
                             </div>
-                            <!-- <error-message :name="$t('RememberMe')" class="invalid-feedback"></error-message> -->
                         </div>
                         <div class="buttonBox">
                             <RouterLink to="/SignUp"><button class="pageButton buttonStyle">{{
