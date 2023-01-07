@@ -31,13 +31,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="CalendarContentBox">
+                <div class="CalendarContentBox" v-if="!AllActivityShow">
                     <div class="Activecolumn" v-for="(item, index) in showActivity" :key="index">
                         <div class="RemindDate">{{ item[index].ActSDateTime }}</div>
                         <div class="ReminderMessage">{{ item[index].ActSubject }}</div>
                     </div>
                 </div>
-                <div class="CalendarContentBox">
+                <div class="CalendarContentBox" v-else>
                     <div class="Activecolumn" v-for="(item, index) in showAllActivity" :key="index">
                         <div class="RemindDate">{{ item[0].ActSDateTime }}</div>
                         <div class="ReminderMessage">{{ item[0].ActSubject }}</div>
@@ -58,7 +58,7 @@ const monthData = ref([])
 const showActivity = ref([])
 const showAllActivity = ref([])
 const ThisMonth = new Date()
-
+const AllActivityShow = ref(true)
 
 let CalendarItem = [
     {
@@ -91,6 +91,7 @@ function selectedDay(item, index) {
         })
         .catch((error) => console.log(error));
     showActivity.value = []
+    AllActivityShow.value = false
 }
 //是否為閏年
 function isLeap(year) {

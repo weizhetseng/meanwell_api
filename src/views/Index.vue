@@ -18,7 +18,7 @@
                 </router-link>
               </li>
             </ul>
-            <ul class="indAct_ul02">
+            <!-- <ul class="indAct_ul02">
               <li>
                 <router-link to="#">
                   <div class="atcImgBox">
@@ -35,7 +35,7 @@
                   <div class="atcText GiftingPlatform">{{ $t('IndexLink5') }}</div>
                 </router-link>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </section>
         <section class="AnnouncementSystem">
@@ -203,21 +203,13 @@ onMounted(() => {
       NewSaleList.value = res.data.DataList;
     })
     .catch((error) => console.log(error));
-  // SDG官網跳轉驗證碼
-  // const api4 = `${import.meta.env.VITE_APP_API}API_App/HomePage/SDGAuthCode`;
-  // axios
-  //   .post(api4, {
-  //     u_id: $cookies.get("u_id"),
-  //     AuthCode: '0',
-  //     Lang: $cookies.get("Lang"),
-  //   }, {
-  //     headers: {
-  //       Authorization: 'Bearer ' + $cookies.get("random")
-  //     }
-  //   })
-  //   .then((res) => {
-  //     console.log(res.data)
-  //   })
-  //   .catch((error) => console.log(error));
+
+
+
+  //刷新此頁面保證顯示資料有變更(暫時)
+  // if (location.href.indexOf("#reloaded") == -1) {
+  //   location.href = location.href + "#reloaded";
+  //   location.reload();
+  // }
 });
 </script>

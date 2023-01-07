@@ -74,28 +74,11 @@
                                 <div class="itemTitletext">{{ $t('SDGGift') }}</div>
                             </div>
                             <div class="giftsBox">
-                                <div class="giftsBoxItem">
-                                    <div class="giftsBoxItemIcon"><img src="../assets/img/MemberCenter-Gifts.svg"
-                                            alt=""></div>
-                                    <div class="giftsBoxItemtext">{{ $t('Exchange') }}</div>
-                                </div>
-                                <div class="giftsBoxItem">
-                                    <div class="giftsBoxItemIcon"><img src="../assets/img/MemberCenter-Points.svg"
-                                            alt="">
-                                    </div>
-                                    <div class="giftsBoxItemtext">{{ $t('PointArea') }}</div>
-                                </div>
-                                <div class="giftsBoxItem">
-                                    <div class="giftsBoxItemIcon"><img src="../assets/img/MemberCenter-Order.svg"
-                                            alt=""></div>
-                                    <div class="giftsBoxItemtext">{{ $t('OrderSearch') }}</div>
-                                </div>
-                                <div class="giftsBoxItem">
-                                    <div class="giftsBoxItemIcon"><img src="../assets/img/MemberCenter-Digital.svg"
-                                            alt="">
-                                    </div>
-                                    <div class="giftsBoxItemtext">{{ $t('ETicket') }}</div>
-                                </div>
+                                <a :href="item.URL" class="giftsBoxItem" v-for="item in SDGUrl" :key="item.name"
+                                    target="_blank">
+                                    <div class="giftsBoxItemIcon"><img :src="imageUrl(item.imgSrc)" alt=""></div>
+                                    <div class="giftsBoxItemtext">{{ $t(item.name) }}</div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -118,6 +101,7 @@ import router from "../router";
 import { onMounted, ref } from "vue"
 import { useMemberStore, useLoginStore } from "../stores/stores";
 import VueQrcode from 'vue-qrcode'
+import axios from "axios";
 const store = useMemberStore()
 const store2 = useLoginStore()
 
@@ -165,6 +149,34 @@ const NavItemArr = ref([
         path: '/VotesTaken',
     }
 ]);
+const SDGUrl = ref([
+    {
+        name: 'Exchange',
+        imgSrc: 'MemberCenter-Gifts.svg',
+        URL: 'productSeries.aspx',
+    },
+    {
+        name: 'PointArea',
+        imgSrc: 'MemberCenter-Points.svg',
+        URL: 'memberPointHistory.aspx',
+    },
+    {
+        name: 'OrderSearch',
+        imgSrc: 'MemberCenter-Order.svg',
+        URL: 'memberOrderHistory.aspx',
+    },
+    {
+        name: 'ETicket',
+        imgSrc: 'MemberCenter-Digital.svg',
+        URL: 'memberOrderHistory.aspx',
+    }
+])
+
+
+function imageUrl(name) {
+    return new URL(`../assets/img/${name}`, import.meta.url)
+        .href;
+}
 const qrcshow = ref(false);
 const handleMenuFn = (idx) => {
     activeIdx.value = idx;
@@ -200,6 +212,30 @@ onMounted(() => {
         store2.att = false
         store2.att2 = true
     }
+
+    // SDG官網跳轉驗證碼
+    const api4 = `${import.meta.env.VITE_APP_API}API_App/HomePage/SDGAuthCode`;
+    axios
+        .post(api4, {
+            u_id: $cookies.get("u_id"),
+            AuthCode: '0',
+            Lang: $cookies.get("Lang"),
+        }, {
+            headers: {
+                Authorization: 'Bearer ' + $cookies.get("random")
+            }
+        })
+        .then((res) => {
+            SDGUrl.value.forEach((item) => {
+                // api回傳的域名(domain) + 各按鈕連結 + "?vid=" + 使用者帳號 + "&vcode=" + api回傳的SDG驗證碼(salt)
+                // item.URL = res.data.domain + item.URL + "?vid=" + store.MemberData.Uid + "&vcode=" + res.data.salt
+                item.URL = 'https://app.sdg-mps.com/' + item.URL + "?vid=" + store.MemberData.Uid + "&vcode=" + res.data.salt
+            })
+        })
+        .catch((error) => console.log(error));
+
+
+    store.getMemberData()
 })
 
 

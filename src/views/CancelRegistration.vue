@@ -223,6 +223,7 @@ onMounted(() => {
         store2.att = false
         store2.att2 = true
     }
+    store.getMemberData()
 })
 
 

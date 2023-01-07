@@ -77,7 +77,7 @@
                                 <div class="itemTitletext">{{ $t('TicketCode2') }}</div>
                             </div>
                             <div class="memberinfTextinput"><input type="text" name="" id="" class="memberinfinput"
-                                    :placeholder="$t('TicketCode2_5')" v-model="TicketTaken.AuthCode"></div>
+                                    :placeholder="$t('TicketCode2_5')" v-model="TicketTaken.TicketCode"></div>
                             <div class="persbuttonBox">
                                 <router-link to="#"><button class="pageButtem" @click="TakenTicket()">{{
                                     $t('Check')
@@ -107,11 +107,9 @@ import { useMemberStore, useLoginStore } from "../stores/stores";
 import VueQrcode from 'vue-qrcode'
 const store = useMemberStore()
 const store2 = useLoginStore()
-const apple = ref(false)
 const TicketTaken = ref(
     {
-        TicketCode: '',
-        AuthCode: ''
+        TicketCode: ''
     }
 )
 const activeIdx = ref(3);
@@ -159,45 +157,6 @@ const NavItemArr = ref([
         path: '/VotesTaken',
     }
 ]);
-// const NavItemArrNo = ref([
-//     {
-//         name: 'MemberList1',
-//         path: '/MemberCenter',
-//     }, {
-//         name: 'MemberList2',
-//         path: '',
-//         item: [
-//             {
-//                 name: 'MemberList3',
-//                 path: '/PersonalInformation',
-//             }, {
-//                 name: 'MemberList4',
-//                 path: '/LoginSettings',
-//             }, {
-//                 name: 'MemberList5',
-//                 path: '/ChangePassword',
-//             }, {
-//                 name: 'MemberList6',
-//                 path: '/MembershipManagementMeasures',
-//             }
-//         ]
-//     }, {
-//         name: 'MemberList7',
-//         path: '',
-//         item: [
-//             {
-//                 name: 'MemberList8',
-//                 path: '/ActivityListOngoing',
-//             }, {
-//                 name: 'MemberList9',
-//                 path: '/ActivityListOver',
-//             }, {
-//                 name: 'MemberList10',
-//                 path: '/ActivityListCancelled',
-//             }
-//         ]
-//     }
-// ]);
 
 const qrcshow = ref(false);
 const handleMenuFn = (idx) => {
@@ -225,7 +184,7 @@ function TakenTicket() {
         "u_id": $cookies.get('u_id'),
         "AuthCode": '0',
         "Lang": $cookies.get('Lang'),
-        "TicketAuthCode": (TicketTaken.value.TicketCode + TicketTaken.value.AuthCode)
+        "TicketAuthCode": TicketTaken.value.TicketCode
     }, {
         headers: {
             Authorization: 'Bearer ' + $cookies.get("random")
@@ -248,6 +207,7 @@ function Logout() {
     store2.att = false
     store2.att2 = true
     router.push('/login')
+
 }
 
 
@@ -259,5 +219,6 @@ onMounted(() => {
         store2.att = false
         store2.att2 = true
     }
+    store.getMemberData()
 })
 </script>

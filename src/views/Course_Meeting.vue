@@ -33,8 +33,9 @@
                                 StopForRegistration: item.IsOpenSignUp && item.SignUpEDate !== '' && Today > item.SignUpEDate
                             }">
                                 <div class="Course_item_title">{{ item.ActSubject }}</div>
-                                <div class="Course_item_location"><span
-                                        v-html="item.ActPlace.replace(/\r\n/g, '<br />')"></span></div>
+                                <!-- <div class="Course_item_location"><span
+                                        v-html="item.ActPlace.replace(/\r\n/g, '<br />')"></span></div> -->
+                                <div class="Course_item_location">{{ item.ActSDateTime }}</div>
                             </div>
                         </div>
                     </router-link>

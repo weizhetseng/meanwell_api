@@ -168,6 +168,10 @@ function getList() {
             total.value = res.data.MyActivityDataList.length
             totalSize.value = Math.ceil(total.value / pageSize)
             tableData.value = getNeedArr(list.value, pageSize)[currentPages.value - 1]
+            let checkNum = res.data.message.substr(0, 2)
+            if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+                Logout()
+            }
         })
         .catch((error) => console.log(error));
 }
@@ -274,6 +278,7 @@ onMounted(() => {
     }
 
     getList()
+    store.getMemberData()
 })
 
 

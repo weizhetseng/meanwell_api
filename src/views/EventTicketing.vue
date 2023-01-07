@@ -88,10 +88,11 @@
                                         <p>{{ item.Seat }}</p>
                                     </div>
                                     <div class="copyCode">
-                                        <p id="codeNum">{{ item.AuthCode }}</p>
-                                        <button type="button" id="copyBtn" @click="copy(item.AuthCode)">{{
-                                            $t('copy')
-                                        }}</button>
+                                        <p id="codeNum">{{ showData[0].TicketCode + item.AuthCode }}</p>
+                                        <button type="button" id="copyBtn"
+                                            @click="copy(showData[0].TicketCode + item.AuthCode)">{{
+    $t('copy')
+                                            }}</button>
                                     </div>
                                 </div>
                             </div>
@@ -219,8 +220,9 @@ onMounted(() => {
             showData.value = MyActStatus.value.filter((item) => {
                 return item.ApplyId === parseInt(id)
             })
-            console.log(showData)
         })
         .catch((error) => console.log(error));
+
+    store.getMemberData()
 })
 </script>

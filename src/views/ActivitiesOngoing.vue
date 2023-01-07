@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                             <div class="FunctionColumn">
-                                <router-link :to="`/EventTicketing/${id}`">
+                                <router-link :to="`/EventTicketing/${id}`" v-if="showData[0].Ticket_E_Apply !== 0">
                                     <button class="FunctionColumnButten"><img src="../assets/img/ticket.svg" alt="">
                                         {{ $t('TakeTicket') }}
                                     </button>

@@ -127,7 +127,6 @@
 <script setup>
 import axios from "axios";
 import { ref, onMounted, computed } from "vue"
-import { useMemberStore } from "../stores/stores";
 import { useRoute } from 'vue-router'
 
 const MyActStatus = ref([{}])
@@ -153,9 +152,6 @@ const Traffic = computed(() => {
     }
 })
 
-
-
-const store = useMemberStore()
 const activeIdx = ref(2);
 const activeIddx = ref(1);
 const NavItemArr = ref([

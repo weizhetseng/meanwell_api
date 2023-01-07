@@ -273,6 +273,7 @@ onMounted(() => {
     }
 
     getList()
+    store.getMemberData()
 })
 
 </script>

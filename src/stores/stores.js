@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import axios from 'axios';
 import router from '../router';
@@ -9,32 +9,20 @@ import CryptoJS from "crypto-js";
 //會員資料
 export const useMemberStore = defineStore('Member', () => {
   const MemberData = ref([{}])
-  const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetData`;
-  axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang') }, {
-    headers: {
-      Authorization: 'Bearer ' + $cookies.get("random")
-    }
-  })
-    .then((res) => {
-      MemberData.value = res.data
+  function getMemberData() {
+    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetData`;
+    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang') }, {
+      headers: {
+        Authorization: 'Bearer ' + $cookies.get("random")
+      }
     })
-    .catch((error) => console.log(error))
+      .then((res) => {
+        MemberData.value = res.data
+      })
+      .catch((error) => console.log(error))
 
-  // const MonthData = ref([{}])
-  // const api2 = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`;
-  // axios.post(api2, {
-  //   "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
-  // }, {
-  //   headers: {
-  //     Authorization: 'Bearer ' + $cookies.get("random")
-  //   }
-  // })
-  //   .then((res) => {
-  //     MonthData.value = res.data
-  //   })
-  //   .catch((error) => console.log(error))
-
-  return { MemberData }
+  }
+  return { MemberData, getMemberData }
 })
 
 
@@ -125,7 +113,6 @@ export const useLoginStore = defineStore('Login', () => {
     axios.post(api1, WebLoginRequest)
       .then((res) => {
         if (res.data.success) {
-          console.log(res.data);
           $cookies.set("random", res.data.AuthToken, 0);
           $cookies.set("u_id", res.data.Uid, 0);
           router.push('/')
