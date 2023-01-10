@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="logoutButton">
-                            <a href="#" @click.prevent="Logout()">{{ $t('Logout') }}</a>
+                            <a href="#" @click.prevent="store2.Logout()">{{ $t('Logout') }}</a>
                         </div>
                     </div>
                     <div class="memberCenterRight">
@@ -113,12 +113,12 @@
 </template>
 <script setup>
 import { onMounted, ref } from "vue"
-import { useMemberStore, useLoginStore } from "../stores/stores";
+import { useMemberStore, LoginOut } from "../stores/stores";
 import { useRouter } from 'vue-router'
 import VueQrcode from 'vue-qrcode'
 const router = useRouter()
 const store = useMemberStore()
-const store2 = useLoginStore()
+const store2 = LoginOut()
 const activeIdx = ref(1);
 const activeIddx = ref(1);
 const NavItemArr = ref([
@@ -183,14 +183,6 @@ const qrclosures = () => {
     qrcshow.value = false;
 }
 
-function Logout() {
-    $cookies.remove("u_id")
-    $cookies.remove("random")
-    alert('已登出')
-    store2.att = false
-    store2.att2 = true
-    router.push('/login')
-}
 
 
 onMounted(() => {

@@ -111,6 +111,8 @@ import { useSignUpStore } from "../stores/stores";
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router'
 import router from '../router';
+import { LoginOut } from "../stores/stores";
+const store2 = LoginOut()
 const route = useRoute()
 const id = route.params.id
 
@@ -190,6 +192,10 @@ onMounted(() => {
             showData.value = ListData.value.filter((item) => {
                 return item.ActId === id.slice(1)
             })
+            let checkNum = res.data.message.substr(0, 2)
+            if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+                store2.Logout()
+            }
         })
         .catch((error) => console.log(error));
 

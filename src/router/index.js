@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/Index.vue'
-import { useLoginStore } from "../stores/stores"
+import { LoginOut } from "../stores/stores"
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -341,7 +341,7 @@ const router = createRouter({
 
 //跳轉前驗證是否有登入
 router.beforeEach(async (to, from, next) => {
-  const store = useLoginStore()
+  const store = LoginOut()
   let isLogin = false
   let needLogin = to.matched.some(match => match.meta.needLogin)
   if ($cookies.isKey("random") == true) {

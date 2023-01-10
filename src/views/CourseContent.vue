@@ -64,6 +64,8 @@ import { ref } from 'vue';
 import { useRoute } from 'vue-router'
 import router from '../router';
 import dayjs from 'dayjs';
+import { LoginOut } from "../stores/stores";
+const store2 = LoginOut()
 const Today = dayjs().format('YYYY/MM/DD HH:mm:ss')
 
 
@@ -89,6 +91,10 @@ axios.post(api, { "u_id": $cookies.get('u_id') !== null ? $cookies.get('u_id') :
         showData.value = ListData.value.filter((item) => {
             return item.ActId === id.slice(1)
         })
+        let checkNum = res.data.message.substr(0, 2)
+        if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+            store2.Logout()
+        }
     })
     .catch((error) => console.log(error));
 

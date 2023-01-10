@@ -157,6 +157,8 @@
 import axios from "axios";
 import { onMounted, ref, computed } from "vue"
 import { useRoute } from 'vue-router'
+import { LoginOut } from "../stores/stores";
+const store2 = LoginOut()
 
 const MyActStatus = ref([{}])
 const route = useRoute()
@@ -259,6 +261,10 @@ onMounted(() => {
             showData.value = MyActStatus.value.filter((item) => {
                 return item.ApplyId === parseInt(id)
             })
+            let checkNum = res.data.message.substr(0, 2)
+            if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+                store2.Logout()
+            }
         })
         .catch((error) => console.log(error));
 })

@@ -108,8 +108,8 @@
 </template>
 <script setup>
 import { onMounted, ref } from "vue"
-import { useLoginStore } from "../stores/stores";
-const store = useLoginStore()
+import { LoginOut } from "../stores/stores";
+const store = LoginOut()
 
 const mobileMenu = ref(false);
 const mobileactiveIddx = ref(null);
@@ -179,15 +179,6 @@ const handleMenuFna = (iddx) => {
     mobileactiveIddx.value = iddx;
     mobileMenu.value = false;
 };
-
-// 登出
-// function Logout() {
-//     $cookies.remove("u_id")
-//     $cookies.remove("random")
-//     alert('已登出')
-// }
-
-
 //切換繁體中文
 function changeTW() {
     $cookies.set("Lang", "tw", -1)
@@ -214,7 +205,4 @@ onMounted(() => {
         store.att2 = true
     }
 })
-
-
-
 </script>

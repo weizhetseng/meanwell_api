@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="logoutButton">
-                            <a href="#" @click.prevent="Logout()">{{ $t('Logout') }}</a>
+                            <a href="#" @click.prevent="store2.Logout()">{{ $t('Logout') }}</a>
                         </div>
                     </div>
                     <div class="memberCenterRight">
@@ -107,11 +107,11 @@
 import axios from "axios";
 import { useRoute, useRouter } from 'vue-router'
 import { onMounted, ref } from "vue"
-import { useMemberStore, useLoginStore } from "../stores/stores";
+import { useMemberStore, LoginOut } from "../stores/stores";
 import useClipboard from 'vue-clipboard3'
 import VueQrcode from 'vue-qrcode'
 const store = useMemberStore()
-const store2 = useLoginStore()
+const store2 = LoginOut()
 
 const MyActStatus = ref([{}])
 const route = useRoute()
@@ -187,16 +187,6 @@ const handleMenuFnb = () => {
     }
 };
 
-function Logout() {
-    $cookies.remove("u_id")
-    $cookies.remove("random")
-    alert('已登出')
-    store2.att = false
-    store2.att2 = true
-    router.push('/login')
-}
-
-
 onMounted(() => {
     if ($cookies.isKey("random") == true && $cookies.isKey("u_id") == true) {
         store2.att = true
@@ -220,6 +210,10 @@ onMounted(() => {
             showData.value = MyActStatus.value.filter((item) => {
                 return item.ApplyId === parseInt(id)
             })
+            let checkNum = res.data.message.substr(0, 2)
+            if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+                store2.Logout()
+            }
         })
         .catch((error) => console.log(error));
 

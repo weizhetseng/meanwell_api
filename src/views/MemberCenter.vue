@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         <div class="logoutButton">
-                            <a href="#" @click.prevent="Logout()">{{ $t('Logout') }}</a>
+                            <a href="#" @click.prevent="store2.Logout()">{{ $t('Logout') }}</a>
                         </div>
                     </div>
                     <div class="memberCenterRight">
@@ -99,11 +99,11 @@
 <script setup>
 import router from "../router";
 import { onMounted, ref } from "vue"
-import { useMemberStore, useLoginStore } from "../stores/stores";
+import { useMemberStore, LoginOut } from "../stores/stores";
 import VueQrcode from 'vue-qrcode'
 import axios from "axios";
 const store = useMemberStore()
-const store2 = useLoginStore()
+const store2 = LoginOut()
 
 const activeIdx = ref(0);
 const activeIddx = ref(null);
@@ -194,14 +194,6 @@ const qrclosures = () => {
     qrcshow.value = false;
 }
 
-function Logout() {
-    $cookies.remove("u_id")
-    $cookies.remove("random")
-    alert('已登出')
-    store2.att = false
-    store2.att2 = true
-    router.push('/login')
-}
 
 
 onMounted(() => {
@@ -227,6 +219,10 @@ onMounted(() => {
             }
         })
         .then((res) => {
+            let checkNum = res.data.message.substr(0, 2)
+            if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+                store2.Logout()
+            }
             SDGUrl.value.forEach((item) => {
                 // api回傳的域名(domain) + 各按鈕連結 + "?vid=" + 使用者帳號 + "&vcode=" + api回傳的SDG驗證碼(salt)
                 item.URL = res.data.domain + item.URL + "?vid=" + $cookies.get("u_id") + "&vcode=" + res.data.salt

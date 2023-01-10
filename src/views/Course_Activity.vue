@@ -72,6 +72,8 @@ import { onMounted, reactive } from 'vue';
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import router from '../router';
+import { LoginOut } from "../stores/stores";
+const store2 = LoginOut()
 
 function getMeetingDataID(id) {
     router.push(`/Course/CourseContent/${id}`)
@@ -89,6 +91,10 @@ onMounted(() => {
         .then((res) => {
             ActivityData.value = res.data.ActivityDataList;
             ActivityBanner.value = res.data.BannerList;
+            let checkNum = res.data.message.substr(0, 2)
+            if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+                store2.Logout()
+            }
         })
 })
 </script> 

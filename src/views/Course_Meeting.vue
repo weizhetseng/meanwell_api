@@ -67,6 +67,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { useRoute } from 'vue-router'
 import dayjs from 'dayjs';
+import { LoginOut } from "../stores/stores";
+const store2 = LoginOut()
 const Today = dayjs().format('YYYY/MM/DD HH:mm:ss')
 const modules = [Pagination]
 
@@ -140,6 +142,10 @@ function getList() {
             listBanner.value = res.data.BannerList
             totalSize.value = Math.ceil(total.value / pageSize)
             tableData.value = getNeedArr(list.value, pageSize)[currentPages.value - 1]
+            let checkNum = res.data.message.substr(0, 2)
+            if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+                store2.Logout()
+            }
         })
         .catch((error) => console.log(error));
 }

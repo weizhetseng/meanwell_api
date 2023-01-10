@@ -81,9 +81,9 @@
 </template>
 <script setup>
 import { onMounted } from 'vue';
-import { useLoginStore } from '../stores/stores';
+import { LoginOut } from '../stores/stores';
 
-const store = useLoginStore()
+const store = LoginOut()
 
 onMounted(() => {
     store.GetKey()

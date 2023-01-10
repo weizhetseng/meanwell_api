@@ -8,6 +8,10 @@ import CryptoJS from "crypto-js";
 
 //會員資料
 export const useMemberStore = defineStore('Member', () => {
+  const att = ref(true)
+  const att2 = ref(false)
+  const loginStatue = ref(false)
+  const logoutStatue = ref(true)
   const MemberData = ref([{}])
   function getMemberData() {
     const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetData`;
@@ -18,9 +22,21 @@ export const useMemberStore = defineStore('Member', () => {
     })
       .then((res) => {
         MemberData.value = res.data
+        let checkNum = res.data.message.substr(0, 2)
+        if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+          Logout()
+        }
       })
       .catch((error) => console.log(error))
+  }
 
+  function Logout() {
+    $cookies.remove("u_id")
+    $cookies.remove("random")
+    alert('已登出')
+    att.value = false
+    att2.value = true
+    router.push('/login')
   }
   return { MemberData, getMemberData }
 })
@@ -28,6 +44,10 @@ export const useMemberStore = defineStore('Member', () => {
 
 // 活動報名
 export const useSignUpStore = defineStore('SignUp', () => {
+  const att = ref(true)
+  const att2 = ref(false)
+  const loginStatue = ref(false)
+  const logoutStatue = ref(true)
   const signUpData = ref([{}])
 
   const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetData`;
@@ -38,18 +58,29 @@ export const useSignUpStore = defineStore('SignUp', () => {
   })
     .then((res) => {
       signUpData.value = res.data
+      let checkNum = res.data.message.substr(0, 2)
+      if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+        Logout()
+      }
     })
     .catch((error) => console.log(error))
+
+
+  function Logout() {
+    $cookies.remove("u_id")
+    $cookies.remove("random")
+    alert('已登出')
+    att.value = false
+    att2.value = true
+    router.push('/login')
+  }
 
   return { signUpData }
 })
 
 
-
-
-
 //登入
-export const useLoginStore = defineStore('Login', () => {
+export const LoginOut = defineStore('LoginOut', () => {
   const att = ref(true)
   const att2 = ref(false)
   const loginStatue = ref(false)
@@ -71,6 +102,10 @@ export const useLoginStore = defineStore('Login', () => {
     const api1 = `${import.meta.env.VITE_APP_API}API_App/MemberData/LoginEncrypt`
     axios.post(api1, GetKeyRequest)
       .then((res) => {
+        let checkNum = res.data.message.substr(0, 2)
+        if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+          Logout()
+        }
         if (res.data.success) {
           authkey = res.data.Key
           authiv = res.data.IV
@@ -111,12 +146,6 @@ export const useLoginStore = defineStore('Login', () => {
     var RA = encrypt("0000000000000000" + `${import.meta.env.VITE_APP_PROJECT};` + pwd + ";" + dayjs().format('YYYY-MM-DD HH:mm:ss') + ";", authkey, authiv);
     WebLoginRequest.u_id = uid;
     WebLoginRequest.RA = RA;
-
-    //記住密碼
-    // if (checked) {
-    //   $cookies.set("RA", RA, '5d');
-    // }
-
     axios.post(api1, WebLoginRequest)
       .then((res) => {
         if (res.data.success) {
@@ -137,5 +166,15 @@ export const useLoginStore = defineStore('Login', () => {
       .catch((error) => console.log(error))
   }
 
-  return { WebLogin, GetKey, User, att, att2, loginStatue, logoutStatue, authkey, authiv }
+  //登出
+  function Logout() {
+    $cookies.remove("u_id")
+    $cookies.remove("random")
+    alert('已登出')
+    att.value = false
+    att2.value = true
+    router.push('/login')
+  }
+
+  return { WebLogin, GetKey, User, att, att2, loginStatue, logoutStatue, authkey, authiv, Logout }
 })

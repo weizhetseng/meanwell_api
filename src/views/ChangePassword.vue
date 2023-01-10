@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="logoutButton">
-                            <a href="#" @click.prevent="Logout()">{{ $t('Logout') }}</a>
+                            <a href="#" @click.prevent="store2.Logout()">{{ $t('Logout') }}</a>
                         </div>
                     </div>
                     <div class="memberCenterRight">
@@ -110,10 +110,10 @@
 import axios from "axios";
 import { onMounted, ref } from "vue"
 import router from "../router";
-import { useMemberStore, useLoginStore } from "../stores/stores";
+import { useMemberStore, LoginOut } from "../stores/stores";
 import VueQrcode from 'vue-qrcode'
 const store = useMemberStore()
-const store2 = useLoginStore()
+const store2 = LoginOut()
 const checkEye1 = ref(true)
 const checkEye2 = ref(true)
 const checkEye3 = ref(true)
@@ -164,6 +164,10 @@ function changepassword() {
         }
     })
         .then((res) => {
+            let checkNum = res.data.message.substr(0, 2)
+            if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+                store2.Logout()
+            }
             if (res.data.success) {
                 alert('更改成功')
             } else {
@@ -235,15 +239,6 @@ const qropen = () => {
 }
 const qrclosures = () => {
     qrcshow.value = false;
-}
-
-function Logout() {
-    $cookies.remove("u_id")
-    $cookies.remove("random")
-    alert('已登出')
-    store2.att = false
-    store2.att2 = true
-    router.push('/login')
 }
 
 

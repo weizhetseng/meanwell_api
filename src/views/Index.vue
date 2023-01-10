@@ -103,7 +103,7 @@
 <script setup>
 import axios from "axios";
 import { onMounted, ref } from "vue";
-import { useLoginStore } from "../stores/stores";
+import { LoginOut } from "../stores/stores";
 
 const indexLink = [
   {
@@ -125,7 +125,7 @@ const indexLink = [
     color: "#9CAF4A",
   },
 ];
-const store = useLoginStore();
+const store = LoginOut();
 
 
 function imageUrl(name) {
@@ -147,9 +147,6 @@ const NewsList = ref([{}]);
 // 禮贈新品資料清單
 const NewSaleList = ref([{}]);
 
-
-
-
 onMounted(() => {
   //取得個人推播訊息資料
   const api1 = `${import.meta.env.VITE_APP_API}API_App/HomePage/PushMsgList`;
@@ -168,6 +165,10 @@ onMounted(() => {
     })
     .then((res) => {
       PushMsgList.value = res.data.PushMsgDataList;
+      let checkNum = res.data.message.substr(0, 2)
+      if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+        store.Logout()
+      }
     })
     .catch((error) => console.log(error));
 
@@ -185,6 +186,10 @@ onMounted(() => {
     })
     .then((res) => {
       NewsList.value = res.data.DataList;
+      let checkNum = res.data.message.substr(0, 2)
+      if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+        store.Logout()
+      }
     })
     .catch((error) => console.log(error));
   // 禮贈新品資料清單
@@ -201,6 +206,10 @@ onMounted(() => {
     })
     .then((res) => {
       NewSaleList.value = res.data.DataList;
+      let checkNum = res.data.message.substr(0, 2)
+      if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+        store.Logout()
+      }
     })
     .catch((error) => console.log(error));
 });
