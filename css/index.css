@@ -24,6 +24,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .indAct_item_Box .indAct_ul01 {
   width: 60%;

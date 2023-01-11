@@ -75,6 +75,7 @@
   width: 100px;
   height: auto;
   float: left;
+  margin-bottom: 20px;
 }
 .qrcoder_item_photo img {
   width: 100%;
@@ -166,8 +167,8 @@
 }
 
 .language_item {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   float: left;
   position: relative;
 }
@@ -276,7 +277,7 @@
 
 .signinicon {
   width: auto;
-  height: 30px;
+  height: 25px;
   float: left;
 }
 .signinicon img {
@@ -285,13 +286,20 @@
   float: left;
 }
 
+.mobile_sdgMenuItem .signinicon {
+  height: 20px;
+}
+.mobile_sdgMenuItem .signinmenutext {
+  font-size: 20px;
+}
+
 .signinmenutext {
   width: auto;
   height: auto;
   float: left;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
-  line-height: 30opx;
+  line-height: 30px;
   margin-left: 10px;
   margin-right: 20px;
   color: #006699;
@@ -400,8 +408,8 @@ footer {
   background-size: cover;
   background-position: center top;
   position: relative;
-  padding-top: 90px;
-  padding-bottom: 250px;
+  margin-top: 90px;
+  margin-bottom: 60px;
 }
 
 .page_course_main {
@@ -749,6 +757,10 @@ button {
           justify-content: flex-start;
 }
 
+.mobile_sdgMenuItem2 {
+  margin: 20px 0;
+}
+
 .mobile_Tosignout {
   width: 100%;
   height: auto;
@@ -790,12 +802,10 @@ button {
 .ActiveDirectoryContentBox {
   width: 100%;
   height: auto;
-  min-height: calc(100% - 200px - 40px);
   float: left;
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 20px;
   padding: 50px;
-  padding: 60px;
 }
 .ActiveDirectoryContentBox .eventTicketList {
   width: 100%;
@@ -878,12 +888,29 @@ button {
     border-bottom: 2px dashed #707070;
   }
 }
+@media (max-width: 520px) {
+  .ActiveDirectoryContentBox .eventTicketList {
+    display: block;
+    overflow-x: scroll;
+  }
+  .ActiveDirectoryContentBox .eventTicketList .eventTicketItem {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+  .ActiveDirectoryContentBox .eventTicketList .eventTicketItem .eventSeat {
+    white-space: nowrap;
+  }
+  .ActiveDirectoryContentBox .eventTicketList .eventTicketItem .copyCode {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+}
 .eventTicketTitle {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   width: 100%;
-  margin-bottom: 18px;
+  margin-bottom: 9px;
 }
 .eventTicketTitle .titleArea {
   width: 50%;
@@ -996,13 +1023,21 @@ button {
   width: auto;
   height: auto;
   float: left;
-  position: absolute;
   font-family: "Roboto";
   font-size: 33px;
   font-weight: bold;
   color: #fff;
   right: 18px;
   text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.activelistdateMonth span {
+  font-size: 0.1em;
 }
 
 .activelistdateMonthbefore {
@@ -1117,7 +1152,7 @@ button {
 }
 
 .EventTicketingTitle {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .itemtext {
@@ -1138,25 +1173,23 @@ button {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -ms-flex-line-pack: center;
       align-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 25px;
 }
 
 .itemtextleft, .itemtextleft2 {
   width: 90px;
-  height: 24px;
   float: left;
   font-size: 18px;
   font-weight: bold;
   line-height: 24px;
   color: #006699;
+  margin-right: 15px;
+  white-space: nowrap;
+  margin-bottom: 15px;
 }
 
 .itemtextleft2 {
@@ -1164,8 +1197,6 @@ button {
 }
 
 .itemtextright, .itemtextright2 {
-  width: calc(100% - 90px - 10px);
-  height: 24px;
   float: left;
   font-size: 18px;
   color: #555555;
@@ -1173,6 +1204,9 @@ button {
   word-break: break-all;
 }
 
+.itemtextright {
+  margin-bottom: 15px;
+}
 .itemtextright.downloadLink {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1183,9 +1217,18 @@ button {
 .itemtextright a {
   margin-right: 15px;
 }
+.itemtextright ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+}
 
 .itemtextright2 {
   width: calc(100% - 140px - 10px);
+  margin-bottom: 15px;
 }
 .itemtextright2.downloadLink {
   display: -webkit-box;
@@ -1199,20 +1242,21 @@ button {
   width: 100%;
   height: auto;
   float: left;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .TicketInformation {
   width: 100%;
   height: auto;
   float: left;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .relevantinformation {
   width: 100%;
   height: auto;
   float: left;
+  margin-top: 20px;
   margin-bottom: 20px;
   padding-bottom: 30px;
   border-bottom: 1px dashed #707070;
@@ -1276,6 +1320,14 @@ button {
   margin-bottom: 20px;
 }
 
+@media (max-width: 576px) {
+  .activitiesSubtitle {
+    font-size: 20px;
+  }
+  .EventTicketingTitle {
+    font-size: 22px;
+  }
+}
 .CancelRegistrationSelect {
   width: 100%;
   height: auto;
@@ -1336,7 +1388,7 @@ button {
   width: 100%;
   height: 30px;
   float: left;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .Monthbutton {
@@ -1417,7 +1469,7 @@ button {
 
 .Calendar_dayscontent_item_dayBox {
   width: 14.2857142857%;
-  height: 90px;
+  height: 80px;
   float: left;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -1475,7 +1527,7 @@ button {
 
 .Activitybar {
   width: 100%;
-  height: 38px;
+  height: 30px;
   float: left;
   margin-top: 2px;
   display: -webkit-inline-box;
@@ -1493,13 +1545,14 @@ button {
 
 .Activitybar_item {
   width: 20px;
-  height: 20px;
+  height: 0px;
   float: left;
   background-color: rgba(148, 55, 55, 0);
   border-radius: 50%;
 }
 
 .ate {
+  height: 20px;
   background-color: rgb(148, 55, 55);
 }
 
@@ -1881,6 +1934,21 @@ button {
   vertical-align: bottom;
 }
 
+.activityList .swiper {
+  margin-top: 20px;
+  height: 100%;
+  max-height: 450px;
+}
+.activityList .swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  max-height: 450px;
+}
+
 .Course_titleBar {
   width: 100%;
   height: 30px;
@@ -1955,9 +2023,6 @@ button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -ms-flex-line-pack: center;
       align-content: center;
   -ms-flex-wrap: wrap;
@@ -2052,7 +2117,7 @@ button {
 
 .Course_date_right {
   width: calc(100% - 110px);
-  height: 100px;
+  min-height: 100px;
   float: right;
   background-color: #fff;
   display: -webkit-inline-box;
@@ -2190,13 +2255,18 @@ button {
   font-size: 30px;
   font-weight: bold;
   text-align: left;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: #006699;
 }
 .CourseinfTitle.registration {
   font-size: 28px;
 }
 
+@media (max-width: 576px) {
+  .CourseinfTitle.registration {
+    font-size: 25px;
+  }
+}
 .ticket_set {
   width: 100%;
   height: auto;
@@ -2302,6 +2372,9 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .indAct_item_Box .indAct_ul01 {
   width: 60%;
@@ -2495,7 +2568,7 @@ button {
   width: auto;
   height: 30px;
   float: left;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 900;
   line-height: 30px;
   text-align: center;
@@ -2918,11 +2991,11 @@ button {
   }
   .Login .page_content .loginContentBox .buttonBox .buttonStyle.pageButton {
     margin-right: 0px;
-    margin-bottom: 20px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #0775AC), color-stop(50%, #006699));
     background: linear-gradient(#0775AC 50%, #006699 50%);
   }
   .Login .page_content .loginContentBox .buttonBox .buttonStyle.loginButton {
+    margin-bottom: 20px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
     background: linear-gradient(#1A3F65 50%, #183354 50%);
   }
@@ -3025,11 +3098,16 @@ button {
   background: linear-gradient(#1A3F65 50%, #183354 50%);
 }
 @media (max-width: 768px) {
-  .ForgotPassword .loginContentBox .loginContentBox {
+  .ForgotPassword .loginContentBox {
     padding: 30px;
   }
-  .ForgotPassword .loginContentBox .loginContentBox .Boxbarbuttem2 .buttonStyle {
+  .ForgotPassword .loginContentBox .Boxbarbuttem2 .buttonStyle {
     font-size: 20px;
+  }
+}
+@media (max-width: 576px) {
+  .ForgotPassword .loginContentBox .Boxbarmessage {
+    margin-bottom: 60px;
   }
 }
 
@@ -3063,8 +3141,8 @@ button {
   color: #006699;
   margin-bottom: 25px;
 }
-.signUp .page_content .loginContentBox .error {
-  margin-bottom: 20px;
+.signUp .page_content .loginContentBox .invalid-feedback {
+  display: block;
   text-align: right;
 }
 .signUp .page_content .loginContentBox .signup_User_account {
@@ -3742,6 +3820,11 @@ button {
   color: #006699;
 }
 
+@media (max-width: 576px) {
+  .itemTitletext {
+    font-size: 18px;
+  }
+}
 .pointsBox, .giftsBox {
   width: 100%;
   height: auto;
@@ -3865,9 +3948,9 @@ button {
   float: left;
   margin-top: 10px;
   border-bottom: 1px dashed rgb(100, 100, 100);
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -3879,7 +3962,7 @@ button {
   font-size: 16px;
   color: #555555;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .memberinfTextinput, .memberinfTextinput2, .memberinfTextinput3 {
@@ -4258,6 +4341,9 @@ button {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
   background: linear-gradient(#1A3F65 50%, #183354 50%);
 }
+.pageButtem.registerBtn {
+  margin: 20px auto 0;
+}
 
 @media screen and (max-width: 1260px) {
   .page_content {
@@ -4442,7 +4528,7 @@ button {
     display: inline-flex;
   }
   .navItems {
-    height: 40px;
+    height: 45px;
   }
   .memberNavItemtext {
     height: 18px;
@@ -4501,9 +4587,6 @@ button {
   .persbuttonBox {
     margin-top: 30px;
   }
-  .persbuttonBox a {
-    width: 100%;
-  }
   .CourseContentBox {
     padding: 20px;
     margin-top: 20px;
@@ -4543,7 +4626,7 @@ button {
     margin-bottom: 10px;
   }
   .activitiesTitle, .EventTicketingTitle {
-    font-size: 26px;
+    font-size: 22px;
   }
 }
 @media screen and (max-width: 430px) {
@@ -4556,7 +4639,7 @@ button {
     width: 100%;
   }
   .pageButtem {
-    font-size: 20px;
+    font-size: 17px;
   }
   .loginButtem {
     width: 100%;
@@ -4579,7 +4662,7 @@ button {
     margin-top: 30px;
   }
   .activelistdate {
-    width: 40px;
+    width: 50px;
   }
   .activelistdateMonthbefore {
     bottom: 5px;
@@ -4595,7 +4678,7 @@ button {
   }
   .activelistTextBar {
     height: auto;
-    width: calc(100% - 50px);
+    width: calc(100% - 60px);
   }
   .activelistText {
     font-size: 13px;
@@ -4637,5 +4720,10 @@ button {
   .mobileSS {
     margin: 0px 20px;
     margin-top: 20px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .ls_name {
+    width: 120px;
   }
 }/*# sourceMappingURL=main.css.map */

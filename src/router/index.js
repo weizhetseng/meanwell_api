@@ -11,7 +11,7 @@ const router = createRouter({
       component: HomeView,
       meta: {
         keepAlive: true,
-        needLogin: false
+        needLogin: false,
       }
     },
     {

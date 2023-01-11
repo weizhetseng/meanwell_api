@@ -22,12 +22,10 @@
 .ActiveDirectoryContentBox {
   width: 100%;
   height: auto;
-  min-height: calc(100% - 200px - 40px);
   float: left;
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 20px;
   padding: 50px;
-  padding: 60px;
 }
 .ActiveDirectoryContentBox .eventTicketList {
   width: 100%;
@@ -110,12 +108,29 @@
     border-bottom: 2px dashed #707070;
   }
 }
+@media (max-width: 520px) {
+  .ActiveDirectoryContentBox .eventTicketList {
+    display: block;
+    overflow-x: scroll;
+  }
+  .ActiveDirectoryContentBox .eventTicketList .eventTicketItem {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+  .ActiveDirectoryContentBox .eventTicketList .eventTicketItem .eventSeat {
+    white-space: nowrap;
+  }
+  .ActiveDirectoryContentBox .eventTicketList .eventTicketItem .copyCode {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+}
 .eventTicketTitle {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   width: 100%;
-  margin-bottom: 18px;
+  margin-bottom: 9px;
 }
 .eventTicketTitle .titleArea {
   width: 50%;
@@ -228,13 +243,21 @@
   width: auto;
   height: auto;
   float: left;
-  position: absolute;
   font-family: "Roboto";
   font-size: 33px;
   font-weight: bold;
   color: #fff;
   right: 18px;
   text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.activelistdateMonth span {
+  font-size: 0.1em;
 }
 
 .activelistdateMonthbefore {
@@ -349,7 +372,7 @@
 }
 
 .EventTicketingTitle {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .itemtext {
@@ -370,25 +393,23 @@
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -ms-flex-line-pack: center;
       align-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 25px;
 }
 
 .itemtextleft, .itemtextleft2 {
   width: 90px;
-  height: 24px;
   float: left;
   font-size: 18px;
   font-weight: bold;
   line-height: 24px;
   color: #006699;
+  margin-right: 15px;
+  white-space: nowrap;
+  margin-bottom: 15px;
 }
 
 .itemtextleft2 {
@@ -396,8 +417,6 @@
 }
 
 .itemtextright, .itemtextright2 {
-  width: calc(100% - 90px - 10px);
-  height: 24px;
   float: left;
   font-size: 18px;
   color: #555555;
@@ -405,6 +424,9 @@
   word-break: break-all;
 }
 
+.itemtextright {
+  margin-bottom: 15px;
+}
 .itemtextright.downloadLink {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -415,9 +437,18 @@
 .itemtextright a {
   margin-right: 15px;
 }
+.itemtextright ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+}
 
 .itemtextright2 {
   width: calc(100% - 140px - 10px);
+  margin-bottom: 15px;
 }
 .itemtextright2.downloadLink {
   display: -webkit-box;
@@ -431,20 +462,21 @@
   width: 100%;
   height: auto;
   float: left;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .TicketInformation {
   width: 100%;
   height: auto;
   float: left;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .relevantinformation {
   width: 100%;
   height: auto;
   float: left;
+  margin-top: 20px;
   margin-bottom: 20px;
   padding-bottom: 30px;
   border-bottom: 1px dashed #707070;
@@ -510,6 +542,9 @@
 
 @media (max-width: 576px) {
   .activitiesSubtitle {
+    font-size: 20px;
+  }
+  .EventTicketingTitle {
     font-size: 22px;
   }
 }

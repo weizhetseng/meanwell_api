@@ -48,7 +48,33 @@ export const useSignUpStore = defineStore('SignUp', () => {
   const att2 = ref(false)
   const loginStatue = ref(false)
   const logoutStatue = ref(true)
-  const signUpData = ref([{}])
+  const sendData = ref(
+    {
+      u_id: $cookies.get('u_id'),
+      AuthCode: "0",
+      Lang: "$cookies.get('Lang')",
+      ActId: "",
+      SeId: -1,
+      Identity: -1,
+      JoinWay: -1,
+      Name: "",
+      Sex: 0,
+      Mobile: "",
+      Email: "",
+      CompanyName: "",
+      JobTitle: "",
+      DocType: 0,
+      DocNumber: "",
+      Meals: -1,
+      Traffic: -1,
+      CarNumber: "",
+      SignUpMemo: "",
+      Ticket_E_Apply: 0,
+      Ticket_P_Apply: 0,
+      Address: "",
+      Pic: ""
+    }
+  )
 
   const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetData`;
   axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang') }, {
@@ -57,7 +83,15 @@ export const useSignUpStore = defineStore('SignUp', () => {
     }
   })
     .then((res) => {
-      signUpData.value = res.data
+      sendData.value.Name = res.data.Name
+      sendData.value.Sex = res.data.Sex
+      sendData.value.Mobile = res.data.Mobile
+      sendData.value.Email = res.data.Email
+      sendData.value.CompanyName = res.data.CompanyName
+      sendData.value.JobTitle = res.data.JobTitle
+      sendData.value.DocType = res.data.DocType
+      sendData.value.DocNumber = res.data.DocNumber
+      sendData.value.Pic = res.data.Pic
       let checkNum = res.data.message.substr(0, 2)
       if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
         Logout()
@@ -75,7 +109,7 @@ export const useSignUpStore = defineStore('SignUp', () => {
     router.push('/login')
   }
 
-  return { signUpData }
+  return { sendData }
 })
 
 

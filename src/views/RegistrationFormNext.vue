@@ -24,7 +24,7 @@
                     <div class="memberinfTextinput Sessions">
                         <div v-for="item in showData[0].ActSessions" :key="item.SeId">
                             <input :id="item.SeId" type="radio" name="SeId" :value="item.SeId"
-                                v-model="storeSignUp.signUpData.SeId">
+                                v-model="storeSignUp.sendData.SeId">
                             <label :for="item.SeId">{{ item.SeTitle }}</label>
                         </div>
                     </div>
@@ -35,13 +35,13 @@
                         </div>
                         <div class="memberinfTextinput">
                             <input id="Meals0" type="radio" name="Meals" :value="0"
-                                v-model.number="storeSignUp.signUpData.Meals">
+                                v-model.number="storeSignUp.sendData.Meals">
                             <label for="Meals0">{{ $t('Meals1') }}</label>
                             <input id="Meals1" type="radio" name="Meals" :value="1"
-                                v-model.number="storeSignUp.signUpData.Meals">
+                                v-model.number="storeSignUp.sendData.Meals">
                             <label for="Meals1">{{ $t('Meals2') }}</label>
                             <input id="Meals2" type="radio" name="Meals" :value="2"
-                                v-model.number="storeSignUp.signUpData.Meals">
+                                v-model.number="storeSignUp.sendData.Meals">
                             <label for="Meals2">{{ $t('Meals3') }}</label>
                         </div>
                     </div>
@@ -52,22 +52,22 @@
                     </div>
                     <div class="memberinfTextinput3">
                         <input id="Traffic0" type="radio" name="Traffic" :value="0"
-                            v-model="storeSignUp.signUpData.Traffic">
+                            v-model="storeSignUp.sendData.Traffic">
                         <label for="Traffic0">{{ $t('Traffic1') }}</label>
                         <input id="Traffic1" type="radio" name="Traffic" :value="1"
-                            v-model="storeSignUp.signUpData.Traffic">
+                            v-model="storeSignUp.sendData.Traffic">
                         <label for="Traffic1">{{ $t('Traffic2') }}</label>
                     </div>
-                    <div class="memberinfTextinput2" v-if="storeSignUp.signUpData.Traffic === 0">
+                    <div class="memberinfTextinput2" v-if="storeSignUp.sendData.Traffic === 0">
                         <input type="text" name="transportation" id="CarNumber" class="memberinfinput"
-                            :placeholder="$t('Traffic1_5')" v-model="storeSignUp.signUpData.CarNumber">
+                            :placeholder="$t('Traffic1_5')" v-model="storeSignUp.sendData.CarNumber">
                     </div>
                     <div class="itemTitle">
                         <div class="itemTitleLine"></div>
                         <div class="itemTitletext">{{ $t('SignUpMemo') }}</div>
                     </div>
                     <div class="CancelRegistrationtextbox"><textarea class="textBox" :placeholder="$t('SignUpMemo1')"
-                            v-model="storeSignUp.signUpData.SignUpMemo"></textarea>
+                            v-model="storeSignUp.sendData.SignUpMemo"></textarea>
                     </div>
                     <div class="ticket_set">
                         <div class="itemTitleLine"></div>
@@ -75,7 +75,7 @@
                         <div class="QuantityTable">
                             <div class="QuantityTable_button" @click="minusNum_elec()"><img
                                     src="../assets/img/minus.svg" alt=""></div>
-                            <input class="QuantityTable_value" v-model="storeSignUp.signUpData.Ticket_E_Apply" />
+                            <input class="QuantityTable_value" v-model="storeSignUp.sendData.Ticket_E_Apply" />
                             <div class="QuantityTable_button" @click="addNum_elec()"><img src="../assets/img/plus.svg"
                                     alt=""></div>
                         </div>
@@ -87,7 +87,7 @@
                             <div class="QuantityTable_button" @click="minusNum_paper()"><img
                                     src="../assets/img/minus.svg" alt=""></div>
                             <input type="tel" class="QuantityTable_value"
-                                v-model="storeSignUp.signUpData.Ticket_P_Apply" />
+                                v-model="storeSignUp.sendData.Ticket_P_Apply" />
                             <div class="QuantityTable_button" @click="addNum_paper()"><img src="../assets/img/plus.svg"
                                     alt=""></div>
                         </div>
@@ -103,10 +103,10 @@
                     </div>
                     <div class="memberinfTextinput">
                         <input type="text" name="" id="Address" class="memberinfinput" :placeholder="$t('Address1')"
-                            v-model="storeSignUp.signUpData.Address">
+                            v-model="storeSignUp.sendData.Address">
                     </div>
                     <div class="Boxbarbuttem">
-                        <button type="submit" class="pageButtem" @click.prevent="checkInput()">{{
+                        <button type="submit" class="pageButtem registerBtn" @click.prevent="checkInput()">{{
                             $t('Check')
                         }}</button>
                     </div>
@@ -122,8 +122,6 @@ import { computed, onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router'
 import { LoginOut } from "../stores/stores";
 const store2 = LoginOut()
-const ticketNum_elec = ref(0)
-const ticketNum_paper = ref(0)
 const route = useRoute()
 const router = useRouter()
 const id = route.params.id
@@ -134,36 +132,12 @@ const storeSignUp = useSignUpStore()
 const ListData = ref([{}])
 const showData = ref([{}])
 const totalNum = computed(() => {
-    return parseInt(ticketNum_elec.value) + parseInt(ticketNum_paper.value)
+    return parseInt(storeSignUp.sendData.Ticket_E_Apply) + parseInt(storeSignUp.sendData.Ticket_P_Apply)
 })
 
-// 將圖片從網址轉回 base64
-function getBase64(url, callback) {
-    var Img = new Image(),
-        dataURL = '';
-    Img.src = url + '?v=' + Math.random();
-    Img.setAttribute('crossOrigin', 'Anonymous');
-    Img.onload = function () {
-        var canvas = document.createElement('canvas'),
-            width = Img.width,
-            height = Img.height;
-        canvas.width = width;
-        canvas.height = height;
-        canvas.getContext('2d').drawImage(Img, 0, 0, width, height);
-        dataURL = canvas.toDataURL('image/jpeg');
-        return callback ? callback(dataURL) : null;
-    };
-}
-let imgUrl = storeSignUp.signUpData.Pic
-getBase64(imgUrl, dataURL => {
-    let strImage = dataURL.replace(/^data:image\/[a-z]+;base64,/, "")
-    storeSignUp.signUpData.Pic = strImage
-});
-
 function SignUp() {
-
     const SignUpApi = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivitySignUp`
-    axios.post(SignUpApi, storeSignUp.signUpData, {
+    axios.post(SignUpApi, storeSignUp.sendData, {
         headers: {
             Authorization: 'Bearer ' + $cookies.get("random")
         }
@@ -175,7 +149,7 @@ function SignUp() {
             }
             if (res.data.success) {
                 alert('報名成功')
-                storeSignUp.signUpData = storeMember.MemberData
+                storeSignUp.sendData = storeMember.MemberData
                 router.push('/')
             } else {
                 alert(res.data.message)
@@ -184,23 +158,23 @@ function SignUp() {
         .catch((error) => console.log(error));
 }
 function addNum_elec() {
-    ticketNum_elec.value++
+    storeSignUp.sendData.Ticket_E_Apply++
 }
 function minusNum_elec() {
-    ticketNum_elec.value--
-    if (ticketNum_elec.value < 0) {
+    storeSignUp.sendData.Ticket_E_Apply--
+    if (storeSignUp.sendData.Ticket_E_Apply < 0) {
         alert('數量不可小於0')
-        ticketNum_elec.value = 0
+        storeSignUp.sendData.Ticket_E_Apply = 0
     }
 }
 function addNum_paper() {
-    ticketNum_paper.value++
+    storeSignUp.sendData.Ticket_P_Apply++
 }
 function minusNum_paper() {
-    ticketNum_paper.value--
-    if (ticketNum_paper.value < 0) {
+    storeSignUp.sendData.Ticket_P_Apply--
+    if (storeSignUp.sendData.Ticket_P_Apply < 0) {
         alert('數量不可小於0')
-        ticketNum_paper.value = 0
+        storeSignUp.sendData.Ticket_P_Apply = 0
     }
 }
 
@@ -243,7 +217,7 @@ function checkInput() {
     } else if (checkTraffic.value == false) {
         alert('請選擇交通')
         return false;
-    } else if (storeSignUp.signUpData.Traffic === 0 && CarNumber.value == '') {
+    } else if (storeSignUp.sendData.Traffic === 0 && CarNumber.value == '') {
         alert('請輸入車牌號碼')
         return false;
     } else if (totalNum.value == 0) {
@@ -254,7 +228,7 @@ function checkInput() {
     //     alert('請選擇縣市行政區')
     //     return false;
     // }
-    else if (ticketNum_paper.value !== 0 && Address.value == '') {
+    else if (storeSignUp.sendData.Ticket_P_Apply !== 0 && Address.value == '') {
         alert('請輸入地址')
         return false;
     } else {
@@ -283,19 +257,10 @@ onMounted(() => {
             console.log(showData)
         })
         .catch((error) => console.log(error));
-
     if (!showData.value[0].IsMeals) {
-        storeSignUp.signUpData.Meals = 2
+        storeSignUp.sendData.Meals = 2
     }
-
-    storeSignUp.signUpData.u_id = $cookies.get('u_id')
-    storeSignUp.signUpData.AuthCode = '0'
-    storeSignUp.signUpData.Lang = $cookies.get('Lang')
-    storeSignUp.signUpData.ActId = id.slice(1)
-    storeSignUp.signUpData.Ticket_E_Apply = ticketNum_elec
-    storeSignUp.signUpData.Ticket_P_Apply = ticketNum_paper
-
-
+    storeSignUp.sendData.ActId = id.slice(1)
 })
 
 </script>

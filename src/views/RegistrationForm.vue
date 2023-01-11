@@ -24,11 +24,11 @@
                     <div class="memberinfTextinput">
 
                         <input id="identity0" type="radio" name="identity" :value="0"
-                            v-model="storeSignUp.signUpData.Identity">
+                            v-model="storeSignUp.sendData.Identity">
                         <label for="identity0">{{ $t('Identity1') }}</label>
 
                         <input id="identity1" type="radio" name="identity" :value="1"
-                            v-model="storeSignUp.signUpData.Identity">
+                            v-model="storeSignUp.sendData.Identity">
                         <label for="identity1">{{ $t('Identity2') }}</label>
 
                     </div>
@@ -39,12 +39,12 @@
                     <div class="memberinfTextinput">
                         <div class="inputitem" v-if="showData[0].IsOnSiteAct">
                             <input id="JoinWay0" type="radio" name="JoinWay" :value="0"
-                                v-model="storeSignUp.signUpData.JoinWay">
+                                v-model="storeSignUp.sendData.JoinWay">
                             <label for="JoinWay0">{{ $t('JoinWay1') }}</label>
                         </div>
                         <div class="inputitem" v-if="showData[0].IsOnLineAct">
                             <input id="JoinWay1" type="radio" name="JoinWay" :value="1"
-                                v-model="storeSignUp.signUpData.JoinWay">
+                                v-model="storeSignUp.sendData.JoinWay">
                             <label for="JoinWay1">{{ $t('JoinWay2') }}</label>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="memberinfTextinput">
                         <input type="text" name="" id="Name" class="memberinfinput" :placeholder="$t('Name1')"
-                            v-model="storeSignUp.signUpData.Name">
+                            v-model="storeSignUp.sendData.Name">
                     </div>
                     <div class="itemTitle">
                         <div class="itemTitleLine"></div>
@@ -62,11 +62,11 @@
                     </div>
                     <div class="memberinfTextinput">
                         <div class="inputitem">
-                            <input id="Sex1" type="radio" name="Sex" :value="1" v-model="storeSignUp.signUpData.Sex">
+                            <input id="Sex1" type="radio" name="Sex" :value="1" v-model="storeSignUp.sendData.Sex">
                             <label for="Sex1">{{ $t('Sex1') }}</label>
                         </div>
                         <div class="inputitem">
-                            <input id="Sex0" type="radio" name="Sex" :value="0" v-model="storeSignUp.signUpData.Sex">
+                            <input id="Sex0" type="radio" name="Sex" :value="0" v-model="storeSignUp.sendData.Sex">
                             <label for="Sex0">{{ $t('Sex2') }}</label>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="memberinfTextinput">
                         <input type="text" name="" id="Mobile" class="memberinfinput" :placeholder="$t('Mobile1')"
-                            v-model="storeSignUp.signUpData.Mobile">
+                            v-model="storeSignUp.sendData.Mobile">
                     </div>
                     <div class="itemTitle">
                         <div class="itemTitleLine"></div>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="memberinfTextinput">
                         <input type="text" name="" id="CompanyName" class="memberinfinput"
-                            :placeholder="$t('CompanyName1')" v-model="storeSignUp.signUpData.CompanyName">
+                            :placeholder="$t('CompanyName1')" v-model="storeSignUp.sendData.CompanyName">
                     </div>
                     <div class="itemTitle">
                         <div class="itemTitleLine"></div>
@@ -92,7 +92,28 @@
                     </div>
                     <div class="memberinfTextinput">
                         <input type="text" name="" id="JobTitle" class="memberinfinput" :placeholder="$t('JobTitle1')"
-                            v-model="storeSignUp.signUpData.JobTitle">
+                            v-model="storeSignUp.sendData.JobTitle">
+                    </div>
+                    <div v-if="(storeSignUp.sendData.Pic == '') && (showData[0].IsCheckPic == true)">
+                        <div class="itemTitle2">
+                            <div class="itemTitleLine"></div>
+                            <div class="itemTitletext">照片上傳</div>
+                        </div>
+                        <div class="memberinfTextinput">
+                            <div class="avatarshintText" v-if="storeSignUp.sendData.Pic !== ''">{{ $t('Uploaded') }}
+                            </div>
+                            <div class="avatarshintText" v-if="storeSignUp.sendData.Pic == ''">{{
+                                $t('UnUploaded')
+                            }}</div>
+                            <div class="upload_btn">
+                                <label class="avatarupload" for="upload_img">
+                                    {{ $t('Upload') }}
+                                </label>
+                                <input id="upload_img" name="progressbarTW_img" type="file"
+                                    accept="image/jpeg, image/png" @change="previewFile()"
+                                    v-on:change="storeSignUp.sendData.Pic">
+                            </div>
+                        </div>
                     </div>
                     <div class="Boxbarbuttem">
                         <button class="pageButtem registerBtn" @click="checkInput()">{{ $t('NextStep') }}</button>
@@ -120,6 +141,19 @@ const storeSignUp = useSignUpStore()
 
 
 
+function previewFile() {
+    const file = document.getElementById("upload_img").files[0];
+
+    let reader = new FileReader();
+    if (file) {
+        reader.readAsDataURL(file);
+        reader.onloadend = function () {
+            var strImage = reader.result.replace(/^data:image\/[a-z]+;base64,/, "");
+            storeSignUp.sendData.Pic = strImage
+        }
+    }
+}
+
 function checkInput() {
     const checkIdentity = ref(false);
     const checkJoinWay = ref(false);
@@ -131,6 +165,7 @@ function checkInput() {
     const Mobile = document.getElementsByName('Mobile');
     const CompanyName = document.getElementsByName('CompanyName');
     const JobTitle = document.getElementsByName('JobTitle');
+
     for (var i = 0; i < Identity.length; i++) {
         if (Identity[i].checked) {
             checkIdentity.value = true;
@@ -170,8 +205,10 @@ function checkInput() {
     } else if (JobTitle.value == '') {
         alert('請輸入職稱')
         return false;
+    } else if (storeSignUp.sendData.Pic == '') {
+        alert('請上傳個人照')
+        return false;
     } else {
-
         router.push(`/Course/RegistrationFormNext/${id}`)
     }
 }
@@ -196,6 +233,7 @@ onMounted(() => {
             if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
                 store2.Logout()
             }
+
         })
         .catch((error) => console.log(error));
 

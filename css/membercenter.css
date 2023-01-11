@@ -392,11 +392,6 @@
   float: left;
 }
 
-@media (max-width: 576px) {
-  .itemTitle {
-    margin-bottom: 10px;
-  }
-}
 .itemTitle2 {
   width: 100%;
   height: auto;

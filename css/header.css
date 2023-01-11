@@ -179,6 +179,9 @@
 .mobile_sdgMenuItem .signinicon {
   height: 20px;
 }
+.mobile_sdgMenuItem .signinmenutext {
+  font-size: 20px;
+}
 
 .signinmenutext {
   width: auto;

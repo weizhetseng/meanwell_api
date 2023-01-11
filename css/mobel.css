@@ -259,9 +259,6 @@
   .persbuttonBox {
     margin-top: 30px;
   }
-  .persbuttonBox a {
-    width: 100%;
-  }
   .CourseContentBox {
     padding: 20px;
     margin-top: 20px;
@@ -301,7 +298,7 @@
     margin-bottom: 10px;
   }
   .activitiesTitle, .EventTicketingTitle {
-    font-size: 26px;
+    font-size: 22px;
   }
 }
 @media screen and (max-width: 430px) {
@@ -314,7 +311,7 @@
     width: 100%;
   }
   .pageButtem {
-    font-size: 20px;
+    font-size: 17px;
   }
   .loginButtem {
     width: 100%;
@@ -337,7 +334,7 @@
     margin-top: 30px;
   }
   .activelistdate {
-    width: 40px;
+    width: 50px;
   }
   .activelistdateMonthbefore {
     bottom: 5px;
@@ -353,7 +350,7 @@
   }
   .activelistTextBar {
     height: auto;
-    width: calc(100% - 50px);
+    width: calc(100% - 60px);
   }
   .activelistText {
     font-size: 13px;
@@ -395,5 +392,10 @@
   .mobileSS {
     margin: 0px 20px;
     margin-top: 20px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .ls_name {
+    width: 120px;
   }
 }/*# sourceMappingURL=mobel.css.map */
