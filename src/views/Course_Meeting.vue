@@ -29,8 +29,12 @@
                                     <div class="CoursedateMonthText">{{ $t('Month') }}</div>
                                 </div>
                             </div>
-                            <div class="Course_date_right" :class="{ OpenForRegistration: item.IsOpenSignUp }, {
-                                StopForRegistration: item.IsOpenSignUp && item.SignUpEDate !== '' && Today > item.SignUpEDate
+                            <div class="Course_date_right" :class="{ OpenForRegistration: item.IsOpenSignUp && $cookies.get('Lang') == 'tw' }, { OpenForRegistrationCN: item.IsOpenSignUp && $cookies.get('Lang') == 'cn' }, { OpenForRegistrationEN: item.IsOpenSignUp && $cookies.get('Lang') == 'en' }, {
+                                StopForRegistration: item.IsOpenSignUp && item.SignUpEDate !== '' && Today > item.SignUpEDate && $cookies.get('Lang') == 'tw'
+                            }, {
+                                StopForRegistrationCN: item.IsOpenSignUp && item.SignUpEDate !== '' && Today > item.SignUpEDate && $cookies.get('Lang') == 'cn'
+                            }, {
+                                StopForRegistrationEN: item.IsOpenSignUp && item.SignUpEDate !== '' && Today > item.SignUpEDate && $cookies.get('Lang') == 'en'
                             }">
                                 <div class="Course_item_title">{{ item.ActSubject }}</div>
                                 <!-- <div class="Course_item_location"><span

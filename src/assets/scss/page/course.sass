@@ -169,8 +169,36 @@
     position: absolute
     top: 0px
     right: 0px 
+.OpenForRegistrationCN::after
+    content: url('/src/assets/img/Open_for_registration_iconCN.svg')
+    width: 78px
+    height: 57px
+    position: absolute
+    top: 0px
+    right: 0px 
+.OpenForRegistrationEN::after
+    content: url('/src/assets/img/Open_for_registration_iconEN.svg')
+    width: 78px
+    height: 57px
+    position: absolute
+    top: 0px
+    right: 0px 
 .StopForRegistration::after
     content: url('/src/assets/img/Stop_for_registration_icon.svg')
+    width: 78px
+    height: 57px
+    position: absolute
+    top: 0px
+    right: 0px 
+.StopForRegistrationEN::after
+    content: url('/src/assets/img/Stop_for_registration_iconEN.svg')
+    width: 78px
+    height: 57px
+    position: absolute
+    top: 0px
+    right: 0px 
+.StopForRegistrationCN::after
+    content: url('/src/assets/img/Stop_for_registration_iconCN.svg')
     width: 78px
     height: 57px
     position: absolute
@@ -217,14 +245,18 @@
     float: left
     margin-bottom: 20px
 .CoursebuttoonSet
-    width: 140px
-    height: 50px
-    float: left
-    background-image: url(/src/assets/img/CoursebuttoonBg.svg)
+    width: 175px
+    height: 63px
+    background: url(/src/assets/img/CoursebuttoonBg.svg) no-repeat center
+    background-size: cover
     border-radius: 5px
     font-size: 24px
     font-weight: bold
     color: #fff
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 18px
 .CourseIntroduction
     width: 100%
     height: auto
@@ -266,6 +298,8 @@
     justify-content: flex-start
     align-content: center
     align-items: center
+    flex-wrap: wrap
+    gap: 20px
 .QuantityTable
     width: auto
     height: 40px

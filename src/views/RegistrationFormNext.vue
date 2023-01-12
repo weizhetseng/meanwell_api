@@ -187,8 +187,6 @@ function checkInput() {
     const Traffic = document.getElementsByName('Traffic');
     const CarNumber = document.getElementById('CarNumber');
     const Address = document.getElementById('Address');
-    const countieList = document.getElementById('countieList');
-    const districtsList = document.getElementById('districtsList')
 
     for (var i = 0; i < SeId.length; i++) {
         if (SeId[i].checked) {
@@ -224,10 +222,6 @@ function checkInput() {
         alert('總票數不可為0')
         return false;
     }
-    // else if (countieList.value === '請選擇縣市' && districtsList === '請選擇行政區') {
-    //     alert('請選擇縣市行政區')
-    //     return false;
-    // }
     else if (storeSignUp.sendData.Ticket_P_Apply !== 0 && Address.value == '') {
         alert('請輸入地址')
         return false;

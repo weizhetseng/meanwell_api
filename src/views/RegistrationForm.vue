@@ -205,7 +205,7 @@ function checkInput() {
     } else if (JobTitle.value == '') {
         alert('請輸入職稱')
         return false;
-    } else if (storeSignUp.sendData.Pic == '') {
+    } else if (storeSignUp.sendData.Pic == '' && IsPic.value == true) {
         alert('請上傳個人照')
         return false;
     } else {
@@ -215,6 +215,7 @@ function checkInput() {
 
 const ListData = ref([{}])
 const showData = ref([{}])
+const IsPic = ref(true)
 
 onMounted(() => {
 
@@ -228,6 +229,9 @@ onMounted(() => {
             ListData.value = res.data.ActivityDataList
             showData.value = ListData.value.filter((item) => {
                 return item.ActId === id.slice(1)
+            })
+            IsPic.value = showData.value.every((item) => {
+                return item.IsCheckPic == true
             })
             let checkNum = res.data.message.substr(0, 2)
             if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {

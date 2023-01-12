@@ -4,7 +4,7 @@ import axios from 'axios';
 import router from '../router';
 import dayjs from 'dayjs';
 import CryptoJS from "crypto-js";
-
+import { useRoute } from 'vue-router'
 
 //會員資料
 export const useMemberStore = defineStore('Member', () => {
@@ -98,6 +98,7 @@ export const useSignUpStore = defineStore('SignUp', () => {
       }
     })
     .catch((error) => console.log(error))
+
 
 
   function Logout() {

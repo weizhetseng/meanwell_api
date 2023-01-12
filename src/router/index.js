@@ -12,6 +12,7 @@ const router = createRouter({
       meta: {
         keepAlive: true,
         needLogin: false,
+        mainBG: true
       }
     },
     {
@@ -20,7 +21,8 @@ const router = createRouter({
       component: () => import("../views/LoginView.vue"),
       meta: {
         keepAlive: true,
-        needLogin: false
+        needLogin: false,
+        mainBG: true
       }
     },
     {
@@ -29,7 +31,8 @@ const router = createRouter({
       component: () => import("../views/ForgotPasswordView.vue"),
       meta: {
         keepAlive: true,
-        needLogin: false
+        needLogin: false,
+        mainBG: true
       }
     },
     {
@@ -38,7 +41,8 @@ const router = createRouter({
       component: () => import("../views/SignUpView.vue"),
       meta: {
         keepAlive: true,
-        needLogin: false
+        needLogin: false,
+        mainBG: true
       }
     },
     {
@@ -47,7 +51,8 @@ const router = createRouter({
       component: () => import("../views/SignUpSetPasswordView.vue"),
       meta: {
         keepAlive: true,
-        needLogin: false
+        needLogin: false,
+        mainBG: true
       }
     },
     {
@@ -56,7 +61,8 @@ const router = createRouter({
       component: () => import("../views/MemberCenter.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -66,7 +72,8 @@ const router = createRouter({
       component: () => import("../views/PersonalInformation.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -76,7 +83,8 @@ const router = createRouter({
       component: () => import("../views/MemberInformationEditing.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -86,7 +94,8 @@ const router = createRouter({
       component: () => import("../views/LoginSettings.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -96,7 +105,8 @@ const router = createRouter({
       component: () => import("../views/ChangePassword.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -106,7 +116,8 @@ const router = createRouter({
       component: () => import("../views/MembershipManagementMeasures.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -116,7 +127,8 @@ const router = createRouter({
       component: () => import("../views/ActivityListOngoing.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -126,7 +138,8 @@ const router = createRouter({
       component: () => import("../views/ActivityListOver.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -136,7 +149,8 @@ const router = createRouter({
       component: () => import("../views/ActivityListCancelled.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -146,7 +160,8 @@ const router = createRouter({
       component: () => import("../views/ActivitiesOngoing.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -156,7 +171,8 @@ const router = createRouter({
       component: () => import("../views/ActivitiesOver.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -166,7 +182,8 @@ const router = createRouter({
       component: () => import("../views/ActivitiesCancelled.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -176,7 +193,8 @@ const router = createRouter({
       component: () => import("../views/EventTicketing.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -186,7 +204,8 @@ const router = createRouter({
       component: () => import("../views/CancelRegistration.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -196,7 +215,8 @@ const router = createRouter({
       component: () => import("../views/VotesTaken.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -211,7 +231,8 @@ const router = createRouter({
           component: () => import("../views/Course_Meeting.vue"),
           meta: {
             keepAlive: true,
-            needLogin: false
+            needLogin: false,
+            mainBG: false
           },
         },
         {
@@ -220,7 +241,8 @@ const router = createRouter({
           component: () => import("../views/Course_Educate.vue"),
           meta: {
             keepAlive: true,
-            needLogin: false
+            needLogin: false,
+            mainBG: false
           }
         },
         {
@@ -229,7 +251,8 @@ const router = createRouter({
           component: () => import("../views/Course_Activity.vue"),
           meta: {
             keepAlive: true,
-            needLogin: false
+            needLogin: false,
+            mainBG: false
           }
         },
         {
@@ -238,7 +261,8 @@ const router = createRouter({
           component: () => import("../views/CourseContent.vue"),
           meta: {
             keepAlive: true,
-            needLogin: false
+            needLogin: false,
+            mainBG: false
           }
         },
         {
@@ -247,7 +271,8 @@ const router = createRouter({
           component: () => import("../views/RegistrationForm.vue"),
           meta: {
             keepAlive: true,
-            needLogin: true
+            needLogin: true,
+            mainBG: true
           }
         }
         ,
@@ -257,7 +282,8 @@ const router = createRouter({
           component: () => import("../views/RegistrationFormNext.vue"),
           meta: {
             keepAlive: true,
-            needLogin: true
+            needLogin: true,
+            mainBG: true
           }
         }
 
@@ -272,7 +298,8 @@ const router = createRouter({
       component: () => import("../views/RegistrationForm_ForeignGuests.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
 
@@ -283,7 +310,8 @@ const router = createRouter({
       component: () => import("../views/ServiceContent.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -293,7 +321,8 @@ const router = createRouter({
       component: () => import("../views/MissionVision.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -303,7 +332,8 @@ const router = createRouter({
       component: () => import("../views/MembershipTermsofService.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -313,7 +343,8 @@ const router = createRouter({
       component: () => import("../views/Calendar.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -323,7 +354,8 @@ const router = createRouter({
       component: () => import("../views/CommonProblem.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
     ,
@@ -333,7 +365,8 @@ const router = createRouter({
       component: () => import("../views/Questionnaire.vue"),
       meta: {
         keepAlive: false,
-        needLogin: true
+        needLogin: true,
+        mainBG: true
       }
     }
   ]
@@ -344,6 +377,7 @@ router.beforeEach(async (to, from, next) => {
   const store = LoginOut()
   let isLogin = false
   let needLogin = to.matched.some(match => match.meta.needLogin)
+  let mainBG = to.matched.some(match => match.meta.mainBG)
   if ($cookies.isKey("random") == true) {
     isLogin = true
   }
@@ -358,6 +392,15 @@ router.beforeEach(async (to, from, next) => {
   else {
     next()
   }
+
+
+  if (mainBG) {
+    document.querySelector('body').setAttribute('style', 'background: url(/src/assets/img/background_img.jpg) no-repeat center;background-size: cover')
+  } else {
+    document.querySelector('body').setAttribute('style', 'background: url(/src/assets/img/background_course_img.jpg) no-repeat center;background-size: cover')
+  }
 })
+
+
 
 export default router
