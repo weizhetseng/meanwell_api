@@ -259,8 +259,44 @@
   right: 0px;
 }
 
+.OpenForRegistrationCN::after {
+  content: url("/src/assets/img/Open_for_registration_iconCN.svg");
+  width: 78px;
+  height: 57px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.OpenForRegistrationEN::after {
+  content: url("/src/assets/img/Open_for_registration_iconEN.svg");
+  width: 78px;
+  height: 57px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
 .StopForRegistration::after {
   content: url("/src/assets/img/Stop_for_registration_icon.svg");
+  width: 78px;
+  height: 57px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.StopForRegistrationEN::after {
+  content: url("/src/assets/img/Stop_for_registration_iconEN.svg");
+  width: 78px;
+  height: 57px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.StopForRegistrationCN::after {
+  content: url("/src/assets/img/Stop_for_registration_iconCN.svg");
   width: 78px;
   height: 57px;
   position: absolute;
@@ -321,14 +357,24 @@
 }
 
 .CoursebuttoonSet {
-  width: 140px;
-  height: 50px;
-  float: left;
-  background-image: url(/src/assets/img/CoursebuttoonBg.svg);
+  width: 175px;
+  height: 63px;
+  background: url(/src/assets/img/CoursebuttoonBg.svg) no-repeat center;
+  background-size: cover;
   border-radius: 5px;
   font-size: 24px;
   font-weight: bold;
   color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 18px;
 }
 
 .CourseIntroduction {
@@ -387,6 +433,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20px;
 }
 
 .QuantityTable {

@@ -47,7 +47,7 @@
                     </div>
                 </RouterLink>
 
-                <div class="mobile_Tosignout" @click="colsMobileMenu()">{{ $t('Logout') }}</div>
+                <div class="mobile_Tosignout" @click="colsMobileMenu(); store.Logout()">{{ $t('Logout') }}</div>
             </div>
 
         </div>
@@ -109,6 +109,7 @@
 <script setup>
 import { onMounted, ref } from "vue"
 import { LoginOut } from "../stores/stores";
+
 const store = LoginOut()
 
 const mobileMenu = ref(false);

@@ -4,7 +4,6 @@
 
 .pageButtem {
   display: block;
-  width: 140px;
   padding: 10px;
   font-size: 24px;
   color: #fff;
@@ -29,10 +28,6 @@
   }
 }
 @media screen and (max-width: 920px) {
-  footer {
-    height: 420px;
-    margin-top: -420px;
-  }
   .footer_meunbar {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -52,9 +47,6 @@
   .qrcoderbar {
     margin-top: 20px;
     margin-bottom: 50px;
-  }
-  .page_main {
-    padding-bottom: 480px;
   }
   .page_content {
     padding: 0px 20px;
@@ -222,10 +214,6 @@
   .qrcoderbar {
     margin-top: 30px;
     margin-bottom: 40px;
-  }
-  footer {
-    height: 440px;
-    margin-top: -440px;
   }
   .ThirdPartyButtemItem {
     height: auto;

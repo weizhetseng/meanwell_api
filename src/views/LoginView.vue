@@ -43,7 +43,8 @@
                             <RouterLink to="/SignUp"><button class="pageButton buttonStyle">{{
                                 $t('Register')
                             }}</button></RouterLink>
-                            <input type="button" value="登入" class="loginButton buttonStyle" @click="store.WebLogin()">
+                            <input type="submit" :value="$t('Login')" class="loginButton buttonStyle"
+                                @click="store.WebLogin()">
                             <!-- <input type="submit" value="test" class="loginButtem" @click="WebLogin()">
                             <input type="submit" value="testauth" class="loginButtem" @click="testauth()"> -->
                         </div>
@@ -55,11 +56,11 @@
                             <div class="ThirdPartyTitleLine"></div>
                         </div>
                         <div class="ThirdPartyButtemBar">
-                            <div class="ThirdPartyButtemItem">
+                            <div class="ThirdPartyButtemItem" @click.prevent="handleLineLoginButtonClick()">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/line_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">LINE</div>
                             </div>
-                            <div class="ThirdPartyButtemItem">
+                            <div class="ThirdPartyButtemItem" @click="FBLogin()">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/facebook_icon.svg" alt="">
                                 </div>
                                 <div class="ThirdPartyButtemText">FaceBook</div>
@@ -68,7 +69,7 @@
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/Wechat_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">Wechat</div>
                             </div>
-                            <div class="ThirdPartyButtemItem">
+                            <div class="ThirdPartyButtemItem" @click.prevent="handleGoogleAuthCodeLogin()">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/google_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">Google</div>
                             </div>
@@ -77,15 +78,94 @@
                 </section>
             </div>
         </main>
+        <div>
+            {{ data }}
+        </div>
     </div>
 </template>
 <script setup>
 import { onMounted } from 'vue';
 import { LoginOut } from '../stores/stores';
 
+import { ref } from 'vue'
+import { googleAuthCodeLogin } from 'vue3-google-login'
+
+const GOOGLE_CLIENT_ID = '651291589359-e9dkmrcd0v1tul9ngt1b8b0nrg2l4a13.apps.googleusercontent.com'
+
+const data = ref()
+
+
+//google
+function handleGoogleAuthCodeLogin() {
+    googleAuthCodeLogin({
+        clientId: GOOGLE_CLIENT_ID
+    }).then((response) => {
+        data.value = response
+        console.log(response)
+    })
+}
+//line
+function handleLineLoginButtonClick() {
+    let URL = 'https://access.line.me/oauth2/v2.1/authorize?';
+    URL += 'response_type=code';
+    URL += '&client_id=1657813376';
+    URL += '&redirect_uri=http://localhost:5173';
+    URL += '&state=abcde';
+    URL += '&scope=openid%20email';
+    window.location.href = URL;
+}
+
+
+
+function FBLogin() {
+    FB.getLoginStatus(function (response) {
+        // 登入狀態 - 已登入
+        if (response.status === "connected") {
+            // 獲取用戶個人資料
+            getProfile();
+        } else {
+            // 登入狀態 - 未登入
+            // 用戶登入(確認授權)
+            FB.login(
+                function (res) {
+                    // 獲取用戶個人資料
+                    getProfile();
+                },
+                // 授權 - 個人資料&Email
+                { scope: "public_profile,email" }
+            );
+        }
+    });
+}
+
+
+
+
 const store = LoginOut()
+
 
 onMounted(() => {
     store.GetKey()
+
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '1550228058732858',
+            cookie: true,
+            xfbml: true,
+            version: 'v15.0'
+        });
+
+        FB.AppEvents.logPageView();
+
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 })
 </script>
+

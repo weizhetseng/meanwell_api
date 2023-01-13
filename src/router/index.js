@@ -393,11 +393,11 @@ router.beforeEach(async (to, from, next) => {
     next()
   }
 
-
   if (mainBG) {
-    document.querySelector('body').setAttribute('style', 'background: url(/src/assets/img/background_img.jpg) no-repeat center;background-size: cover')
+    document.querySelector('body').setAttribute('class', 'Main')
+
   } else {
-    document.querySelector('body').setAttribute('style', 'background: url(/src/assets/img/background_course_img.jpg) no-repeat center;background-size: cover')
+    document.querySelector('body').setAttribute('class', 'NotMain')
   }
 })
 

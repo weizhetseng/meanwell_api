@@ -105,7 +105,6 @@
 
 .navItemSortContentItem {
   width: calc(100% - 60px);
-  height: 40px;
   float: left;
   background: rgb(255, 255, 255);
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), color-stop(50%, rgb(235, 235, 235)), color-stop(51%, rgb(226, 226, 226)), to(rgb(230, 230, 230)));
@@ -118,13 +117,13 @@
   font-weight: bold;
   color: #006699;
   text-align: center;
-  line-height: 40px;
   margin-bottom: 10px;
   margin-left: 30px;
   margin-right: 30px;
 }
 .navItemSortContentItem a {
   color: #006699;
+  padding: 10px;
 }
 
 .navItemSortContentItem:first-child {
@@ -148,6 +147,8 @@
   width: 3px;
   height: 20px;
   background-color: #FF4646;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   float: left;
 }
 
@@ -433,6 +434,15 @@
   border-bottom: 1px dashed #707070;
 }
 
+.giftsBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .pointsBoxItem {
   width: auto;
   height: 50px;
@@ -494,10 +504,17 @@
 }
 
 .giftsBoxItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 180px;
   height: 60px;
-  float: left;
-  margin-right: 20px;
   background: rgb(255, 255, 255);
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), color-stop(40%, rgb(241, 241, 241)), color-stop(41%, rgb(225, 225, 225)), to(rgb(246, 246, 246)));
   background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(241, 241, 241) 40%, rgb(225, 225, 225) 41%, rgb(246, 246, 246) 100%);
@@ -505,17 +522,7 @@
   border-radius: 10px;
   -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.2);
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  padding: 10px;
 }
 
 .giftsBoxItemIcon {
@@ -531,9 +538,7 @@
 
 .giftsBoxItemtext {
   width: auto;
-  height: 40px;
   float: left;
-  line-height: 40px;
   font-size: 18px;
   font-weight: bold;
   color: #006699;
@@ -587,7 +592,43 @@
   position: absolute;
   right: 10px;
 }
+.memberinfTextinput .upload_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.memberinfTextinput .upload_btn label {
+  position: absolute;
+  line-height: 21px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.memberinfTextinput .upload_btn input {
+  margin-left: 20px;
+}
 
+@media (max-width: 463px) {
+  .memberinfTextinput .upload_btn label {
+    left: -20px;
+  }
+  .memberinfTextinput .upload_btn input {
+    margin-left: 0px;
+  }
+}
 .itemsS50L, .itemsS50R {
   width: calc(50% - 10px);
   height: auto;

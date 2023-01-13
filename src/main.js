@@ -4,6 +4,7 @@ import { createI18n } from 'vue-i18n'
 import zh_TW from './languages/zh-TW.json'
 import en_US from './languages/en-US.json'
 import zh_CN from './languages/zh-CN.json'
+import vue3GoogleLogin from 'vue3-google-login'
 
 // 匯入 vee-validate 主套件
 import { Field, Form, ErrorMessage, defineRule, configure } from 'vee-validate';
@@ -95,6 +96,14 @@ app.component('ErrorMessage', ErrorMessage);
 
 
 app.use(i18n)
+
+
+
+app.use(vue3GoogleLogin, {
+    clientId: '651291589359-e9dkmrcd0v1tul9ngt1b8b0nrg2l4a13.apps.googleusercontent.com'
+})
+
+
 app.mount('#app')
 
 app.config.globalProperties.$cookies = VueCookies
