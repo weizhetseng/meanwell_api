@@ -60,7 +60,7 @@
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/line_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">LINE</div>
                             </div>
-                            <div class="ThirdPartyButtemItem" @click="FBLogin()">
+                            <div class="ThirdPartyButtemItem" @click="Facebooklogin()">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/facebook_icon.svg" alt="">
                                 </div>
                                 <div class="ThirdPartyButtemText">FaceBook</div>
@@ -69,18 +69,16 @@
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/Wechat_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">Wechat</div>
                             </div>
-                            <div class="ThirdPartyButtemItem" @click.prevent="handleGoogleAuthCodeLogin()">
+                            <div class="ThirdPartyButtemItem" @click.prevent="">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/google_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">Google</div>
                             </div>
+
                         </div>
                     </div>
                 </section>
             </div>
         </main>
-        <div>
-            {{ data }}
-        </div>
     </div>
 </template>
 <script setup>
@@ -88,52 +86,83 @@ import { onMounted } from 'vue';
 import { LoginOut } from '../stores/stores';
 
 import { ref } from 'vue'
-import { googleAuthCodeLogin } from 'vue3-google-login'
+import { googleAuthCodeLogin, googleTokenLogin } from 'vue3-google-login'
+import axios from 'axios';
 
+const store = LoginOut()
+//google登入
 const GOOGLE_CLIENT_ID = '651291589359-e9dkmrcd0v1tul9ngt1b8b0nrg2l4a13.apps.googleusercontent.com'
 
-const data = ref()
-
-
-//google
-function handleGoogleAuthCodeLogin() {
-    googleAuthCodeLogin({
-        clientId: GOOGLE_CLIENT_ID
-    }).then((response) => {
-        data.value = response
-        console.log(response)
-    })
-}
-//line
+//line登入
 function handleLineLoginButtonClick() {
     let URL = 'https://access.line.me/oauth2/v2.1/authorize?';
     URL += 'response_type=code';
     URL += '&client_id=1657813376';
-    URL += '&redirect_uri=http://localhost:5173';
-    URL += '&state=abcde';
-    URL += '&scope=openid%20email';
+    URL += '&redirect_uri=http://localhost:5173/login';
+    URL += '&state=12345abcde';
+    URL += '&prompt=consent';
+    URL += '&scope=profile%20openid';
     window.location.href = URL;
 }
+// 獲取line授權登入後回傳的 state、code值
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has('state') && urlParams.has('code')) {
+    const state = urlParams.get('state');
+    const authcode = urlParams.get('code');
+    console.log('state', state, 'code', authcode);
 
+    if (state === '12345abcde') {
+        const api = 'https://api.line.me/oauth2/v2.1/token';
+        const getTokenBody = {
+            grant_type: 'authorization_code',
+            code: authcode,
+            redirect_uri: 'http://localhost:5173/login',
+            client_id: '1657813376',
+            client_secret: '0ebc2a278232d602db34d060c1c66f95',
+        };
 
+        axios.post(api, getTokenBody, {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+        })
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((error) => {
+                console.log(error);
+                alert(error);
+            });
+    }
+}
 
-function FBLogin() {
+function Facebooklogin() {
     FB.getLoginStatus(function (response) {
-        // 登入狀態 - 已登入
         if (response.status === "connected") {
-            // 獲取用戶個人資料
-            getProfile();
+            FB.api("/me?fields=name,id,email", function (res) {
+                console.log(res)
+            });
         } else {
             // 登入狀態 - 未登入
             // 用戶登入(確認授權)
-            FB.login(
-                function (res) {
-                    // 獲取用戶個人資料
-                    getProfile();
-                },
-                // 授權 - 個人資料&Email
+            FB.login(function (res) {
+                console.log(res)
+            },
                 { scope: "public_profile,email" }
             );
+        }
+    });
+}
+
+function Facebooklogout() {
+    FB.getLoginStatus(function (response) {
+        if (response.status === "connected") {
+            FB.api("/me/permissions", "DELETE", function (res) {
+                console.log(res)
+                FB.logout()
+            });
+        } else {
+            // do something
         }
     });
 }
@@ -141,7 +170,6 @@ function FBLogin() {
 
 
 
-const store = LoginOut()
 
 
 onMounted(() => {
@@ -154,18 +182,16 @@ onMounted(() => {
             xfbml: true,
             version: 'v15.0'
         });
-
         FB.AppEvents.logPageView();
 
     };
-
     (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) { return; }
+        if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
         js.src = "https://connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+
 })
 </script>
-
