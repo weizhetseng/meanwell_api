@@ -213,3 +213,103 @@ export const LoginOut = defineStore('LoginOut', () => {
 
   return { WebLogin, GetKey, User, att, att2, loginStatue, logoutStatue, authkey, authiv, Logout }
 })
+
+
+// line 登入
+export const LineLogin = defineStore('LineLogin', () => {
+  function LineLoginButton() {
+    let URL = 'https://access.line.me/oauth2/v2.1/authorize?';
+    URL += 'response_type=code';
+    URL += `&client_id=${import.meta.env.VITE_Client_Id_Line}`;
+    URL += '&redirect_uri=http://localhost:5173/login';
+    URL += '&state=12345abcde';
+    URL += '&prompt=consent';
+    URL += '&scope=profile%20openid';
+    window.location.href = URL;
+  }
+  function GetLineData() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('state') && urlParams.has('code')) {
+      const state = urlParams.get('state');
+      const authcode = urlParams.get('code');
+      console.log('state', state, 'code', authcode);
+
+      if (state === '12345abcde') {
+        const api = 'https://api.line.me/oauth2/v2.1/token';
+        const getTokenBody = {
+          grant_type: 'authorization_code',
+          code: authcode,
+          redirect_uri: 'http://localhost:5173/login',
+          client_id: `${import.meta.env.VITE_Client_Id_Line}`,
+          client_secret: `${import.meta.env.VITE_Client_Secret_Line}`,
+        };
+
+        axios.post(api, getTokenBody, {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+        })
+          .then((res) => {
+            console.log(res)
+          })
+          .catch((error) => {
+            console.log(error);
+            alert(error);
+          });
+      }
+    }
+  }
+  return { LineLoginButton, GetLineData }
+})
+
+// google 登入
+export const GoogleLogin = defineStore('GoogleLogin', () => {
+  const GOOGLE_CLIENT_ID = `${import.meta.env.VITE_Client_Id_Google}`
+  const GOOGLE_CLIENT_SECRET = `${import.meta.env.VITE_Client_Secret_Google}`
+  function GoogleLoginButton() {
+    let URL = 'https://accounts.google.com/o/oauth2/v2/auth?'
+    URL += `client_id=${GOOGLE_CLIENT_ID}`
+    URL += `&redirect_uri=http://localhost:5173/login`
+    URL += `&response_type=code`
+    URL += `&scope=https://www.googleapis.com/auth/userinfo.profile`
+    URL += `&state=google1234`
+    window.location.href = URL;
+  }
+  function GetGoogleData() {
+    const urlParams_google = new URLSearchParams(window.location.search);
+    if (urlParams_google.has('code') && urlParams_google.has('state')) {
+      const state = urlParams_google.get('state');
+      const authcode_google = urlParams_google.get('code');
+      console.log('code_google', authcode_google, 'state', state);
+      if (state === 'google1234') {
+        const api = 'https://www.googleapis.com/oauth2/v4/token';
+        const getTokenBody = {
+          grant_type: 'authorization_code',
+          code: authcode_google,
+          redirect_uri: 'http://localhost:5173/login',
+          client_id: `${GOOGLE_CLIENT_ID}`,
+          client_secret: `${GOOGLE_CLIENT_SECRET}`,
+        };
+        axios.post(api, getTokenBody)
+          .then((res) => {
+            console.log(res.data.access_token)
+            const api2 = `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${res.data.access_token}`
+            axios.get(api2, {
+              headers: {
+                'Authorization': `Bearer ${res.data.access_token}`
+              },
+            }).then((res) => {
+              console.log(res)
+            }).catch((err) => {
+              console.log(err)
+            })
+          })
+          .catch((error) => {
+            console.log(error);
+            alert(error);
+          });
+      }
+    }
+  }
+  return { GoogleLoginButton, GetGoogleData }
+})

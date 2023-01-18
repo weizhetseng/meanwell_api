@@ -56,11 +56,11 @@
                             <div class="ThirdPartyTitleLine"></div>
                         </div>
                         <div class="ThirdPartyButtemBar">
-                            <div class="ThirdPartyButtemItem" @click.prevent="handleLineLoginButtonClick()">
+                            <div class="ThirdPartyButtemItem" @click.prevent="LineLoginstore.LineLoginButton()">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/line_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">LINE</div>
                             </div>
-                            <div class="ThirdPartyButtemItem" @click="Facebooklogin()">
+                            <div class="ThirdPartyButtemItem" @click.prevent="Facebooklogin()">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/facebook_icon.svg" alt="">
                                 </div>
                                 <div class="ThirdPartyButtemText">FaceBook</div>
@@ -69,11 +69,10 @@
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/Wechat_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">Wechat</div>
                             </div>
-                            <div class="ThirdPartyButtemItem" @click.prevent="">
+                            <div class="ThirdPartyButtemItem" @click.prevent="GoogleLoginstore.GoogleLoginButton()">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/google_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">Google</div>
                             </div>
-
                         </div>
                     </div>
                 </section>
@@ -83,58 +82,16 @@
 </template>
 <script setup>
 import { onMounted } from 'vue';
-import { LoginOut } from '../stores/stores';
+import { LineLogin, LoginOut, GoogleLogin } from '../stores/stores';
 
-import { ref } from 'vue'
-import { googleAuthCodeLogin, googleTokenLogin } from 'vue3-google-login'
-import axios from 'axios';
-
+const LineLoginstore = LineLogin()
+const GoogleLoginstore = GoogleLogin()
 const store = LoginOut()
-//google登入
-const GOOGLE_CLIENT_ID = '651291589359-e9dkmrcd0v1tul9ngt1b8b0nrg2l4a13.apps.googleusercontent.com'
 
-//line登入
-function handleLineLoginButtonClick() {
-    let URL = 'https://access.line.me/oauth2/v2.1/authorize?';
-    URL += 'response_type=code';
-    URL += '&client_id=1657813376';
-    URL += '&redirect_uri=http://localhost:5173/login';
-    URL += '&state=12345abcde';
-    URL += '&prompt=consent';
-    URL += '&scope=profile%20openid';
-    window.location.href = URL;
-}
-// 獲取line授權登入後回傳的 state、code值
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.has('state') && urlParams.has('code')) {
-    const state = urlParams.get('state');
-    const authcode = urlParams.get('code');
-    console.log('state', state, 'code', authcode);
 
-    if (state === '12345abcde') {
-        const api = 'https://api.line.me/oauth2/v2.1/token';
-        const getTokenBody = {
-            grant_type: 'authorization_code',
-            code: authcode,
-            redirect_uri: 'http://localhost:5173/login',
-            client_id: '1657813376',
-            client_secret: '0ebc2a278232d602db34d060c1c66f95',
-        };
 
-        axios.post(api, getTokenBody, {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-        })
-            .then((res) => {
-                console.log(res)
-            })
-            .catch((error) => {
-                console.log(error);
-                alert(error);
-            });
-    }
-}
+
+
 
 function Facebooklogin() {
     FB.getLoginStatus(function (response) {
@@ -154,26 +111,13 @@ function Facebooklogin() {
     });
 }
 
-function Facebooklogout() {
-    FB.getLoginStatus(function (response) {
-        if (response.status === "connected") {
-            FB.api("/me/permissions", "DELETE", function (res) {
-                console.log(res)
-                FB.logout()
-            });
-        } else {
-            // do something
-        }
-    });
-}
-
-
-
 
 
 
 onMounted(() => {
     store.GetKey()
+    LineLoginstore.GetLineData()
+    GoogleLoginstore.GetGoogleData()
 
     window.fbAsyncInit = function () {
         FB.init({

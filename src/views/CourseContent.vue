@@ -12,7 +12,8 @@
                     </ul>
                 </div>
                 <div class="BannerBar">
-                    <div class="banner_content"><img src="../assets/img/102766030_m.jpg" alt=""></div>
+                    <div class="banner_content" v-if="showImg.length !== 1"><img :src="showImg[1]" alt=""></div>
+                    <div class="banner_content" v-else><img src="../assets/img/102766030_m.jpg" alt=""></div>
                 </div>
                 <div class="CourseContentBox mobileSS">
                     <div class="activitiesTitle">{{ showData[0].ActSubject }}</div>
@@ -53,7 +54,6 @@
                     </div>
                 </div>
             </div>
-
         </main>
     </div>
 </template>
@@ -78,6 +78,7 @@ const id = route.params.id
 
 const ListData = ref([{}])
 const showData = ref([{}])
+const showImg = ref([{}])
 
 
 const api = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivityList`
@@ -91,10 +92,18 @@ axios.post(api, { "u_id": $cookies.get('u_id') !== null ? $cookies.get('u_id') :
         showData.value = ListData.value.filter((item) => {
             return item.ActId === id.slice(1)
         })
+        console.log(showData)
+        showData.value.forEach((item) => {
+            console.log(item.ActBannerList.length)
+            if (item.ActBannerList.length == 1) {
+                showImg.value.push(item.ActBannerList[0].PicLink)
+            }
+        })
         let checkNum = res.data.message.substr(0, 2)
         if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
             store2.Logout()
         }
+        console.log(showData)
     })
     .catch((error) => console.log(error));
 
