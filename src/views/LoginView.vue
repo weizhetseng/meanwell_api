@@ -60,7 +60,7 @@
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/line_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">LINE</div>
                             </div>
-                            <div class="ThirdPartyButtemItem" @click.prevent="Facebooklogin()">
+                            <div class="ThirdPartyButtemItem" @click.prevent="FacebookLoginstore.FacebookLoginButton()">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/facebook_icon.svg" alt="">
                                 </div>
                                 <div class="ThirdPartyButtemText">FaceBook</div>
@@ -73,6 +73,7 @@
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/google_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">Google</div>
                             </div>
+                            <div @click.prevent="FacebookLoginstore.FacebookLogoutButton()">Facebook logout test</div>
                         </div>
                     </div>
                 </section>
@@ -82,60 +83,18 @@
 </template>
 <script setup>
 import { onMounted } from 'vue';
-import { LineLogin, LoginOut, GoogleLogin } from '../stores/stores';
+import { LineLogin, LoginOut, GoogleLogin, FacebookLogin } from '../stores/stores';
 
 const LineLoginstore = LineLogin()
 const GoogleLoginstore = GoogleLogin()
+const FacebookLoginstore = FacebookLogin()
+
 const store = LoginOut()
-
-
-
-
-
-
-function Facebooklogin() {
-    FB.getLoginStatus(function (response) {
-        if (response.status === "connected") {
-            FB.api("/me?fields=name,id,email", function (res) {
-                console.log(res)
-            });
-        } else {
-            // 登入狀態 - 未登入
-            // 用戶登入(確認授權)
-            FB.login(function (res) {
-                console.log(res)
-            },
-                { scope: "public_profile,email" }
-            );
-        }
-    });
-}
-
-
-
 
 onMounted(() => {
     store.GetKey()
     LineLoginstore.GetLineData()
     GoogleLoginstore.GetGoogleData()
-
-    window.fbAsyncInit = function () {
-        FB.init({
-            appId: '1550228058732858',
-            cookie: true,
-            xfbml: true,
-            version: 'v15.0'
-        });
-        FB.AppEvents.logPageView();
-
-    };
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
+    FacebookLoginstore.initFacebook()
 })
 </script>

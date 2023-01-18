@@ -313,3 +313,52 @@ export const GoogleLogin = defineStore('GoogleLogin', () => {
   }
   return { GoogleLoginButton, GetGoogleData }
 })
+
+// facebook 登入
+export const FacebookLogin = defineStore('FacebookLogin', () => {
+  function initFacebook() {
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: `${import.meta.env.VITE_Client_Id_Facebook}`,
+        cookie: true,
+        xfbml: true,
+        version: 'v15.0'
+      });
+      FB.AppEvents.logPageView();
+      FB.getLoginStatus(function (response) {
+        console.log(response)
+      });
+
+    };
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/zh_TW/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  }
+  function FacebookLoginButton() {
+    FB.getLoginStatus(function (response) {
+      if (response.status === 'connected') {
+        alert('已經登入')
+      } else {
+        FB.login(function (res) {
+          FB.api("/me?fields=name,id,email", function (response) {
+            console.log(response)
+          });
+        }, { scope: 'public_profile,email' })
+      }
+    });
+  }
+  function FacebookLogoutButton() {
+    FB.getLoginStatus(function (response) {
+      if (response.status === 'connected') {
+        FB.api("/me/permissions", "DELETE", function (res) {
+          FB.logout();
+        });
+      }
+    });
+  }
+  return { initFacebook, FacebookLoginButton, FacebookLogoutButton }
+})
