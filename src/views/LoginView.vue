@@ -97,6 +97,5 @@ onMounted(() => {
     GoogleLoginstore.GetGoogleData()
     FacebookLoginstore.initFacebook()
     // FacebookLoginstore.GetFacebookData()
-
 })
 </script>

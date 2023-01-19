@@ -1,10 +1,10 @@
-import { ref } from 'vue'
+import { getTransitionRawChildren, ref, Teleport } from 'vue'
 import { defineStore } from 'pinia'
 import axios from 'axios';
 import router from '../router';
 import dayjs from 'dayjs';
 import CryptoJS from "crypto-js";
-import { useRoute } from 'vue-router'
+import { ErrorTypes, useRoute } from 'vue-router'
 
 //會員資料
 export const useMemberStore = defineStore('Member', () => {
@@ -215,7 +215,7 @@ export const LoginOut = defineStore('LoginOut', () => {
 })
 
 
-// line 登入
+// line 登入 
 export const LineLogin = defineStore('LineLogin', () => {
   function LineLoginButton() {
     let URL = 'https://access.line.me/oauth2/v2.1/authorize?';
@@ -313,7 +313,6 @@ export const GoogleLogin = defineStore('GoogleLogin', () => {
   }
   return { GoogleLoginButton, GetGoogleData }
 })
-
 // facebook 登入
 export const FacebookLogin = defineStore('FacebookLogin', () => {
   function initFacebook() {
