@@ -3,8 +3,8 @@ import HomeView from '../views/Index.vue'
 import { LoginOut } from "../stores/stores"
 
 const router = createRouter({
-  // history: createWebHashHistory(import.meta.env.BASE_URL),
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
+  // history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',

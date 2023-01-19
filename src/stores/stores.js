@@ -1,10 +1,9 @@
-import { getTransitionRawChildren, ref, Teleport } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import axios from 'axios';
 import router from '../router';
 import dayjs from 'dayjs';
 import CryptoJS from "crypto-js";
-import { ErrorTypes, useRoute } from 'vue-router'
 
 //會員資料
 export const useMemberStore = defineStore('Member', () => {
