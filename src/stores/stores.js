@@ -325,10 +325,6 @@ export const FacebookLogin = defineStore('FacebookLogin', () => {
         version: 'v15.0'
       });
       FB.AppEvents.logPageView();
-      FB.getLoginStatus(function (response) {
-        console.log(response)
-      });
-
     };
     (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -339,18 +335,48 @@ export const FacebookLogin = defineStore('FacebookLogin', () => {
     }(document, 'script', 'facebook-jssdk'));
   }
   function FacebookLoginButton() {
-    FB.getLoginStatus(function (response) {
-      if (response.status === 'connected') {
-        alert('已經登入')
-      } else {
-        FB.login(function (res) {
-          FB.api("/me?fields=name,id,email", function (response) {
-            console.log(response)
-          });
-        }, { scope: 'public_profile,email' })
-      }
-    });
+    // FB.getLoginStatus(function (response) {
+    //   if (response.status === 'connected') {
+    //     alert('已經登入')
+    //   } else {
+    //     FB.login(function (res) {
+    //       FB.api("/me?fields=name,id,email", function (response) {
+    //         console.log(response)
+    //       });
+    //     }, { scope: 'public_profile,email' })
+    //   }
+    // });
+    // let URL = 'https://www.facebook.com/v15.0/dialog/oauth?'
+    // URL += `client_id=${import.meta.env.VITE_Client_Id_Facebook}`
+    // URL += '&redirect_uri=https://localhost:5173/login'
+    // URL += '&state=Facebook1234'
+    // URL += '&response_type=code'
+    // window.location.href = URL;
   }
+  // function GetFacebookData() {
+  //   const urlParams_Facebook = new URLSearchParams(window.location.search);
+  //   if (urlParams_Facebook.has('code') && urlParams_Facebook.has('state')) {
+  //     const state = urlParams_Facebook.get('state');
+  //     const authcode_Facebook = urlParams_Facebook.get('code');
+  //     console.log('code_Facebook', authcode_Facebook, 'state', state);
+  //     if (state === 'Facebook1234') {
+  //       let api = 'https://graph.facebook.com/v15.0/oauth/access_token?';
+  //       api += `client_id=${import.meta.env.VITE_Client_Id_Facebook}`
+  //       api += '&redirect_uri=https://localhost:5173/login'
+  //       api += `&client_secret=${import.meta.env.VITE_Client_Secret_Facebook}`
+  //       api += `&code=${authcode_Facebook}`
+  //       console.log(api)
+  //       axios.get(api)
+  //         .then((res) => {
+  //           console.log(res)
+  //         })
+  //         .catch((error) => {
+  //           console.log(error);
+  //           alert(error);
+  //         });
+  //     }
+  //   }
+  // }
   function FacebookLogoutButton() {
     FB.getLoginStatus(function (response) {
       if (response.status === 'connected') {

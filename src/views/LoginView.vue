@@ -73,7 +73,7 @@
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/google_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">Google</div>
                             </div>
-                            <div @click.prevent="FacebookLoginstore.FacebookLogoutButton()">Facebook logout test</div>
+                            <!-- <div @click.prevent="FacebookLoginstore.FacebookLogoutButton()">Facebook logout test</div> -->
                         </div>
                     </div>
                 </section>
@@ -96,5 +96,7 @@ onMounted(() => {
     LineLoginstore.GetLineData()
     GoogleLoginstore.GetGoogleData()
     FacebookLoginstore.initFacebook()
+    // FacebookLoginstore.GetFacebookData()
+
 })
 </script>
