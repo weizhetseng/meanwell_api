@@ -60,21 +60,21 @@
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/line_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">LINE</div>
                             </div>
-                            <div class="ThirdPartyButtemItem" @click.prevent="FacebookLoginstore.checkLoginState()">
+                            <!-- <div class="ThirdPartyButtemItem" @click.prevent="FacebookLoginstore.checkLoginState()">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/facebook_icon.svg" alt="">
                                 </div>
                                 <div class="ThirdPartyButtemText">FaceBookCheck</div>
-                            </div>
+                            </div> -->
                             <div class="ThirdPartyButtemItem" @click.prevent="FacebookLoginstore.FBlogin()">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/facebook_icon.svg" alt="">
                                 </div>
                                 <div class="ThirdPartyButtemText">FaceBook</div>
                             </div>
-                            <div class="ThirdPartyButtemItem" @click.prevent="FacebookLoginstore.FBlogout()">
+                            <!-- <div class="ThirdPartyButtemItem" @click.prevent="FacebookLoginstore.FBlogout()">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/facebook_icon.svg" alt="">
                                 </div>
                                 <div class="ThirdPartyButtemText">FaceBookLogout</div>
-                            </div>
+                            </div> -->
                             <div class="ThirdPartyButtemItem">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/Wechat_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">Wechat</div>

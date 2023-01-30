@@ -348,3 +348,18 @@ export const FacebookLogin = defineStore('FacebookLogin', () => {
   }
   return { initFacebook, checkLoginState, FBlogin, FBlogout }
 })
+
+// wechat 登入
+
+export const wechatLogin = defineStore('wechatLogin', () => {
+  function WechatLoginButton() {
+    let URL = 'https://open.weixin.qq.com/connect/qrconnect?';
+    URL += `appid=${APPID}`
+    URL += `&redirect_uri=${REDIRECT_URI}`
+    URL += `&response_type=code`
+    URL += `&scope=snsapi_login`
+    URL += `&state=12345abcde#wechat_redirect`
+    window.location.href = URL;
+  }
+  return { WechatLoginButton }
+})
