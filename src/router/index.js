@@ -2,10 +2,14 @@ import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router
 import HomeView from '../views/Index.vue'
 import { LoginOut } from "../stores/stores"
 
+const routerHistory = createWebHistory()
+
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
-  // history: createWebHistory(import.meta.env.BASE_URL),
+  // history: createWebHashHistory(),
+  history: routerHistory,
   routes: [
+    //404頁面 目前尚未實作
+    // { path: '/:pathMatch(.*)', component: NotFoundComponent },
     {
       path: '/',
       name: 'home',

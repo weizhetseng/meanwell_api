@@ -4,6 +4,7 @@ import axios from 'axios';
 import router from '../router';
 import dayjs from 'dayjs';
 import CryptoJS from "crypto-js";
+import { googleTokenLogin } from 'vue3-google-login'
 
 //會員資料
 export const useMemberStore = defineStore('Member', () => {
@@ -231,7 +232,7 @@ export const LineLogin = defineStore('LineLogin', () => {
     if (urlParams.has('state') && urlParams.has('code')) {
       const state = urlParams.get('state');
       const authcode = urlParams.get('code');
-      console.log('state', state, 'code', authcode);
+
 
       if (state === '12345abcde') {
         const api = 'https://api.line.me/oauth2/v2.1/token';
@@ -253,7 +254,6 @@ export const LineLogin = defineStore('LineLogin', () => {
           })
           .catch((error) => {
             console.log(error);
-            alert(error);
           });
       }
     }
@@ -264,53 +264,26 @@ export const LineLogin = defineStore('LineLogin', () => {
 // google 登入
 export const GoogleLogin = defineStore('GoogleLogin', () => {
   const GOOGLE_CLIENT_ID = `${import.meta.env.VITE_Client_Id_Google}`
-  const GOOGLE_CLIENT_SECRET = `${import.meta.env.VITE_Client_Secret_Google}`
+  const data = ref()
+
   function GoogleLoginButton() {
-    let URL = 'https://accounts.google.com/o/oauth2/v2/auth?'
-    URL += `client_id=${GOOGLE_CLIENT_ID}`
-    URL += `&redirect_uri=http://localhost:5173/login`
-    URL += `&response_type=code`
-    URL += `&scope=https://www.googleapis.com/auth/userinfo.profile`
-    URL += `&state=google1234`
-    window.location.href = URL;
+    googleTokenLogin({
+      clientId: GOOGLE_CLIENT_ID
+    }).then((res) => {
+      console.log(res.access_token)
+      const api = `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${res.access_token}`
+      axios.get(api, {
+        headers: {
+          'Authorization': `Bearer ${res.access_token}`
+        },
+      }).then((res) => {
+        console.log(res)
+      }).catch((err) => {
+        console.log(err)
+      })
+    })
   }
-  function GetGoogleData() {
-    const urlParams_google = new URLSearchParams(window.location.search);
-    if (urlParams_google.has('code') && urlParams_google.has('state')) {
-      const state = urlParams_google.get('state');
-      const authcode_google = urlParams_google.get('code');
-      console.log('code_google', authcode_google, 'state', state);
-      if (state === 'google1234') {
-        const api = 'https://www.googleapis.com/oauth2/v4/token';
-        const getTokenBody = {
-          grant_type: 'authorization_code',
-          code: authcode_google,
-          redirect_uri: 'http://localhost:5173/login',
-          client_id: `${GOOGLE_CLIENT_ID}`,
-          client_secret: `${GOOGLE_CLIENT_SECRET}`,
-        };
-        axios.post(api, getTokenBody)
-          .then((res) => {
-            console.log(res.data.access_token)
-            const api2 = `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${res.data.access_token}`
-            axios.get(api2, {
-              headers: {
-                'Authorization': `Bearer ${res.data.access_token}`
-              },
-            }).then((res) => {
-              console.log(res)
-            }).catch((err) => {
-              console.log(err)
-            })
-          })
-          .catch((error) => {
-            console.log(error);
-            alert(error);
-          });
-      }
-    }
-  }
-  return { GoogleLoginButton, GetGoogleData }
+  return { GoogleLoginButton, data }
 })
 // facebook 登入
 export const FacebookLogin = defineStore('FacebookLogin', () => {
@@ -332,57 +305,46 @@ export const FacebookLogin = defineStore('FacebookLogin', () => {
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   }
-  function FacebookLoginButton() {
-    // FB.getLoginStatus(function (response) {
-    //   if (response.status === 'connected') {
-    //     alert('已經登入')
-    //   } else {
-    //     FB.login(function (res) {
-    //       FB.api("/me?fields=name,id,email", function (response) {
-    //         console.log(response)
-    //       });
-    //     }, { scope: 'public_profile,email' })
-    //   }
-    // });
-    // let URL = 'https://www.facebook.com/v15.0/dialog/oauth?'
-    // URL += `client_id=${import.meta.env.VITE_Client_Id_Facebook}`
-    // URL += '&redirect_uri=https://localhost:5173/login'
-    // URL += '&state=Facebook1234'
-    // URL += '&response_type=code'
-    // window.location.href = URL;
-  }
-  // function GetFacebookData() {
-  //   const urlParams_Facebook = new URLSearchParams(window.location.search);
-  //   if (urlParams_Facebook.has('code') && urlParams_Facebook.has('state')) {
-  //     const state = urlParams_Facebook.get('state');
-  //     const authcode_Facebook = urlParams_Facebook.get('code');
-  //     console.log('code_Facebook', authcode_Facebook, 'state', state);
-  //     if (state === 'Facebook1234') {
-  //       let api = 'https://graph.facebook.com/v15.0/oauth/access_token?';
-  //       api += `client_id=${import.meta.env.VITE_Client_Id_Facebook}`
-  //       api += '&redirect_uri=https://localhost:5173/login'
-  //       api += `&client_secret=${import.meta.env.VITE_Client_Secret_Facebook}`
-  //       api += `&code=${authcode_Facebook}`
-  //       console.log(api)
-  //       axios.get(api)
-  //         .then((res) => {
-  //           console.log(res)
-  //         })
-  //         .catch((error) => {
-  //           console.log(error);
-  //           alert(error);
-  //         });
-  //     }
-  //   }
-  // }
-  function FacebookLogoutButton() {
-    FB.getLoginStatus(function (response) {
-      if (response.status === 'connected') {
-        FB.api("/me/permissions", "DELETE", function (res) {
-          FB.logout();
-        });
-      }
+  function DataAPI() {
+    FB.api('/me?fields=name,id,email', function (response) {
+      console.log(response);
     });
   }
-  return { initFacebook, FacebookLoginButton, FacebookLogoutButton }
+  function statusChangeCallback(response) {
+    console.log(response);
+    if (response.status === 'connected') {
+      DataAPI();
+    } else {
+      console.log('沒登入')
+    }
+  }
+  function checkLoginState() {
+    FB.getLoginStatus(function (response) {
+      statusChangeCallback(response);
+    });
+  }
+  function FBlogin() {
+    FB.getLoginStatus(function (res) {
+      if (res.status !== "connected") {
+        FB.login(function (response) {
+          console.log('已登入')
+        }, { scope: 'public_profile,email' });
+      }
+    })
+  }
+  function FBlogout() {
+    FB.getLoginStatus(function (res) {
+      if (res.status === "connected") {
+        FB.api("/me/permissions", function (res) {
+          FB.logout(function (response) {
+            console.log('已登出')
+          });
+        })
+      } else {
+        console.log('未登入')
+      }
+    })
+
+  }
+  return { initFacebook, checkLoginState, FBlogin, FBlogout }
 })

@@ -87,7 +87,7 @@ const ActivityBanner = reactive([{}])
 onMounted(() => {
 
     const api = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivityList`
-    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": $cookies.get('AuthCode'), "Lang": $cookies.get('Lang'), "ModClass": 3, "SDateTime": '', "EDateTime": '', "Keywords": '' })
+    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "ModClass": 3, "SDateTime": '', "EDateTime": '', "Keywords": '' })
         .then((res) => {
             ActivityData.value = res.data.ActivityDataList;
             ActivityBanner.value = res.data.BannerList;

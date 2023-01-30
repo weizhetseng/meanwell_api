@@ -60,10 +60,20 @@
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/line_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">LINE</div>
                             </div>
-                            <div class="ThirdPartyButtemItem" @click.prevent="FacebookLoginstore.FacebookLoginButton()">
+                            <div class="ThirdPartyButtemItem" @click.prevent="FacebookLoginstore.checkLoginState()">
+                                <div class="ThirdPartyButtemIcon"><img src="../assets/img/facebook_icon.svg" alt="">
+                                </div>
+                                <div class="ThirdPartyButtemText">FaceBookCheck</div>
+                            </div>
+                            <div class="ThirdPartyButtemItem" @click.prevent="FacebookLoginstore.FBlogin()">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/facebook_icon.svg" alt="">
                                 </div>
                                 <div class="ThirdPartyButtemText">FaceBook</div>
+                            </div>
+                            <div class="ThirdPartyButtemItem" @click.prevent="FacebookLoginstore.FBlogout()">
+                                <div class="ThirdPartyButtemIcon"><img src="../assets/img/facebook_icon.svg" alt="">
+                                </div>
+                                <div class="ThirdPartyButtemText">FaceBookLogout</div>
                             </div>
                             <div class="ThirdPartyButtemItem">
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/Wechat_icon.svg" alt=""></div>
@@ -73,7 +83,6 @@
                                 <div class="ThirdPartyButtemIcon"><img src="../assets/img/google_icon.svg" alt=""></div>
                                 <div class="ThirdPartyButtemText">Google</div>
                             </div>
-                            <!-- <div @click.prevent="FacebookLoginstore.FacebookLogoutButton()">Facebook logout test</div> -->
                         </div>
                     </div>
                 </section>
@@ -82,6 +91,7 @@
     </div>
 </template>
 <script setup>
+import { data } from 'dom7';
 import { onMounted } from 'vue';
 import { LineLogin, LoginOut, GoogleLogin, FacebookLogin } from '../stores/stores';
 
@@ -94,8 +104,6 @@ const store = LoginOut()
 onMounted(() => {
     store.GetKey()
     LineLoginstore.GetLineData()
-    GoogleLoginstore.GetGoogleData()
     FacebookLoginstore.initFacebook()
-    // FacebookLoginstore.GetFacebookData()
 })
 </script>
