@@ -40,13 +40,11 @@
                             </div>
                         </div>
                         <div class="buttonBox">
-                            <RouterLink to="/SignUp"><button class="pageButton buttonStyle">{{
+                            <RouterLink to="/SignUp" class="pageButton buttonStyle">{{
                                 $t('Register')
-                            }}</button></RouterLink>
+                            }}</RouterLink>
                             <input type="button" :value="$t('Login')" class="loginButton buttonStyle"
                                 @click="store.WebLogin()">
-                            <!-- <input type="submit" value="test" class="loginButtem" @click="WebLogin()">
-                            <input type="submit" value="testauth" class="loginButtem" @click="testauth()"> -->
                         </div>
                     </Form>
                     <div class="ThirdParty">

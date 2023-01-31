@@ -5,6 +5,7 @@ import router from '../router';
 import dayjs from 'dayjs';
 import CryptoJS from "crypto-js";
 import { googleTokenLogin } from 'vue3-google-login'
+import { defineRule } from 'vee-validate';
 
 //會員資料
 export const useMemberStore = defineStore('Member', () => {
@@ -112,7 +113,6 @@ export const useSignUpStore = defineStore('SignUp', () => {
 
   return { sendData }
 })
-
 
 //登入
 export const LoginOut = defineStore('LoginOut', () => {
@@ -350,7 +350,6 @@ export const FacebookLogin = defineStore('FacebookLogin', () => {
 })
 
 // wechat 登入
-
 export const wechatLogin = defineStore('wechatLogin', () => {
   function WechatLoginButton() {
     let URL = 'https://open.weixin.qq.com/connect/qrconnect?';
@@ -363,3 +362,4 @@ export const wechatLogin = defineStore('wechatLogin', () => {
   }
   return { WechatLoginButton }
 })
+

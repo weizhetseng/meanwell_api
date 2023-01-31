@@ -77,9 +77,6 @@ const Today = dayjs().format('YYYY/MM/DD HH:mm:ss')
 const modules = [Pagination]
 
 
-
-
-
 const route = useRoute()
 const id = route.params.id
 const listBanner = ref([])
@@ -103,7 +100,7 @@ const cacheSearch = ref('')
 
 //搜尋匹配資料
 const filterSearch = computed(() => {
-    if (tableData.length > 0) {
+    if (cacheSearch.value !== '') {
         return tableData.value.filter((item) => item.ActSubject.match(cacheSearch.value));
     }
     else {
