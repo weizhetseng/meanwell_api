@@ -110,6 +110,7 @@ import { onMounted, ref } from "vue"
 import { useMemberStore, LoginOut } from "../stores/stores";
 import useClipboard from 'vue-clipboard3'
 import VueQrcode from 'vue-qrcode'
+import { apiMyActivityList } from "../utils/api";
 const store = useMemberStore()
 const store2 = LoginOut()
 
@@ -196,14 +197,8 @@ onMounted(() => {
         store2.att2 = true
     }
 
-
-    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
-    axios.post(api, {
+    apiMyActivityList({
         "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
-    }, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
     })
         .then((res) => {
             MyActStatus.value = res.data.MyActivityDataList
@@ -216,7 +211,6 @@ onMounted(() => {
             }
         })
         .catch((error) => console.log(error));
-
     store.getMemberData()
 })
 </script>

@@ -121,6 +121,7 @@ import axios from "axios";
 import { ref, onMounted, computed } from "vue"
 import { useRoute } from 'vue-router'
 import { LoginOut } from "../stores/stores";
+import { apiMyActivityList } from "../utils/api";
 const store2 = LoginOut()
 const MyActStatus = ref([{}])
 const showData = ref([{}])
@@ -204,13 +205,8 @@ const handleMenuFnb = () => {
 };
 
 onMounted(() => {
-    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
-    axios.post(api, {
+    apiMyActivityList({
         "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 3, "SDateTime": "", "EDateTime": "", "Keywords": ""
-    }, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
     })
         .then((res) => {
             MyActStatus.value = res.data.MyActivityDataList

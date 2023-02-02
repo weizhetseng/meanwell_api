@@ -42,6 +42,7 @@
 import axios from 'axios';
 import { ref } from 'vue';
 import router from '../router';
+import { apiSendVerifyCode, apiEmailVerify } from '../utils/api';
 const user = ref(
     {
         Email: '',
@@ -65,15 +66,10 @@ function sendCode() {
     }
 
     //  發送驗證碼
-    const api1 = `${import.meta.env.VITE_APP_API}API_App/MemberData/SendVerifyCode`
-    axios.post(api1, {
+    apiSendVerifyCode({
         "Type": 1,
         "Email": user.value.Email,
         "Lang": ""
-    }, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
     })
         .then((res) => {
             if (res.data.success) {
@@ -88,25 +84,21 @@ function sendCode() {
 
 function verify() {
     // Email驗證
-    const api2 = `${import.meta.env.VITE_APP_API}API_App/MemberData/EmailVerify`
-    axios.post(api2, {
+    apiEmailVerify({
         "Type": 1,
         "Email": user.value.Email,
         "Code": user.value.Code,
         "Lang": ""
-    }, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
-    }).then((res) => {
-        if (res.data.success) {
-            alert('驗證成功')
-            router.push('/SignUpSetPassword')
-            $cookies.set("u_id", `${user.value.Email}`)
-        } else {
-            alert(res.data.message)
-        }
     })
+        .then((res) => {
+            if (res.data.success) {
+                alert('驗證成功')
+                router.push('/SignUpSetPassword')
+                $cookies.set("u_id", `${user.value.Email}`)
+            } else {
+                alert(res.data.message)
+            }
+        })
         .catch((error) => console.log(error));
 }
 

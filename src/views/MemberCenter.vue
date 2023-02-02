@@ -97,11 +97,11 @@
     </div>
 </template>
 <script setup>
-import router from "../router";
 import { onMounted, ref } from "vue"
 import { useMemberStore, LoginOut } from "../stores/stores";
 import VueQrcode from 'vue-qrcode'
-import axios from "axios";
+import { apiSDGAuthCode } from "../utils/api";
+
 const store = useMemberStore()
 const store2 = LoginOut()
 
@@ -207,17 +207,11 @@ onMounted(() => {
     store.getMemberData()
 
     // SDG官網跳轉驗證碼
-    const api4 = `${import.meta.env.VITE_APP_API}API_App/HomePage/SDGAuthCode`;
-    axios
-        .post(api4, {
-            u_id: $cookies.get("u_id"),
-            AuthCode: '0',
-            Lang: $cookies.get("Lang"),
-        }, {
-            headers: {
-                Authorization: 'Bearer ' + $cookies.get("random")
-            }
-        })
+    apiSDGAuthCode({
+        u_id: $cookies.get("u_id"),
+        AuthCode: '0',
+        Lang: $cookies.get("Lang"),
+    })
         .then((res) => {
             let checkNum = res.data.message.substr(0, 2)
             if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
@@ -229,7 +223,6 @@ onMounted(() => {
             })
         })
         .catch((error) => console.log(error));
-
 
 })
 

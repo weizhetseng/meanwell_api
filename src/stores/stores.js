@@ -5,7 +5,7 @@ import router from '../router';
 import dayjs from 'dayjs';
 import CryptoJS from "crypto-js";
 import { googleTokenLogin } from 'vue3-google-login'
-import { defineRule } from 'vee-validate';
+import { apiGetData, apiLoginEncrypt, apiWebLogin } from '../utils/api';
 
 //會員資料
 export const useMemberStore = defineStore('Member', () => {
@@ -15,12 +15,7 @@ export const useMemberStore = defineStore('Member', () => {
   const logoutStatue = ref(true)
   const MemberData = ref([{}])
   function getMemberData() {
-    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetData`;
-    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang') }, {
-      headers: {
-        Authorization: 'Bearer ' + $cookies.get("random")
-      }
-    })
+    apiGetData({ "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang') })
       .then((res) => {
         MemberData.value = res.data
         let checkNum = res.data.message.substr(0, 2)
@@ -76,13 +71,7 @@ export const useSignUpStore = defineStore('SignUp', () => {
       Pic: ""
     }
   )
-
-  const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetData`;
-  axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang') }, {
-    headers: {
-      Authorization: 'Bearer ' + $cookies.get("random")
-    }
-  })
+  apiGetData({ "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang') })
     .then((res) => {
       sendData.value.Name = res.data.Name
       sendData.value.Sex = res.data.Sex
@@ -99,8 +88,6 @@ export const useSignUpStore = defineStore('SignUp', () => {
       }
     })
     .catch((error) => console.log(error))
-
-
 
   function Logout() {
     $cookies.remove("u_id")
@@ -134,8 +121,7 @@ export const LoginOut = defineStore('LoginOut', () => {
     Lang: "tw"
   }
   function GetKey() {
-    const api1 = `${import.meta.env.VITE_APP_API}API_App/MemberData/LoginEncrypt`
-    axios.post(api1, GetKeyRequest)
+    apiLoginEncrypt(GetKeyRequest)
       .then((res) => {
         let checkNum = res.data.message.substr(0, 2)
         if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
@@ -174,14 +160,13 @@ export const LoginOut = defineStore('LoginOut', () => {
   }
   //登入
   function WebLogin() {
-    const api1 = `${import.meta.env.VITE_APP_API}API_App/MemberData/WebLogin`
     var uid = User.u_id;
     var pwd = User.RA;
     var checked = User.checked
     var RA = encrypt("0000000000000000" + `${import.meta.env.VITE_APP_PROJECT};` + pwd + ";" + dayjs().format('YYYY-MM-DD HH:mm:ss') + ";", authkey, authiv);
     WebLoginRequest.u_id = uid;
     WebLoginRequest.RA = RA;
-    axios.post(api1, WebLoginRequest)
+    apiWebLogin(WebLoginRequest)
       .then((res) => {
         if (res.data.success) {
           $cookies.set("random", res.data.AuthToken, 0);
@@ -362,4 +347,7 @@ export const wechatLogin = defineStore('wechatLogin', () => {
   }
   return { WechatLoginButton }
 })
+
+
+
 

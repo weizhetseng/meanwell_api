@@ -37,23 +37,17 @@
 import axios from "axios";
 import { ref } from "vue";
 import router from "../router";
+import { apiForgetPassword } from "../utils/api";
 
 const user = ref({
   Email: "",
 });
 //發送新密碼
 function forgotPassword() {
-  const api = `${import.meta.env.VITE_APP_API
-    }API_App/MemberData/ForgetPassword`;
-  axios
-    .post(api, {
-      u_id: user.value.Email,
-      Lang: "string",
-    }, {
-      headers: {
-        Authorization: 'Bearer ' + $cookies.get("random")
-      }
-    })
+  apiForgetPassword({
+    u_id: user.value.Email,
+    Lang: "string",
+  })
     .then((res) => {
       if (res.data.success) {
         alert("發送成功");

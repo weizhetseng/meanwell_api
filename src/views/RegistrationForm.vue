@@ -127,12 +127,12 @@
 
 
 <script setup>
-import axios from 'axios';
 import { useSignUpStore } from "../stores/stores";
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router'
 import router from '../router';
 import { LoginOut } from "../stores/stores";
+import { apiActivityList } from '../utils/api';
 const store2 = LoginOut()
 const route = useRoute()
 const id = route.params.id
@@ -219,12 +219,7 @@ const IsPic = ref(true)
 
 onMounted(() => {
 
-    const api = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivityList`
-    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "ModClass": id.slice(0, 1), "SDateTime": '', "EDateTime": '', "Keywords": '' }, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
-    })
+    apiActivityList({ "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "ModClass": id.slice(0, 1), "SDateTime": '', "EDateTime": '', "Keywords": '' })
         .then((res) => {
             ListData.value = res.data.ActivityDataList
             showData.value = ListData.value.filter((item) => {
@@ -237,9 +232,7 @@ onMounted(() => {
             if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
                 store2.Logout()
             }
-
         })
         .catch((error) => console.log(error));
-
 })
 </script>

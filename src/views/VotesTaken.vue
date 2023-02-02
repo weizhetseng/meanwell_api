@@ -105,6 +105,7 @@ import router from "../router";
 import { onMounted, ref } from "vue"
 import { useMemberStore, LoginOut } from "../stores/stores";
 import VueQrcode from 'vue-qrcode'
+import { apiGetTicket } from "../utils/api";
 const store = useMemberStore()
 const store2 = LoginOut()
 const TicketTaken = ref(
@@ -179,16 +180,11 @@ const qrclosures = () => {
 }
 
 function TakenTicket() {
-    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/GetTicket`
-    axios.post(api, {
+    apiGetTicket({
         "u_id": $cookies.get('u_id'),
         "AuthCode": '0',
         "Lang": $cookies.get('Lang'),
         "TicketAuthCode": TicketTaken.value.TicketCode
-    }, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
     })
         .then((res) => {
             let checkNum = res.data.message.substr(0, 2)

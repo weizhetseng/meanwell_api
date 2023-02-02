@@ -37,6 +37,7 @@
 import axios from 'axios';
 import { ref } from 'vue';
 import router from '../router';
+import { apiRegister } from '../utils/api';
 
 const user = ref(
     {
@@ -47,24 +48,20 @@ const user = ref(
 );
 
 function signUpCheck() {
-    const api3 = `${import.meta.env.VITE_APP_API}API_App/MemberData/Register`
-    axios.post(api3, {
+    apiRegister({
         "Email": $cookies.get('u_id'),
         "Password": user.value.password,
         "Lang": ""
-    }, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
-    }).then((res) => {
-        if (res.data.success) {
-            $cookies.remove("u_id")
-            alert('註冊成功')
-            router.push('/login')
-        } else {
-            alert(res.data.message)
-        }
     })
+        .then((res) => {
+            if (res.data.success) {
+                $cookies.remove("u_id")
+                alert('註冊成功')
+                router.push('/login')
+            } else {
+                alert(res.data.message)
+            }
+        })
         .catch((error) => console.log(error));
 }
 

@@ -107,11 +107,10 @@
     </div>
 </template>
 <script setup>
-import axios from "axios";
 import { onMounted, ref } from "vue"
-import router from "../router";
 import { useMemberStore, LoginOut } from "../stores/stores";
 import VueQrcode from 'vue-qrcode'
+import { apiUpdateData } from "../utils/api";
 const store = useMemberStore()
 const store2 = LoginOut()
 const checkEye1 = ref(true)
@@ -142,9 +141,7 @@ function changepassword() {
         return false
     }
 
-
-    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/UpdateData`
-    axios.post(api, {
+    apiUpdateData({
         "u_id": $cookies.get('u_id'),
         "AuthCode": '0',
         "Lang": $cookies.get('Lang'),
@@ -158,10 +155,6 @@ function changepassword() {
         "JobTitle": store.MemberData.JobTitle,
         "OldPassword": NewPasswords.value.OldPassword,
         "NewPassword": NewPasswords.value.NewPassword
-    }, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
     })
         .then((res) => {
             let checkNum = res.data.message.substr(0, 2)

@@ -104,6 +104,7 @@
 import axios from "axios";
 import { onMounted, ref } from "vue";
 import { LoginOut } from "../stores/stores";
+import { apiPushMsgList, apiNewsList, apiNewSaleList } from "../utils/api";
 
 const indexLink = [
   {
@@ -149,20 +150,14 @@ const NewSaleList = ref([{}]);
 
 onMounted(() => {
   //取得個人推播訊息資料
-  const api1 = `${import.meta.env.VITE_APP_API}API_App/HomePage/PushMsgList`;
-  axios
-    .post(api1, {
-      u_id: $cookies.get("u_id"),
-      AuthCode: '0',
-      Lang: $cookies.get("Lang"),
-      SDateTime: "",
-      EDateTime: "",
-      Keywords: "",
-    }, {
-      headers: {
-        Authorization: 'Bearer ' + $cookies.get("random")
-      }
-    })
+  apiPushMsgList({
+    u_id: $cookies.get("u_id"),
+    AuthCode: '0',
+    Lang: $cookies.get("Lang"),
+    SDateTime: "",
+    EDateTime: "",
+    Keywords: "",
+  })
     .then((res) => {
       PushMsgList.value = res.data.PushMsgDataList;
       let checkNum = res.data.message.substr(0, 2)
@@ -173,47 +168,36 @@ onMounted(() => {
     .catch((error) => console.log(error));
 
   // 最新動態資料清單
-  const api2 = `${import.meta.env.VITE_APP_API}API_App/HomePage/NewsList`;
-  axios
-    .post(api2, {
-      u_id: $cookies.get("u_id"),
-      AuthCode: '0',
-      Lang: $cookies.get("Lang"),
-    }, {
-      headers: {
-        Authorization: 'Bearer ' + $cookies.get("random")
-      }
-    })
+  apiNewsList({
+    u_id: $cookies.get("u_id"),
+    AuthCode: '0',
+    Lang: $cookies.get("Lang"),
+  })
     .then((res) => {
       NewsList.value = res.data.DataList;
       let checkNum = res.data.message.substr(0, 2)
+
       if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
         store.Logout()
       }
     })
     .catch((error) => console.log(error));
+
   // 禮贈新品資料清單
-  const api3 = `${import.meta.env.VITE_APP_API}API_App/HomePage/NewSaleList`;
-  axios
-    .post(api3, {
-      u_id: $cookies.get("u_id"),
-      AuthCode: '0',
-      Lang: $cookies.get("Lang"),
-    }, {
-      headers: {
-        Authorization: 'Bearer ' + $cookies.get("random")
-      }
-    })
+  apiNewSaleList({
+    u_id: $cookies.get("u_id"),
+    AuthCode: '0',
+    Lang: $cookies.get("Lang"),
+  })
     .then((res) => {
       NewSaleList.value = res.data.DataList;
       let checkNum = res.data.message.substr(0, 2)
+
       if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
         store.Logout()
       }
     })
     .catch((error) => console.log(error));
-
-
 
 });
 </script>

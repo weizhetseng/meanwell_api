@@ -114,9 +114,10 @@
 <script setup>
 import axios from "axios";
 import { onMounted, ref } from "vue"
-import router from "../router";
 import { useMemberStore, LoginOut } from "../stores/stores";
 import VueQrcode from 'vue-qrcode'
+import { apiMyActivityList } from "../utils/api";
+
 const store = useMemberStore()
 const store2 = LoginOut()
 
@@ -155,13 +156,8 @@ function nextPage() {
 }
 //axios取得該頁資料
 function getList() {
-    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MyActivityList`
-    axios.post(api, {
+    apiMyActivityList({
         "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
-    }, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
     })
         .then((res) => {
             list.value = res.data.MyActivityDataList

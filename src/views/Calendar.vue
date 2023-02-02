@@ -51,6 +51,7 @@
 import axios from 'axios';
 import { computed, onMounted, ref } from 'vue';
 import { LoginOut } from "../stores/stores";
+import { apiGetApplyActivityDataByMonth } from '../utils/api';
 const store2 = LoginOut()
 
 const weekMap = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
@@ -72,17 +73,12 @@ let CalendarItem = [
 ]
 function selectedDay(item, index) {
     DaySelected.value = index
-    const api = `${import.meta.env.VITE_APP_API}API_App/Calendar/GetApplyActivityDataByMonth`
-    axios.post(api, {
+    apiGetApplyActivityDataByMonth({
         "u_id": $cookies.get('u_id'),
         "AuthCode": '0',
         "Lang": $cookies.get('Lang'),
         "Year": ThisMonth.getFullYear(),
         "Month": (ThisMonth.getMonth() + 1)
-    }, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
     })
         .then((res) => {
             res.data.DayDataList.forEach((item2, index) => {
@@ -234,28 +230,23 @@ function changeMonth(type) {
 
 
 onMounted(() => {
-    const api = `${import.meta.env.VITE_APP_API}API_App/Calendar/GetApplyActivityDataByMonth`
-    const ThisMonth = new Date()
-    axios.post(api, {
+    apiGetApplyActivityDataByMonth({
         "u_id": $cookies.get('u_id'),
         "AuthCode": '0',
         "Lang": $cookies.get('Lang'),
         "Year": ThisMonth.getFullYear(),
         "Month": (ThisMonth.getMonth() + 1)
-    }, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
-    }).then((res) => {
-        monthData.value = res.data.DayDataList
-        monthData.value.forEach(item => {
-            showAllActivity.value.push(item.ApplyActivityDataList)
-        })
-        let checkNum = res.data.message.substr(0, 2)
-        if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
-            store2.Logout()
-        }
     })
+        .then((res) => {
+            monthData.value = res.data.DayDataList
+            monthData.value.forEach(item => {
+                showAllActivity.value.push(item.ApplyActivityDataList)
+            })
+            let checkNum = res.data.message.substr(0, 2)
+            if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+                store2.Logout()
+            }
+        })
         .catch((error) => console.log(error));
 })
 

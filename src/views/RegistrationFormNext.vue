@@ -121,6 +121,7 @@ import { useSignUpStore, useMemberStore } from "../stores/stores";
 import { computed, onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router'
 import { LoginOut } from "../stores/stores";
+import { apiActivitySignUp, apiActivityList } from '../utils/api';
 const store2 = LoginOut()
 const route = useRoute()
 const router = useRouter()
@@ -136,12 +137,7 @@ const totalNum = computed(() => {
 })
 
 function SignUp() {
-    const SignUpApi = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivitySignUp`
-    axios.post(SignUpApi, storeSignUp.sendData, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
-    })
+    apiActivitySignUp(storeSignUp.sendData)
         .then((res) => {
             let checkNum = res.data.message.substr(0, 2)
             if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
@@ -232,13 +228,7 @@ function checkInput() {
 }
 
 onMounted(() => {
-
-    const api = `${import.meta.env.VITE_APP_API}API_App/HomePage/ActivityList`
-    axios.post(api, { "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "ModClass": id.slice(0, 1), "SDateTime": '', "EDateTime": '', "Keywords": '' }, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
-    })
+    apiActivityList({ "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "ModClass": id.slice(0, 1), "SDateTime": '', "EDateTime": '', "Keywords": '' })
         .then((res) => {
             ListData.value = res.data.ActivityDataList
             showData.value = ListData.value.filter((item) => {
@@ -251,6 +241,7 @@ onMounted(() => {
             console.log(showData)
         })
         .catch((error) => console.log(error));
+
     if (!showData.value[0].IsMeals) {
         storeSignUp.sendData.Meals = 2
     }

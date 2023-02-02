@@ -176,6 +176,7 @@ import router from "../router";
 import { onMounted, ref } from "vue"
 import { useMemberStore, LoginOut } from "../stores/stores";
 import VueQrcode from 'vue-qrcode'
+import { apiMemberPicUpdate, apiUpdateData } from "../utils/api";
 const store = useMemberStore()
 const store2 = LoginOut()
 const activeIdx = ref(1);
@@ -250,16 +251,11 @@ function previewFile() {
         reader.readAsDataURL(file);
         reader.onloadend = function () {
             var strImage = reader.result.replace(/^data:image\/[a-z]+;base64,/, "");
-            const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/MemberPicUpdate`
-            axios.post(api, {
+            apiMemberPicUpdate({
                 "u_id": $cookies.get('u_id'),
                 "AuthCode": '0',
                 "Lang": $cookies.get('Lang'),
                 "Pic": strImage
-            }, {
-                headers: {
-                    Authorization: 'Bearer ' + $cookies.get("random")
-                }
             })
                 .then((res) => {
                     let checkNum = res.data.message.substr(0, 2)
@@ -278,8 +274,7 @@ function previewFile() {
 }
 
 function changeMemberData() {
-    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/UpdateData`;
-    axios.post(api, {
+    apiUpdateData({
         "u_id": $cookies.get('u_id'),
         "AuthCode": '0',
         "Lang": $cookies.get('Lang'),
@@ -293,10 +288,6 @@ function changeMemberData() {
         "JobTitle": store.MemberData.JobTitle,
         "OldPassword": store.MemberData.OldPassword,
         "NewPassword": store.MemberData.NewPassword
-    }, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
     })
         .then((res) => {
             let checkNum = res.data.message.substr(0, 2)

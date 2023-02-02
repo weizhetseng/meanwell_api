@@ -110,6 +110,7 @@ import { onMounted, ref } from "vue"
 import { useMemberStore, LoginOut } from "../stores/stores";
 import { useRoute, useRouter } from 'vue-router'
 import VueQrcode from 'vue-qrcode'
+import { apiCancelApply } from "../utils/api";
 const store = useMemberStore()
 const store2 = LoginOut()
 const route = useRoute()
@@ -188,12 +189,7 @@ const CancelApply = ref(
     }
 )
 function CancelActivity() {
-    const api = `${import.meta.env.VITE_APP_API}API_App/MemberData/CancelApply`
-    axios.post(api, CancelApply.value, {
-        headers: {
-            Authorization: 'Bearer ' + $cookies.get("random")
-        }
-    })
+    apiCancelApply(CancelApply.value)
         .then((res) => {
             let checkNum = res.data.message.substr(0, 2)
             if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {

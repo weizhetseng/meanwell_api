@@ -1,19 +1,18 @@
 import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
-import HomeView from '../views/Index.vue'
 import { LoginOut } from "../stores/stores"
 
 const routerHistory = createWebHistory()
 
 const router = createRouter({
-  // history: createWebHashHistory(),
-  history: routerHistory,
+  history: createWebHashHistory(),
+  // history: routerHistory,
   routes: [
     //404頁面 目前尚未實作
     // { path: '/:pathMatch(.*)', component: NotFoundComponent },
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: () => import("../views/Index.vue"),
       meta: {
         keepAlive: true,
         needLogin: false,
@@ -241,26 +240,6 @@ const router = createRouter({
           },
         },
         {
-          path: 'Educate',
-          name: 'Educate',
-          component: () => import("../views/Course_Educate.vue"),
-          meta: {
-            keepAlive: true,
-            needLogin: false,
-            mainBG: false
-          }
-        },
-        {
-          path: 'Activity',
-          name: 'Activity',
-          component: () => import("../views/Course_Activity.vue"),
-          meta: {
-            keepAlive: true,
-            needLogin: false,
-            mainBG: false
-          }
-        },
-        {
           path: 'CourseContent/:id',
           name: 'CourseContent',
           component: () => import("../views/CourseContent.vue"),
@@ -294,20 +273,6 @@ const router = createRouter({
 
       ]
     }
-    ,
-
-    ,
-    {
-      path: '/Course/RegistrationForm_ForeignGuests',
-      name: 'RegistrationFormForeignGuests',
-      component: () => import("../views/RegistrationForm_ForeignGuests.vue"),
-      meta: {
-        keepAlive: true,
-        needLogin: true,
-        mainBG: true
-      }
-    }
-
     ,
     {
       path: '/ServiceContent',
