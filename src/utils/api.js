@@ -2,7 +2,6 @@ import axios from "axios";
 
 const userRequest = axios.create({
     baseURL: `${import.meta.env.VITE_APP_API}`,
-    timeout: 1000,
 });
 
 userRequest.interceptors.request.use(request => {
@@ -10,7 +9,6 @@ userRequest.interceptors.request.use(request => {
     Cookie && (request.headers.Authorization = 'Bearer ' + Cookie);
     return request;
 }, error => {
-
     return Promise.reject(error);
 });
 
