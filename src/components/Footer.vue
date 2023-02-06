@@ -29,17 +29,30 @@
             </div>
             <div class="qrcoderbar">
                 <div class="qrcoder_item">
-                    <div class="qrcoder_item_photo"><img src="../assets/img/Android_qr.svg" alt=""></div>
+                    <div class="qrcoder_item_photo">
+                        <div class="qrbox1"></div>
+                        <div class="qrbox2"></div>
+                        <div class="qrbox3"></div>
+                        <div class="qrbox4"></div>
+                        <img src="../assets/img/AndroidQR.png" alt="">
+                    </div>
                     <div class="qrcoder_item_img">
-                        <a href="#">
+                        <a href="https://play.google.com/store/apps/details?id=com.giant.meanwellShare&hl=zh-TW"
+                            target="_blank">
                             <img src="../assets/img/qrcode-icon-and.png" alt="">
                         </a>
                     </div>
                 </div>
                 <div class="qrcoder_item">
-                    <div class="qrcoder_item_photo"><img src="../assets/img/IOS_qr.svg" alt=""></div>
+                    <div class="qrcoder_item_photo">
+                        <div class="qrbox1"></div>
+                        <div class="qrbox2"></div>
+                        <div class="qrbox3"></div>
+                        <div class="qrbox4"></div>
+                        <img src="../assets/img/AppleQR.png" alt="">
+                    </div>
                     <div class="qrcoder_item_img">
-                        <a href="#">
+                        <a href="https://apps.apple.com/tw/app/sdg-share/id6443496461" target="_blank">
                             <img src="../assets/img/qrcode-icon-ios.png" alt="">
                         </a>
                     </div>

@@ -7,7 +7,6 @@ const router = createRouter({
   history: createWebHashHistory(),
   // history: routerHistory,
   routes: [
-    //404頁面 目前尚未實作
     // { path: '/:pathMatch(.*)', component: NotFoundComponent },
     {
       path: '/',

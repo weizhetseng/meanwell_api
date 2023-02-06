@@ -61,3 +61,4 @@ export const apiWebLogin = data => userRequest.post('API_App/MemberData/WebLogin
 
 
 
+export const apicontest = data => userRequest.post('API_APP/MemberData/contest', data);

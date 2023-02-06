@@ -6,13 +6,13 @@
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .meunbar {
@@ -33,12 +33,14 @@
   float: left;
   padding-right: 80px;
 }
+
 .meunbar_itembar ul {
   width: 100%;
   height: auto;
   float: left;
   margin-top: 16px;
 }
+
 .meunbar_itembar ul li {
   width: 100%;
   height: auto;
@@ -48,9 +50,11 @@
   color: #666;
   line-height: 26px;
 }
+
 .meunbar_itembar ul li a {
   color: #666;
 }
+
 .meunbar_itembar ul li:hover a {
   color: #006699;
 }
@@ -77,6 +81,7 @@
   float: left;
   margin-bottom: 20px;
 }
+
 .qrcoder_item_photo img {
   width: 100%;
   height: auto;
@@ -106,4 +111,6 @@
   height: 34px;
   float: left;
   max-width: 100%;
-}/*# sourceMappingURL=footer.css.map */
+}
+
+/*# sourceMappingURL=footer.css.map */

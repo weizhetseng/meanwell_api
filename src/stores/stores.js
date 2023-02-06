@@ -348,6 +348,3 @@ export const wechatLogin = defineStore('wechatLogin', () => {
   return { WechatLoginButton }
 })
 
-
-
-
