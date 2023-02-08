@@ -57,6 +57,10 @@ configure({
 
 });
 
+//抓取網頁語系
+const lang = navigator.language
+console.log(lang)
+
 // 設定預設語系
 if ($cookies.get("Lang") == null) {
     $cookies.set("Lang", "tw", -1);

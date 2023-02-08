@@ -6,7 +6,7 @@
         <section class="indexActivityBar">
           <div class="indAct_item_Box" :class="{ indAct_item_BoxEN: $cookies.get('Lang') == 'en' }">
             <ul class="indAct_ul01">
-              <li v-for="item in       indexLink" :key="item.id">
+              <li v-for="item in indexLink" :key="item.id">
                 <router-link :to="`/Course/Meeting/${item.route}`">
                   <div class="atcImgBox">
                     <img :src="imageUrl(item.imgUrl)" alt="" />
