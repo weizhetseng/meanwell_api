@@ -34,7 +34,6 @@
 
 
 <script setup>
-import axios from 'axios';
 import { ref } from 'vue';
 import router from '../router';
 import { apiRegister } from '../utils/api';

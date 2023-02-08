@@ -34,7 +34,6 @@
   </div>
 </template>
 <script setup>
-import axios from "axios";
 import { ref } from "vue";
 import router from "../router";
 import { apiForgetPassword } from "../utils/api";

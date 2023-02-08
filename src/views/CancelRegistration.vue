@@ -105,7 +105,6 @@
     </div>
 </template>
 <script setup>
-import axios from "axios";
 import { onMounted, ref } from "vue"
 import { useMemberStore, LoginOut } from "../stores/stores";
 import { useRoute, useRouter } from 'vue-router'
@@ -118,7 +117,6 @@ const router = useRouter()
 const id = route.params.id
 const activeIdx = ref(2);
 const activeIddx = ref(0);
-const activityset = ref(0);
 const NavItemArr = ref([
     {
         name: 'MemberList1',

@@ -116,7 +116,6 @@
     </div>
 </template>
 <script setup>
-import axios from 'axios';
 import { useSignUpStore, useMemberStore } from "../stores/stores";
 import { computed, onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router'

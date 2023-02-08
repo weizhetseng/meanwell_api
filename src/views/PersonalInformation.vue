@@ -132,7 +132,6 @@
     </div>
 </template>
 <script setup>
-import router from "../router";
 import { ref, computed, onMounted } from "vue"
 import { useMemberStore, LoginOut } from "../stores/stores";
 import VueQrcode from 'vue-qrcode'

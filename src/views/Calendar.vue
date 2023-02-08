@@ -48,7 +48,6 @@
     </div>
 </template>
 <script setup>
-import axios from 'axios';
 import { computed, onMounted, ref } from 'vue';
 import { LoginOut } from "../stores/stores";
 import { apiGetApplyActivityDataByMonth } from '../utils/api';

@@ -113,13 +113,10 @@
 <script setup>
 import { onMounted, ref } from "vue"
 import { useMemberStore, LoginOut } from "../stores/stores";
-import { useRoute, useRouter } from "vue-router";
 import VueQrcode from 'vue-qrcode'
 import { apiMyActivityList } from "../utils/api";
 const store = useMemberStore()
 const store2 = LoginOut()
-const route = useRoute()
-const router = useRouter()
 
 //當前頁面
 const currentPages = ref(1)

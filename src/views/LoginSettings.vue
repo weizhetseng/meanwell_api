@@ -114,9 +114,8 @@
 <script setup>
 import { onMounted, ref } from "vue"
 import { useMemberStore, LoginOut } from "../stores/stores";
-import { useRouter } from 'vue-router'
 import VueQrcode from 'vue-qrcode'
-const router = useRouter()
+
 const store = useMemberStore()
 const store2 = LoginOut()
 const activeIdx = ref(1);

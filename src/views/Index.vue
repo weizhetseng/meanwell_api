@@ -87,7 +87,7 @@
                 <div class="AnnContent">
                   <ul>
                     <li v-for="(item, index) in NewSaleList" :style="{ 'border-left-color': item.color }" :key="index">
-                      <a href="">{{ item.News_Topic }}</a>
+                      <a href="">{{ item.NewSale_Topic }}</a>
                     </li>
                   </ul>
                 </div>
@@ -101,7 +101,6 @@
 </template>
 
 <script setup>
-import axios from "axios";
 import { onMounted, ref } from "vue";
 import { LoginOut } from "../stores/stores";
 import { apiPushMsgList, apiNewsList, apiNewSaleList } from "../utils/api";

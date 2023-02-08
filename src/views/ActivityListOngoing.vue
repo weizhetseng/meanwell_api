@@ -112,7 +112,6 @@
     </div>
 </template>
 <script setup>
-import axios from "axios";
 import { onMounted, ref } from "vue"
 import { useMemberStore, LoginOut } from "../stores/stores";
 import VueQrcode from 'vue-qrcode'

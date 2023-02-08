@@ -154,7 +154,6 @@
     </div>
 </template>
 <script setup>
-import axios from "axios";
 import { onMounted, ref, computed } from "vue"
 import { useRoute } from 'vue-router'
 import { LoginOut } from "../stores/stores";

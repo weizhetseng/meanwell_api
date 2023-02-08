@@ -125,7 +125,6 @@
     </div>
 </template>
 <script setup>
-import axios from "axios";
 import { ref, onMounted, computed } from "vue"
 import { useRoute } from 'vue-router'
 import { LoginOut } from "../stores/stores";

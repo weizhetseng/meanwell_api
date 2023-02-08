@@ -104,7 +104,6 @@
     </div>
 </template>
 <script setup>
-import axios from "axios";
 import { useRoute, useRouter } from 'vue-router'
 import { onMounted, ref } from "vue"
 import { useMemberStore, LoginOut } from "../stores/stores";

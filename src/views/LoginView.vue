@@ -89,7 +89,6 @@
     </div>
 </template>
 <script setup>
-import { data } from 'dom7';
 import { onMounted } from 'vue';
 import { LineLogin, LoginOut, GoogleLogin, FacebookLogin } from '../stores/stores';
 

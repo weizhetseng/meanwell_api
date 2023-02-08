@@ -100,8 +100,6 @@
     </div>
 </template>
 <script setup>
-import axios from "axios";
-import router from "../router";
 import { onMounted, ref } from "vue"
 import { useMemberStore, LoginOut } from "../stores/stores";
 import VueQrcode from 'vue-qrcode'
@@ -115,7 +113,6 @@ const TicketTaken = ref(
 )
 const activeIdx = ref(3);
 const activeIddx = ref(null);
-const activityset = ref(0);
 const NavItemArr = ref([
     {
         name: 'MemberList1',
