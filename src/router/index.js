@@ -329,14 +329,25 @@ const router = createRouter({
     }
     ,
     {
-      path: '/Questionnaire',
+      path: '/Questionnaire/:id',
       name: 'Questionnaire',
       component: () => import("../views/Questionnaire.vue"),
       meta: {
         keepAlive: false,
         needLogin: true,
         mainBG: true
-      }
+      },
+      children: [
+        {
+          path: ":test",
+          component: () => import("../views/Questionnaire.vue"),
+          meta: {
+            keepAlive: false,
+            needLogin: true,
+            mainBG: true
+          },
+        }
+      ]
     }
   ]
 })

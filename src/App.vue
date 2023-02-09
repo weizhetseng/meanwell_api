@@ -21,6 +21,8 @@ const { t, locale } = useI18n();
 watch(locale, (newlocale) => {
   localStorage.setItem("locale", newlocale);
 });
+
+
 </script>
 
 

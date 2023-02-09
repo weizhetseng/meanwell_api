@@ -134,7 +134,7 @@
                                         {{ $t('Cancel') }}
                                     </button>
                                 </router-link>
-                                <router-link to="#">
+                                <router-link :to="`/Questionnaire/${id}/1`">
                                     <button class="FunctionColumnButten"><img src="../assets/img/bxs-spreadsheet.png"
                                             alt="">
                                         {{ $t('test01') }}

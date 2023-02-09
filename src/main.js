@@ -37,8 +37,7 @@ const i18n = createI18n({
         'en-US': en_US
     }
 })
-
-
+console.log(i18n)
 // 定義驗證規則
 
 defineRule('required', required);
@@ -58,8 +57,31 @@ configure({
 });
 
 //抓取網頁語系
-const lang = navigator.language
-console.log(lang)
+// const lang = navigator.language
+// console.log(typeof (lang))
+
+// if (lang !== "zh-TW" && lang !== "zh-CN" && lang !== "en-US") {
+//     $cookies.set("Lang", "en", -1);
+//     setLocale('en_US');
+// } else {
+//     switch (lang) {
+//         case "zh-TW":
+//             $cookies.set("Lang", "tw", -1);
+//             i18n.locale = 'zh-TW'
+//             break;
+//         case "zh-CN":
+//             $cookies.set("Lang", "cn", -1);
+//             i18n.locale = 'zh-CN'
+//             break;
+//         case "en-US":
+//             $cookies.set("Lang", "en", -1);
+//             i18n.locale = 'en-US'
+//             break;
+//         default:
+//             i18n.locale = 'zh-TW'
+//             break;
+//     }
+// }
 
 // 設定預設語系
 if ($cookies.get("Lang") == null) {
@@ -83,7 +105,6 @@ if ($cookies.get("Lang") == null) {
 }
 
 $cookies.get("Lang") == null ? 'tw' : $cookies.get("Lang")
-
 
 const app = createApp(App)
 

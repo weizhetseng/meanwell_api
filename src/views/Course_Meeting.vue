@@ -37,9 +37,9 @@
                                 StopForRegistrationEN: item.IsOpenSignUp && item.SignUpEDate !== '' && Today > item.SignUpEDate && $cookies.get('Lang') == 'en'
                             }">
                                 <div class="Course_item_title">{{ item.ActSubject }}</div>
+                                <div class="Course_item_location">{{ item.ActSDateTime }}</div>
                                 <!-- <div class="Course_item_location"><span
                                         v-html="item.ActPlace.replace(/\r\n/g, '<br />')"></span></div> -->
-                                <div class="Course_item_location">{{ item.ActSDateTime }}</div>
                             </div>
                         </div>
                     </router-link>
@@ -133,6 +133,7 @@ function nextPage() {
 function getList() {
     apiActivityList({ "u_id": $cookies.get('u_id') !== null ? $cookies.get('u_id') : '', "AuthCode": '0', "Lang": $cookies.get('Lang'), "ModClass": id, "SDateTime": '', "EDateTime": '', "Keywords": '' })
         .then((res) => {
+            console.log(res.data)
             list.value = res.data.ActivityDataList
             total.value = res.data.ActivityDataList.length
             listBanner.value = res.data.BannerList

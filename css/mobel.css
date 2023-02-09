@@ -12,6 +12,7 @@
   background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
   background: linear-gradient(#1A3F65 50%, #183354 50%);
 }
+
 .pageButtem.registerBtn {
   margin: 20px auto 0;
 }
@@ -20,287 +21,362 @@
   .page_content {
     padding: 0px 20px;
   }
+
   .pointsBoxItem {
     margin-bottom: 10px;
   }
+
   .giftsBoxItem {
     margin-bottom: 10px;
   }
 }
+
 @media screen and (max-width: 920px) {
   .footer_meunbar {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     -webkit-box-pack: center !important;
-        -ms-flex-pack: center !important;
-            justify-content: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
   }
+
   .meunbar {
     width: 100%;
   }
+
   .meunbar_itembar {
     width: 33.3333333333%;
     height: auto;
     padding: 0px 20px;
     padding-right: 20px;
   }
+
   .qrcoderbar {
     margin-top: 20px;
     margin-bottom: 50px;
   }
+
   .page_content {
     padding: 0px 20px;
   }
+
   .activedirectoryitem {
     font-size: 18px;
   }
+
   .avt {
     padding: 0px;
   }
-  .PageBreadCrumbs, .Course_titleBar, .Course_List_Box {
+
+  .PageBreadCrumbs,
+  .Course_titleBar,
+  .Course_List_Box {
     padding: 0px 20px;
   }
+
   .page_course_main {
     padding-bottom: 420px;
   }
+
   main {
     padding-top: 20px;
   }
+
   .CourseContentBox {
     margin: 20px 20px;
   }
 }
+
 @media screen and (max-width: 820px) {
   .memberCenterRightContentBox {
     padding: 30px;
   }
+
   .memberCenterRightTopBox {
     padding: 30px 20px;
   }
+
   .ActiveDirectory {
     padding: 20px;
   }
+
   .ActiveDirectoryContentBox {
     padding: 20px;
   }
 }
+
 @media screen and (max-width: 790px) {
   .memberCenterRightTopBox {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     padding: 20px;
     height: auto;
   }
+
   .memberUserBox {
     width: 100%;
   }
+
   .memberUserQRcord {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     margin-top: 10px;
   }
+
   .MembershipLevelBox {
     -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    -ms-flex-order: 2;
+    order: 2;
     -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
     margin-left: 10px;
   }
+
   .qrcodeph {
     -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    -ms-flex-order: 1;
+    order: 1;
   }
+
   .memberCenterRightContentBox {
     padding: 30px;
   }
+
   .pointsBoxItem {
     width: 100%;
     margin-right: 0px;
   }
+
   .pointsBoxItemLeft {
     width: 120px;
   }
+
   .pointsBoxItemRight {
     width: calc(100% - 120px);
     padding: 0px 10px;
     font-size: 20px;
   }
+
   .ActiveDirectory {
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
   }
+
   .activedirectoryitem {
     width: calc(33.3333333333% - 10px);
     margin-right: 0px;
   }
+
   .activedirectoryitem a {
     padding: 0px 10px;
   }
 }
+
 @media screen and (max-width: 790px) {
   .MemberCenterContent {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .memberCenterRight {
     width: 100%;
   }
+
   .giftsBox {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .giftsBoxItem {
     width: calc(50% - 10px);
     margin-right: 0px;
   }
+
   .memberCenterRightContentBox {
     min-height: inherit;
   }
+
   .LoginSettingsItem {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     height: auto;
   }
+
   .Course_List_Box a {
     width: 100%;
   }
-  .memberinfTextinput, .memberinfTextinput2, .memberinfTextinput3 {
+
+  .memberinfTextinput,
+  .memberinfTextinput2,
+  .memberinfTextinput3 {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     height: auto;
   }
-  .memberinfTextinput > label, .memberinfTextinput3 > label {
+
+  .memberinfTextinput>label,
+  .memberinfTextinput3>label {
     padding-bottom: 10px;
   }
+
   .signinView {
     display: none;
   }
+
   .mobile_bar {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
   }
+
   .navItems {
     height: 45px;
   }
+
   .memberNavItemtext {
     height: 18px;
     font-size: 18px;
   }
+
   .memberNav {
     display: none;
   }
 }
+
 @media screen and (max-width: 520px) {
   .meunbar_itembar {
     width: 50%;
     padding: 0px 10px;
     margin-top: 10px;
   }
+
   .meunbar_itembar ul {
     margin-top: 10px;
   }
+
   .qrcoderbar {
     margin-top: 30px;
     margin-bottom: 40px;
   }
+
   .ThirdPartyButtemItem {
     height: auto;
     width: calc(50% - 0px);
     margin-bottom: 20px;
     margin-top: 10px;
   }
+
   .ThirdPartyButtemBar {
     width: 100%;
     height: auto;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .ThirdPartyButtemText {
     font-size: 16px;
     margin-top: 10px;
   }
+
   .ThirdPartyTitleText {
     text-align: center;
   }
+
   .loginContentBox {
     padding: 30px;
   }
+
   .giftsBoxItem {
     width: 100%;
   }
-  .itemsS50L, .itemsS50R {
+
+  .itemsS50L,
+  .itemsS50R {
     width: 100%;
     margin: 0px;
   }
+
   .persbuttonBox {
     margin-top: 30px;
   }
+
   .CourseContentBox {
     padding: 20px;
     margin-top: 20px;
   }
+
   .CalendarContentBox {
     padding: 20px;
   }
+
   .ls_icon {
     width: 50px;
     height: 50px;
   }
+
   .ls_name {
     padding: 0 5px;
   }
+
   .ls_butten {
     width: 120px;
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 20px;
   }
+
   .CoursebuttoonSet {
     width: 112px;
     height: 40px;
     font-size: 18px;
     background-size: contain;
   }
+
   .itemTr {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .itemtextright2 {
     width: 100%;
   }
+
   .FunctionColumnButten {
     height: 40px;
     font-size: 18px;
     margin-bottom: 10px;
   }
-  .activitiesTitle, .EventTicketingTitle {
+
+  .activitiesTitle,
+  .EventTicketingTitle {
     font-size: 22px;
   }
 }
+
 @media screen and (max-width: 430px) {
   .buttemBox {
     height: auto;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .buttemBox a {
     width: 100%;
   }
+
   .pageButtem {
     font-size: 17px;
   }
+
   .loginButtem {
     width: 100%;
     background-color: #1D3F64;
@@ -308,82 +384,108 @@
     margin: 0px;
     border-radius: 10px;
   }
+
   .ContentBoxTitle {
     font-size: 26px;
   }
+
   .verificationCodeButtem {
     width: 56%;
     font-size: 16px;
   }
-  .Boxbarbuttem > a, .Boxbarbuttem2 > a {
+
+  .Boxbarbuttem>a,
+  .Boxbarbuttem2>a {
     width: 100%;
   }
+
   .Boxbarbuttem {
     margin-top: 30px;
   }
+
   .activelistdate {
     width: 50px;
   }
+
   .activelistdateMonthbefore {
     bottom: 5px;
     right: 5px;
   }
+
   .activelistdateMonth {
     font-size: 26px;
     right: inherit;
     top: 6px;
   }
+
   .activelist-item {
     height: auto;
   }
+
   .activelistTextBar {
     height: auto;
     width: calc(100% - 60px);
   }
+
   .activelistText {
     font-size: 13px;
   }
+
   .Course_item_title {
     width: 90%;
     font-size: 16px;
   }
+
   .Course_date_left {
     width: 70px;
   }
+
   .CoursedateBox {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .CoursedateMonth {
     font-size: 30px;
   }
+
   .CoursedateMonthText {
     margin-bottom: 14px;
   }
+
   .Course_date_right {
     height: auto;
     min-height: 100px;
     width: calc(100% - 80px);
   }
-  .memberinfTextinput > label, .memberinfTextinput3 > label {
+
+  .memberinfTextinput>label,
+  .memberinfTextinput3>label {
     font-size: 14px;
   }
+
   .question_barText {
     font-size: 18px;
   }
+
   .question_bar {
     padding: 20px 10px;
   }
+
   .question_bar::after {
     right: 10px;
   }
+
   .mobileSS {
     margin: 0px 20px;
     margin-top: 20px;
   }
 }
+
 @media screen and (max-width: 375px) {
   .ls_name {
     width: 120px;
   }
-}/*# sourceMappingURL=mobel.css.map */
+}
+
+/*# sourceMappingURL=mobel.css.map */

@@ -144,3 +144,14 @@
         </main>
     </div>
 </template>
+
+
+<script setup>
+import { useRoute } from 'vue-router'
+const route = useRoute()
+
+
+const id = route.params.id
+const id2 = route.params.test
+console.log(id, id2)
+</script>
