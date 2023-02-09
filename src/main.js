@@ -58,9 +58,9 @@ configure({
 //抓取網頁語系
 // const lang = navigator.language
 
+
 // if (lang !== "zh-TW" && lang !== "zh-CN" && lang !== "en-US") {
 //     $cookies.set("Lang", "en", -1);
-//     setLocale('en_US');
 // } else {
 //     switch (lang) {
 //         case "zh-TW":
@@ -81,28 +81,6 @@ configure({
 //     }
 // }
 
-// 設定預設語系
-if ($cookies.get("Lang") == null) {
-    $cookies.set("Lang", "tw", -1);
-    setLocale('zh_TW');
-} else {
-    switch ($cookies.get("Lang")) {
-        case "tw":
-            setLocale('zh_TW');
-            break;
-        case "en":
-            setLocale('en_US');
-            break;
-        case "cn":
-            setLocale('zh_CN');
-            break;
-        default:
-            setLocale('zh_TW');
-            break;
-    }
-}
-
-$cookies.get("Lang") == null ? 'tw' : $cookies.get("Lang")
 
 const app = createApp(App)
 
