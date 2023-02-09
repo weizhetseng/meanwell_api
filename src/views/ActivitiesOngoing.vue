@@ -125,24 +125,30 @@
                             </div>
                             <div class="FunctionColumn">
                                 <router-link :to="`/EventTicketing/${id}`" v-if="showData[0].Ticket_E_Apply !== 0">
-                                    <button class="FunctionColumnButten"><img src="../assets/img/ticket.svg" alt="">
+                                    <button class="FunctionColumnButten"
+                                        :class="{ EN: $cookies.get('Lang') === 'en' }"><img
+                                            src="../assets/img/ticket.svg" alt="">
                                         {{ $t('TakeTicket') }}
                                     </button>
                                 </router-link>
                                 <router-link :to="`/CancelRegistration/${id}`">
-                                    <button class="FunctionColumnButten"><img src="../assets/img/ban-solid.svg" alt="">
+                                    <button class="FunctionColumnButten"
+                                        :class="{ EN: $cookies.get('Lang') === 'en' }"><img
+                                            src="../assets/img/ban-solid.svg" alt="">
                                         {{ $t('Cancel') }}
                                     </button>
                                 </router-link>
-                                <router-link :to="`/Questionnaire/${id}/1`">
-                                    <button class="FunctionColumnButten"><img src="../assets/img/bxs-spreadsheet.png"
-                                            alt="">
+                                <router-link :to="`/Questionnaire/${id}/2`">
+                                    <button class="FunctionColumnButten"
+                                        :class="{ EN: $cookies.get('Lang') === 'en' }"><img
+                                            src="../assets/img/bxs-spreadsheet.png" alt="">
                                         {{ $t('test01') }}
                                     </button>
                                 </router-link>
                                 <router-link to="#">
-                                    <button class="FunctionColumnButten"><img src="../assets/img/bxs-spreadsheet.png"
-                                            alt="">{{ $t('test02') }}
+                                    <button class="FunctionColumnButten"
+                                        :class="{ EN: $cookies.get('Lang') === 'en' }"><img
+                                            src="../assets/img/bxs-spreadsheet.png" alt="">{{ $t('test02') }}
                                     </button>
                                 </router-link>
                             </div>

@@ -341,10 +341,18 @@ const router = createRouter({
         {
           path: ":test",
           component: () => import("../views/Questionnaire.vue"),
-          meta: {
-            keepAlive: false,
-            needLogin: true,
-            mainBG: true
+          // 進入時判斷是否有帶app的參數
+          beforeEnter: (to, from) => {
+            if (to.params.test === "1") {
+              to.meta.keepAlive = false
+              to.meta.needLogin = true
+              to.meta.mainBG = true
+            } else {
+              to.meta.keepAlive = true
+              to.meta.needLogin = true
+              to.meta.mainBG = true
+            }
+
           },
         }
       ]

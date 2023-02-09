@@ -60,7 +60,15 @@
                                 <RouterLink :to="`/ActivitiesOver/${item.ApplyId}`" v-for="item in tableData"
                                     :key="item.ApplyId">
                                     <div class="activelist-item-bar">
-                                        <div class="activelist-item">
+                                        <div class="activelist-item" :class="{ TWmodclass1: item.ModClass === 1 && $cookies.get('Lang') === 'tw' },
+                                        { TWmodclass2: item.ModClass === 2 && $cookies.get('Lang') === 'tw' },
+                                        { TWmodclass3: item.ModClass === 3 && $cookies.get('Lang') === 'tw' },
+                                        { CNmodclass1: item.ModClass === 1 && $cookies.get('Lang') === 'cn' },
+                                        { CNmodclass2: item.ModClass === 2 && $cookies.get('Lang') === 'cn' },
+                                        { CNmodclass3: item.ModClass === 3 && $cookies.get('Lang') === 'cn' },
+                                        { ENmodclass1: item.ModClass === 1 && $cookies.get('Lang') === 'en' },
+                                        { ENmodclass2: item.ModClass === 2 && $cookies.get('Lang') === 'en' },
+                                        { ENmodclass3: item.ModClass === 3 && $cookies.get('Lang') === 'en' }">
                                             <div class="activelistdate">
                                                 <div class="activelistdateMonth">{{ item.ActSDateTime.substr(5, 2) }}
                                                     <span>
@@ -69,9 +77,16 @@
                                                 </div>
                                             </div>
                                             <div class="activelistTextBar">
-                                                <div class="activelistText">活動場次：{{ item.ActSDateTime }}</div>
-                                                <div class="activelistText">主題：{{ item.ActSubject }}</div>
-                                                <div class="activelistText">地點：{{ item.ActPlace }}</div>
+                                                <div class="activelistTitle">{{ item.ActSubject }}</div>
+                                                <div class="activelistText">{{ item.ActSDateTime }}</div>
+                                                <div class="activelistText">
+                                                    <img src="../assets/img/location.png" alt="" />
+                                                    {{ item.ActPlace }}
+                                                </div>
+                                                <div class="activelistText">
+                                                    <img src="../assets/img/user.png" alt="" />
+                                                    {{ item.ActOrganiser }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

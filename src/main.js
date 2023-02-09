@@ -37,7 +37,6 @@ const i18n = createI18n({
         'en-US': en_US
     }
 })
-console.log(i18n)
 // 定義驗證規則
 
 defineRule('required', required);
@@ -58,7 +57,6 @@ configure({
 
 //抓取網頁語系
 // const lang = navigator.language
-// console.log(typeof (lang))
 
 // if (lang !== "zh-TW" && lang !== "zh-CN" && lang !== "en-US") {
 //     $cookies.set("Lang", "en", -1);

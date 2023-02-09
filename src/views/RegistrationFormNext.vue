@@ -237,7 +237,6 @@ onMounted(() => {
             if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
                 store2.Logout()
             }
-            console.log(showData)
         })
         .catch((error) => console.log(error));
 

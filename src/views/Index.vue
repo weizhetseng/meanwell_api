@@ -5,15 +5,29 @@
         <div class="indexPageTitle">{{ $t('MainTitle') }}</div>
         <section class="indexActivityBar">
           <div class="indAct_item_Box" :class="{ indAct_item_BoxEN: $cookies.get('Lang') == 'en' }">
-            <ul class="indAct_ul01">
-              <li v-for="item in indexLink" :key="item.id">
+            <ul class="indAct_ul01" v-if="$cookies.get('Lang') == 'tw'">
+              <li v-for="item in indexLinkTW" :key="item.id">
                 <router-link :to="`/Course/Meeting/${item.route}`">
                   <div class="atcImgBox">
                     <img :src="imageUrl(item.imgUrl)" alt="" />
-
                   </div>
-                  <div class="atcText" :style="{ color: item.color }">
-                    {{ $t(item.link) }}
+                </router-link>
+              </li>
+            </ul>
+            <ul class="indAct_ul01" v-else-if="$cookies.get('Lang') == 'cn'">
+              <li v-for="item in indexLinkCN" :key="item.id">
+                <router-link :to="`/Course/Meeting/${item.route}`">
+                  <div class="atcImgBox">
+                    <img :src="imageUrl(item.imgUrl)" alt="" />
+                  </div>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="indAct_ul01" v-else-if="$cookies.get('Lang') == 'en'">
+              <li v-for="item in indexLinkEN" :key="item.id">
+                <router-link :to="`/Course/Meeting/${item.route}`">
+                  <div class="atcImgBox">
+                    <img :src="imageUrl(item.imgUrl)" alt="" />
                   </div>
                 </router-link>
               </li>
@@ -105,26 +119,58 @@ import { onMounted, ref } from "vue";
 import { LoginOut } from "../stores/stores";
 import { apiPushMsgList, apiNewsList, apiNewSaleList } from "../utils/api";
 
-const indexLink = [
+const indexLinkTW = [
   {
     route: 1,
     link: "IndexLink1",
-    imgUrl: "activity_1.svg",
-    color: "#077E8E",
+    imgUrl: "tw-activity.png",
   },
   {
     route: 2,
     link: "IndexLink2",
-    imgUrl: "activity_2.svg",
-    color: "#649644",
+    imgUrl: "tw-meeting.png",
   },
   {
     route: 3,
     link: "IndexLink3",
-    imgUrl: "activity_3.svg",
-    color: "#9CAF4A",
+    imgUrl: "tw-class.png",
   },
 ];
+const indexLinkCN = [
+  {
+    route: 1,
+    link: "IndexLink1",
+    imgUrl: "cn-activity.png",
+  },
+  {
+    route: 2,
+    link: "IndexLink2",
+    imgUrl: "cn-meeting.png",
+  },
+  {
+    route: 3,
+    link: "IndexLink3",
+    imgUrl: "cn-class.png",
+  },
+];
+const indexLinkEN = [
+  {
+    route: 1,
+    link: "IndexLink1",
+    imgUrl: "en-activity.png",
+  },
+  {
+    route: 2,
+    link: "IndexLink2",
+    imgUrl: "en-meeting.png",
+  },
+  {
+    route: 3,
+    link: "IndexLink3",
+    imgUrl: "en-class.png",
+  },
+];
+
 const store = LoginOut();
 
 

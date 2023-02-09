@@ -64,10 +64,9 @@
                             <div class="CancelRegistrationSelect">
                                 <select class="memberinfinput" v-model="CancelApply.ReasonId">
                                     <option :value="0" selected="" disabled="">{{ $t('chooseReason') }}</option>
-                                    <option :value="1">原因一</option>
-                                    <option :value="2">原因二</option>
-                                    <option :value="3">原因三</option>
-                                    <option :value="4">原因四</option>
+                                    <option :value="item.ReasonId" v-for="item in showData[0].CancelReasonList">
+                                        {{ item.ReasonTitle }}
+                                    </option>
                                 </select>
                             </div>
                             <div class="itemTitle">
@@ -82,7 +81,7 @@
                                 <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">{{ $t('ActivityAlert') }}</div>
                             </div>
-                            <div class="itemtext">神這斗唱吃坐會可海立遠泉，苦旦對何着原；汁肖里讀次燈見間員發兒急訴春直愛清魚。</div>
+                            <div class="itemtext"></div>
                             <div class="persbuttonBox">
                                 <router-link to="#"><button class="pageButtem" @click="CancelActivity()">{{
                                     $t('Check')
@@ -109,7 +108,7 @@ import { onMounted, ref } from "vue"
 import { useMemberStore, LoginOut } from "../stores/stores";
 import { useRoute, useRouter } from 'vue-router'
 import VueQrcode from 'vue-qrcode'
-import { apiCancelApply } from "../utils/api";
+import { apiCancelApply, apiMyActivityList } from "../utils/api";
 const store = useMemberStore()
 const store2 = LoginOut()
 const route = useRoute()
@@ -203,6 +202,9 @@ function CancelActivity() {
         .catch((error) => console.log(error));
 }
 
+const MyActStatus = ref([{}])
+const showData = ref([{}])
+
 
 onMounted(() => {
     if ($cookies.isKey("random") == true && $cookies.isKey("u_id") == true) {
@@ -213,6 +215,21 @@ onMounted(() => {
         store2.att2 = true
     }
     store.getMemberData()
+    apiMyActivityList({
+        "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
+    })
+        .then((res) => {
+            console.log(res.data)
+            MyActStatus.value = res.data.MyActivityDataList
+            showData.value = MyActStatus.value.filter((item) => {
+                return item.ApplyId === parseInt(id)
+            })
+            let checkNum = res.data.message.substr(0, 2)
+            if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+                store2.Logout()
+            }
+        })
+        .catch((error) => console.log(error));
 })
 
 
