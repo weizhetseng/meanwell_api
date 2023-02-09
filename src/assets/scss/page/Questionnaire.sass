@@ -74,6 +74,13 @@
     margin-right: 6px
     opacity: 0
     margin-left: -26px
+.Quest_radio_Box > input[type=checkbox]
+    width: 20px
+    height: 20px
+    float: left
+    margin-right: 6px
+    opacity: 0
+    margin-left: -26px
 .Quest_radio_Box  > label
     line-height: 21px
     display: inline-block
@@ -111,6 +118,35 @@
     float: left
     margin-right: 10px
 .Quest_radio_Box > input[type=radio]:checked + label:after
+    background-color: #ff8800
+.Quest_radio_Box > input[type=checkbox] + label:before
+    content: ""
+    height: 16px
+    width: 16px
+    display: block
+    border: 2px solid #555
+    border-radius: 50%
+    position: relative
+    float: left
+    margin-right: 10px
+.Quest_radio_Box > input[type=checkbox] + label:after
+    content: ""
+    height: 12px
+    width: 12px
+    display: block
+    border-radius: 50%
+    position: absolute
+    float: left
+    left: 4px
+    top: 4px
+    background-color: rgba( 255,255,255,.002 )
+.Quest_radio_Box > input[type=checkbox]:checked + label:before
+    height: 16px
+    width: 16px
+    border: 2px solid #ff8800
+    float: left
+    margin-right: 10px
+.Quest_radio_Box > input[type=checkbox]:checked + label:after
     background-color: #ff8800
 .Quest_textarea
     width: 100%

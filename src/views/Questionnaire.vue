@@ -105,19 +105,19 @@
                                     <div class="questBox_item_title">您對本次活動畫質解析度滿意程度</div>
                                 </div>
                                 <div class="questBox_item_top_r">
-                                    <div class="questBox_item_top_text">單選</div>
+                                    <div class="questBox_item_top_text">複選</div>
                                 </div>
                             </div>
                             <div class="Quest_radio_Box">
-                                <input id="gender05-1" type="radio" name="gender5">
+                                <input id="gender05-1" type="checkbox" name="gender5">
                                 <label for="gender05-1">非常滿意</label>
-                                <input id="gender05-2" type="radio" name="gender5">
+                                <input id="gender05-2" type="checkbox" name="gender5">
                                 <label for="gender05-2">滿意</label>
-                                <input id="gender05-3" type="radio" name="gender5">
+                                <input id="gender05-3" type="checkbox" name="gender5">
                                 <label for="gender05-3">普通</label>
-                                <input id="gender05-4" type="radio" name="gender5">
+                                <input id="gender05-4" type="checkbox" name="gender5">
                                 <label for="gender05-4">不滿意</label>
-                                <input id="gender05-5" type="radio" name="gender5">
+                                <input id="gender05-5" type="checkbox" name="gender5">
                                 <label for="gender05-5">非常不滿意</label>
                             </div>
                         </div>
@@ -125,6 +125,29 @@
                             <div class="questBox_item_top_tr">
                                 <div class="questBox_item_top_l">
                                     <div class="questBox_item_nb">06</div>
+                                    <div class="questBox_item_title">您對本次活動畫質解析度滿意程度</div>
+                                </div>
+                                <div class="questBox_item_top_r">
+                                    <div class="questBox_item_top_text">單選</div>
+                                </div>
+                            </div>
+                            <div class="Quest_radio_Box">
+                                <input id="gender06-1" type="radio" name="gender6">
+                                <label for="gender06-1">非常滿意</label>
+                                <input id="gender06-2" type="radio" name="gender6">
+                                <label for="gender06-2">滿意</label>
+                                <input id="gender06-3" type="radio" name="gender6">
+                                <label for="gender06-3">普通</label>
+                                <input id="gender06-4" type="radio" name="gender6">
+                                <label for="gender06-4">不滿意</label>
+                                <input id="gender06-5" type="radio" name="gender6">
+                                <label for="gender06-5">非常不滿意</label>
+                            </div>
+                        </div>
+                        <div class="questBox_item">
+                            <div class="questBox_item_top_tr">
+                                <div class="questBox_item_top_l">
+                                    <div class="questBox_item_nb">07</div>
                                     <div class="questBox_item_title">您對本次活動畫質解析度滿意程度</div>
                                 </div>
                                 <div class="questBox_item_top_r">

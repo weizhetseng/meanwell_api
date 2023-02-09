@@ -138,7 +138,7 @@
                                         {{ $t('Cancel') }}
                                     </button>
                                 </router-link>
-                                <router-link :to="`/Questionnaire/${id}/2`">
+                                <router-link :to="`/Questionnaire/${id}/1`">
                                     <button class="FunctionColumnButten"
                                         :class="{ EN: $cookies.get('Lang') === 'en' }"><img
                                             src="../assets/img/bxs-spreadsheet.png" alt="">
