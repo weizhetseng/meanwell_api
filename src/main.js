@@ -65,6 +65,21 @@ if (lang !== "zh-TW" && lang !== "zh-CN" && lang !== "en-US" && !$cookies.isKey(
     }
 }
 
+switch ($cookies.get("Lang")) {
+    case "tw":
+        setLocale('zh_TW');
+        break;
+    case "en":
+        setLocale('en_US');
+        break;
+    case "cn":
+        setLocale('zh_CN');
+        break;
+    default:
+        setLocale('zh_TW');
+        break;
+}
+
 const i18n = createI18n({
     legacy: false,
     locale: $cookies.get("CLang") ?? $cookies.get("DLang"),
