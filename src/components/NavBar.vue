@@ -182,17 +182,23 @@ const handleMenuFna = (iddx) => {
 };
 //切換繁體中文
 function changeTW() {
-    $cookies.set("Lang", "tw", -1)
+    $cookies.remove("DLang")
+    $cookies.set("CLang", "zh-TW", 0)
+    $cookies.set("Lang", "tw", 0)
     location.reload()
 }
 //切換簡體中文
 function changeCN() {
-    $cookies.set("Lang", "cn", -1)
+    $cookies.remove("DLang")
+    $cookies.set("CLang", "zh-CN", 0)
+    $cookies.set("Lang", "cn", 0)
     location.reload()
 }
 //切換英文
 function changeEN() {
-    $cookies.set("Lang", "en", -1)
+    $cookies.remove("DLang")
+    $cookies.set("CLang", "en-US", 0)
+    $cookies.set("Lang", "en", 0)
     location.reload()
 }
 

@@ -26,17 +26,7 @@ import VueCookies from 'vue-cookies';
 
 import './assets/scss/master.scss'
 import './assets/scss/main.sass'
-const i18n = createI18n({
-    legacy: false,
-    locale: localStorage.getItem("locale") ?? "zh-TW",
-    fallbackLocale: 'zh-TW',
-    globalInjection: true,
-    messages: {
-        'zh-TW': zh_TW,
-        'zh-CN': zh_CN,
-        'en-US': en_US
-    }
-})
+
 // 定義驗證規則
 
 defineRule('required', required);
@@ -56,27 +46,52 @@ configure({
 });
 
 //抓取網頁語系
-// const lang = navigator.language
+const lang = navigator.language
 
 
-// if (lang !== "zh-TW" && lang !== "zh-CN" && lang !== "en-US") {
-//     $cookies.set("Lang", "en", -1);
+if (lang !== "zh-TW" && lang !== "zh-CN" && lang !== "en-US" && !$cookies.isKey("CLang")) {
+    $cookies.set("Lang", "en", 0);
+    $cookies.set("DLang", "en-US", 0);
+} else {
+    if (lang === "zh-TW" && !$cookies.isKey("CLang")) {
+        $cookies.set("Lang", "tw", 0);
+        $cookies.set("DLang", "zh-TW", 0);
+    } else if (lang === "zh-CN" && !$cookies.isKey("CLang")) {
+        $cookies.set("Lang", "cn", 0);
+        $cookies.set("DLang", "zh-CN", 0);
+    } else if (lang === "en-US" && !$cookies.isKey("CLang")) {
+        $cookies.set("Lang", "en", 0);
+        $cookies.set("DLang", "en-US", 0);
+    }
+}
+
+const i18n = createI18n({
+    legacy: false,
+    locale: $cookies.get("CLang") ?? $cookies.get("DLang"),
+    fallbackLocale: 'zh-TW',
+    globalInjection: true,
+    messages: {
+        'zh-TW': zh_TW,
+        'zh-CN': zh_CN,
+        'en-US': en_US
+    }
+})
+
+// if ($cookies.get("Lang") == null) {
+//     $cookies.set("Lang", "tw", 0);
 // } else {
-//     switch (lang) {
-//         case "zh-TW":
-//             $cookies.set("Lang", "tw", -1);
-//             i18n.locale = 'zh-TW'
+//     switch ($cookies.get("Lang")) {
+//         case "tw":
+//             $cookies.set("Lang", "tw", 0);
 //             break;
-//         case "zh-CN":
-//             $cookies.set("Lang", "cn", -1);
-//             i18n.locale = 'zh-CN'
+//         case "en":
+//             $cookies.set("Lang", "en", 0);
 //             break;
-//         case "en-US":
-//             $cookies.set("Lang", "en", -1);
-//             i18n.locale = 'en-US'
+//         case "cn":
+//             $cookies.set("Lang", "cn", 0);
 //             break;
 //         default:
-//             i18n.locale = 'zh-TW'
+//             $cookies.set("Lang", "tw", 0);
 //             break;
 //     }
 // }
