@@ -174,7 +174,6 @@ function getList() {
         "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
     })
         .then((res) => {
-            console.log(res.data)
             list.value = res.data.MyActivityDataList
             total.value = res.data.MyActivityDataList.length
             totalSize.value = Math.ceil(total.value / pageSize)

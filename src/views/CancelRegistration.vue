@@ -219,7 +219,6 @@ onMounted(() => {
         "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 1, "SDateTime": "", "EDateTime": "", "Keywords": ""
     })
         .then((res) => {
-            console.log(res.data)
             MyActStatus.value = res.data.MyActivityDataList
             showData.value = MyActStatus.value.filter((item) => {
                 return item.ApplyId === parseInt(id)

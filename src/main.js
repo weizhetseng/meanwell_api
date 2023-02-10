@@ -77,26 +77,6 @@ const i18n = createI18n({
     }
 })
 
-// if ($cookies.get("Lang") == null) {
-//     $cookies.set("Lang", "tw", 0);
-// } else {
-//     switch ($cookies.get("Lang")) {
-//         case "tw":
-//             $cookies.set("Lang", "tw", 0);
-//             break;
-//         case "en":
-//             $cookies.set("Lang", "en", 0);
-//             break;
-//         case "cn":
-//             $cookies.set("Lang", "cn", 0);
-//             break;
-//         default:
-//             $cookies.set("Lang", "tw", 0);
-//             break;
-//     }
-// }
-
-
 const app = createApp(App)
 
 app.use(createPinia())
