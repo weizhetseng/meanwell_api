@@ -24,7 +24,34 @@
                         :key="item.ActId">
                         <div class="Course_List_Item">
                             <div class="Course_date_left">
-                                <div class="CoursedateBox" :class="{ toTop: item.IsTop }">
+                                <div class="CoursedateBox" :class="{ toTop: item.IsTop }"
+                                    v-if="$cookies.get('Lang') === 'en'">
+                                    <div class="CoursedateMonthEN" v-if="item.ActSDateTime.substr(5, 2) === '01'">Jan.
+                                    </div>
+                                    <div class="CoursedateMonthEN" v-else-if="item.ActSDateTime.substr(5, 2) === '02'">
+                                        Feb.</div>
+                                    <div class="CoursedateMonthEN" v-else-if="item.ActSDateTime.substr(5, 2) === '03'">
+                                        Mar.</div>
+                                    <div class="CoursedateMonthEN" v-else-if="item.ActSDateTime.substr(5, 2) === '04'">
+                                        Apr.</div>
+                                    <div class="CoursedateMonthEN" v-else-if="item.ActSDateTime.substr(5, 2) === '05'">
+                                        May.</div>
+                                    <div class="CoursedateMonthEN" v-else-if="item.ActSDateTime.substr(5, 2) === '06'">
+                                        Jun.</div>
+                                    <div class="CoursedateMonthEN" v-else-if="item.ActSDateTime.substr(5, 2) === '07'">
+                                        Jul.</div>
+                                    <div class="CoursedateMonthEN" v-else-if="item.ActSDateTime.substr(5, 2) === '08'">
+                                        Aug.</div>
+                                    <div class="CoursedateMonthEN" v-else-if="item.ActSDateTime.substr(5, 2) === '09'">
+                                        Sep.</div>
+                                    <div class="CoursedateMonthEN" v-else-if="item.ActSDateTime.substr(5, 2) === '10'">
+                                        Oct.</div>
+                                    <div class="CoursedateMonthEN" v-else-if="item.ActSDateTime.substr(5, 2) === '11'">
+                                        Nov.</div>
+                                    <div class="CoursedateMonthEN" v-else-if="item.ActSDateTime.substr(5, 2) === '12'">
+                                        Dec.</div>
+                                </div>
+                                <div class="CoursedateBox" :class="{ toTop: item.IsTop }" v-else>
                                     <div class="CoursedateMonth">{{ item.ActSDateTime.substr(5, 2) }}</div>
                                     <div class="CoursedateMonthText">{{ $t('Month') }}</div>
                                 </div>
@@ -97,7 +124,7 @@ const listBanner = ref([])
 
 //當前頁面
 const currentPages = ref(1)
-//所以資料筆數
+//所有資料筆數
 const total = ref(null)
 //當前頁面資料
 const list = ref([])

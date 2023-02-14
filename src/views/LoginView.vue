@@ -21,10 +21,14 @@
                         </div>
                         <div>
                             <div class="User_password">
-                                <Field id="password" name="password" :label="$t('password')" type="password"
-                                    class="User_accountInput" :class="{ 'is-invalid': errors['password'] }"
-                                    :placeholder="$t('PasswordInput')" rules="required" v-model="store.User.RA">
+                                <Field id="password" name="password" :label="$t('password')"
+                                    :type="checkEye1 ? 'password' : 'text'" class="User_accountInput"
+                                    :class="{ 'is-invalid': errors['password'] }" :placeholder="$t('PasswordInput')"
+                                    rules="required" v-model="store.User.RA">
                                 </Field>
+                                <span id="checkEye" class="material-symbols-outlined" @click="checkEye1 = !checkEye1">
+                                    {{ checkEye1? 'visibility_off': 'visibility' }}
+                                </span>
                             </div>
                             <div class="error">
                                 <error-message name="password" class="invalid-feedback"></error-message>
@@ -89,12 +93,14 @@
     </div>
 </template>
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { LineLogin, LoginOut, GoogleLogin, FacebookLogin } from '../stores/stores';
 
 const LineLoginstore = LineLogin()
 const GoogleLoginstore = GoogleLogin()
 const FacebookLoginstore = FacebookLogin()
+const checkEye1 = ref(true)
+
 
 const store = LoginOut()
 

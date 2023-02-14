@@ -27,7 +27,7 @@
                             <error-message :name="$t('RegisterCode')" class="invalid-feedback"></error-message>
                         </div>
                         <div class="Boxbarbutton">
-                            <button type="submit" class="buttonStyle" @click="verify()">{{ $t('NextStep') }}</button>
+                            <button type="button" class="buttonStyle" @click="verify()">{{ $t('NextStep') }}</button>
                         </div>
                     </Form>
 

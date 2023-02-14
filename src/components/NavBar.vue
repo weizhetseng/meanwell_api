@@ -2,8 +2,14 @@
     <div class="lyboxbg" :class="{ active: mobileMenu }">
         <div class="mobile_menus">
             <div class="cles_icon" @click="colsMobileMenu()"><img src="../assets/img/closure_icon.svg" alt=""></div>
-            <div class="logo_box" @click="colsMobileMenu()">
+            <div class="logo_box" v-if="$cookies.get('Lang') === 'tw'" @click="colsMobileMenu()">
                 <RouterLink to="/"><img src="../assets/img/Logos.svg" alt=""></RouterLink>
+            </div>
+            <div class="logo_box" v-else-if="$cookies.get('Lang') === 'cn'" @click="colsMobileMenu()">
+                <RouterLink to="/"><img src="../assets/img/cn-logo.png" alt=""></RouterLink>
+            </div>
+            <div class="logo_box" v-else-if="$cookies.get('Lang') === 'en'" @click="colsMobileMenu()">
+                <RouterLink to="/"><img src="../assets/img/en-logo.png" alt=""></RouterLink>
             </div>
             <div class="mobile_signoutView">
                 <div class="mobile_sdgMenuItem">
@@ -54,8 +60,14 @@
     </div>
     <header>
         <div class="header_meunbar">
-            <div class="logo_box">
+            <div class="logo_box" v-if="$cookies.get('Lang') === 'tw'">
                 <RouterLink to="/"><img src="../assets/img/Logos.svg" alt=""></RouterLink>
+            </div>
+            <div class="logo_box" v-else-if="$cookies.get('Lang') === 'cn'">
+                <RouterLink to="/"><img src="../assets/img/cn-logo.png" alt=""></RouterLink>
+            </div>
+            <div class="logo_box" v-else-if="$cookies.get('Lang') === 'en'">
+                <RouterLink to="/"><img src="../assets/img/en-logo.png" alt=""></RouterLink>
             </div>
             <div class="system_bar">
                 <div class="signoutView" :class="{ active: store.att }">

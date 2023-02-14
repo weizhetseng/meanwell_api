@@ -70,7 +70,36 @@
                                         { ENmodclass2: item.ModClass === 2 && $cookies.get('Lang') === 'en' },
                                         { ENmodclass3: item.ModClass === 3 && $cookies.get('Lang') === 'en' }">
                                             <div class="activelistdate">
-                                                <div class="activelistdateMonth">{{ item.ActSDateTime.substr(5, 2) }}
+                                                <div class="activelistdateMonthEN" v-if="$cookies.get('Lang') === 'en'">
+                                                    <p v-if="item.ActSDateTime.substr(5, 2) === '01'">Jan.
+                                                    </p>
+                                                    <p v-else-if="item.ActSDateTime.substr(5, 2) === '02'">
+                                                        Feb.</p>
+                                                    <p v-else-if="item.ActSDateTime.substr(5, 2) === '03'">
+                                                        Mar.</p>
+                                                    <p v-else-if="item.ActSDateTime.substr(5, 2) === '04'">
+                                                        Apr.</p>
+                                                    <p v-else-if="item.ActSDateTime.substr(5, 2) === '05'">
+                                                        May.</p>
+                                                    <p v-else-if="item.ActSDateTime.substr(5, 2) === '06'">
+                                                        Jun.</p>
+                                                    <p v-else-if="item.ActSDateTime.substr(5, 2) === '07'">
+                                                        Jul.</p>
+                                                    <p v-else-if="item.ActSDateTime.substr(5, 2) === '08'">
+                                                        Aug.</p>
+                                                    <p v-else-if="item.ActSDateTime.substr(5, 2) === '09'">
+                                                        Sep.</p>
+                                                    <p v-else-if="item.ActSDateTime.substr(5, 2) === '10'">
+                                                        Oct.</p>
+                                                    <p v-else-if="item.ActSDateTime.substr(5, 2) === '11'">
+                                                        Nov.</p>
+                                                    <p v-else-if="item.ActSDateTime.substr(5, 2) === '12'">
+                                                        Dec.</p>
+                                                </div>
+                                                <div class="activelistdateMonth" v-else>{{
+                                                    item.ActSDateTime.substr(5,
+                                                        2)
+                                                }}
                                                     <span>
                                                         {{ $t('Month') }}
                                                     </span>

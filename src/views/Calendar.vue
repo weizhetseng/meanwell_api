@@ -178,7 +178,38 @@ const date = ref(new Date());
 const calendarTable = computed(() => generateCalendar(date.value));
 
 const dateText = computed(() => {
-    return `${date.value.getFullYear()}/${date.value.getMonth() + 1}`;
+    if ($cookies.get("Lang") === "en") {
+        switch (date.value.getMonth() + 1) {
+            case 1:
+                return `${date.value.getFullYear()}/JAN.`
+            case 2:
+                return `${date.value.getFullYear()}/FEB.`
+            case 3:
+                return `${date.value.getFullYear()}/MAR.`
+            case 4:
+                return `${date.value.getFullYear()}/APR.`
+            case 5:
+                return `${date.value.getFullYear()}/MAY.`
+            case 6:
+                return `${date.value.getFullYear()}/JUN.`
+            case 7:
+                return `${date.value.getFullYear()}/JUL.`
+            case 8:
+                return `${date.value.getFullYear()}/AUG.`
+            case 9:
+                return `${date.value.getFullYear()}/SEP.`
+            case 10:
+                return `${date.value.getFullYear()}/OCT.`
+            case 11:
+                return `${date.value.getFullYear()}/NOV.`
+            case 12:
+                return `${date.value.getFullYear()}/DEC.`
+            default:
+                return `${date.value.getFullYear()}/${date.value.getMonth() + 1}`;
+        }
+    } else {
+        return `${date.value.getFullYear()}/${date.value.getMonth() + 1}月`;
+    }
 });
 // 判斷是否為當天
 const isAllTrue = (arr, fn = (p) => Boolean(p)) => arr.every(fn);

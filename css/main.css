@@ -6,13 +6,13 @@
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .meunbar {
@@ -33,12 +33,14 @@
   float: left;
   padding-right: 80px;
 }
+
 .meunbar_itembar ul {
   width: 100%;
   height: auto;
   float: left;
   margin-top: 16px;
 }
+
 .meunbar_itembar ul li {
   width: 100%;
   height: auto;
@@ -48,9 +50,11 @@
   color: #666;
   line-height: 26px;
 }
+
 .meunbar_itembar ul li a {
   color: #666;
 }
+
 .meunbar_itembar ul li:hover a {
   color: #006699;
 }
@@ -77,6 +81,7 @@
   float: left;
   margin-bottom: 20px;
 }
+
 .qrcoder_item_photo img {
   width: 100%;
   height: auto;
@@ -117,13 +122,13 @@
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .logo_box {
@@ -131,6 +136,7 @@
   height: auto;
   float: left;
 }
+
 .logo_box img {
   width: 100%;
   max-width: 100% !important;
@@ -144,7 +150,8 @@
   float: left;
 }
 
-.sdgMenuItem, .sdgMenuItem2 {
+.sdgMenuItem,
+.sdgMenuItem2 {
   width: auto;
   height: 30px;
   float: left;
@@ -152,13 +159,13 @@
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-left: 10px;
 }
 
@@ -172,6 +179,7 @@
   float: left;
   position: relative;
 }
+
 .language_item img {
   width: 100%;
   height: auto;
@@ -192,10 +200,10 @@
   z-index: 5;
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.55);
-          box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.55);
+  box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.55);
 }
 
-.language_item:hover > .language_bar {
+.language_item:hover>.language_bar {
   max-height: 500px;
   padding: 10px 30px;
   margin-top: 5px;
@@ -242,6 +250,7 @@
   border-radius: 15px 15px 15px 15px;
   background-color: #006699;
 }
+
 .loging_item a {
   color: #FFFFFF;
 }
@@ -270,6 +279,7 @@
     display: none;
   }
 }
+
 .signinView {
   width: auto;
   height: auto;
@@ -285,6 +295,7 @@
   height: 25px;
   float: left;
 }
+
 .signinicon img {
   width: auto;
   height: 100%;
@@ -294,6 +305,7 @@
 .mobile_sdgMenuItem .signinicon {
   height: 20px;
 }
+
 .mobile_sdgMenuItem .signinmenutext {
   font-size: 20px;
 }
@@ -330,16 +342,17 @@
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   cursor: pointer;
   display: none;
 }
+
 .mobile_bar img {
   width: 80%;
   height: auto;
@@ -357,7 +370,7 @@
 * {
   font-family: "Microsoft JhengHei", "serif";
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 header {
@@ -368,13 +381,13 @@ header {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -389,13 +402,13 @@ footer {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   position: relative;
   padding: 50px 20px;
 }
@@ -416,7 +429,8 @@ footer {
   padding-top: 90px;
 }
 
-ul, li {
+ul,
+li {
   list-style: none;
   margin: 0px;
   padding: 0px;
@@ -431,13 +445,13 @@ main {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: start;
-      align-content: flex-start;
+  align-content: flex-start;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   position: relative;
   padding: 60px 0px;
 }
@@ -451,18 +465,19 @@ main {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: start;
-      align-content: flex-start;
+  align-content: flex-start;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-input, button {
+input,
+button {
   border: 0px;
 }
 
@@ -489,6 +504,7 @@ button {
   height: auto;
   float: left;
 }
+
 .PageBreadCrumbs ul {
   width: 100%;
   height: auto;
@@ -497,15 +513,15 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .leyboxbg {
@@ -520,13 +536,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   max-height: 0px;
   overflow: hidden;
   opacity: 0.002;
@@ -549,20 +565,20 @@ button {
   background-color: #fff;
   border-radius: 50px;
   -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .leyboxcontent_txt {
@@ -580,6 +596,7 @@ button {
   height: auto;
   float: left;
 }
+
 .qrcordphoto img {
   width: 100%;
   height: auto;
@@ -594,11 +611,12 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-top: 30px;
   cursor: pointer;
 }
+
 .closure_icon_set img {
   width: auto;
   height: 100%;
@@ -616,7 +634,7 @@ button {
   color: #006699;
 }
 
-.CourseContentBox > h2 {
+.CourseContentBox>h2 {
   width: 100%;
   height: auto;
   float: left;
@@ -628,7 +646,7 @@ button {
   padding-left: 6px;
 }
 
-.CourseContentBox > p {
+.CourseContentBox>p {
   width: 100%;
   height: auto;
   float: left;
@@ -657,13 +675,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   max-width: 0px;
   overflow: hidden;
   opacity: 0.002;
@@ -686,7 +704,7 @@ button {
   background-color: #fff;
   border-radius: 10px;
   -webkit-box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.16);
   position: relative;
 }
 
@@ -699,6 +717,7 @@ button {
   right: 20px;
   cursor: pointer;
 }
+
 .cles_icon img {
   width: 100%;
   height: auto;
@@ -734,18 +753,19 @@ button {
   display: none;
 }
 
-.mobile_sdgMenuItem, .mobile_sdgMenuItem2 {
+.mobile_sdgMenuItem,
+.mobile_sdgMenuItem2 {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
 }
 
 .mobile_sdgMenuItem2 {
@@ -781,13 +801,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
 }
 
 .ActiveDirectoryContentBox {
@@ -798,54 +818,64 @@ button {
   border-radius: 20px;
   padding: 50px;
 }
+
 .ActiveDirectoryContentBox .eventTicketList {
   width: 100%;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
+
 .ActiveDirectoryContentBox .eventTicketList .eventTicketItem {
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   font-size: 18px;
   color: #555555;
   font-weight: 500;
   padding: 0 20px 5px;
   border-bottom: 2px dashed #707070;
 }
+
 .ActiveDirectoryContentBox .eventTicketList .eventTicketItem:nth-child(odd) {
   border-right: 2px dashed #707070;
   padding: 0 0 5px;
 }
+
 .ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BON:last-child {
   border-bottom: none;
 }
-.ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BEN:last-child, .ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BEN:nth-last-child(2) {
+
+.ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BEN:last-child,
+.ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BEN:nth-last-child(2) {
   border-bottom: none;
 }
+
 .ActiveDirectoryContentBox .eventTicketList .eventTicketItem .eventSeat {
   width: 80px;
   margin-right: 20px;
 }
+
 .ActiveDirectoryContentBox .eventTicketList .eventTicketItem .copyCode {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
+
 .ActiveDirectoryContentBox .eventTicketList .eventTicketItem .copyCode p {
   margin-right: 10px;
 }
+
 .ActiveDirectoryContentBox .eventTicketList .eventTicketItem .copyCode button {
   color: #fff;
   font-size: 16px;
@@ -860,42 +890,53 @@ button {
   .ActiveDirectoryContentBox .eventTicketList {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
+
   .ActiveDirectoryContentBox .eventTicketList .eventTicketItem {
     width: 100%;
   }
+
   .ActiveDirectoryContentBox .eventTicketList .eventTicketItem:nth-child(odd) {
     border-right: none;
   }
+
   .ActiveDirectoryContentBox .eventTicketList .eventTicketItem:nth-child(even) {
     padding: 0 0 5px;
   }
+
   .ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BON:last-child {
     border-bottom: 2px dashed #707070;
   }
-  .ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BEN:last-child, .ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BEN:nth-last-child(2) {
+
+  .ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BEN:last-child,
+  .ActiveDirectoryContentBox .eventTicketList .eventTicketItem.BEN:nth-last-child(2) {
     border-bottom: 2px dashed #707070;
   }
 }
+
 @media (max-width: 520px) {
   .ActiveDirectoryContentBox .eventTicketList {
     display: block;
     overflow-x: scroll;
   }
+
   .ActiveDirectoryContentBox .eventTicketList .eventTicketItem {
     -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
+
   .ActiveDirectoryContentBox .eventTicketList .eventTicketItem .eventSeat {
     white-space: nowrap;
   }
+
   .ActiveDirectoryContentBox .eventTicketList .eventTicketItem .copyCode {
     -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
 }
+
 .eventTicketTitle {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -903,16 +944,19 @@ button {
   width: 100%;
   margin-bottom: 9px;
 }
+
 .eventTicketTitle .titleArea {
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
+
 .eventTicketTitle .titleArea .titleSeat {
   width: 80px;
   margin-right: 20px;
 }
+
 .eventTicketTitle .titleArea:last-child {
   padding: 0 20px;
 }
@@ -921,10 +965,12 @@ button {
   .eventTicketTitle .titleArea {
     width: 100%;
   }
+
   .eventTicketTitle .titleArea.dn-1200 {
     display: none;
   }
 }
+
 .activedirectoryitem {
   width: auto;
   height: 50px;
@@ -934,18 +980,19 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 24px;
   font-weight: bold;
   color: #A5A5A5;
   margin-right: 10px;
 }
+
 .activedirectoryitem a {
   padding: 0px 35px;
   color: rgb(0, 102, 153);
@@ -955,6 +1002,7 @@ button {
   background-color: rgb(0, 102, 153);
   color: #fff;
 }
+
 .activedirectoryitem.active a {
   color: #fff;
 }
@@ -982,11 +1030,11 @@ button {
   background: rgb(255, 255, 255);
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), color-stop(50%, rgb(241, 241, 241)), color-stop(51%, rgb(225, 225, 225)), to(rgb(246, 246, 246)));
   background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(241, 241, 241) 50%, rgb(225, 225, 225) 51%, rgb(246, 246, 246) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#f6f6f6",GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#f6f6f6", GradientType=0);
   padding: 10px;
   border-radius: 10px;
   -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
 
 .activelistdate {
@@ -998,13 +1046,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   position: relative;
   border-radius: 5px;
   position: relative;
@@ -1024,9 +1072,10 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
 }
+
 .activelistdateMonth span {
   font-size: 0.1em;
 }
@@ -1052,12 +1101,12 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -ms-flex-line-pack: justify;
-      align-content: space-between;
+  align-content: space-between;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .activelistText {
@@ -1077,13 +1126,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-top: 20px;
 }
 
@@ -1093,6 +1142,7 @@ button {
   float: left;
   padding: 0px 5px;
 }
+
 .pagination_item_next img {
   width: auto;
   height: 100%;
@@ -1105,6 +1155,7 @@ button {
   float: left;
   padding: 0px 5px;
 }
+
 .pagination_item_previous img {
   width: auto;
   height: 100%;
@@ -1120,6 +1171,7 @@ button {
   text-align: center;
   color: #555;
 }
+
 .pagination_item::after {
   content: "|";
   height: auto;
@@ -1131,7 +1183,8 @@ button {
   top: -2px;
 }
 
-.activitiesTitle, .EventTicketingTitle {
+.activitiesTitle,
+.EventTicketingTitle {
   width: 100%;
   height: auto;
   float: left;
@@ -1165,13 +1218,14 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
-.itemtextleft, .itemtextleft2 {
+.itemtextleft,
+.itemtextleft2 {
   float: left;
   font-size: 18px;
   font-weight: bold;
@@ -1186,7 +1240,8 @@ button {
   width: 140px;
 }
 
-.itemtextright, .itemtextright2 {
+.itemtextright,
+.itemtextright2 {
   float: left;
   font-size: 18px;
   color: #555555;
@@ -1197,22 +1252,25 @@ button {
 .itemtextright {
   margin-bottom: 15px;
 }
+
 .itemtextright.downloadLink {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
+
 .itemtextright a {
   margin-right: 15px;
 }
+
 .itemtextright ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -1220,12 +1278,13 @@ button {
   width: calc(100% - 140px - 10px);
   margin-bottom: 15px;
 }
+
 .itemtextright2.downloadLink {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .personalinformation {
@@ -1259,7 +1318,7 @@ button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .FunctionColumnButten {
@@ -1270,29 +1329,30 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-wrap: nowrap;
   background: rgb(255, 255, 255);
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), color-stop(50%, rgb(241, 241, 241)), color-stop(51%, rgb(225, 225, 225)), to(rgb(246, 246, 246)));
   background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(241, 241, 241) 50%, rgb(225, 225, 225) 51%, rgb(246, 246, 246) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#f6f6f6",GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#f6f6f6", GradientType=0);
   color: #10325B;
   font-size: 24px;
   font-weight: bold;
   text-align: center;
   -webkit-box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.16);
   margin-right: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
+
 .FunctionColumnButten img {
   margin-right: 15px;
   width: auto;
@@ -1314,10 +1374,12 @@ button {
   .activitiesSubtitle {
     font-size: 20px;
   }
+
   .EventTicketingTitle {
     font-size: 22px;
   }
 }
+
 .CancelRegistrationSelect {
   width: 100%;
   height: auto;
@@ -1371,7 +1433,7 @@ button {
   padding: 30px;
   margin-top: 20px;
   -webkit-box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.16);
 }
 
 .Calendar_top {
@@ -1383,9 +1445,9 @@ button {
 
 .Monthbutton {
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: pointer;
   width: 30px;
   height: 30px;
@@ -1396,14 +1458,15 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
 }
+
 .Monthbutton img {
   width: 9px;
   height: 15px;
@@ -1418,13 +1481,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   font-size: 20px;
   font-weight: bold;
   color: #10325B;
@@ -1447,13 +1510,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   align-items: center;
 }
 
@@ -1465,15 +1528,15 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .daybar {
@@ -1484,13 +1547,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 20px;
   font-weight: bold;
   color: #555555;
@@ -1524,13 +1587,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .Activitybar_item {
@@ -1553,21 +1616,21 @@ button {
   background-color: #fff;
   border-radius: 10px;
   -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   margin-bottom: 10px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   padding: 0px 20px;
 }
 
@@ -1602,21 +1665,21 @@ button {
   background-color: #fff;
   border-radius: 10px;
   -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   margin-bottom: 10px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   padding: 20px 30px;
   position: relative;
   -webkit-transition: all 0.5s ease;
@@ -1631,16 +1694,16 @@ button {
   position: absolute;
   right: 26px;
   -webkit-transform: translateY(0%);
-          transform: translateY(0%);
+  transform: translateY(0%);
   -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
+  transform: rotate(-90deg);
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
 .question_Box.active .question_bar::after {
   -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
+  transform: rotate(0deg);
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
@@ -1656,7 +1719,7 @@ button {
   transition: all 0.5s ease;
 }
 
-.question_Box.active > .question_bar > .question_barText {
+.question_Box.active>.question_bar>.question_barText {
   color: #006699;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -1674,7 +1737,7 @@ button {
   max-height: 0px;
 }
 
-.question_Box.active > .Answer_box {
+.question_Box.active>.Answer_box {
   max-height: 500px;
   padding: 20px 0px;
   padding-top: 10px;
@@ -1696,7 +1759,7 @@ button {
   padding: 20px;
   border-radius: 10px;
   -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   background-color: #fff;
   margin-bottom: 15px;
 }
@@ -1709,13 +1772,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .questBox_item_top_l {
@@ -1726,13 +1789,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .questBox_item_top_r {
@@ -1743,13 +1806,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .questBox_item_nb {
@@ -1762,13 +1825,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   color: #fff;
   font-weight: 900;
   font-size: 14px;
@@ -1799,7 +1862,7 @@ button {
   margin-top: 20px;
 }
 
-.Quest_radio_Box > input[type=radio] {
+.Quest_radio_Box>input[type=radio] {
   width: 20px;
   height: 20px;
   float: left;
@@ -1808,7 +1871,7 @@ button {
   margin-left: -26px;
 }
 
-.Quest_radio_Box > label {
+.Quest_radio_Box>label {
   line-height: 21px;
   display: inline-block;
   cursor: pointer;
@@ -1819,7 +1882,7 @@ button {
   position: relative;
 }
 
-.Quest_radio_Box > input[type=radio] + label:before {
+.Quest_radio_Box>input[type=radio]+label:before {
   content: "";
   height: 16px;
   width: 16px;
@@ -1831,7 +1894,7 @@ button {
   margin-right: 10px;
 }
 
-.Quest_radio_Box > input[type=radio] + label:after {
+.Quest_radio_Box>input[type=radio]+label:after {
   content: "";
   height: 12px;
   width: 12px;
@@ -1844,7 +1907,7 @@ button {
   background-color: rgba(255, 255, 255, 0.002);
 }
 
-.Quest_radio_Box > input[type=radio]:checked + label:before {
+.Quest_radio_Box>input[type=radio]:checked+label:before {
   height: 16px;
   width: 16px;
   border: 2px solid #ff8800;
@@ -1852,7 +1915,7 @@ button {
   margin-right: 10px;
 }
 
-.Quest_radio_Box > input[type=radio]:checked + label:after {
+.Quest_radio_Box>input[type=radio]:checked+label:after {
   background-color: #ff8800;
 }
 
@@ -1871,20 +1934,24 @@ button {
 @media screen and (max-width: 730px) {
   .questBox_item_top_tr {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .questBox_item_top_r {
     width: 100%;
     margin-top: 10px;
   }
+
   .Quest_radio_Box {
     margin-top: 10px;
   }
-  .Quest_radio_Box > label {
+
+  .Quest_radio_Box>label {
     width: 100%;
     margin-bottom: 15px;
   }
 }
+
 .BannerBar {
   width: 100%;
   max-width: 1200px;
@@ -1894,7 +1961,7 @@ button {
   position: relative;
   left: 50%;
   -webkit-transform: translate(-50%, 0%);
-          transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
   margin-top: 20px;
 }
 
@@ -1908,14 +1975,15 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: end;
-      align-content: flex-end;
+  align-content: flex-end;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
 }
+
 .banner_content img {
   width: 100%;
   height: auto;
@@ -1929,13 +1997,14 @@ button {
   height: 100%;
   max-height: 450px;
 }
+
 .activityList .swiper .swiper-slide img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   -o-object-position: center;
-     object-position: center;
+  object-position: center;
   max-height: 450px;
 }
 
@@ -1947,16 +2016,16 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-top: 30px;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .Course_title {
@@ -1997,7 +2066,7 @@ button {
   border-radius: 15px;
   border: 0px;
   -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   padding-left: 40px;
   position: relative;
 }
@@ -2011,13 +2080,14 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
+
 .Course_List_Box a {
   width: calc(50% - 10px);
   margin-bottom: 20px;
@@ -2028,6 +2098,7 @@ button {
     width: 100%;
   }
 }
+
 .Course_List_Item {
   width: 100%;
   float: left;
@@ -2035,13 +2106,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
 }
 
 .Course_date_left {
@@ -2051,18 +2122,18 @@ button {
   background: rgb(255, 255, 255);
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), color-stop(50%, rgb(241, 241, 241)), color-stop(51%, rgb(225, 225, 225)), to(rgb(246, 246, 246)));
   background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(241, 241, 241) 50%, rgb(225, 225, 225) 51%, rgb(246, 246, 246) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#f6f6f6",GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#f6f6f6", GradientType=0);
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   position: relative;
   border-radius: 20px;
   position: relative;
@@ -2076,13 +2147,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: stretch;
-      align-content: stretch;
+  align-content: stretch;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
 }
 
 .CoursedateMonth {
@@ -2114,15 +2185,15 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   padding: 20px;
   position: relative;
   border-radius: 20px;
@@ -2228,7 +2299,7 @@ button {
   padding: 60px;
   margin-top: 20px;
   -webkit-box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.16);
 }
 
 @media (max-width: 576px) {
@@ -2236,6 +2307,7 @@ button {
     padding: 20px;
   }
 }
+
 .Coursebuttoon {
   width: 100%;
   height: auto;
@@ -2256,11 +2328,11 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   padding: 18px;
 }
 
@@ -2294,6 +2366,7 @@ button {
   margin-bottom: 20px;
   color: #006699;
 }
+
 .CourseinfTitle.registration {
   font-size: 28px;
 }
@@ -2303,6 +2376,7 @@ button {
     font-size: 25px;
   }
 }
+
 .ticket_set {
   width: 100%;
   height: auto;
@@ -2313,15 +2387,15 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -2341,14 +2415,15 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
+
 .QuantityTable_button img {
   width: auto;
   height: auto;
@@ -2364,13 +2439,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 16px;
   color: #000;
   text-align: center;
@@ -2424,9 +2499,10 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
+
 .indAct_item_Box .indAct_ul01 {
   width: 60%;
   height: auto;
@@ -2435,18 +2511,20 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
+
 .indAct_item_Box .indAct_ul01 li {
   width: 145px;
   height: 222px;
   position: relative;
 }
+
 .indAct_item_Box .indAct_ul01 li a {
   width: 100%;
   height: 222px;
@@ -2454,7 +2532,7 @@ button {
   background-color: #fff;
   border-radius: 100px 100px 100px 100px;
   -webkit-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.15);
-          box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.15);
   padding: 10px;
 }
 
@@ -2466,9 +2544,10 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
+
 .indAct_item_BoxEN .indAct_ul01 {
   width: 60%;
   height: auto;
@@ -2477,18 +2556,20 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
+
 .indAct_item_BoxEN .indAct_ul01 li {
   width: 145px;
   height: 222px;
   position: relative;
 }
+
 .indAct_item_BoxEN .indAct_ul01 li a {
   width: 100%;
   height: 222px;
@@ -2496,12 +2577,14 @@ button {
   background-color: #fff;
   border-radius: 100px 100px 100px 100px;
   -webkit-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.15);
-          box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.15);
   padding: 10px;
 }
+
 .indAct_item_BoxEN .indAct_ul01 li:nth-child(3) a .atcText {
   bottom: 30px;
 }
+
 .indAct_item_BoxEN .indAct_ul02 {
   width: 40%;
   height: auto;
@@ -2510,18 +2593,20 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
+
 .indAct_item_BoxEN .indAct_ul02 li {
   width: 145px;
   height: 222px;
   position: relative;
 }
+
 .indAct_item_BoxEN .indAct_ul02 li a {
   width: 100%;
   height: 222px;
@@ -2529,7 +2614,7 @@ button {
   background-color: #fff;
   border-radius: 100px 100px 100px 100px;
   -webkit-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.15);
-          box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.15);
   padding: 10px;
 }
 
@@ -2540,6 +2625,7 @@ button {
   float: left;
   bottom: 10px;
 }
+
 .atcImgBox img {
   width: 100%;
   height: auto;
@@ -2575,13 +2661,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .AnnouncementSystemBox {
@@ -2591,7 +2677,8 @@ button {
   float: left;
   margin-top: 54px;
 }
-.AnnouncementSystemBox > ul {
+
+.AnnouncementSystemBox>ul {
   width: 100%;
   height: auto;
   float: left;
@@ -2599,15 +2686,16 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
-.AnnouncementSystemBox > ul > li {
+
+.AnnouncementSystemBox>ul>li {
   width: calc(33.3333333333% - 44px);
   height: 256px;
   float: left;
@@ -2627,13 +2715,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: end;
-      align-content: flex-end;
+  align-content: flex-end;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
 }
 
 .AnnTopIcon {
@@ -2641,6 +2729,7 @@ button {
   height: auto;
   float: left;
 }
+
 .AnnTopIcon img {
   width: 100%;
   max-width: 100%;
@@ -2671,13 +2760,15 @@ button {
   margin: 10px;
   overflow-y: auto;
 }
-.AnnContent > ul {
+
+.AnnContent>ul {
   width: calc(100% - 20px);
   height: auto;
   float: left;
   margin: 12px 0px;
 }
-.AnnContent > ul > li {
+
+.AnnContent>ul>li {
   width: 100%;
   height: auto;
   padding-left: 6px;
@@ -2688,7 +2779,8 @@ button {
   border-left-style: solid;
   text-align: justify;
 }
-.AnnContent > ul > li a {
+
+.AnnContent>ul>li a {
   color: #666;
 }
 
@@ -2724,43 +2816,51 @@ button {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     padding: 0px 0px;
   }
+
   .indAct_item_Box .indAct_ul01 {
     width: 100%;
   }
+
   .indAct_item_Box .indAct_ul02 {
     width: 100%;
   }
+
   .indAct_item_Box ul {
     width: 590px;
     padding: 0px 20px;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .indAct_item_Box ul a {
     height: 260px;
   }
+
   .indAct_item_Box ul a li {
     height: 240px;
   }
+
   .AnnouncementSystem {
     padding: 0px 20px;
   }
 }
+
 @media screen and (max-width: 890px) {
-  .AnnouncementSystemBox > ul > li {
+  .AnnouncementSystemBox>ul>li {
     width: calc(33.3333333333% - 20px);
   }
 }
+
 @media screen and (max-width: 610px) {
   .indAct_item_Box {
     width: 100%;
@@ -2768,67 +2868,78 @@ button {
     display: -ms-inline-flexbox;
     display: inline-flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     padding: 0px 0px;
   }
+
   .indAct_item_Box ul {
     width: 300px;
     padding: 0px;
     -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .indAct_item_Box ul a {
     width: calc(50% - 20px);
     height: 230px;
   }
+
   .indAct_item_Box ul a li {
     height: 210px;
   }
-  .AnnouncementSystemBox > ul {
+
+  .AnnouncementSystemBox>ul {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
-  .AnnouncementSystemBox > ul > li {
+
+  .AnnouncementSystemBox>ul>li {
     width: 100%;
     margin-bottom: 30px;
   }
+
   .AnnouncementSystem {
     padding: 0px;
   }
 }
+
 @media screen and (max-width: 490px) {
   .indexPageTitle {
     font-size: 28px;
     letter-spacing: 4px;
   }
 }
+
 .Login .page_content {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
 }
+
 .Login .page_content .loginTopIcon {
   margin-bottom: 30px;
 }
+
 .Login .page_content .loginContentBox {
   width: 100%;
   max-width: 680px;
   background-color: rgba(255, 255, 255, 0.6);
   -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
   padding: 50px;
   border-radius: 20px;
 }
+
 .Login .page_content .loginContentBox .ContentBoxTitle {
   text-align: center;
   font-size: 30px;
@@ -2836,13 +2947,16 @@ button {
   color: #006699;
   margin-bottom: 25px;
 }
+
 .Login .page_content .loginContentBox .error {
   margin-bottom: 20px;
   text-align: right;
 }
+
 .Login .page_content .loginContentBox .User_account {
   position: relative;
 }
+
 .Login .page_content .loginContentBox .User_account input {
   display: block;
   width: 100%;
@@ -2850,9 +2964,10 @@ button {
   border-radius: 5px;
   background: transparent;
   -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
   margin-bottom: 10px;
 }
+
 .Login .page_content .loginContentBox .User_account::after {
   position: absolute;
   content: url(/src/assets/img/user-solid.svg);
@@ -2860,32 +2975,35 @@ button {
   height: 50px;
   background-color: #fff;
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   top: 0;
   left: -10px;
 }
+
 .Login .page_content .loginContentBox .User_password {
   position: relative;
 }
+
 .Login .page_content .loginContentBox .User_password input {
   width: 100%;
   padding: 15px 0 15px 50px;
   border-radius: 5px;
   background: transparent;
   -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
   margin-bottom: 10px;
 }
+
 .Login .page_content .loginContentBox .User_password::after {
   position: absolute;
   content: url(/src/assets/img/lock-solid.svg);
@@ -2893,76 +3011,85 @@ button {
   height: 50px;
   background-color: #fff;
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   top: 0;
   left: -10px;
 }
+
 .Login .page_content .loginContentBox .login_confirm_input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   margin-bottom: 40px;
 }
+
 .Login .page_content .loginContentBox .login_confirm_input label span {
   margin-right: 16px;
   font-size: 18px;
   color: #555555;
   font-weight: bold;
 }
+
 .Login .page_content .loginContentBox .login_confirm_input label input[type=checkbox] {
   display: none;
 }
-.Login .page_content .loginContentBox .login_confirm_input label input[type=checkbox] + span {
+
+.Login .page_content .loginContentBox .login_confirm_input label input[type=checkbox]+span {
   display: inline-block;
   padding-left: 42px;
   line-height: 38px;
   background: url(/src/assets/img/confirm_no.svg) no-repeat;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   font-size: 18px;
   font-weight: bold;
   color: #555555;
 }
-.Login .page_content .loginContentBox .login_confirm_input label input[type=checkbox]:checked + span {
+
+.Login .page_content .loginContentBox .login_confirm_input label input[type=checkbox]:checked+span {
   background: url(/src/assets/img/confirm_sure.svg) no-repeat;
 }
+
 .Login .page_content .loginContentBox .login_confirm_input .ForgotPassword a {
   color: #943737;
   font-size: 18px;
   font-weight: bold;
 }
+
 .Login .page_content .loginContentBox .login_confirm_input .invalid-feedback {
   margin-left: auto;
 }
+
 .Login .page_content .loginContentBox .buttonBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-bottom: 30px;
 }
+
 .Login .page_content .loginContentBox .buttonBox .buttonStyle {
   display: block;
   width: 140px;
@@ -2972,98 +3099,110 @@ button {
   font-weight: bold;
   border-radius: 5px;
 }
+
 .Login .page_content .loginContentBox .buttonBox .buttonStyle.pageButton {
   margin-right: 45px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #0775AC), color-stop(50%, #006699));
   background: linear-gradient(#0775AC 50%, #006699 50%);
 }
+
 .Login .page_content .loginContentBox .buttonBox .buttonStyle.loginButton {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
   background: linear-gradient(#1A3F65 50%, #183354 50%);
 }
+
 .Login .page_content .loginContentBox .ThirdParty .ThirdPartyTitle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-bottom: 20px;
 }
+
 .Login .page_content .loginContentBox .ThirdParty .ThirdPartyTitle .ThirdPartyTitleText {
   color: #555;
   font-weight: bold;
   margin: 0 20px;
 }
+
 .Login .page_content .loginContentBox .ThirdParty .ThirdPartyTitle .ThirdPartyTitleLine {
   width: 60px;
   height: 1px;
   background-color: #666;
 }
+
 .Login .page_content .loginContentBox .ThirdParty .ThirdPartyButtemBar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
+
 .Login .page_content .loginContentBox .ThirdParty .ThirdPartyButtemBar .ThirdPartyButtemItem {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   gap: 5px;
 }
+
 .Login .page_content .loginContentBox .ThirdParty .ThirdPartyButtemBar .ThirdPartyButtemIcon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: 80px;
   height: 80px;
   background-color: #fff;
   border-radius: 50%;
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
 }
+
 @media (max-width: 768px) {
   .Login .page_content .loginContentBox {
     padding: 30px;
   }
 }
+
 @media (max-width: 576px) {
   .Login .page_content .loginContentBox {
     padding: 30px;
   }
+
   .Login .page_content .loginContentBox .buttonBox {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
   }
+
   .Login .page_content .loginContentBox .buttonBox .buttonStyle {
     display: block;
     width: 140px;
@@ -3073,11 +3212,13 @@ button {
     font-weight: bold;
     border-radius: 5px;
   }
+
   .Login .page_content .loginContentBox .buttonBox .buttonStyle.pageButton {
     margin-right: 0px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #0775AC), color-stop(50%, #006699));
     background: linear-gradient(#0775AC 50%, #006699 50%);
   }
+
   .Login .page_content .loginContentBox .buttonBox .buttonStyle.loginButton {
     margin-bottom: 20px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
@@ -3088,26 +3229,29 @@ button {
 .ForgotPassword .page_content {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
 }
+
 .ForgotPassword .loginTopIcon {
   margin-bottom: 30px;
 }
+
 .ForgotPassword .loginContentBox {
   width: 100%;
   max-width: 680px;
   background-color: rgba(255, 255, 255, 0.6);
   -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
   padding: 50px;
   border-radius: 20px;
 }
+
 .ForgotPassword .loginContentBox .ContentBoxTitle {
   text-align: center;
   font-size: 30px;
@@ -3115,13 +3259,16 @@ button {
   color: #006699;
   margin-bottom: 25px;
 }
+
 .ForgotPassword .loginContentBox .error {
   margin-bottom: 20px;
   text-align: right;
 }
+
 .ForgotPassword .loginContentBox .signup_User_account {
   position: relative;
 }
+
 .ForgotPassword .loginContentBox .signup_User_account input {
   display: block;
   width: 100%;
@@ -3129,9 +3276,10 @@ button {
   border-radius: 5px;
   background: transparent;
   -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
   margin-bottom: 10px;
 }
+
 .ForgotPassword .loginContentBox .signup_User_account::after {
   position: absolute;
   content: url(/src/assets/img/emailalt.svg);
@@ -3139,37 +3287,40 @@ button {
   height: 50px;
   background-color: #fff;
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   top: 0;
   left: -10px;
 }
+
 .ForgotPassword .loginContentBox .Boxbarmessage {
   color: #10325B;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 100px;
 }
+
 .ForgotPassword .loginContentBox .Boxbarbuttem2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
+
 .ForgotPassword .loginContentBox .Boxbarbuttem2 .buttonStyle {
   display: block;
   width: 140px;
@@ -3181,14 +3332,17 @@ button {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
   background: linear-gradient(#1A3F65 50%, #183354 50%);
 }
+
 @media (max-width: 768px) {
   .ForgotPassword .loginContentBox {
     padding: 30px;
   }
+
   .ForgotPassword .loginContentBox .Boxbarbuttem2 .buttonStyle {
     font-size: 20px;
   }
 }
+
 @media (max-width: 576px) {
   .ForgotPassword .loginContentBox .Boxbarmessage {
     margin-bottom: 60px;
@@ -3198,26 +3352,29 @@ button {
 .signUp .page_content {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
 }
+
 .signUp .page_content .loginTopIcon {
   margin-bottom: 30px;
 }
+
 .signUp .page_content .loginContentBox {
   width: 100%;
   max-width: 680px;
   background-color: rgba(255, 255, 255, 0.6);
   -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
   padding: 50px;
   border-radius: 20px;
 }
+
 .signUp .page_content .loginContentBox .ContentBoxTitle {
   text-align: center;
   font-size: 30px;
@@ -3225,13 +3382,16 @@ button {
   color: #006699;
   margin-bottom: 25px;
 }
+
 .signUp .page_content .loginContentBox .invalid-feedback {
   display: block;
   text-align: right;
 }
+
 .signUp .page_content .loginContentBox .signup_User_account {
   position: relative;
 }
+
 .signUp .page_content .loginContentBox .signup_User_account input {
   display: block;
   width: 100%;
@@ -3239,9 +3399,10 @@ button {
   border-radius: 5px;
   background: transparent;
   -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
   margin-bottom: 10px;
 }
+
 .signUp .page_content .loginContentBox .signup_User_account::after {
   position: absolute;
   content: url(/src/assets/img/emailalt.svg);
@@ -3249,20 +3410,21 @@ button {
   height: 50px;
   background-color: #fff;
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   top: 0;
   left: -10px;
 }
+
 .signUp .page_content .loginContentBox .VerificationCodeBar {
   width: 100%;
   height: auto;
@@ -3272,21 +3434,24 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   margin-bottom: 80px;
 }
+
 .signUp .page_content .loginContentBox .VerificationCodeBar .VerifCodeTitle {
   color: #10325B;
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 10px;
 }
+
 .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCode {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
+
 .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCode input {
   width: 74%;
   font-size: 16px;
@@ -3294,10 +3459,11 @@ button {
   padding-left: 20px;
   background-color: rgba(255, 255, 255, 0.5);
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+
 .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCodeButtem {
   width: 26%;
   text-align: center;
@@ -3309,24 +3475,27 @@ button {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
 }
+
 .signUp .page_content .loginContentBox .VerificationCodeBar .invalid-feedback {
   -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
   margin: 10px 0;
 }
+
 .signUp .page_content .loginContentBox .Boxbarbutton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
+
 .signUp .page_content .loginContentBox .Boxbarbutton .buttonStyle {
   display: block;
   width: 140px;
@@ -3338,27 +3507,33 @@ button {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
   background: linear-gradient(#1A3F65 50%, #183354 50%);
 }
+
 @media (max-width: 768px) {
   .signUp .page_content .loginContentBox {
     padding: 30px;
   }
 }
+
 @media (max-width: 576px) {
   .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCode {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
+
   .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCode input {
     width: 100%;
   }
+
   .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCodeButtem {
     width: 50%;
   }
+
   .signUp .page_content .loginContentBox .Boxbarbutton .buttonStyle {
     font-size: 20px;
   }
 }
+
 @media (max-width: 414px) {
   .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCode {
     display: -webkit-box;
@@ -3366,9 +3541,10 @@ button {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
+
   .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCode input {
     display: block;
     width: 100%;
@@ -3376,9 +3552,10 @@ button {
     border-radius: 5px;
     background: transparent;
     -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
-            box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
     margin-bottom: 10px;
   }
+
   .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCodeButtem {
     width: 100%;
     padding: 10px;
@@ -3388,26 +3565,29 @@ button {
 .Register .page_content {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
 }
+
 .Register .page_content .loginTopIcon {
   margin-bottom: 30px;
 }
+
 .Register .page_content .loginContentBox {
   width: 100%;
   max-width: 680px;
   background-color: rgba(255, 255, 255, 0.6);
   -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.16);
   padding: 50px;
   border-radius: 20px;
 }
+
 .Register .page_content .loginContentBox .ContentBoxTitle {
   text-align: center;
   font-size: 30px;
@@ -3415,9 +3595,11 @@ button {
   color: #006699;
   margin-bottom: 25px;
 }
+
 .Register .page_content .loginContentBox .PageTitle {
   margin-bottom: 10px;
 }
+
 .Register .page_content .loginContentBox input[type=password] {
   width: 100%;
   height: 50px;
@@ -3426,46 +3608,52 @@ button {
   padding-left: 20px;
   background-color: rgba(255, 255, 255, 0.5);
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   margin-bottom: 24px;
 }
+
 .Register .page_content .loginContentBox .page_confirm_input {
   margin-bottom: 25px;
 }
+
 .Register .page_content .loginContentBox .page_confirm_input label input[type=checkbox] {
   display: none;
 }
-.Register .page_content .loginContentBox .page_confirm_input label input[type=checkbox] + span {
+
+.Register .page_content .loginContentBox .page_confirm_input label input[type=checkbox]+span {
   display: inline-block;
   padding-left: 32px;
   line-height: 28px;
   background: url(/src/assets/img/confirm_no.svg) no-repeat;
   background-size: 30px;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   font-size: 16px;
   font-weight: bold;
   color: #555555;
 }
-.Register .page_content .loginContentBox .page_confirm_input label input[type=checkbox]:checked + span {
+
+.Register .page_content .loginContentBox .page_confirm_input label input[type=checkbox]:checked+span {
   background: url(/src/assets/img/confirm_sure.svg) no-repeat;
   background-size: 30px;
 }
+
 .Register .page_content .loginContentBox .Boxbarbutton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
+
 .Register .page_content .loginContentBox .Boxbarbutton .buttonStyle {
   display: block;
   width: 140px;
@@ -3477,6 +3665,7 @@ button {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
   background: linear-gradient(#1A3F65 50%, #183354 50%);
 }
+
 @media (max-width: 576px) {
   .Register .page_content .loginContentBox .Boxbarbutton .buttonStyle {
     font-size: 20px;
@@ -3488,11 +3677,13 @@ button {
   height: auto;
   float: left;
 }
+
 .PageBreadCrumbs ul {
   width: 100%;
   height: auto;
   float: left;
 }
+
 .PageBreadCrumbs ul li {
   width: auto;
   height: auto;
@@ -3512,13 +3703,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-line-pack: stretch;
-      align-content: stretch;
+  align-content: stretch;
   -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
 }
 
 .memberNav {
@@ -3534,8 +3725,8 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .memberNavItem {
@@ -3547,16 +3738,17 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
+
 .memberNavItem a {
   width: 100%;
   height: auto;
@@ -3567,6 +3759,7 @@ button {
   padding: 0 30px;
   margin-top: 30px;
 }
+
 .logoutButton a {
   font-size: 20px;
   font-weight: bold;
@@ -3594,9 +3787,9 @@ button {
   background: rgb(255, 255, 255);
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), color-stop(50%, rgb(235, 235, 235)), color-stop(51%, rgb(226, 226, 226)), to(rgb(230, 230, 230)));
   background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(235, 235, 235) 50%, rgb(226, 226, 226) 51%, rgb(230, 230, 230) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#7db9e8", endColorstr="#1e5799",GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7db9e8", endColorstr="#1e5799", GradientType=0);
   -webkit-box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   font-size: 18px;
   font-weight: bold;
@@ -3606,6 +3799,7 @@ button {
   margin-left: 30px;
   margin-right: 30px;
 }
+
 .navItemSortContentItem a {
   color: #006699;
   padding: 10px;
@@ -3619,11 +3813,11 @@ button {
   margin-bottom: 20px;
 }
 
-.navItemSortContentItem.active > a {
+.navItemSortContentItem.active>a {
   background: rgb(7, 117, 172);
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(7, 117, 172)), color-stop(50%, rgb(0, 102, 153)), color-stop(51%, rgb(0, 74, 112)), to(rgb(0, 102, 153)));
   background: linear-gradient(to bottom, rgb(7, 117, 172) 0%, rgb(0, 102, 153) 50%, rgb(0, 74, 112) 51%, rgb(0, 102, 153) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#7db9e8", endColorstr="#1e5799",GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7db9e8", endColorstr="#1e5799", GradientType=0);
   color: #fff;
   border-radius: 10px;
 }
@@ -3633,7 +3827,7 @@ button {
   height: 20px;
   background-color: #FF4646;
   -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-shrink: 0;
   float: left;
 }
 
@@ -3647,6 +3841,7 @@ button {
   margin-left: 5px;
   color: #006699;
 }
+
 .memberNavItemtext.mobileStyle {
   font-size: 17px;
 }
@@ -3655,15 +3850,15 @@ button {
   background-color: rgb(0, 102, 153);
 }
 
-.memberNavItem.active a > .navItems > .memberNavItemLine {
+.memberNavItem.active a>.navItems>.memberNavItemLine {
   background-color: #fff;
 }
 
-.memberNavItem.active a > .navItems > .memberNavItemtext {
+.memberNavItem.active a>.navItems>.memberNavItemtext {
   color: #FFFFFF;
 }
 
-.memberNavItem.active > .navItemSort {
+.memberNavItem.active>.navItemSort {
   height: auto;
 }
 
@@ -3676,13 +3871,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 0px 30px;
 }
 
@@ -3708,15 +3903,17 @@ button {
   color: #666;
 }
 
-.memberNavItem:nth-child(2) > a > div.navItems::after, .memberNavItem:nth-child(3) > a > div.navItems::after {
+.memberNavItem:nth-child(2)>a>div.navItems::after,
+.memberNavItem:nth-child(3)>a>div.navItems::after {
   display: inline-block;
 }
 
-.memberNavItem.active > .navItems {
+.memberNavItem.active>.navItems {
   background-color: rgb(0, 102, 153);
 }
 
-.memberNavItem:nth-child(2).active > a > div.navItems::after, .memberNavItem:nth-child(3).active > a > div.navItems::after {
+.memberNavItem:nth-child(2).active>a>div.navItems::after,
+.memberNavItem:nth-child(3).active>a>div.navItems::after {
   display: inline-block;
   color: #fff;
   -webkit-transform: rotate(0deg);
@@ -3743,13 +3940,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
 }
 
 .memberCenterRightContentBox {
@@ -3771,8 +3968,8 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .memberUserQRcord {
@@ -3786,6 +3983,7 @@ button {
   height: 46px;
   float: left;
 }
+
 .memberUserBoxLeft img {
   width: auto;
   height: 100%;
@@ -3804,13 +4002,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -ms-flex-line-pack: end;
-      align-content: flex-end;
+  align-content: flex-end;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
 }
 
 .qrcodeph {
@@ -3819,6 +4017,7 @@ button {
   float: left;
   cursor: pointer;
 }
+
 .qrcodeph img {
   width: 100%;
   height: auto;
@@ -3834,15 +4033,15 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   -ms-flex-line-pack: justify;
-      align-content: space-between;
+  align-content: space-between;
   -webkit-box-align: space-between;
-      -ms-flex-align: space-between;
-          align-items: space-between;
+  -ms-flex-align: space-between;
+  align-items: space-between;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   margin-right: 10px;
 }
 
@@ -3856,7 +4055,7 @@ button {
   background: rgb(230, 230, 230);
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(230, 230, 230)), to(rgb(212, 212, 212)));
   background: linear-gradient(to bottom, rgb(230, 230, 230) 0%, rgb(212, 212, 212) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#e6e6e6", endColorstr="#d4d4d4",GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e6e6e6", endColorstr="#d4d4d4", GradientType=0);
   line-height: 22px;
   border-radius: 3px;
   padding: 0 10px;
@@ -3909,7 +4108,9 @@ button {
     font-size: 18px;
   }
 }
-.pointsBox, .giftsBox {
+
+.pointsBox,
+.giftsBox {
   width: 100%;
   height: auto;
   float: left;
@@ -3925,7 +4126,7 @@ button {
   display: flex;
   gap: 20px;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .pointsBoxItem {
@@ -3951,13 +4152,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
 }
 
 .pointsBoxItemRight {
@@ -3976,13 +4177,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   border-top: 1px solid #006699;
   border-bottom: 1px solid #006699;
   border-right: 1px solid #006699;
@@ -3993,20 +4194,20 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 180px;
   height: 60px;
   background: rgb(255, 255, 255);
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), color-stop(40%, rgb(241, 241, 241)), color-stop(41%, rgb(225, 225, 225)), to(rgb(246, 246, 246)));
   background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(241, 241, 241) 40%, rgb(225, 225, 225) 41%, rgb(246, 246, 246) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#f6f6f6",GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#f6f6f6", GradientType=0);
   border-radius: 10px;
   -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.2);
   padding: 10px;
 }
 
@@ -4015,6 +4216,7 @@ button {
   height: 40px;
   float: left;
 }
+
 .giftsBoxItemIcon img {
   height: 100%;
   width: auto;
@@ -4030,7 +4232,10 @@ button {
   margin-left: 10px;
 }
 
-.memberinfText, .memberinfTextinput, .memberinfTextinput2, .memberinfTextinput3 {
+.memberinfText,
+.memberinfTextinput,
+.memberinfTextinput2,
+.memberinfTextinput3 {
   width: 100%;
   height: 50px;
   float: left;
@@ -4040,20 +4245,22 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 16px;
   color: #555555;
   font-weight: bold;
   margin-bottom: 30px;
 }
 
-.memberinfTextinput, .memberinfTextinput2, .memberinfTextinput3 {
+.memberinfTextinput,
+.memberinfTextinput2,
+.memberinfTextinput3 {
   border-bottom: 0px;
   position: relative;
 }
@@ -4069,23 +4276,27 @@ button {
 .memberinfTextinput {
   position: relative;
 }
+
 .memberinfTextinput.Sessions {
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
+
 .memberinfTextinput .material-symbols-outlined {
   position: absolute;
   right: 10px;
 }
+
 .memberinfTextinput .upload_btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   position: relative;
 }
+
 .memberinfTextinput .upload_btn label {
   position: absolute;
   line-height: 21px;
@@ -4093,15 +4304,16 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   cursor: pointer;
   padding-left: 0px;
   padding-right: 0px;
 }
+
 .memberinfTextinput .upload_btn input {
   margin-left: 20px;
 }
@@ -4110,11 +4322,14 @@ button {
   .memberinfTextinput .upload_btn label {
     left: -20px;
   }
+
   .memberinfTextinput .upload_btn input {
     margin-left: 0px;
   }
 }
-.itemsS50L, .itemsS50R {
+
+.itemsS50L,
+.itemsS50R {
   width: calc(50% - 10px);
   height: auto;
   float: left;
@@ -4155,6 +4370,7 @@ button {
   height: 20px;
   float: left;
 }
+
 .avatarTitleIcon img {
   width: 100%;
   height: auto;
@@ -4176,18 +4392,21 @@ button {
   height: 30px;
   float: left;
 }
+
 .avatarshint .upload_btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   position: relative;
 }
+
 .avatarshint .upload_btn label {
   position: absolute;
 }
+
 .avatarshint .upload_btn input {
   margin-left: 20px;
 }
@@ -4211,13 +4430,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .memberinfinput {
@@ -4246,17 +4465,18 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-left: 20px;
 }
 
-.memberinfTextinput input[type=radio], .memberinfTextinput3 > input[type=radio] {
+.memberinfTextinput input[type=radio],
+.memberinfTextinput3>input[type=radio] {
   width: 20px;
   height: 20px;
   margin-right: 6px;
@@ -4264,7 +4484,10 @@ button {
   margin-left: -26px;
 }
 
-.memberinfTextinput input[type=radio]:checked + label:before, .memberinfTextinput input[type=radio] + label:before, .memberinfTextinput3 > input[type=radio]:checked + label:before, .memberinfTextinput3 > input[type=radio] + label:before {
+.memberinfTextinput input[type=radio]:checked+label:before,
+.memberinfTextinput input[type=radio]+label:before,
+.memberinfTextinput3>input[type=radio]:checked+label:before,
+.memberinfTextinput3>input[type=radio]+label:before {
   content: "";
   height: 16px;
   width: 16px;
@@ -4275,13 +4498,15 @@ button {
   margin-left: -26px;
 }
 
-.memberinfTextinput input[type=radio]:checked + label:before, .memberinfTextinput3 > input[type=radio]:checked + label:before {
+.memberinfTextinput input[type=radio]:checked+label:before,
+.memberinfTextinput3>input[type=radio]:checked+label:before {
   height: 10px;
   width: 10px;
   border: 5px solid #8d4141;
 }
 
-.memberinfTextinput label, .memberinfTextinput3 > label {
+.memberinfTextinput label,
+.memberinfTextinput3>label {
   line-height: 21px;
   display: inline-block;
   cursor: pointer;
@@ -4298,13 +4523,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .ls_icon {
@@ -4315,18 +4540,19 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-radius: 50%;
   background-color: #fff;
   -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
+
 .ls_icon img {
   width: 40%;
   height: auto;
@@ -4349,8 +4575,8 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-left: 20px;
 }
 
@@ -4359,6 +4585,7 @@ button {
   height: 20px;
   float: left;
 }
+
 .ls_linkIcon img {
   width: 20px;
   height: 20px;
@@ -4370,7 +4597,7 @@ button {
   height: 40px;
   float: left;
   -webkit-box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   font-size: 18px;
   font-weight: bold;
@@ -4384,14 +4611,14 @@ button {
   background: rgb(255, 255, 255);
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), color-stop(50%, rgb(235, 235, 235)), color-stop(51%, rgb(226, 226, 226)), to(rgb(230, 230, 230)));
   background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(235, 235, 235) 50%, rgb(226, 226, 226) 51%, rgb(230, 230, 230) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#7db9e8", endColorstr="#1e5799",GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7db9e8", endColorstr="#1e5799", GradientType=0);
 }
 
 .unlinked {
   background: rgb(7, 117, 172);
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(7, 117, 172)), color-stop(50%, rgb(0, 102, 153)), color-stop(51%, rgb(0, 74, 112)), to(rgb(0, 102, 153)));
   background: linear-gradient(to bottom, rgb(7, 117, 172) 0%, rgb(0, 102, 153) 50%, rgb(0, 74, 112) 51%, rgb(0, 102, 153) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#7db9e8", endColorstr="#1e5799",GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7db9e8", endColorstr="#1e5799", GradientType=0);
   color: #fff;
 }
 
@@ -4403,6 +4630,7 @@ button {
   right: 20px;
   cursor: pointer;
 }
+
 .changepassword_view img {
   width: auto;
   height: 100%;
@@ -4414,6 +4642,7 @@ button {
   height: auto;
   float: left;
 }
+
 .editor h2 {
   width: 100%;
   height: auto;
@@ -4425,6 +4654,7 @@ button {
   border-left: 3px solid #FF4646;
   padding-left: 6px;
 }
+
 .editor h3 {
   width: 100%;
   height: auto;
@@ -4435,6 +4665,7 @@ button {
   color: #006699;
   padding-left: 0px;
 }
+
 .editor p {
   width: 100%;
   height: auto;
@@ -4464,6 +4695,7 @@ button {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1A3F65), color-stop(50%, #183354));
   background: linear-gradient(#1A3F65 50%, #183354 50%);
 }
+
 .pageButtem.registerBtn {
   margin: 20px auto 0;
 }
@@ -4472,298 +4704,376 @@ button {
   .page_content {
     padding: 0px 20px;
   }
+
   .pointsBoxItem {
     margin-bottom: 10px;
   }
+
   .giftsBoxItem {
     margin-bottom: 10px;
   }
 }
+
 @media screen and (max-width: 920px) {
   footer {
     height: 420px;
     margin-top: -420px;
   }
+
   .footer_meunbar {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     -webkit-box-pack: center !important;
-        -ms-flex-pack: center !important;
-            justify-content: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
   }
+
   .meunbar {
     width: 100%;
   }
+
   .meunbar_itembar {
     width: 33.3333333333%;
     height: auto;
     padding: 0px 20px;
     padding-right: 20px;
   }
+
   .qrcoderbar {
     margin-top: 20px;
     margin-bottom: 50px;
   }
+
   .page_main {
     padding-bottom: 480px;
   }
+
   .page_content {
     padding: 0px 20px;
   }
+
   .activedirectoryitem {
     font-size: 18px;
   }
+
   .avt {
     padding: 0px;
   }
-  .PageBreadCrumbs, .Course_titleBar, .Course_List_Box {
+
+  .PageBreadCrumbs,
+  .Course_titleBar,
+  .Course_List_Box {
     padding: 0px 20px;
   }
+
   .page_course_main {
     padding-bottom: 420px;
   }
+
   main {
     padding-top: 20px;
   }
+
   .CourseContentBox {
     margin: 20px 20px;
   }
 }
+
 @media screen and (max-width: 820px) {
   .memberCenterRightContentBox {
     padding: 30px;
   }
+
   .memberCenterRightTopBox {
     padding: 30px 20px;
   }
+
   .ActiveDirectory {
     padding: 20px;
   }
+
   .ActiveDirectoryContentBox {
     padding: 20px;
   }
 }
+
 @media screen and (max-width: 790px) {
   .memberCenterRightTopBox {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     padding: 20px;
     height: auto;
   }
+
   .memberUserBox {
     width: 100%;
   }
+
   .memberUserQRcord {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     margin-top: 10px;
   }
+
   .MembershipLevelBox {
     -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    -ms-flex-order: 2;
+    order: 2;
     -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
     margin-left: 10px;
   }
+
   .qrcodeph {
     -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    -ms-flex-order: 1;
+    order: 1;
   }
+
   .memberCenterRightContentBox {
     padding: 30px;
   }
+
   .pointsBoxItem {
     width: 100%;
     margin-right: 0px;
   }
+
   .pointsBoxItemLeft {
     width: 120px;
   }
+
   .pointsBoxItemRight {
     width: calc(100% - 120px);
     padding: 0px 10px;
     font-size: 20px;
   }
+
   .ActiveDirectory {
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
   }
+
   .activedirectoryitem {
     width: calc(33.3333333333% - 10px);
     margin-right: 0px;
   }
+
   .activedirectoryitem a {
     padding: 0px 10px;
   }
 }
+
 @media screen and (max-width: 790px) {
   .MemberCenterContent {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .memberCenterRight {
     width: 100%;
   }
+
   .giftsBox {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .giftsBoxItem {
     width: calc(50% - 10px);
     margin-right: 0px;
   }
+
   .memberCenterRightContentBox {
     min-height: inherit;
   }
+
   .LoginSettingsItem {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     height: auto;
   }
+
   .Course_List_Box a {
     width: 100%;
   }
-  .memberinfTextinput, .memberinfTextinput2, .memberinfTextinput3 {
+
+  .memberinfTextinput,
+  .memberinfTextinput2,
+  .memberinfTextinput3 {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     height: auto;
   }
-  .memberinfTextinput > label, .memberinfTextinput3 > label {
+
+  .memberinfTextinput>label,
+  .memberinfTextinput3>label {
     padding-bottom: 10px;
   }
+
   .signinView {
     display: none;
   }
+
   .mobile_bar {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
   }
+
   .navItems {
     height: 45px;
   }
+
   .memberNavItemtext {
     height: 18px;
     font-size: 18px;
   }
+
   .memberNav {
     display: none;
   }
 }
+
 @media screen and (max-width: 520px) {
   .meunbar_itembar {
     width: 50%;
     padding: 0px 10px;
     margin-top: 10px;
   }
+
   .meunbar_itembar ul {
     margin-top: 10px;
   }
+
   .qrcoderbar {
     margin-top: 30px;
     margin-bottom: 40px;
   }
+
   footer {
     height: 440px;
     margin-top: -440px;
   }
+
   .ThirdPartyButtemItem {
     height: auto;
     width: calc(50% - 0px);
     margin-bottom: 20px;
     margin-top: 10px;
   }
+
   .ThirdPartyButtemBar {
     width: 100%;
     height: auto;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .ThirdPartyButtemText {
     font-size: 16px;
     margin-top: 10px;
   }
+
   .ThirdPartyTitleText {
     text-align: center;
   }
+
   .loginContentBox {
     padding: 30px;
   }
+
   .giftsBoxItem {
     width: 100%;
   }
-  .itemsS50L, .itemsS50R {
+
+  .itemsS50L,
+  .itemsS50R {
     width: 100%;
     margin: 0px;
   }
+
   .persbuttonBox {
     margin-top: 30px;
   }
+
   .CourseContentBox {
     padding: 20px;
     margin-top: 20px;
   }
+
   .CalendarContentBox {
     padding: 20px;
   }
+
   .ls_icon {
     width: 50px;
     height: 50px;
   }
+
   .ls_name {
     padding: 0 5px;
   }
+
   .ls_butten {
     width: 120px;
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 20px;
   }
+
   .CoursebuttoonSet {
     width: 112px;
     height: 40px;
     font-size: 18px;
     background-size: contain;
   }
+
   .itemTr {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .itemtextright2 {
     width: 100%;
   }
+
   .FunctionColumnButten {
     height: 40px;
     font-size: 18px;
     margin-bottom: 10px;
   }
-  .activitiesTitle, .EventTicketingTitle {
+
+  .activitiesTitle,
+  .EventTicketingTitle {
     font-size: 22px;
   }
 }
+
 @media screen and (max-width: 430px) {
   .buttemBox {
     height: auto;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .buttemBox a {
     width: 100%;
   }
+
   .pageButtem {
     font-size: 17px;
   }
+
   .loginButtem {
     width: 100%;
     background-color: #1D3F64;
@@ -4771,82 +5081,108 @@ button {
     margin: 0px;
     border-radius: 10px;
   }
+
   .ContentBoxTitle {
     font-size: 26px;
   }
+
   .verificationCodeButtem {
     width: 56%;
     font-size: 16px;
   }
-  .Boxbarbuttem > a, .Boxbarbuttem2 > a {
+
+  .Boxbarbuttem>a,
+  .Boxbarbuttem2>a {
     width: 100%;
   }
+
   .Boxbarbuttem {
     margin-top: 30px;
   }
+
   .activelistdate {
     width: 50px;
   }
+
   .activelistdateMonthbefore {
     bottom: 5px;
     right: 5px;
   }
+
   .activelistdateMonth {
     font-size: 26px;
     right: inherit;
     top: 6px;
   }
+
   .activelist-item {
     height: auto;
   }
+
   .activelistTextBar {
     height: auto;
     width: calc(100% - 60px);
   }
+
   .activelistText {
     font-size: 13px;
   }
+
   .Course_item_title {
     width: 90%;
     font-size: 16px;
   }
+
   .Course_date_left {
     width: 70px;
   }
+
   .CoursedateBox {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .CoursedateMonth {
     font-size: 30px;
   }
+
   .CoursedateMonthText {
     margin-bottom: 14px;
   }
+
   .Course_date_right {
     height: auto;
     min-height: 100px;
     width: calc(100% - 80px);
   }
-  .memberinfTextinput > label, .memberinfTextinput3 > label {
+
+  .memberinfTextinput>label,
+  .memberinfTextinput3>label {
     font-size: 14px;
   }
+
   .question_barText {
     font-size: 18px;
   }
+
   .question_bar {
     padding: 20px 10px;
   }
+
   .question_bar::after {
     right: 10px;
   }
+
   .mobileSS {
     margin: 0px 20px;
     margin-top: 20px;
   }
 }
+
 @media screen and (max-width: 375px) {
   .ls_name {
     width: 120px;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

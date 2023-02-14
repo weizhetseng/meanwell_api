@@ -5,11 +5,11 @@
                 <div class="meunbar_itembar">
                     <div class="meunbar_itembar_title">{{ $t('AboutUs') }}</div>
                     <ul>
-                        <li><a href="javascript:;">{{ $t('AboutUs1') }}</a></li>
-                        <li><a href="javascript:;">{{ $t('AboutUs2') }}</a></li>
-                        <li><a href="javascript:;">{{ $t('AboutUs3') }}</a></li>
-                        <li><a href="javascript:;">{{ $t('AboutUs4') }}</a></li>
-                        <li><a href="javascript:;">{{ $t('AboutUs5') }}</a></li>
+                        <li><a href="http://www.sdg-mps.com/" target="_blank">{{ $t('AboutUs1') }}</a></li>
+                        <li><a href="http://www.meanwell.com.tw/" target="_blank">{{ $t('AboutUs2') }}</a></li>
+                        <li><a href="http://www.sharewell.cc/" target="_blank">{{ $t('AboutUs3') }}</a></li>
+                        <li><a href="http://www.powernex.com/" target="_blank">{{ $t('AboutUs4') }}</a></li>
+                        <li><a href="http://www.meanwellfoundation.org/" target="_blank">{{ $t('AboutUs5') }}</a></li>
                     </ul>
                 </div>
                 <div class="meunbar_itembar">

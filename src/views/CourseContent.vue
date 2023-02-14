@@ -43,7 +43,13 @@
                     </div>
                     <div class="CourseIntroduction">
                         <div class="CourseIntroduction_item">{{ showData[0].ActPlace }}</div>
-
+                    </div>
+                    <div class="itemTitle">
+                        <div class="itemTitleLine"></div>
+                        <div class="itemTitletext">{{ $t('ActivityOrganizer') }}</div>
+                    </div>
+                    <div class="CourseIntroduction">
+                        <div class="CourseIntroduction_item">{{ showData[0].ActOrganiser }}</div>
                     </div>
                     <div class="itemTitle">
                         <div class="itemTitleLine"></div>

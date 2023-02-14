@@ -44,6 +44,16 @@
                             <div class="itemtext">{{ showData[0].ActSDateTime }}</div>
                             <div class="itemTitle">
                                 <div class="itemTitleLine"></div>
+                                <div class="itemTitletext">{{ $t('ActivityLocation') }}</div>
+                            </div>
+                            <div class="itemtext">{{ showData[0].ActPlace }}</div>
+                            <div class="itemTitle">
+                                <div class="itemTitleLine"></div>
+                                <div class="itemTitletext">{{ $t('ActivityOrganizer') }}</div>
+                            </div>
+                            <div class="itemtext">{{ showData[0].ActOrganiser }}</div>
+                            <div class="itemTitle">
+                                <div class="itemTitleLine"></div>
                                 <div class="itemTitletext">{{ $t('RegisterData') }}</div>
                             </div>
                             <div class="personalinformation">

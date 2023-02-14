@@ -126,14 +126,14 @@ const indexLinkTW = [
     imgUrl: "tw-activity.png",
   },
   {
-    route: 2,
-    link: "IndexLink2",
-    imgUrl: "tw-meeting.png",
-  },
-  {
     route: 3,
     link: "IndexLink3",
     imgUrl: "tw-class.png",
+  },
+  {
+    route: 2,
+    link: "IndexLink2",
+    imgUrl: "tw-meeting.png",
   },
 ];
 const indexLinkCN = [
@@ -143,14 +143,14 @@ const indexLinkCN = [
     imgUrl: "cn-activity.png",
   },
   {
-    route: 2,
-    link: "IndexLink2",
-    imgUrl: "cn-meeting.png",
-  },
-  {
     route: 3,
     link: "IndexLink3",
     imgUrl: "cn-class.png",
+  },
+  {
+    route: 2,
+    link: "IndexLink2",
+    imgUrl: "cn-meeting.png",
   },
 ];
 const indexLinkEN = [
@@ -160,14 +160,14 @@ const indexLinkEN = [
     imgUrl: "en-activity.png",
   },
   {
-    route: 2,
-    link: "IndexLink2",
-    imgUrl: "en-meeting.png",
-  },
-  {
     route: 3,
     link: "IndexLink3",
     imgUrl: "en-class.png",
+  },
+  {
+    route: 2,
+    link: "IndexLink2",
+    imgUrl: "en-meeting.png",
   },
 ];
 

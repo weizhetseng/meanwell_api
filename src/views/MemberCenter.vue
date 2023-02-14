@@ -155,21 +155,21 @@ const SDGUrl = ref([
         imgSrc: 'MemberCenter-Gifts.svg',
         URL: 'productSeries.aspx',
     },
-    {
-        name: 'PointArea',
-        imgSrc: 'MemberCenter-Points.svg',
-        URL: 'memberPointHistory.aspx',
-    },
-    {
-        name: 'OrderSearch',
-        imgSrc: 'MemberCenter-Order.svg',
-        URL: 'memberOrderHistory.aspx',
-    },
-    {
-        name: 'ETicket',
-        imgSrc: 'MemberCenter-Digital.svg',
-        URL: 'memberOrderHistory.aspx',
-    }
+    // {
+    //     name: 'PointArea',
+    //     imgSrc: 'MemberCenter-Points.svg',
+    //     URL: 'memberPointHistory.aspx',
+    // },
+    // {
+    //     name: 'OrderSearch',
+    //     imgSrc: 'MemberCenter-Order.svg',
+    //     URL: 'memberOrderHistory.aspx',
+    // },
+    // {
+    //     name: 'ETicket',
+    //     imgSrc: 'MemberCenter-Digital.svg',
+    //     URL: 'memberOrderHistory.aspx',
+    // }
 ])
 
 
