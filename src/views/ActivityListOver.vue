@@ -57,8 +57,8 @@
                             </div>
                             <div class="ActiveList">
                                 <div v-if="(tableData == '')">{{ $t('MemberList9_5') }}</div>
-                                <RouterLink :to="`/ActivitiesOver/${item.ApplyId}`" v-for="item in tableData"
-                                    :key="item.ApplyId">
+                                <RouterLink :to="`/Course/CourseContent/${item.ModClass}${item.ActId}`"
+                                    v-for="item in tableData" :key="item.ApplyId">
                                     <div class="activelist-item-bar">
                                         <div class="activelist-item" :class="{ TWmodclass1: item.ModClass === 1 && $cookies.get('Lang') === 'tw' },
                                         { TWmodclass2: item.ModClass === 2 && $cookies.get('Lang') === 'tw' },
@@ -196,11 +196,11 @@ function nextPage() {
 //axios取得該頁資料
 function getList() {
     apiMyActivityList({
-        "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 2, "SDateTime": "", "EDateTime": "", "Keywords": ""
+        "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 4, "SDateTime": "", "EDateTime": "", "Keywords": ""
     })
         .then((res) => {
-            list.value = res.data.MyActivityDataList
-            total.value = res.data.MyActivityDataList.length
+            list.value = res.data.ActivityDataList
+            total.value = res.data.ActivityDataList.length
             totalSize.value = Math.ceil(total.value / pageSize)
             tableData.value = getNeedArr(list.value, pageSize)[currentPages.value - 1]
             let checkNum = res.data.message.substr(0, 2)

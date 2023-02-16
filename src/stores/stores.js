@@ -48,7 +48,7 @@ export const useSignUpStore = defineStore('SignUp', () => {
     {
       u_id: $cookies.get('u_id'),
       AuthCode: "0",
-      Lang: "$cookies.get('Lang')",
+      Lang: $cookies.get('Lang'),
       ActId: "",
       SeId: -1,
       Identity: -1,
@@ -71,23 +71,56 @@ export const useSignUpStore = defineStore('SignUp', () => {
       Pic: ""
     }
   )
-  apiGetData({ "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang') })
-    .then((res) => {
-      sendData.value.Name = res.data.Name
-      sendData.value.Sex = res.data.Sex
-      sendData.value.Mobile = res.data.Mobile
-      sendData.value.Email = res.data.Email
-      sendData.value.CompanyName = res.data.CompanyName
-      sendData.value.JobTitle = res.data.JobTitle
-      sendData.value.DocType = res.data.DocType
-      sendData.value.DocNumber = res.data.DocNumber
-      sendData.value.Pic = res.data.Pic
-      let checkNum = res.data.message.substr(0, 2)
-      if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
-        Logout()
-      }
-    })
-    .catch((error) => console.log(error))
+
+  function getBase64(url, callback) {
+    var Img = new Image(),
+      dataURL = '';
+    Img.src = url + '?v=' + Math.random();
+    Img.setAttribute('crossOrigin', 'Anonymous');
+    Img.onload = function () {
+      var canvas = document.createElement('canvas'),
+        width = Img.width,
+        height = Img.height;
+      canvas.width = width;
+      canvas.height = height;
+      canvas.getContext('2d').drawImage(Img, 0, 0, width, height);
+      dataURL = canvas.toDataURL('image/jpeg');
+      return callback ? callback(dataURL) : null;
+    };
+  }
+  function getSignUpData() {
+    apiGetData({ "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang') })
+      .then((res) => {
+        if (res.data.Pic !== "") {
+          const imgUrl = res.data.Pic
+          getBase64(imgUrl, dataURL => {
+            let strImage = dataURL.replace(/^data:image\/[a-z]+;base64,/, "")
+            sendData.value.Pic = strImage
+          });
+        }
+        sendData.value.Name = res.data.Name
+        sendData.value.Sex = res.data.Sex
+        sendData.value.Mobile = res.data.Mobile
+        sendData.value.Email = res.data.Email
+        sendData.value.CompanyName = res.data.CompanyName
+        sendData.value.JobTitle = res.data.JobTitle
+        sendData.value.DocType = res.data.DocType
+        sendData.value.DocNumber = res.data.DocNumber
+        sendData.value.Ticket_E_Apply = 0
+        sendData.value.Ticket_P_Apply = 0
+        sendData.value.u_id = $cookies.get('u_id');
+        sendData.value.AuthCode = "0";
+        sendData.value.Lang = $cookies.get('Lang');
+
+        let checkNum = res.data.message.substr(0, 2)
+        if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+          Logout()
+        }
+      })
+      .catch((error) => console.log(error))
+  }
+
+
 
   function Logout() {
     $cookies.remove("u_id")
@@ -98,7 +131,7 @@ export const useSignUpStore = defineStore('SignUp', () => {
     router.push('/login')
   }
 
-  return { sendData }
+  return { sendData, getSignUpData }
 })
 
 //登入
@@ -171,7 +204,9 @@ export const LoginOut = defineStore('LoginOut', () => {
         if (res.data.success) {
           $cookies.set("random", res.data.AuthToken, 0);
           $cookies.set("u_id", res.data.Uid, 0);
-          router.push('/')
+          User.u_id = "";
+          User.RA = "";
+          router.push('/');
           if ($cookies.isKey("random") == true && $cookies.isKey("u_id") == true) {
             att.value = true
             att2.value = false

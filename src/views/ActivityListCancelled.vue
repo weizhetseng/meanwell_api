@@ -24,8 +24,7 @@
                             <div class="navItemSort">
                                 <div class="navItemSortContent">
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
-                                        v-for="(itax, iddx) in items.item" :key="itax.name"
-                                        @click="handleMenuFna(iddx)">
+                                        v-for="(itax, iddx) in items.item" :key="itax.name" @click="handleMenuFna(iddx)">
                                         <router-link :to="itax.path">{{ $t(itax.name) }}</router-link>
                                     </div>
                                 </div>
@@ -58,17 +57,17 @@
                             <div class="ActiveList">
                                 <div v-if="(tableData == '')">{{ $t('MemberList10_5') }}</div>
                                 <RouterLink :to="`/ActivitiesCancelled/${item.ApplyId}`" v-for="item in tableData"
-                                    :key="item.ActId">
+                                    :key="item.ApplyId">
                                     <div class="activelist-item-bar">
                                         <div class="activelist-item" :class="{ TWmodclass1: item.ModClass === 1 && $cookies.get('Lang') === 'tw' },
-                                        { TWmodclass2: item.ModClass === 2 && $cookies.get('Lang') === 'tw' },
-                                        { TWmodclass3: item.ModClass === 3 && $cookies.get('Lang') === 'tw' },
-                                        { CNmodclass1: item.ModClass === 1 && $cookies.get('Lang') === 'cn' },
-                                        { CNmodclass2: item.ModClass === 2 && $cookies.get('Lang') === 'cn' },
-                                        { CNmodclass3: item.ModClass === 3 && $cookies.get('Lang') === 'cn' },
-                                        { ENmodclass1: item.ModClass === 1 && $cookies.get('Lang') === 'en' },
-                                        { ENmodclass2: item.ModClass === 2 && $cookies.get('Lang') === 'en' },
-                                        { ENmodclass3: item.ModClass === 3 && $cookies.get('Lang') === 'en' }">
+                                            { TWmodclass2: item.ModClass === 2 && $cookies.get('Lang') === 'tw' },
+                                            { TWmodclass3: item.ModClass === 3 && $cookies.get('Lang') === 'tw' },
+                                            { CNmodclass1: item.ModClass === 1 && $cookies.get('Lang') === 'cn' },
+                                            { CNmodclass2: item.ModClass === 2 && $cookies.get('Lang') === 'cn' },
+                                            { CNmodclass3: item.ModClass === 3 && $cookies.get('Lang') === 'cn' },
+                                            { ENmodclass1: item.ModClass === 1 && $cookies.get('Lang') === 'en' },
+                                            { ENmodclass2: item.ModClass === 2 && $cookies.get('Lang') === 'en' },
+                                            { ENmodclass3: item.ModClass === 3 && $cookies.get('Lang') === 'en' }">
                                             <div class="activelistdate">
                                                 <div class="activelistdateMonthEN" v-if="$cookies.get('Lang') === 'en'">
                                                     <p v-if="item.ActSDateTime.substr(5, 2) === '01'">Jan.
@@ -124,17 +123,14 @@
                             </div>
                             <div class="pagination">
                                 <a href="javascript:;" @click.prevent="prevPage()">
-                                    <div class="pagination_item_previous"> <img src="../assets/img/chevron-left.svg"
-                                            alt="">
+                                    <div class="pagination_item_previous"> <img src="../assets/img/chevron-left.svg" alt="">
                                     </div>
                                 </a>
-                                <a href="javascript:;" v-for="item in totalSize"
-                                    @click.prevent="handleCurrentChange(item)">
+                                <a href="javascript:;" v-for="item in totalSize" @click.prevent="handleCurrentChange(item)">
                                     <div class="pagination_item"> {{ item }} </div>
                                 </a>
                                 <a href="javascript:;" @click.prevent="nextPage()">
-                                    <div class="pagination_item_next"> <img src="../assets/img/chevron-right.svg"
-                                            alt="">
+                                    <div class="pagination_item_next"> <img src="../assets/img/chevron-right.svg" alt="">
                                     </div>
                                 </a>
                             </div>
@@ -146,13 +142,13 @@
         <div class="leyboxbg" :class="{ active: qrcshow }" @click="qrclosures()">
             <div class="leyboxcontent">
                 <div class="leyboxcontent_txt">{{ $t('MemberQR2') }}</div>
-                <div class="qrcordphoto"><vue-qrcode :color="[{ dark: '#000000ff', light: '#ffffffff' }]"
-                        type="image/png" :value="String(store.MemberData.Mid)" /></div>
+                <div class="qrcordphoto"><vue-qrcode :color="[{ dark: '#000000ff', light: '#ffffffff' }]" type="image/png"
+                        :value="String(store.MemberData.Mid)" /></div>
                 <div class="closure_icon_set" @click="qrclosures()"><img src="../assets/img/closure_icon.svg" alt="">
                 </div>
             </div>
         </div>
-    </div>
+</div>
 </template>
 <script setup>
 import { onMounted, ref } from "vue"
@@ -198,7 +194,7 @@ function nextPage() {
 //axios取得該頁資料
 function getList() {
     apiMyActivityList({
-        "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 3, "SDateTime": "", "EDateTime": "", "Keywords": ""
+        "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 2, "SDateTime": "", "EDateTime": "", "Keywords": ""
     })
         .then((res) => {
             list.value = res.data.MyActivityDataList

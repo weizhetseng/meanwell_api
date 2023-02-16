@@ -6,12 +6,12 @@
                 <RouterLink to="/"><img src="../assets/img/Logos.svg" alt=""></RouterLink>
             </div>
             <div class="logo_box" v-else-if="$cookies.get('Lang') === 'cn'" @click="colsMobileMenu()">
-                <RouterLink to="/"><img src="../assets/img/cn-logo.png" alt=""></RouterLink>
+                <RouterLink to="/"><img src="../assets/img/cn_logo.svg" alt=""></RouterLink>
             </div>
             <div class="logo_box" v-else-if="$cookies.get('Lang') === 'en'" @click="colsMobileMenu()">
-                <RouterLink to="/"><img src="../assets/img/en-logo.png" alt=""></RouterLink>
+                <RouterLink to="/"><img src="../assets/img/en_logo.svg" alt=""></RouterLink>
             </div>
-            <div class="mobile_signoutView">
+            <div class="mobile_signoutView" :class="{ active: store.att }">
                 <div class="mobile_sdgMenuItem">
                     <div class="loging_item">
                         <RouterLink to="/login" @click="colsMobileMenu()">{{ $t('Login') }}</RouterLink> / <RouterLink
@@ -49,11 +49,12 @@
                 <RouterLink to="/Calendar" @click="colsMobileMenu()">
                     <div class="mobile_sdgMenuItem2">
                         <div class="signinicon"><img src="../assets/img/calendar_icon.svg" alt=""></div>
-                        <div class="signinmenutext">{{ $t('Calendar') }}</div>
+                        <div class="signinmenutext Calendar">{{ $t('Calendar') }}</div>
                     </div>
                 </RouterLink>
 
-                <div class="mobile_Tosignout" @click="colsMobileMenu(); store.Logout()">{{ $t('Logout') }}</div>
+                <div class="mobile_Tosignout" :class="{ active: store.att2 }" @click="colsMobileMenu(); store.Logout()">
+                    {{ $t('Logout') }}</div>
             </div>
 
         </div>
@@ -64,10 +65,10 @@
                 <RouterLink to="/"><img src="../assets/img/Logos.svg" alt=""></RouterLink>
             </div>
             <div class="logo_box" v-else-if="$cookies.get('Lang') === 'cn'">
-                <RouterLink to="/"><img src="../assets/img/cn-logo.png" alt=""></RouterLink>
+                <RouterLink to="/"><img src="../assets/img/cn_logo.svg" alt=""></RouterLink>
             </div>
             <div class="logo_box" v-else-if="$cookies.get('Lang') === 'en'">
-                <RouterLink to="/"><img src="../assets/img/en-logo.png" alt=""></RouterLink>
+                <RouterLink to="/"><img src="../assets/img/en_logo.svg" alt=""></RouterLink>
             </div>
             <div class="system_bar">
                 <div class="signoutView" :class="{ active: store.att }">

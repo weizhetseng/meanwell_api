@@ -33,23 +33,23 @@
               </li>
             </ul>
             <!-- <ul class="indAct_ul02">
-              <li>
-                <router-link to="#">
-                  <div class="atcImgBox">
-                    <img src="../assets/img/activity_4.svg" alt="" />
-                  </div>
-                  <div class="atcText CaringCare">{{ $t('IndexLink4') }}</div>
-                </router-link>
-              </li>
-              <li>
-                <router-link to="#">
-                  <div class="atcImgBox">
-                    <img src="../assets/img/activity_5.svg" alt="" />
-                  </div>
-                  <div class="atcText GiftingPlatform">{{ $t('IndexLink5') }}</div>
-                </router-link>
-              </li>
-            </ul> -->
+                  <li>
+                    <router-link to="#">
+                      <div class="atcImgBox">
+                        <img src="../assets/img/activity_4.svg" alt="" />
+                      </div>
+                      <div class="atcText CaringCare">{{ $t('IndexLink4') }}</div>
+                    </router-link>
+                  </li>
+                  <li>
+                    <router-link to="#">
+                      <div class="atcImgBox">
+                        <img src="../assets/img/activity_5.svg" alt="" />
+                      </div>
+                      <div class="atcText GiftingPlatform">{{ $t('IndexLink5') }}</div>
+                    </router-link>
+                  </li>
+                </ul> -->
           </div>
         </section>
         <section class="AnnouncementSystem">
@@ -68,10 +68,20 @@
                   </ul>
                   <ul v-else-if="store.loginStatue">
                     <li v-for="item in PushMsgList" :key="item.mssid" :style="{ 'border-left-color': item.color }">
-                      <a href="">
+                      <a href="/" v-if="item.ContentData === 'HOMEPAGE'">
                         {{ item.SendTime }} {{ item.TitleName }}
                         {{ item.SubTitle }}
                       </a>
+                      <router-link :to="`/ActivitiesOngoing/${item.ContentData.split('_')[2]}`"
+                        v-else-if="item.ContentData.substring(0, 14) === 'MyActivityList' && item.ContentData.split('_')[1] === '1'">
+                        {{ item.SendTime }} {{ item.TitleName }}
+                        {{ item.SubTitle }}
+                      </router-link>
+                      <router-link :to="`/ActivitiesCancelled/${item.ContentData.split('_')[2]}`"
+                        v-else-if="item.ContentData.substring(0, 14) === 'MyActivityList' && item.ContentData.split('_')[1] === '2'">
+                        {{ item.SendTime }} {{ item.TitleName }}
+                        {{ item.SubTitle }}
+                      </router-link>
                     </li>
                   </ul>
                 </div>
@@ -86,7 +96,7 @@
                 <div class="AnnContent">
                   <ul>
                     <li v-for="(item, index) in NewsList" :style="{ 'border-left-color': item.color }" :key="index">
-                      <a href="">{{ item.News_Topic }}</a>
+                      <a href="#">{{ item.News_Topic }}</a>
                     </li>
                   </ul>
                 </div>
@@ -101,7 +111,7 @@
                 <div class="AnnContent">
                   <ul>
                     <li v-for="(item, index) in NewSaleList" :style="{ 'border-left-color': item.color }" :key="index">
-                      <a href="">{{ item.NewSale_Topic }}</a>
+                      <a href="#">{{ item.NewSale_Topic }}</a>
                     </li>
                   </ul>
                 </div>
@@ -111,11 +121,11 @@
         </section>
       </div>
     </main>
-  </div>
+</div>
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { LoginOut } from "../stores/stores";
 import { apiPushMsgList, apiNewsList, apiNewSaleList } from "../utils/api";
 
@@ -187,7 +197,7 @@ if ($cookies.isKey("random") == true && $cookies.isKey("u_id") == true) {
   store.logoutStatue = true;
 }
 //個人推播訊息資料
-const PushMsgList = ref([{}]);
+const PushMsgList = ref([]);
 // 最新動態資料清單
 const NewsList = ref([{}]);
 // 禮贈新品資料清單

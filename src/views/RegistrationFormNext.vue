@@ -51,11 +51,9 @@
                         <div class="itemTitletext">{{ $t('Traffic') }}</div>
                     </div>
                     <div class="memberinfTextinput3">
-                        <input id="Traffic0" type="radio" name="Traffic" :value="0"
-                            v-model="storeSignUp.sendData.Traffic">
+                        <input id="Traffic0" type="radio" name="Traffic" :value="0" v-model="storeSignUp.sendData.Traffic">
                         <label for="Traffic0">{{ $t('Traffic1') }}</label>
-                        <input id="Traffic1" type="radio" name="Traffic" :value="1"
-                            v-model="storeSignUp.sendData.Traffic">
+                        <input id="Traffic1" type="radio" name="Traffic" :value="1" v-model="storeSignUp.sendData.Traffic">
                         <label for="Traffic1">{{ $t('Traffic2') }}</label>
                     </div>
                     <div class="memberinfTextinput2" v-if="storeSignUp.sendData.Traffic === 0">
@@ -73,8 +71,8 @@
                         <div class="itemTitleLine"></div>
                         <div class="itemTitletext">{{ $t('Ticket_E_Apply') }}</div>
                         <div class="QuantityTable">
-                            <div class="QuantityTable_button" @click="minusNum_elec()"><img
-                                    src="../assets/img/minus.svg" alt=""></div>
+                            <div class="QuantityTable_button" @click="minusNum_elec()"><img src="../assets/img/minus.svg"
+                                    alt=""></div>
                             <input class="QuantityTable_value" v-model="storeSignUp.sendData.Ticket_E_Apply" />
                             <div class="QuantityTable_button" @click="addNum_elec()"><img src="../assets/img/plus.svg"
                                     alt=""></div>
@@ -84,10 +82,9 @@
                         <div class="itemTitleLine"></div>
                         <div class="itemTitletext">{{ $t('Ticket_P_Apply') }}</div>
                         <div class="QuantityTable">
-                            <div class="QuantityTable_button" @click="minusNum_paper()"><img
-                                    src="../assets/img/minus.svg" alt=""></div>
-                            <input type="tel" class="QuantityTable_value"
-                                v-model="storeSignUp.sendData.Ticket_P_Apply" />
+                            <div class="QuantityTable_button" @click="minusNum_paper()"><img src="../assets/img/minus.svg"
+                                    alt=""></div>
+                            <input type="tel" class="QuantityTable_value" v-model="storeSignUp.sendData.Ticket_P_Apply" />
                             <div class="QuantityTable_button" @click="addNum_paper()"><img src="../assets/img/plus.svg"
                                     alt=""></div>
                         </div>
@@ -113,7 +110,7 @@
                 </div>
             </div>
         </main>
-    </div>
+</div>
 </template>
 <script setup>
 import { useSignUpStore, useMemberStore } from "../stores/stores";
@@ -144,10 +141,10 @@ function SignUp() {
             }
             if (res.data.success) {
                 alert('報名成功')
-                storeSignUp.sendData = storeMember.MemberData
+                storeSignUp.sendData = {}
                 router.push('/')
             } else {
-                alert(res.data.message)
+                console.log(res.data.message)
             }
         })
         .catch((error) => console.log(error));
@@ -244,6 +241,8 @@ onMounted(() => {
         storeSignUp.sendData.Meals = 2
     }
     storeSignUp.sendData.ActId = id.slice(1)
+
+    storeSignUp.getSignUpData()
 })
 
 </script>

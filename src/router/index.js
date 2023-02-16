@@ -279,7 +279,7 @@ const router = createRouter({
       component: () => import("../views/ServiceContent.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true,
+        needLogin: false,
         mainBG: true
       }
     }
@@ -290,7 +290,7 @@ const router = createRouter({
       component: () => import("../views/MissionVision.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true,
+        needLogin: false,
         mainBG: true
       }
     }
@@ -301,7 +301,7 @@ const router = createRouter({
       component: () => import("../views/MembershipTermsofService.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true,
+        needLogin: false,
         mainBG: true
       }
     }
@@ -323,7 +323,7 @@ const router = createRouter({
       component: () => import("../views/CommonProblem.vue"),
       meta: {
         keepAlive: true,
-        needLogin: true,
+        needLogin: false,
         mainBG: true
       }
     }

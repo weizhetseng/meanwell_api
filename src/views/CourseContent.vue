@@ -103,7 +103,13 @@ function isMember() {
     if ($cookies.get('u_id') !== null && $cookies.get('random') !== null) {
         router.push(`/Course/RegistrationForm/${id}`)
     } else {
-        alert('請先登入會員')
+        if ($cookies.get('Lang') === "tw") {
+            alert('請先登入會員')
+        } else if ($cookies.get('Lang') === "en") {
+            alert('Please login account.')
+        } else if ($cookies.get('Lang') === "cn") {
+            alert('请先登入会员')
+        }
         router.push('/login')
     }
 }

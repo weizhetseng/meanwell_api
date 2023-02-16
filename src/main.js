@@ -6,10 +6,11 @@ import en_US from './languages/en-US.json'
 import zh_CN from './languages/zh-CN.json'
 import vue3GoogleLogin from 'vue3-google-login'
 
+
 // 匯入 vee-validate 主套件
 import { Field, Form, ErrorMessage, defineRule, configure } from 'vee-validate';
 // 匯入 vee-validate 相關規則
-import { required, email, min } from '@vee-validate/rules';
+import { required, email, min, regex, confirmed } from '@vee-validate/rules';
 // 匯入多國語系的功能
 import { localize, setLocale } from '@vee-validate/i18n';
 // 匯入繁體中文語系檔案
@@ -35,6 +36,9 @@ defineRule('email', email);
 
 defineRule('min', min);
 
+defineRule('regex', regex);
+
+defineRule('confirmed', confirmed);
 // 設定 vee-validate 全域規則
 
 configure({

@@ -7,7 +7,7 @@
                 </section>
                 <section class="loginContentBox">
                     <div class="ContentBoxTitle">{{ $t('MemberLogin') }}</div>
-                    <Form v-slot="{ errors, values, validate }">
+                    <Form v-slot="{ errors, values, validate }" @submit="store.WebLogin()">
                         <div>
                             <div class="User_account">
                                 <Field id="email" name="Email" :label="$t('__Email')" type="email"
@@ -23,7 +23,7 @@
                             <div class="User_password">
                                 <Field id="password" name="password" :label="$t('password')"
                                     :type="checkEye1 ? 'password' : 'text'" class="User_accountInput"
-                                    :class="{ 'is-invalid': errors['password'] }" :placeholder="$t('PasswordInput')"
+                                    :class="{ 'is-invalid': errors['password'] }" :placeholder="$t('PasswordInput1')"
                                     rules="required" v-model="store.User.RA">
                                 </Field>
                                 <span id="checkEye" class="material-symbols-outlined" @click="checkEye1 = !checkEye1">
@@ -47,8 +47,7 @@
                             <RouterLink to="/SignUp" class="pageButton buttonStyle">{{
                                 $t('Register')
                             }}</RouterLink>
-                            <input type="button" :value="$t('Login')" class="loginButton buttonStyle"
-                                @click="store.WebLogin()">
+                            <input type="submit" :value="$t('Login')" class="loginButton buttonStyle" @click="">
                         </div>
                     </Form>
                     <div class="ThirdParty">

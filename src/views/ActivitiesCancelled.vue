@@ -73,10 +73,10 @@
                                     <div class="itemtextleft">{{ $t('Meals') }}：</div>
                                     <div class="itemtextright">{{ Meals }}</div>
                                 </div>
-
                                 <div class="itemTr">
                                     <div class="itemtextleft">{{ $t('Traffic') }}：</div>
-                                    <div class="itemtextright">{{ Traffic }} {{ showData[0].CarNumber }}</div>
+                                    <div class="itemtextright">{{ Traffic }} {{ showData[0].CarNumber }}
+                                    </div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">{{ $t('SignUpMemo') }}：</div>
@@ -90,19 +90,24 @@
                             <div class="TicketInformation">
                                 <div class="itemTr">
                                     <div class="itemtextleft">{{ $t('Ticket_E_Apply') }}：</div>
-                                    <div class="itemtextright">--</div>
+                                    <div class="itemtextright">{{ showData[0].Ticket_E_Apply }}{{ $t('Leaf') }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">{{ $t('Ticket_P_Apply') }}：</div>
-                                    <div class="itemtextright">--</div>
+                                    <div class="itemtextright">{{ showData[0].Ticket_P_Apply }}{{ $t('Leaf') }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">{{ $t('Address') }}：</div>
-                                    <div class="itemtextright">--</div>
+                                    <div class="itemtextright">{{ showData[0].Address }}</div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft">{{ $t('SeatNum') }}：</div>
-                                    <div class="itemtextright">--</div>
+                                    <div class="itemtextright">
+                                        <ul>
+                                            <li v-for="item in showData[0].TicketDataList">{{ item.Seat }}</li>
+                                        </ul>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="itemTitle">
@@ -112,11 +117,20 @@
                             <div class="relevantinformation">
                                 <div class="itemTr">
                                     <div class="itemtextleft">{{ $t('Download') }}：</div>
-                                    <div class="itemtextright">--</div>
+                                    <div class="itemtextright downloadLink">
+                                        <a :href="item.Link" :download="item.Title"
+                                            v-for="item in showData[0].DownloadList">
+                                            {{ item.Title }}
+                                        </a>
+                                    </div>
                                 </div>
                                 <div class="itemTr">
                                     <div class="itemtextleft2">{{ $t('Online') }}：</div>
-                                    <div class="itemtextright2">--</div>
+                                    <div class="itemtextright2">
+                                        <a :href="showData[0].OnlineLink" target="_blank">
+                                            {{ showData[0].OnlineLink }}
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -215,7 +229,7 @@ const handleMenuFnb = () => {
 
 onMounted(() => {
     apiMyActivityList({
-        "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 3, "SDateTime": "", "EDateTime": "", "Keywords": ""
+        "u_id": $cookies.get('u_id'), "AuthCode": '0', "Lang": $cookies.get('Lang'), "MyActStatus": 2, "SDateTime": "", "EDateTime": "", "Keywords": ""
     })
         .then((res) => {
             MyActStatus.value = res.data.MyActivityDataList

@@ -83,8 +83,8 @@
                         <div class="itemTitletext">{{ $t('CompanyName') }}</div>
                     </div>
                     <div class="memberinfTextinput">
-                        <input type="text" name="" id="CompanyName" class="memberinfinput"
-                            :placeholder="$t('CompanyName1')" v-model="storeSignUp.sendData.CompanyName">
+                        <input type="text" name="" id="CompanyName" class="memberinfinput" :placeholder="$t('CompanyName1')"
+                            v-model="storeSignUp.sendData.CompanyName">
                     </div>
                     <div class="itemTitle">
                         <div class="itemTitleLine"></div>
@@ -109,9 +109,8 @@
                                 <label class="avatarupload" for="upload_img">
                                     {{ $t('Upload') }}
                                 </label>
-                                <input id="upload_img" name="progressbarTW_img" type="file"
-                                    accept="image/jpeg, image/png" @change="previewFile()"
-                                    v-on:change="storeSignUp.sendData.Pic">
+                                <input id="upload_img" name="progressbarTW_img" type="file" accept="image/jpeg, image/png"
+                                    @change="previewFile()" v-on:change="storeSignUp.sendData.Pic">
                             </div>
                         </div>
                     </div>
@@ -122,7 +121,7 @@
             </div>
 
         </main>
-    </div>
+</div>
 </template>
 
 
@@ -234,5 +233,11 @@ onMounted(() => {
             }
         })
         .catch((error) => console.log(error));
+
+
+    storeSignUp.getSignUpData()
+
+
+
 })
 </script>
