@@ -58,6 +58,11 @@ export const apiLoginEncrypt = data => userRequest.post('API_App/MemberData/Logi
 export const apiWebLogin = data => userRequest.post('API_App/MemberData/WebLogin', data);
 
 
+//* 系統設定
+//todo 取得各條款網址
+export const apiTermsLink = data => userRequest.post('API_App/SystemSetting/TermsLink', data);
+
+
 
 
 

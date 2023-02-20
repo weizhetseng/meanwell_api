@@ -24,10 +24,11 @@
                             <div class="navItemSort">
                                 <div class="navItemSortContent">
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
-                                        v-for="(itax, iddx) in items.item" :key="itax.name"
-                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{
+                                        v-for="(itax, iddx) in items.item" :key="itax.name" @click="handleMenuFna(iddx)">
+                                        <router-link :to="itax.path">{{
                                             $t(itax.name)
-                                        }}</router-link></div>
+                                        }}</router-link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -66,8 +67,8 @@
         <div class="leyboxbg" :class="{ active: qrcshow }" @click="qrclosures()">
             <div class="leyboxcontent">
                 <div class="leyboxcontent_txt">{{ $t('MemberQR2') }}</div>
-                <div class="qrcordphoto"><vue-qrcode :color="[{ dark: '#000000ff', light: '#ffffffff' }]"
-                        type="image/png" :value="String(store.MemberData.Mid)" /></div>
+                <div class="qrcordphoto"><vue-qrcode :color="[{ dark: '#000000ff', light: '#ffffffff' }]" type="image/png"
+                        :value="String(store.MemberData.Mid)" /></div>
                 <div class="closure_icon_set" @click="qrclosures()"><img src="../assets/img/closure_icon.svg" alt="">
                 </div>
             </div>
@@ -78,10 +79,12 @@
 import { onMounted, ref } from "vue"
 import { useMemberStore, LoginOut } from "../stores/stores";
 import VueQrcode from 'vue-qrcode'
+import { apiTermsLink } from "../utils/api";
 const store = useMemberStore()
 const store2 = LoginOut()
 const activeIdx = ref(1);
 const activeIddx = ref(3);
+const url = ref("")
 const NavItemArr = ref([
     {
         name: 'MemberList1',
@@ -153,6 +156,18 @@ onMounted(() => {
         store2.att = false
         store2.att2 = true
     }
+
+    apiTermsLink({
+        u_id: "",
+        AuthCode: "",
+        Lang: $cookies.get("Lang")
+    })
+        .then((res) => {
+            url.value = res.data.MemberManageLink
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 
 
     store.getMemberData()

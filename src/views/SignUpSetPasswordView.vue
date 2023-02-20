@@ -9,13 +9,12 @@
                     <div class="ContentBoxTitle">{{ $t('MemberRegister') }}</div>
                     <div class="PageTitle">{{ $t('password') }}</div>
                     <div class="signUpArea">
-                        <Field id="password" name="password" :label="$t('password')"
-                            :type="checkEye1 ? 'password' : 'text'" :class="{ 'is-invalid': errors['password'] }"
-                            :placeholder="$t('PasswordInput')" :rules="{ required: true, regex: /^[A-Z0-9]{8,20}$/i }"
-                            v-model="user.password">
+                        <Field id="password" name="password" :label="$t('password')" :type="checkEye1 ? 'password' : 'text'"
+                            :class="{ 'is-invalid': errors['password'] }" :placeholder="$t('PasswordInput')"
+                            :rules="{ required: true, regex: /^[A-Z0-9]{8,20}$/i }" v-model="user.password">
                         </Field>
                         <span id="checkEye" class="material-symbols-outlined" @click="checkEye1 = !checkEye1">
-                            {{ checkEye1? 'visibility_off': 'visibility' }}
+                            {{ checkEye1 ? 'visibility_off' : 'visibility' }}
                         </span>
                         <div class="error">
                             <error-message name="password" class="invalid-feedback"></error-message>
@@ -30,7 +29,7 @@
                             rules="required|confirmed:@password">
                         </Field>
                         <span id="checkEye" class="material-symbols-outlined" @click="checkEye2 = !checkEye2">
-                            {{ checkEye2? 'visibility_off': 'visibility' }}
+                            {{ checkEye2 ? 'visibility_off' : 'visibility' }}
                         </span>
                         <div class="error">
                             <error-message name="singupPW" class="invalid-feedback"></error-message>
@@ -68,13 +67,15 @@
 
 
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import router from '../router';
-import { apiRegister } from '../utils/api';
+import { apiRegister, apiTermsLink } from '../utils/api';
+
 import { defineRule } from 'vee-validate';
 
 const checkEye1 = ref(true)
 const checkEye2 = ref(true)
+const url = ref("")
 
 
 defineRule('requiredCheckbox', value => {
@@ -119,5 +120,19 @@ function signUpCheck() {
     }
 
 }
+
+onMounted(() => {
+    apiTermsLink({
+        u_id: "",
+        AuthCode: "",
+        Lang: $cookies.get("Lang")
+    })
+        .then((res) => {
+            url.value = res.data.MemberManageLink
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+})
 
 </script>
