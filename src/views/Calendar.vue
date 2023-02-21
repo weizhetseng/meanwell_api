@@ -17,15 +17,24 @@
                         </div>
                     </div>
                     <div class="Calendar_dayscontent">
-                        <div class="Calendar_dayscontent_item_dayBox" v-for="(item, index) in calendarTable"
-                            :key="index">
-                            <div class="daybar"
+                        <div class="Calendar_dayscontent_item_dayBox" v-for="(item, index) in calendarTable" :key="index">
+                            <!-- <div class="daybar"
                                 :class="[{ 'non-current': !item.isCurrentMonth }, { today: isActive(item) }, { selectedDay: index === DaySelected }, { Activityday: monthData.some((item2) => item2.Day === item.day) && item.month === ThisMonth.getMonth() && item.year === ThisMonth.getFullYear() }]"
                                 @click="selectedDay(item, index)">
                                 {{ item.day }}</div>
                             <div class="Activitybar">
                                 <div class="Activitybar_item"
                                     :class="{ ate: monthData.some((item2) => item2.Day === item.day) && item.month === ThisMonth.getMonth() && item.year === ThisMonth.getFullYear() }">
+                                </div>
+                            </div> -->
+                            <div class="daybar"
+                                :class="[{ selectedDay: index === DaySelected && MonthSelected == item.month }, { 'non-current': !item.isCurrentMonth }, { today: isActive(item) }, { Activityday: monthData.some((item2) => item2.Day === item.day) && item.isCurrentMonth === true }]"
+                                @click="selectedDay(item, index)">
+                                {{ item.day }}
+                            </div>
+                            <div class="Activitybar">
+                                <div class="Activitybar_item"
+                                    :class="{ ate: monthData.some((item2) => item2.Day === item.day) && item.isCurrentMonth === true }">
                                 </div>
                             </div>
                         </div>
@@ -55,6 +64,7 @@ const store2 = LoginOut()
 
 const weekMap = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 const calendarGrid = 42;
+const MonthSelected = ref(-1)
 const DaySelected = ref(-1)
 const monthData = ref([])
 const showActivity = ref([])
@@ -71,17 +81,18 @@ let CalendarItem = [
     }
 ]
 function selectedDay(item, index) {
+    MonthSelected.value = item.month
     DaySelected.value = index
     apiGetApplyActivityDataByMonth({
         "u_id": $cookies.get('u_id'),
         "AuthCode": '0',
         "Lang": $cookies.get('Lang'),
-        "Year": ThisMonth.getFullYear(),
-        "Month": (ThisMonth.getMonth() + 1)
+        "Year": item.year,
+        "Month": item.month + 1
     })
         .then((res) => {
             res.data.DayDataList.forEach((item2, index) => {
-                if (item.day === item2.Day && item.month === ThisMonth.getMonth()) {
+                if (item.day === item2.Day) {
                     showActivity.value.push(item2.ApplyActivityDataList)
                 }
             })
@@ -243,9 +254,16 @@ function changeMonth(type) {
     if (type === 'prev') {
         month = date.value.getMonth() === 0 ? 11 : date.value.getMonth() - 1;
         year = month === 11 ? date.value.getFullYear() - 1 : date.value.getFullYear();
+        getThatMonth(year, month)
+        showAllActivity.value = [];
+        AllActivityShow.value = true
+
     } else if (type === 'next') {
         month = date.value.getMonth() === 11 ? 0 : date.value.getMonth() + 1;
         year = month === 0 ? date.value.getFullYear() + 1 : date.value.getFullYear();
+        getThatMonth(year, month)
+        showAllActivity.value = [];
+        AllActivityShow.value = true
     }
     if (month === new Date().getMonth() && year === new Date().getFullYear()) {
         currentDate();
@@ -257,6 +275,26 @@ function changeMonth(type) {
     date.value.setFullYear(year);
     date.value = new Date(date.value);
 };
+function getThatMonth(year, month) {
+    apiGetApplyActivityDataByMonth({
+        "u_id": $cookies.get('u_id'),
+        "AuthCode": '0',
+        "Lang": $cookies.get('Lang'),
+        "Year": year,
+        "Month": month + 1
+    })
+        .then((res) => {
+            monthData.value = res.data.DayDataList
+            monthData.value.forEach(item => {
+                showAllActivity.value.push(item.ApplyActivityDataList)
+            })
+            let checkNum = res.data.message.substr(0, 2)
+            if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+                store2.Logout()
+            }
+        })
+        .catch((error) => console.log(error));
+}
 
 
 onMounted(() => {

@@ -25,7 +25,7 @@ onMounted(() => {
         Lang: $cookies.get("Lang")
     })
         .then((res) => {
-            url.value = res.data.MemberManageLink
+            url.value = res.data.UserLink
         })
         .catch((err) => {
             console.log(err)

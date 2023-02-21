@@ -38,8 +38,7 @@
 
                     <div class="termsArea">
                         <h3>{{ $t('membershipTerms') }}</h3>
-                        <iframe frameborder="0" style="background: transparent; width: 100%; height:200px;"
-                            :src="`https://demo18.e-giant.com.tw/Terms/${$cookies.get('Lang')}_UserClauseWeb.asp`">
+                        <iframe frameborder="0" style="background: transparent; width: 100%; height:200px;" :src="url">
                         </iframe>
                     </div>
 
@@ -124,7 +123,7 @@ onMounted(() => {
         Lang: $cookies.get("Lang")
     })
         .then((res) => {
-            url.value = res.data.MemberManageLink
+            url.value = res.data.UserLink
         })
         .catch((err) => {
             console.log(err)
