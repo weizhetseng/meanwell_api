@@ -99,25 +99,21 @@ const user = ref(
 );
 
 function signUpCheck() {
-    if (!checkbox123.checked) {
-        alert('請按同意')
-    } else {
-        apiRegister({
-            "Email": $cookies.get('u_id'),
-            "Password": user.value.password,
-            "Lang": ""
+    apiRegister({
+        "Email": $cookies.get('u_id'),
+        "Password": user.value.password,
+        "Lang": ""
+    })
+        .then((res) => {
+            if (res.data.success) {
+                $cookies.remove("u_id")
+                alert('註冊成功')
+                router.push('/login')
+            } else {
+                alert(res.data.message)
+            }
         })
-            .then((res) => {
-                if (res.data.success) {
-                    $cookies.remove("u_id")
-                    alert('註冊成功')
-                    router.push('/login')
-                } else {
-                    alert(res.data.message)
-                }
-            })
-            .catch((error) => console.log(error));
-    }
+        .catch((error) => console.log(error));
 
 }
 
