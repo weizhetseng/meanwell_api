@@ -115,7 +115,7 @@ app.use(i18n)
 
 
 app.use(vue3GoogleLogin, {
-    clientId: '651291589359-e9dkmrcd0v1tul9ngt1b8b0nrg2l4a13.apps.googleusercontent.com'
+    clientId: `${import.meta.env.VITE_Client_Id_Google}`
 })
 
 
