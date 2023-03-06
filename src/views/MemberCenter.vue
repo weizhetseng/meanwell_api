@@ -22,10 +22,11 @@
                             <div class="navItemSort">
                                 <div class="navItemSortContent">
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
-                                        v-for="(itax, iddx) in items.item" :key="itax.name"
-                                        @click="handleMenuFna(iddx)"><router-link :to="itax.path">{{
+                                        v-for="(itax, iddx) in items.item" :key="itax.name" @click="handleMenuFna(iddx)">
+                                        <router-link :to="itax.path">{{
                                             $t(itax.name)
-                                        }}</router-link></div>
+                                        }}</router-link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -88,8 +89,8 @@
         <div class="leyboxbg" :class="{ active: qrcshow }" @click="qrclosures()">
             <div class="leyboxcontent">
                 <div class="leyboxcontent_txt">{{ $t('MemberQR2') }}</div>
-                <div class="qrcordphoto"><vue-qrcode :color="[{ dark: '#000000ff', light: '#ffffffff' }]"
-                        type="image/png" :value="String(store.MemberData.Mid)" /></div>
+                <div class="qrcordphoto"><vue-qrcode :color="[{ dark: '#000000ff', light: '#ffffffff' }]" type="image/png"
+                        :value="String(store.MemberData.Mid)" /></div>
                 <div class="closure_icon_set" @click="qrclosures()"><img src="../assets/img/closure_icon.svg" alt="">
                 </div>
             </div>

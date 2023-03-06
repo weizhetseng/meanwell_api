@@ -26,8 +26,7 @@
                             <div class="navItemSort">
                                 <div class="navItemSortContent">
                                     <div class="navItemSortContentItem" :class="{ active: activeIddx === iddx }"
-                                        v-for="(itax, iddx) in items.item" :key="itax.name"
-                                        @click="handleMenuFna(iddx)">
+                                        v-for="(itax, iddx) in items.item" :key="itax.name" @click="handleMenuFna(iddx)">
                                         <router-link :to="itax.path">{{ $t(itax.name) }}</router-link>
                                     </div>
                                 </div>
@@ -135,29 +134,25 @@
                             </div>
                             <div class="FunctionColumn">
                                 <router-link :to="`/EventTicketing/${id}`" v-if="showData[0].Ticket_E_Apply !== 0">
-                                    <button class="FunctionColumnButten"
-                                        :class="{ EN: $cookies.get('Lang') === 'en' }"><img
+                                    <button class="FunctionColumnButten" :class="{ EN: $cookies.get('Lang') === 'en' }"><img
                                             src="../assets/img/ticket.svg" alt="">
                                         {{ $t('TakeTicket') }}
                                     </button>
                                 </router-link>
                                 <router-link :to="`/CancelRegistration/${id}`">
-                                    <button class="FunctionColumnButten"
-                                        :class="{ EN: $cookies.get('Lang') === 'en' }"><img
+                                    <button class="FunctionColumnButten" :class="{ EN: $cookies.get('Lang') === 'en' }"><img
                                             src="../assets/img/ban-solid.svg" alt="">
                                         {{ $t('Cancel') }}
                                     </button>
                                 </router-link>
-                                <router-link :to="`/Questionnaire/${id}/2`">
-                                    <button class="FunctionColumnButten"
-                                        :class="{ EN: $cookies.get('Lang') === 'en' }"><img
+                                <router-link :to="`/Questionnaire/${id}/1`">
+                                    <button class="FunctionColumnButten" :class="{ EN: $cookies.get('Lang') === 'en' }"><img
                                             src="../assets/img/bxs-spreadsheet.png" alt="">
                                         {{ $t('test01') }}
                                     </button>
                                 </router-link>
                                 <router-link to="#">
-                                    <button class="FunctionColumnButten"
-                                        :class="{ EN: $cookies.get('Lang') === 'en' }"><img
+                                    <button class="FunctionColumnButten" :class="{ EN: $cookies.get('Lang') === 'en' }"><img
                                             src="../assets/img/bxs-spreadsheet.png" alt="">{{ $t('test02') }}
                                     </button>
                                 </router-link>

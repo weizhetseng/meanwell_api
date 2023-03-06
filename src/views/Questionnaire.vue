@@ -1,5 +1,5 @@
 <template>
-    <div class="page_main">
+    <div :class="`${route.path.split('/')[3]}` === '1' ? 'mobile_main' : 'page_main'">
         <main>
             <div class="page_content avt">
                 <div class="CourseContentBox">
@@ -167,4 +167,14 @@
         </main>
     </div>
 </template>
+
+<script setup>
+import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+const route = useRoute()
+
+onMounted(() => {
+    console.log(route.path.split('/')[3] === '1')
+})
+</script>
 
