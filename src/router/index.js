@@ -333,27 +333,38 @@ const router = createRouter({
       name: 'Questionnaire',
       component: () => import("../views/Questionnaire.vue"),
       meta: {
-        keepAlive: false,
+        keepAlive: true,
         needLogin: true,
         mainBG: true
       },
       children: [
         {
-          path: ":test",
+          path: ":IsApp",
           component: () => import("../views/Questionnaire.vue"),
           // 進入時判斷是否有帶app的參數
           beforeEnter: (to, from) => {
-            if (to.params.test === "1") {
+            if (to.params.IsApp === "1") {
               to.meta.keepAlive = false
-              to.meta.needLogin = true
-              to.meta.mainBG = true
-            } else {
-              to.meta.keepAlive = true
-              to.meta.needLogin = true
-              to.meta.mainBG = true
             }
-
           },
+          children: [
+            {
+              path: ":Uid",
+              component: () => import("../views/Questionnaire.vue"),
+              children: [
+                {
+                  path: ":AuthCode",
+                  component: () => import("../views/Questionnaire.vue"),
+                  children: [
+                    {
+                      path: ":Lang",
+                      component: () => import("../views/Questionnaire.vue"),
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }
@@ -370,6 +381,11 @@ router.beforeEach(async (to, from, next) => {
     isLogin = true
   }
 
+  if (to.params.IsApp === "1") {
+    //app瀏覽時不驗證網頁登入狀態
+    needLogin = false
+  }
+  
   if (needLogin) {
     if (isLogin) {
       next()

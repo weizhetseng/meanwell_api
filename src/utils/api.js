@@ -56,6 +56,8 @@ export const apiGetData = data => userRequest.post('API_App/MemberData/GetData',
 export const apiLoginEncrypt = data => userRequest.post('API_App/MemberData/LoginEncrypt', data);
 //todo web登入
 export const apiWebLogin = data => userRequest.post('API_App/MemberData/WebLogin', data);
+//todo 取得問卷資料
+export const apiGetQuestionnaireData = data => userRequest.post('API_App/MemberData/GetQuestionnaireData', data);
 
 
 //* 系統設定
