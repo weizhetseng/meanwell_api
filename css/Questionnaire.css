@@ -3,6 +3,23 @@
   height: auto;
   float: left;
 }
+.questBox .Boxbarbuttem {
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-top: 20px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 
 .questBox_item {
   width: 100%;
@@ -31,6 +48,24 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.questBox_item_top_content {
+  width: 100%;
+  height: auto;
+  float: left;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
 }
 
 .questBox_item_top_l {
@@ -90,6 +125,27 @@
   margin-right: 10px;
 }
 
+.questBox_item_space {
+  width: 26px;
+  height: 26px;
+  float: left;
+  border-radius: 5px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  font-weight: 900;
+  font-size: 15px;
+  margin-right: 10px;
+}
+
 .questBox_item_title {
   width: auto;
   height: auto;
@@ -115,6 +171,15 @@
 }
 
 .Quest_radio_Box > input[type=radio] {
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin-right: 6px;
+  opacity: 0;
+  margin-left: -26px;
+}
+
+.Quest_radio_Box > input[type=checkbox] {
   width: 20px;
   height: 20px;
   float: left;
@@ -168,6 +233,43 @@
 }
 
 .Quest_radio_Box > input[type=radio]:checked + label:after {
+  background-color: #ff8800;
+}
+
+.Quest_radio_Box > input[type=checkbox] + label:before {
+  content: "";
+  height: 16px;
+  width: 16px;
+  display: block;
+  border: 2px solid #555;
+  border-radius: 50%;
+  position: relative;
+  float: left;
+  margin-right: 10px;
+}
+
+.Quest_radio_Box > input[type=checkbox] + label:after {
+  content: "";
+  height: 12px;
+  width: 12px;
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  float: left;
+  left: 4px;
+  top: 4px;
+  background-color: rgba(255, 255, 255, 0.002);
+}
+
+.Quest_radio_Box > input[type=checkbox]:checked + label:before {
+  height: 16px;
+  width: 16px;
+  border: 2px solid #ff8800;
+  float: left;
+  margin-right: 10px;
+}
+
+.Quest_radio_Box > input[type=checkbox]:checked + label:after {
   background-color: #ff8800;
 }
 

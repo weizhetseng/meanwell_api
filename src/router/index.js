@@ -385,7 +385,7 @@ router.beforeEach(async (to, from, next) => {
     //app瀏覽時不驗證網頁登入狀態
     needLogin = false
   }
-  
+
   if (needLogin) {
     if (isLogin) {
       next()

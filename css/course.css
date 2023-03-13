@@ -3,11 +3,6 @@
   max-width: 1200px;
   max-height: 448px;
   height: auto;
-  float: left;
-  position: relative;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0%);
-          transform: translate(-50%, 0%);
   margin-top: 20px;
 }
 
@@ -152,14 +147,11 @@
           justify-content: space-between;
   -ms-flex-line-pack: center;
       align-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
 }
 
 .Course_date_left {
   width: 100px;
-  height: 100px;
+  height: auto;
   float: left;
   background: rgb(255, 255, 255);
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), color-stop(50%, rgb(241, 241, 241)), color-stop(51%, rgb(225, 225, 225)), to(rgb(246, 246, 246)));
@@ -209,6 +201,17 @@
   color: #006699;
 }
 
+.CoursedateMonthEN {
+  width: auto;
+  height: auto;
+  float: left;
+  font-family: "Roboto";
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: bold;
+  color: #006699;
+}
+
 .CoursedateMonthText {
   width: auto;
   height: auto;
@@ -236,13 +239,15 @@
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 20px;
+  padding: 20px 40px 20px 20px;
   position: relative;
   border-radius: 20px;
 }
 
 .toTop::before {
-  content: url("/src/assets/img/ToTop_icon.svg");
+  content: "";
+  background: url("/src/assets/img/ToTop_icon.svg") no-repeat center;
+  background-size: contain;
   width: 24px;
   height: 24px;
   position: absolute;
@@ -251,7 +256,9 @@
 }
 
 .OpenForRegistration::after {
-  content: url("/src/assets/img/Open_for_registration_icon.svg");
+  content: "";
+  background: url("/src/assets/img/class_icon01_tw.png") no-repeat center;
+  background-size: contain;
   width: 78px;
   height: 57px;
   position: absolute;
@@ -260,7 +267,9 @@
 }
 
 .OpenForRegistrationCN::after {
-  content: url("/src/assets/img/Open_for_registration_iconCN.svg");
+  content: "";
+  background: url("/src/assets/img/class_icon01_cn.png") no-repeat center;
+  background-size: contain;
   width: 78px;
   height: 57px;
   position: absolute;
@@ -269,7 +278,9 @@
 }
 
 .OpenForRegistrationEN::after {
-  content: url("/src/assets/img/Open_for_registration_iconEN.svg");
+  content: "";
+  background: url("/src/assets/img/class_icon01_en.png") no-repeat center;
+  background-size: contain;
   width: 78px;
   height: 57px;
   position: absolute;
@@ -278,7 +289,9 @@
 }
 
 .StopForRegistration::after {
-  content: url("/src/assets/img/Stop_for_registration_icon.svg");
+  content: "";
+  background: url("/src/assets/img/class_icon12_tw.png") no-repeat center;
+  background-size: contain;
   width: 78px;
   height: 57px;
   position: absolute;
@@ -287,7 +300,9 @@
 }
 
 .StopForRegistrationEN::after {
-  content: url("/src/assets/img/Stop_for_registration_iconEN.svg");
+  content: "";
+  background: url("/src/assets/img/class_icon12_en.png") no-repeat center;
+  background-size: contain;
   width: 78px;
   height: 57px;
   position: absolute;
@@ -296,7 +311,9 @@
 }
 
 .StopForRegistrationCN::after {
-  content: url("/src/assets/img/Stop_for_registration_iconCN.svg");
+  content: "";
+  background: url("/src/assets/img/class_icon12_cn.png") no-repeat center;
+  background-size: contain;
   width: 78px;
   height: 57px;
   position: absolute;
@@ -329,6 +346,13 @@
   font-size: 14px;
   color: #666;
   margin-top: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
 }
 
 .CourseContentBox {

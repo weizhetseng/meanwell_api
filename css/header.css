@@ -199,6 +199,9 @@
   margin-right: 20px;
   color: #006699;
 }
+.signinmenutext.Calendar {
+  font-size: 20px;
+}
 
 .Tosignout {
   width: auto;

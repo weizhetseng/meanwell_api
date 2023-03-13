@@ -20,16 +20,29 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="questBox_item_top_content">
+                                <div class="questBox_item_top_l">
+                                    <div class="questBox_item_space"></div>
+                                    <div class="questBox_item_title">
+                                        內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+                                    </div>
+                                </div>
+                            </div>
                             <div class="Quest_radio_Box">
-                                <template v-if="TopicData.ToType == 0 && TopicData.OptionList != undefined && TopicData.OptionList.length > 0"
+                                <template
+                                    v-if="TopicData.ToType == 0 && TopicData.OptionList != undefined && TopicData.OptionList.length > 0"
                                     v-for="(OptionData, OptionIndex) in TopicData.OptionList">
                                     <input :id="'option' + OptionData.OpId" type="radio" :name="'topic' + TopicData.ToId">
-                                    <label :for="'option' + OptionData.OpId">{{ OptionData.OpSubDataList[0].OpTitle }}</label>
+                                    <label :for="'option' + OptionData.OpId">{{ OptionData.OpSubDataList[0].OpTitle
+                                    }}</label>
                                 </template>
-                                <template v-else-if="TopicData.ToType == 1 && TopicData.OptionList != undefined && TopicData.OptionList.length > 0"
+                                <template
+                                    v-else-if="TopicData.ToType == 1 && TopicData.OptionList != undefined && TopicData.OptionList.length > 0"
                                     v-for="(OptionData, OptionIndex) in TopicData.OptionList">
-                                    <input :id="'option' + OptionData.OpId" type="checkbox" :name="'topic' + TopicData.ToId">
-                                    <label :for="'option' + OptionData.OpId">{{ OptionData.OpSubDataList[0].OpTitle }}</label>
+                                    <input :id="'option' + OptionData.OpId" type="checkbox"
+                                        :name="'topic' + TopicData.ToId">
+                                    <label :for="'option' + OptionData.OpId">{{ OptionData.OpSubDataList[0].OpTitle
+                                    }}</label>
                                 </template>
                                 <template v-else-if="TopicData.ToType == 2">
                                     <textarea class="Quest_textarea" placeholder="請輸入您的意見與回饋內容"></textarea>
@@ -188,10 +201,11 @@
                                 <textarea class="Quest_textarea" placeholder="請輸入您的意見與回饋內容"></textarea>
                             </div>
                         </div> -->
+                        <div class="Boxbarbuttem">
+                            <button class="pageButtem">提交問券</button>
+                        </div>
                     </div>
-                    <div class="Boxbarbuttem">
-                        <button class="pageButtem">提交問券</button>
-                    </div>
+
                 </div>
             </div>
         </main>
@@ -228,12 +242,12 @@ onMounted(() => {
             "ActId": ActId,
             "SeId": SeId
         })
-        .then((res) => {
-            
-            showQuestionnaire = res.data.QuestionnaireData;
-            
-        })
-        .catch((error) => console.log(error));
+            .then((res) => {
+
+                showQuestionnaire = res.data.QuestionnaireData;
+
+            })
+            .catch((error) => console.log(error));
     }
     else {
         apiGetQuestionnaireData({
@@ -243,31 +257,31 @@ onMounted(() => {
             "ActId": ActId,
             "SeId": SeId
         })
-        .then((res) => {
-            let checkNum = res.data.message.substr(0, 2);
-            if (parseInt(checkNum) <= 0) {//解析錯誤時回應固定訊息
-                //console.log(res.data.message);
+            .then((res) => {
+                let checkNum = res.data.message.substr(0, 2);
+                if (parseInt(checkNum) <= 0) {//解析錯誤時回應固定訊息
+                    //console.log(res.data.message);
+                    alert("System error occurred, please try again!");
+                    history.back();
+                }
+                else if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+                    alert(res.data.message.substr(3));
+                    store.Logout();
+                }
+                else if (checkNum != '99') {//沒有需要特殊處理的錯誤直接跳server回應的訊息
+                    alert(res.data.message.substr(3));
+                    //history.back();
+                }
+                else {
+                    showQuestionnaire.value = res.data.QuestionnaireData;
+                    console.log(showQuestionnaire.value)
+                }
+            })
+            .catch((error) => {//發生例外狀況時回應固定訊息
+                console.log(error);
                 alert("System error occurred, please try again!");
                 history.back();
-            }
-            else if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
-                alert(res.data.message.substr(3));
-                store.Logout();
-            }
-            else if (checkNum != '99') {//沒有需要特殊處理的錯誤直接跳server回應的訊息
-                alert(res.data.message.substr(3));
-                //history.back();
-            }
-            else {
-                showQuestionnaire.value = res.data.QuestionnaireData;
-                console.log(showQuestionnaire.value)
-            }
-        })
-        .catch((error) => {//發生例外狀況時回應固定訊息
-            console.log(error);
-            alert("System error occurred, please try again!");
-            history.back();
-        });
+            });
     }
 })
 </script>

@@ -99,6 +99,13 @@
   top: 0;
   left: -10px;
 }
+.Login .page_content .loginContentBox .User_password .material-symbols-outlined {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 10px;
+}
 .Login .page_content .loginContentBox .login_confirm_input {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -165,6 +172,7 @@
   border-radius: 5px;
 }
 .Login .page_content .loginContentBox .buttonBox .buttonStyle.pageButton {
+  text-align: center;
   margin-right: 45px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #0775AC), color-stop(50%, #006699));
   background: linear-gradient(#0775AC 50%, #006699 50%);
@@ -222,6 +230,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  cursor: pointer;
   gap: 5px;
 }
 .Login .page_content .loginContentBox .ThirdParty .ThirdPartyButtemBar .ThirdPartyButtemIcon {
@@ -491,7 +500,7 @@
   border-bottom-left-radius: 5px;
 }
 .signUp .page_content .loginContentBox .VerificationCodeBar .verificationCodeButtem {
-  width: 26%;
+  width: 50%;
   text-align: center;
   color: #555555;
   font-size: 18px;
@@ -619,17 +628,55 @@
   background-color: rgba(255, 255, 255, 0.5);
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
           box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-radius: 5px;
   margin-bottom: 24px;
+}
+.Register .page_content .loginContentBox input[type=text] {
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  color: #999999;
+  padding-left: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  border-radius: 5px;
+  margin-bottom: 24px;
+}
+.Register .page_content .loginContentBox .signUpArea {
+  position: relative;
+}
+.Register .page_content .loginContentBox .signUpArea #checkEye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.Register .page_content .loginContentBox .signUpArea .error {
+  text-align: end;
+  margin-top: -10px;
+}
+.Register .page_content .loginContentBox .termsArea {
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  border-radius: 5px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.Register .page_content .loginContentBox .termsArea h3 {
+  margin-top: 0;
 }
 .Register .page_content .loginContentBox .page_confirm_input {
   margin-bottom: 25px;
 }
-.Register .page_content .loginContentBox .page_confirm_input label input[type=checkbox] {
+.Register .page_content .loginContentBox .page_confirm_input input[type=checkbox] {
   display: none;
 }
-.Register .page_content .loginContentBox .page_confirm_input label input[type=checkbox] + span {
+.Register .page_content .loginContentBox .page_confirm_input input[type=checkbox] + span {
   display: inline-block;
   padding-left: 32px;
   line-height: 28px;
@@ -643,9 +690,12 @@
   font-weight: bold;
   color: #555555;
 }
-.Register .page_content .loginContentBox .page_confirm_input label input[type=checkbox]:checked + span {
+.Register .page_content .loginContentBox .page_confirm_input input[type=checkbox]:checked + span {
   background: url(/src/assets/img/confirm_sure.svg) no-repeat;
   background-size: 30px;
+}
+.Register .page_content .loginContentBox .page_confirm_input .error {
+  text-align: right;
 }
 .Register .page_content .loginContentBox .Boxbarbutton {
   display: -webkit-box;
