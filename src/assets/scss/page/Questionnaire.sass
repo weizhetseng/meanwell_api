@@ -27,16 +27,7 @@
     display: inline-flex
     justify-content: space-between
     align-content: center
-    align-items: center
-.questBox_item_top_content
-    width: 100%
-    height: auto
-    float: left
-    display: inline-flex
-    justify-content: space-between
-    align-content: center
-    align-items: center
-    margin-top: 10px
+    align-items: flex-start
 .questBox_item_top_l
     width: auto
     height: auto
@@ -44,7 +35,7 @@
     display: inline-flex
     justify-content: flex-start
     align-content: center
-    align-items: center
+    align-items: flex-start
 .questBox_item_top_r
     width: auto
     height: auto
@@ -67,6 +58,7 @@
     font-weight: 900
     font-size: 14px
     margin-right: 10px
+    flex-shrink: 0
 .questBox_item_space
     width: 26px
     height: 26px
@@ -79,19 +71,24 @@
     font-weight: 900
     font-size: 15px
     margin-right: 10px
-.questBox_item_title
+.questBox_item_titleArea
     width: auto
     height: auto
     float: left
     font-size: 16px
     font-weight: 900
     color: #555555
+    .questBox_item_title
+        margin-bottom: 20px
+    .questBox_item_content
+        font-size: 15px
 .questBox_item_top_text
     width: auto
     height: auto
     float: left
     font-size: 16px
     color: #006699
+    white-space: nowrap
 .Quest_radio_Box
     width: 100%
     height: auto

@@ -10,21 +10,20 @@
                             <div class="questBox_item_top_tr">
                                 <div class="questBox_item_top_l">
                                     <div class="questBox_item_nb">{{ TopicData.ToSort }}</div>
-                                    <div class="questBox_item_title">{{ TopicData.ToSubDataList[0].ToTitle }}</div>
+                                    <div class="questBox_item_titleArea">
+                                        <div class="questBox_item_title">
+                                            {{ TopicData.ToSubDataList[0].ToTitle }}
+                                        </div>
+                                        <div class="questBox_item_content">
+                                            內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="questBox_item_top_r">
                                     <div class="questBox_item_top_text">
                                         <template v-if="TopicData.ToType == 0">單選</template>
                                         <template v-else-if="TopicData.ToType == 1">複選</template>
                                         <template v-else-if="TopicData.ToType == 2">簡述</template>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="questBox_item_top_content">
-                                <div class="questBox_item_top_l">
-                                    <div class="questBox_item_space"></div>
-                                    <div class="questBox_item_title">
-                                        內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
                                     </div>
                                 </div>
                             </div>
