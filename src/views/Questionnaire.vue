@@ -244,7 +244,7 @@ onMounted(() => {
         })
             .then((res) => {
 
-                showQuestionnaire = res.data.QuestionnaireData;
+                showQuestionnaire.value = res.data.QuestionnaireData;
 
             })
             .catch((error) => console.log(error));
