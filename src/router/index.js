@@ -19,6 +19,17 @@ const router = createRouter({
       }
     },
     {
+      // 確認樣式的頁面 確認完樣式後直接刪除
+      path: '/QuestionnaireTest',
+      name: 'QuestionnaireTest',
+      component: () => import("../views/QuestionnaireTest.vue"),
+      meta: {
+        keepAlive: true,
+        needLogin: false,
+        mainBG: true
+      }
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import("../views/LoginView.vue"),
