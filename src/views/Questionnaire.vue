@@ -2,7 +2,7 @@
     <div :class="`${route.path.split('/')[3]}` === '1' ? 'mobile_main' : 'page_main'">
         <main>
             <div class="page_content avt">
-                <div class="CourseContentBox" v-if="showQuestionnaire.QnId > 0">
+                <div class="CourseContentBox" v-if="showQuestionnaire != null && showQuestionnaire.QnId > 0">
                     <div class="CourseinfTitle">{{ showQuestionnaire.QnSubDataList[0].QnTitle }}</div>
                     <!-- <div class="activitiesSubtitle">滿意度調查表</div> -->
                     <div class="questBox">
@@ -15,7 +15,7 @@
                                             {{ TopicData.ToSubDataList[0].ToTitle }}
                                         </div>
                                         <div class="questBox_item_content">
-                                            內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+                                            {{ TopicData.ToSubDataList[0].ToContent }}
                                         </div>
                                     </div>
                                 </div>
@@ -31,20 +31,23 @@
                                 <template
                                     v-if="TopicData.ToType == 0 && TopicData.OptionList != undefined && TopicData.OptionList.length > 0"
                                     v-for="(OptionData, OptionIndex) in TopicData.OptionList">
-                                    <input :id="'option' + OptionData.OpId" type="radio" :name="'topic' + TopicData.ToId">
+                                    <input :id="'option' + OptionData.OpId" type="radio" :name="'topic' + TopicData.ToId"
+                                            :value="OptionData.OpId"
+                                            v-model.number="AnsQuestionnaire.filter(x => x.ToId == TopicData.ToId)[0].Ans">
                                     <label :for="'option' + OptionData.OpId">{{ OptionData.OpSubDataList[0].OpTitle
                                     }}</label>
                                 </template>
                                 <template
                                     v-else-if="TopicData.ToType == 1 && TopicData.OptionList != undefined && TopicData.OptionList.length > 0"
                                     v-for="(OptionData, OptionIndex) in TopicData.OptionList">
-                                    <input :id="'option' + OptionData.OpId" type="checkbox"
-                                        :name="'topic' + TopicData.ToId">
+                                    <input :id="'option' + OptionData.OpId" type="checkbox" :name="'topic' + TopicData.ToId"
+                                            :value="OptionData.OpId"
+                                            v-model.number="AnsQuestionnaire.filter(x => x.ToId == TopicData.ToId)[0].Ans">
                                     <label :for="'option' + OptionData.OpId">{{ OptionData.OpSubDataList[0].OpTitle
                                     }}</label>
                                 </template>
                                 <template v-else-if="TopicData.ToType == 2">
-                                    <textarea class="Quest_textarea" placeholder="請輸入您的意見與回饋內容"></textarea>
+                                    <textarea class="Quest_textarea" placeholder="請輸入您的意見與回饋內容" v-model="AnsQuestionnaire.filter(x => x.ToId == TopicData.ToId)[0].Ans"></textarea>
                                 </template>
                             </div>
                         </div>
@@ -201,7 +204,8 @@
                             </div>
                         </div> -->
                         <div class="Boxbarbuttem">
-                            <button class="pageButtem">提交問券</button>
+                            <button class="pageButtem" @click="sendQuestionnaireData()">提交問券</button>
+                            <!-- <button class="pageButtem" @click="test()">test</button> -->
                         </div>
                     </div>
 
@@ -212,14 +216,119 @@
 </template>
 
 <script setup>
+import router from "../router";
 import { onMounted, ref } from 'vue';
 import { LoginOut } from "../stores/stores";
 import { useRoute } from 'vue-router';
-import { apiGetQuestionnaireData } from '../utils/api';
+import { apiGetQuestionnaireData, apiSentQuestionnaireData } from '../utils/api';
 const route = useRoute()
 const store = LoginOut()
 
 const showQuestionnaire = ref({})
+const AnsQuestionnaire = ref([])
+
+function test()
+{
+    console.log(AnsQuestionnaire);
+}
+
+function sendQuestionnaireData()
+{
+    var IsApp = route.params.IsApp;
+    var Uid = route.params.Uid;
+    var AuthCode = route.params.AuthCode;
+    var Lang = route.params.Lang;
+    var ActId = "";
+    var SeId = "";
+    if (route.params.id != undefined && route.params.id.split('_').length == 2) {
+        ActId = route.params.id.split('_')[0];
+        SeId = route.params.id.split('_')[1];
+    }
+    var QnId = showQuestionnaire.value.QnId;
+    var TopicReplyDataList = [];
+    if (AnsQuestionnaire.value.length > 0) {
+        AnsQuestionnaire.value.forEach(element => {
+            TopicReplyDataList.push({"ToId":element.ToId,"Answer":element.Ans.toString()});
+        });
+    }
+    //console.log(TopicReplyDataList);
+
+    if (IsApp == 1) {//App端瀏覽，不做處理判斷，直接將訊息拋出給App處理
+        apiSentQuestionnaireData({
+            "u_id": Uid,
+            "AuthCode": AuthCode,
+            "Lang": Lang,
+            "ActId": ActId,
+            "SeId": SeId,
+            "QnId": showQuestionnaire.value.QnId,
+            "TopicReplyDataList": TopicReplyDataList,
+            "QuestionnaireData": showQuestionnaire.value
+        })
+            .then((res) => {
+                let checkNum = res.data.message.substr(0, 2)
+                if (parseInt(checkNum) <= 0) {//解析錯誤時回應固定訊息
+                    //console.log(res.data.message);
+                    alert("R97.System error occurred, please try again!");
+                }
+                else
+                {
+                    alert('R' + res.data.message);
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+                alert("R97.System error occurred, please try again!");
+            });
+    }
+    else
+    {
+        apiSentQuestionnaireData({
+            "u_id": $cookies.get('u_id'),
+            "AuthCode": '0',
+            "Lang": $cookies.get('Lang'),
+            "ActId": ActId,
+            "SeId": SeId,
+            "QnId": showQuestionnaire.value.QnId,
+            "TopicReplyDataList": TopicReplyDataList,
+            "QuestionnaireData": showQuestionnaire.value
+        })
+            .then((res) => {
+                let checkNum = res.data.message.substr(0, 2)
+                if (parseInt(checkNum) <= 0) {//解析錯誤時回應固定訊息
+                    //console.log(res.data.message);
+                    alert("System error occurred, please try again!");
+                    router.push('/MemberCenter')
+                }
+                else if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
+                    alert(res.data.message.substr(3));
+                    store.Logout();
+                }
+                else if (checkNum != '99') {//沒有需要特殊處理的錯誤直接跳server回應的訊息
+                    if (checkNum == '01' || checkNum == '02') {
+                        alert(res.data.message.substr(3));
+                        router.push('/MemberCenter')
+                    }
+                    else if (checkNum == '03') {
+                        alert(res.data.message.substr(3));
+                    }
+                    else
+                    {
+                        alert(res.data.message.substr(3));
+                        router.push('/MemberCenter')
+                    }
+                }
+                else
+                {
+                    alert(res.data.message.substr(3));
+                    router.push('/MemberCenter')
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+                alert("97.System error occurred, please try again!");
+            });
+    }
+}
 
 onMounted(() => {
     var IsApp = route.params.IsApp;
@@ -232,6 +341,7 @@ onMounted(() => {
         ActId = route.params.id.split('_')[0];
         SeId = route.params.id.split('_')[1];
     }
+    console.log('start')
 
     if (IsApp == 1) {//App端瀏覽，不做處理判斷，直接將訊息拋出給App處理
         apiGetQuestionnaireData({
@@ -242,11 +352,37 @@ onMounted(() => {
             "SeId": SeId
         })
             .then((res) => {
-
                 showQuestionnaire.value = res.data.QuestionnaireData;
-
+                let checkNum = res.data.message.substr(0, 2);
+                if (parseInt(checkNum) <= 0) {//解析錯誤時回應固定訊息
+                    //console.log(res.data.message);
+                    alert("97.System error occurred, please try again!");
+                }
+                else
+                {
+                    alert(res.data.message);
+                    if (checkNum == '99') {
+                        showQuestionnaire.value = res.data.QuestionnaireData;
+                        for (let index = 0; index < res.data.QuestionnaireData.TopicList.length; index++) {
+                            if (res.data.QuestionnaireData.TopicList[index].ToType == 0) {
+                                AnsQuestionnaire.value.push({"ToId":res.data.QuestionnaireData.TopicList[index].ToId,"Ans":""});
+                            }
+                            else if (res.data.QuestionnaireData.TopicList[index].ToType == 1)
+                            {
+                                AnsQuestionnaire.value.push({"ToId":res.data.QuestionnaireData.TopicList[index].ToId,"Ans":[]});
+                            }
+                            else
+                            {
+                                AnsQuestionnaire.value.push({"ToId":res.data.QuestionnaireData.TopicList[index].ToId,"Ans":""});
+                            }
+                        }
+                    }
+                }
             })
-            .catch((error) => console.log(error));
+            .catch((error) => {
+                console.log(error);
+                alert("97.System error occurred, please try again!");
+            });
     }
     else {
         apiGetQuestionnaireData({
@@ -261,7 +397,7 @@ onMounted(() => {
                 if (parseInt(checkNum) <= 0) {//解析錯誤時回應固定訊息
                     //console.log(res.data.message);
                     alert("System error occurred, please try again!");
-                    history.back();
+                    router.push('/MemberCenter')
                 }
                 else if (checkNum == '91' || checkNum == '92' || checkNum == '93' || checkNum == '94' || checkNum == '95' || checkNum == '96') {
                     alert(res.data.message.substr(3));
@@ -270,16 +406,31 @@ onMounted(() => {
                 else if (checkNum != '99') {//沒有需要特殊處理的錯誤直接跳server回應的訊息
                     alert(res.data.message.substr(3));
                     //history.back();
+                    router.push('/MemberCenter')
                 }
                 else {
                     showQuestionnaire.value = res.data.QuestionnaireData;
-                    console.log(showQuestionnaire.value)
+                    for (let index = 0; index < res.data.QuestionnaireData.TopicList.length; index++) {
+                        if (res.data.QuestionnaireData.TopicList[index].ToType == 0) {
+                            AnsQuestionnaire.value.push({"ToId":res.data.QuestionnaireData.TopicList[index].ToId,"Ans":""});
+                        }
+                        else if (res.data.QuestionnaireData.TopicList[index].ToType == 1)
+                        {
+                            AnsQuestionnaire.value.push({"ToId":res.data.QuestionnaireData.TopicList[index].ToId,"Ans":[]});
+                        }
+                        else
+                        {
+                            AnsQuestionnaire.value.push({"ToId":res.data.QuestionnaireData.TopicList[index].ToId,"Ans":""});
+                        }
+                    }
+                    //console.log(showQuestionnaire.value);
+                    //console.log(AnsQuestionnaire.value);
                 }
             })
             .catch((error) => {//發生例外狀況時回應固定訊息
                 console.log(error);
                 alert("System error occurred, please try again!");
-                history.back();
+                router.push('/MemberCenter')
             });
     }
 })
