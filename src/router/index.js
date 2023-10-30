@@ -1,7 +1,11 @@
-import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
-import { LoginOut } from "../stores/stores"
+import {
+  createRouter,
+  createWebHashHistory,
+  createWebHistory,
+} from "vue-router";
+import { LoginOut } from "../stores/stores";
 
-const routerHistory = createWebHistory()
+const routerHistory = createWebHistory();
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -9,344 +13,381 @@ const router = createRouter({
   routes: [
     // { path: '/:pathMatch(.*)', component: NotFoundComponent },
     {
-      path: '/',
-      name: 'home',
+      path: "/",
+      name: "home",
       component: () => import("../views/Index.vue"),
       meta: {
         keepAlive: true,
         needLogin: false,
-        mainBG: true
-      }
+        mainBG: true,
+      },
     },
     {
       // 確認樣式的頁面 確認完樣式後直接刪除
-      path: '/QuestionnaireTest',
-      name: 'QuestionnaireTest',
+      path: "/QuestionnaireTest",
+      name: "QuestionnaireTest",
       component: () => import("../views/QuestionnaireTest.vue"),
       meta: {
         keepAlive: true,
         needLogin: false,
-        mainBG: true
-      }
+        mainBG: true,
+      },
     },
     {
-      path: '/login',
-      name: 'login',
+      path: "/testPage",
+      name: "testPage",
+      component: () => import("../views/TestPage.vue"),
+      meta: {
+        keepAlive: true,
+        needLogin: false,
+        mainBG: true,
+      },
+    },
+    {
+      path: "/testPage2",
+      name: "testPage2",
+      component: () => import("../views/TestPage2.vue"),
+      meta: {
+        keepAlive: true,
+        needLogin: false,
+        mainBG: true,
+      },
+    },
+    {
+      path: "/testPage3",
+      name: "testPage3",
+      component: () => import("../views/TestPage3.vue"),
+      meta: {
+        keepAlive: true,
+        needLogin: false,
+        mainBG: true,
+      },
+    },
+    {
+      path: "/testPage4",
+      name: "testPage4",
+      component: () => import("../views/TestPage4.vue"),
+      meta: {
+        keepAlive: true,
+        needLogin: false,
+        mainBG: true,
+      },
+    },
+    {
+      path: "/testPage5",
+      name: "testPage5",
+      component: () => import("../views/TestPage5.vue"),
+      meta: {
+        keepAlive: true,
+        needLogin: false,
+        mainBG: true,
+      },
+    },
+    {
+      path: "/testPage6",
+      name: "testPage6",
+      component: () => import("../views/TestPage6.vue"),
+      meta: {
+        keepAlive: true,
+        needLogin: false,
+        mainBG: true,
+      },
+    },
+    {
+      path: "/login",
+      name: "login",
       component: () => import("../views/LoginView.vue"),
       meta: {
         keepAlive: true,
         needLogin: false,
-        mainBG: true
-      }
+        mainBG: true,
+      },
     },
     {
-      path: '/ForgotPassword',
-      name: 'ForgotPassword',
+      path: "/ForgotPassword",
+      name: "ForgotPassword",
       component: () => import("../views/ForgotPasswordView.vue"),
       meta: {
         keepAlive: true,
         needLogin: false,
-        mainBG: true
-      }
+        mainBG: true,
+      },
     },
     {
-      path: '/SignUp',
-      name: 'SignUp',
+      path: "/SignUp",
+      name: "SignUp",
       component: () => import("../views/SignUpView.vue"),
       meta: {
         keepAlive: true,
         needLogin: false,
-        mainBG: true
-      }
+        mainBG: true,
+      },
     },
     {
-      path: '/SignUpSetPassword',
-      name: 'SignUpSetPassword',
+      path: "/SignUpSetPassword",
+      name: "SignUpSetPassword",
       component: () => import("../views/SignUpSetPasswordView.vue"),
       meta: {
         keepAlive: true,
         needLogin: false,
-        mainBG: true
-      }
+        mainBG: true,
+      },
     },
     {
-      path: '/MemberCenter',
-      name: 'MemberCenter',
+      path: "/MemberCenter",
+      name: "MemberCenter",
       component: () => import("../views/MemberCenter.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/PersonalInformation',
-      name: 'PersonalInformation',
+      path: "/PersonalInformation",
+      name: "PersonalInformation",
       component: () => import("../views/PersonalInformation.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/MemberInformationEditing',
-      name: 'MemberInformationEditing',
+      path: "/MemberInformationEditing",
+      name: "MemberInformationEditing",
       component: () => import("../views/MemberInformationEditing.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/LoginSettings',
-      name: 'LoginSettings',
+      path: "/LoginSettings",
+      name: "LoginSettings",
       component: () => import("../views/LoginSettings.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/ChangePassword',
-      name: 'ChangePassword',
+      path: "/ChangePassword",
+      name: "ChangePassword",
       component: () => import("../views/ChangePassword.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/MembershipManagementMeasures',
-      name: 'MembershipManagementMeasures',
+      path: "/MembershipManagementMeasures",
+      name: "MembershipManagementMeasures",
       component: () => import("../views/MembershipManagementMeasures.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/ActivityListOngoing',
-      name: 'ActivityListOngoing',
+      path: "/ActivityListOngoing",
+      name: "ActivityListOngoing",
       component: () => import("../views/ActivityListOngoing.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/ActivityListOver',
-      name: 'ActivityListOver',
+      path: "/ActivityListOver",
+      name: "ActivityListOver",
       component: () => import("../views/ActivityListOver.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/ActivityListCancelled',
-      name: 'ActivityListCancelled',
+      path: "/ActivityListCancelled",
+      name: "ActivityListCancelled",
       component: () => import("../views/ActivityListCancelled.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/ActivitiesOngoing/:id',
-      name: 'ActivitiesOngoing',
+      path: "/ActivitiesOngoing/:id",
+      name: "ActivitiesOngoing",
       component: () => import("../views/ActivitiesOngoing.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/ActivitiesOver/:id',
-      name: 'ActivitiesOver',
+      path: "/ActivitiesOver/:id",
+      name: "ActivitiesOver",
       component: () => import("../views/ActivitiesOver.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/ActivitiesCancelled/:id',
-      name: 'ActivitiesCancelled',
+      path: "/ActivitiesCancelled/:id",
+      name: "ActivitiesCancelled",
       component: () => import("../views/ActivitiesCancelled.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/EventTicketing/:id',
-      name: 'EventTicketing',
+      path: "/EventTicketing/:id",
+      name: "EventTicketing",
       component: () => import("../views/EventTicketing.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/CancelRegistration/:id',
-      name: 'CancelRegistration',
+      path: "/CancelRegistration/:id",
+      name: "CancelRegistration",
       component: () => import("../views/CancelRegistration.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/VotesTaken',
-      name: 'VotesTaken',
+      path: "/VotesTaken",
+      name: "VotesTaken",
       component: () => import("../views/VotesTaken.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/Course',
-      name: 'Course',
-      component: '',
+      path: "/Course",
+      name: "Course",
+      component: "",
       children: [
         {
-          path: 'Meeting/:id',
-          name: 'Meeting',
+          path: "Meeting/:id",
+          name: "Meeting",
           component: () => import("../views/Course_Meeting.vue"),
           meta: {
             keepAlive: true,
             needLogin: false,
-            mainBG: false
+            mainBG: false,
           },
         },
         {
-          path: 'CourseContent/:id',
-          name: 'CourseContent',
+          path: "CourseContent/:id",
+          name: "CourseContent",
           component: () => import("../views/CourseContent.vue"),
           meta: {
             keepAlive: true,
             needLogin: false,
-            mainBG: false
-          }
+            mainBG: false,
+          },
         },
         {
-          path: 'RegistrationForm/:id',
-          name: 'RegistrationForm',
+          path: "RegistrationForm/:id",
+          name: "RegistrationForm",
           component: () => import("../views/RegistrationForm.vue"),
           meta: {
             keepAlive: true,
             needLogin: true,
-            mainBG: true
-          }
-        }
-        ,
+            mainBG: true,
+          },
+        },
         {
-          path: 'RegistrationFormNext/:id',
-          name: 'RegistrationFormNext',
+          path: "RegistrationFormNext/:id",
+          name: "RegistrationFormNext",
           component: () => import("../views/RegistrationFormNext.vue"),
           meta: {
             keepAlive: true,
             needLogin: true,
-            mainBG: true
-          }
-        }
-
-      ]
-    }
-    ,
+            mainBG: true,
+          },
+        },
+      ],
+    },
     {
-      path: '/ServiceContent',
-      name: 'ServiceContent',
+      path: "/ServiceContent",
+      name: "ServiceContent",
       component: () => import("../views/ServiceContent.vue"),
       meta: {
         keepAlive: true,
         needLogin: false,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/MissionVision',
-      name: 'MissionVision',
+      path: "/MissionVision",
+      name: "MissionVision",
       component: () => import("../views/MissionVision.vue"),
       meta: {
         keepAlive: true,
         needLogin: false,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/MembershipTermsofService',
-      name: 'MembershipTermsofService',
+      path: "/MembershipTermsofService",
+      name: "MembershipTermsofService",
       component: () => import("../views/MembershipTermsofService.vue"),
       meta: {
         keepAlive: true,
         needLogin: false,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/Calendar',
-      name: 'Calendar',
+      path: "/Calendar",
+      name: "Calendar",
       component: () => import("../views/Calendar.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/CommonProblem',
-      name: 'CommonProblem',
+      path: "/CommonProblem",
+      name: "CommonProblem",
       component: () => import("../views/CommonProblem.vue"),
       meta: {
         keepAlive: true,
         needLogin: false,
-        mainBG: true
-      }
-    }
-    ,
+        mainBG: true,
+      },
+    },
     {
-      path: '/Questionnaire/:id',
-      name: 'Questionnaire',
+      path: "/Questionnaire/:id",
+      name: "Questionnaire",
       component: () => import("../views/Questionnaire.vue"),
       meta: {
         keepAlive: true,
         needLogin: true,
-        mainBG: true
+        mainBG: true,
       },
       children: [
         {
@@ -355,7 +396,7 @@ const router = createRouter({
           // 進入時判斷是否有帶app的參數
           beforeEnter: (to, from) => {
             if (to.params.IsApp === "1") {
-              to.meta.keepAlive = false
+              to.meta.keepAlive = false;
             }
           },
           children: [
@@ -370,52 +411,48 @@ const router = createRouter({
                     {
                       path: ":Lang",
                       component: () => import("../views/Questionnaire.vue"),
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-})
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ],
+});
 
 //跳轉前驗證是否有登入
 router.beforeEach(async (to, from, next) => {
-  const store = LoginOut()
-  let isLogin = false
-  let needLogin = to.matched.some(match => match.meta.needLogin)
-  let mainBG = to.matched.some(match => match.meta.mainBG)
+  const store = LoginOut();
+  let isLogin = false;
+  let needLogin = to.matched.some((match) => match.meta.needLogin);
+  let mainBG = to.matched.some((match) => match.meta.mainBG);
   if ($cookies.isKey("random") == true) {
-    isLogin = true
+    isLogin = true;
   }
 
   if (to.params.IsApp === "1") {
     //app瀏覽時不驗證網頁登入狀態
-    needLogin = false
+    needLogin = false;
   }
 
   if (needLogin) {
     if (isLogin) {
-      next()
+      next();
     } else {
-      next("/login")
+      next("/login");
     }
-  }
-  else {
-    next()
+  } else {
+    next();
   }
 
   if (mainBG) {
-    document.querySelector('body').setAttribute('class', 'Main')
-
+    document.querySelector("body").setAttribute("class", "Main");
   } else {
-    document.querySelector('body').setAttribute('class', 'NotMain')
+    document.querySelector("body").setAttribute("class", "NotMain");
   }
-})
+});
 
-
-
-export default router
+export default router;
